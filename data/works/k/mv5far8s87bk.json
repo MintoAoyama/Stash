@@ -1,0 +1,23 @@
+{
+  "id": "mv5far8s87bk",
+  "type": "book",
+  "title": "test",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "logs": [
+    {
+      "id": "mv5fasckp0kq",
+      "author": "minto",
+      "loggedAt": "2026-10-13",
+      "rating": null,
+      "text": "（感想テスト）",
+      "program": null
+    }
+  ]
+}
