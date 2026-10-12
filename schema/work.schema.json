@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkFile",
+  "description": "Contents of data/works/<last character of id>/<id>.json: one work and its public logs. Unknown properties are allowed so that producers can add fields without breaking older generators.",
+  "type": "object",
+  "required": ["id", "type", "title", "path", "tags", "logs"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$",
+      "description": "Also the file name without .json. The file sits in the directory named by the last character of the id."
+    },
+    "type": {
+      "type": "string",
+      "description": "Media type. Known values: movie, tv, streaming, music, book, other. Unknown values are rendered as other."
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "path": {
+      "type": "string",
+      "description": "Directory path separated by \"/\", for example \"movies/2026\". May be empty."
+    },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "string" },
+    "platform": { "type": "string" },
+    "year": { "type": ["integer", "null"] },
+    "creators": { "type": "array", "items": { "type": "string" } },
+    "coverUrl": {
+      "type": "string",
+      "pattern": "^(https://.+)?$",
+      "description": "An https URL, or an empty string."
+    },
+    "externalIds": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "logs": { "type": "array", "items": { "$ref": "#/$defs/LogEntry" } }
+  },
+  "$defs": {
+    "LogEntry": {
+      "title": "LogEntry",
+      "type": "object",
+      "required": ["id", "author", "loggedAt", "text"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "author": { "type": "string", "minLength": 1, "description": "Display name." },
+        "loggedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "rating": { "type": ["integer", "null"], "minimum": 1, "maximum": 5 },
+        "text": { "type": "string" },
+        "program": {
+          "anyOf": [{ "$ref": "#/$defs/ProgramInfo" }, { "type": "null" }]
+        }
+      }
+    },
+    "ProgramInfo": {
+      "title": "ProgramInfo",
+      "type": "object",
+      "required": ["channel", "date"],
+      "properties": {
+        "channel": { "type": "string" },
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "start": { "type": "string" },
+        "title": { "type": "string" }
+      }
+    }
+  }
+}
