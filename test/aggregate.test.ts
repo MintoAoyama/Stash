@@ -36,8 +36,8 @@ test('watching lists works with episode logs, most recently logged first, with t
     work('c3', { logs: [log({ id: 'x', loggedAt: '2026-10-13' })] }),
   ]);
   assert.deepEqual(data.watching, [
-    { id: 'b2', title: '作品 b2', episode: 7, episodeCount: 12, loggedAt: '2026-10-12' },
-    { id: 'a1', title: '作品 a1', episode: 4, episodeCount: null, loggedAt: '2026-10-06' },
+    { id: 'b2', title: '作品 b2', channel: '', episode: 7, episodeCount: 12, loggedAt: '2026-10-12' },
+    { id: 'a1', title: '作品 a1', channel: '', episode: 4, episodeCount: null, loggedAt: '2026-10-06' },
   ]);
 });
 
@@ -63,4 +63,10 @@ test('watching leaves out works whose length is known and that every author has 
     work('d4', { logs: both(3) }),
   ]);
   assert.deepEqual(data.watching.map((w) => w.id), ['b2', 'c3', 'd4']);
+});
+
+test('watching entries carry the channel of the work, or the one its logs mention most', () => {
+  const onAir = (channel: string) => log({ id: 'x', episode: 1, program: { channel, date: '2026-10-11' } });
+  const data = buildSiteData([work('a1', { channel: 'NHK総合', logs: [onAir('ＢＳ')] }), work('b2', { logs: [onAir('TBS')] }), work('c3', { logs: [log({ episode: 1 })] })]);
+  assert.deepEqual(data.watching.map((w) => [w.id, w.channel]), [['a1', 'NHK総合'], ['b2', 'TBS'], ['c3', '']]);
 });

@@ -66,6 +66,9 @@ export function parseWork(json: string, source: string): Work | null {
     externalIds: typeof o.externalIds === 'object' && o.externalIds !== null ? (o.externalIds as Record<string, string>) : {},
     season: asString(o.season) || undefined,
     episodeCount: asCount(o.episodeCount, 1),
+    channel: asString(o.channel) || undefined,
+    airtime: asString(o.airtime) || undefined,
+    officialUrl: /^https:\/\//.test(asString(o.officialUrl)) ? asString(o.officialUrl) : undefined,
     logs,
   };
 }

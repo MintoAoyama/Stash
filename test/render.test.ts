@@ -259,3 +259,51 @@ test('the credit belongs to the page that shows the program: other logs and othe
     assert.ok(!render([w], key).includes(NHK_CREDIT), key);
   }
 });
+
+const metaOf = (page: string): string => /<p class="work-meta">([\s\S]*?)<\/p>/.exec(page)?.[1] ?? '';
+const text = (fragment: string): string => fragment.replace(/<[^>]+>/g, '');
+
+test('the work meta line lists type, season, channel, airtime, episode count, year, platform and creators, then the official site', () => {
+  const w = autumn('a1', {
+    channel: 'NHK総合',
+    airtime: '日曜 21:00〜21:45',
+    episodeCount: 12,
+    year: 2026,
+    platform: 'NHKプラス',
+    creators: ['架空 太郎', '架空 花子'],
+    officialUrl: 'https://example.com/drama/',
+  });
+  const meta = metaOf(render([w], 'work:a1'));
+  assert.equal(text(meta), 'TV · 2026年秋 · NHK総合 · 日曜 21:00〜21:45 · 全12話 · 2026 · NHKプラス · 架空 太郎、架空 花子 · 公式サイト');
+  assert.ok(meta.includes('<a href="https://example.com/drama/" rel="noopener noreferrer">公式サイト</a>'));
+});
+
+test('the meta line leaves out what is not set, for any type', () => {
+  const meta = metaOf(render([work([log()], { type: 'movie', channel: 'ＢＳ', officialUrl: '' })], 'work:w1'));
+  assert.equal(text(meta), '映画 · ＢＳ');
+});
+
+test('an official url that is not https is not linked', () => {
+  const meta = metaOf(render([work([log()], { officialUrl: 'javascript:alert(1)' })], 'work:w1'));
+  assert.ok(!meta.includes('javascript:'));
+  assert.ok(!meta.includes('公式サイト'));
+});
+
+const onAir = (id: string, loggedAt: string, channel: string, over: Partial<Log> = {}): Log => log({ id, loggedAt, program: { channel, date: loggedAt }, ...over });
+
+test('without a channel on the work, the meta line uses the most frequent channel of its logs but no airtime', () => {
+  const w = work([onAir('a', '2026-10-01', 'ＢＳ'), onAir('b', '2026-10-02', 'NHK総合'), onAir('c', '2026-10-03', 'NHK総合')]);
+  assert.equal(text(metaOf(render([w], 'work:w1'))), 'TV · NHK総合');
+});
+
+test('the season page shows the channel next to the type, with the same fallback', () => {
+  const works = [
+    autumn('a1', { channel: 'NHK総合' }),
+    autumn('b2', { logs: [onAir('x', '2026-10-06', 'TBS', { episode: 1 })] }),
+    autumn('c3'),
+  ];
+  const page = render(works, 'season:2026-autumn');
+  assert.ok(page.includes('TV · NHK総合 · <time datetime="2026-10-05">'));
+  assert.ok(page.includes('TV · TBS · <time datetime="2026-10-06">'));
+  assert.equal(count(page, '<p class="work-meta">TV · <time'), 1);
+});

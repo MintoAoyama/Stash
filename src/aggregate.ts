@@ -1,3 +1,4 @@
+import { channelOf } from './channel.ts';
 import { highestEpisode, isFinished } from './episodes.ts';
 import { seasonOf } from './season.ts';
 import type { MediaType, Work } from './types.ts';
@@ -7,7 +8,7 @@ export interface SiteData {
   counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number };
   recent: { id: string; title: string; type: MediaType; loggedAt: string; author: string; rating: number | null }[];
   // Works with episode logs that are not finished, most recently logged first; episode is the highest one logged.
-  watching: { id: string; title: string; episode: number; episodeCount: number | null; loggedAt: string }[];
+  watching: { id: string; title: string; channel: string; episode: number; episodeCount: number | null; loggedAt: string }[];
   years: { year: string; logs: number }[];
   // "MM-dd" -> records on that day in any year, for "on this day"
   days: Record<string, { year: string; id: string; title: string }[]>;
@@ -23,7 +24,7 @@ function watchingOf(works: Work[]): SiteData['watching'] {
     .flatMap((w) => {
       const episode = highestEpisode(w);
       const loggedAt = w.logs.map((l) => l.loggedAt).sort().at(-1) ?? '';
-      return episode === null || isFinished(w) ? [] : [{ id: w.id, title: w.title, episode, episodeCount: w.episodeCount ?? null, loggedAt }];
+      return episode === null || isFinished(w) ? [] : [{ id: w.id, title: w.title, channel: channelOf(w), episode, episodeCount: w.episodeCount ?? null, loggedAt }];
     })
     .sort((a, b) => b.loggedAt.localeCompare(a.loggedAt) || a.id.localeCompare(b.id))
     .slice(0, WATCHING_LIMIT);

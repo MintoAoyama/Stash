@@ -152,6 +152,7 @@ const duplicateLogs = JSON.stringify({
   tags: [],
   logs: [1, 2].map(() => ({ id: 'same', author: 'a', loggedAt: '2026-10-11', text: '' })),
 });
+const httpOfficialUrl = JSON.stringify({ id: 'broken', type: 'tv', title: 't', path: '', tags: [], officialUrl: 'http://example.com/', logs: [] });
 const brokenFiles: [string, string, string, string][] = [
   ['unparsable JSON', 'n/broken.json', '{broken', 'invalid JSON'],
   ['id that differs from the file name', 'n/broken.json', validBody('other'), 'file path'],
@@ -159,6 +160,7 @@ const brokenFiles: [string, string, string, string][] = [
   ['work file directly under data/works', 'broken.json', validBody('broken'), 'file path'],
   ['work file nested deeper than the shard directory', 'n/sub/broken.json', validBody('broken'), 'file path'],
   ['log ids that are not unique within the work', 'n/broken.json', duplicateLogs, 'unique'],
+  ['official url that is not https', 'n/broken.json', httpOfficialUrl, '/officialUrl'],
 ];
 for (const [name, relPath, content, expected] of brokenFiles) {
   test(`rejects ${name}`, () => {
@@ -278,7 +280,16 @@ test('data/site.json lists the watching works and the navigation counts', () => 
   commit('add tv4');
   build(repo, out);
   const site = JSON.parse(readFileSync(join(out, 'data/site.json'), 'utf8'));
-  assert.deepEqual(site.watching.find((w: { id: string }) => w.id === 'tv4'), { id: 'tv4', title: '作品 tv4', episode: 3, episodeCount: 8, loggedAt: '2026-10-12' });
+  assert.deepEqual(site.watching.find((w: { id: string }) => w.id === 'tv4'), { id: 'tv4', title: '作品 tv4', channel: '', episode: 3, episodeCount: 8, loggedAt: '2026-10-12' });
   assert.ok(site.counts.byType.tv >= 1);
   assert.equal(site.counts.seasons, 1);
+});
+
+test('channel, airtime and the official site reach the work page', () => {
+  writeWork('tv5', { type: 'tv', channel: 'NHK総合', airtime: '日曜 21:00〜21:45', officialUrl: 'https://example.com/drama/', logs: [episodeLog('ep1', 1)] });
+  commit('add tv5');
+  build(repo, out);
+  const page = readFileSync(join(out, 'w/5/tv5/index.html'), 'utf8');
+  assert.ok(page.includes('NHK総合 · 日曜 21:00〜21:45'));
+  assert.ok(page.includes('<a href="https://example.com/drama/" rel="noopener noreferrer">公式サイト</a>'));
 });

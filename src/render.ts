@@ -1,3 +1,4 @@
+import { channelOf } from './channel.ts';
 import { compareNewestFirst, coveringLog, episodeLabel, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
@@ -235,9 +236,13 @@ ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む
   const meta = [
     html`<a href="${url(site, `type:${work.type}`)}">${MEDIA_TYPE_LABELS[work.type]}</a>`,
     season ? html`<a href="${url(site, `season:${season}`)}">${seasonLabel(season)}</a>` : '',
+    channelOf(work),
+    work.airtime ?? '',
+    work.episodeCount ? `全${work.episodeCount}話` : '',
     work.year ? html`${work.year}` : '',
     work.platform ? html`${work.platform}` : '',
     work.creators?.length ? html`${work.creators.join('、')}` : '',
+    work.officialUrl?.startsWith('https://') ? html`<a href="${work.officialUrl}" rel="noopener noreferrer">公式サイト</a>` : '',
   ].filter((m) => m !== '');
 
   return layout(
@@ -373,7 +378,7 @@ function seasonWork(site: Site, work: Work): Raw {
 <a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>
 <div>
 <a class="season-title" href="${href}">${work.title}</a>
-<p class="work-meta">${MEDIA_TYPE_LABELS[work.type]}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''}</p>
+<p class="work-meta">${[MEDIA_TYPE_LABELS[work.type], channelOf(work)].filter(Boolean).join(' · ')}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''}</p>
 ${progressGrid(site, work)}
 </div>
 </li>`;
