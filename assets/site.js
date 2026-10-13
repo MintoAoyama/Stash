@@ -31,7 +31,7 @@ function fillWatching(data) {
   for (const w of data.watching) {
     const progress = w.episodeCount ? `第${w.episode}話まで / ${w.episodeCount}` : `第${w.episode}話まで`;
     const li = el('li');
-    li.append(workLink(w.id, w.title), ' ', el('span', { class: 'count' }, progress), ' ', el('time', { class: 'count', datetime: w.loggedAt }, w.loggedAt));
+    li.append(workLink(w.id, w.title), ' ', el('span', { class: 'count' }, `${progress} · `), el('time', { class: 'count', datetime: w.loggedAt }, w.loggedAt));
     list.append(li);
   }
   section.hidden = false;
