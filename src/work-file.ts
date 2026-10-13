@@ -29,9 +29,20 @@ export interface WorkFile {
   externalIds?: {
     [k: string]: string;
   };
+  /**
+   * Broadcast season, for example "2026-autumn" (winter: Jan-Mar, spring: Apr-Jun, summer: Jul-Sep, autumn: Oct-Dec). May be empty.
+   */
+  season?: string;
+  /**
+   * Total number of episodes, when known.
+   */
+  episodeCount?: number | null;
   logs: LogEntry[];
 }
 export interface LogEntry {
+  /**
+   * Unique within the work. Used as a URL segment.
+   */
   id: string;
   /**
    * Display name.
@@ -40,11 +51,35 @@ export interface LogEntry {
   loggedAt: string;
   rating?: number | null;
   text: string;
+  /**
+   * Episode number watched in this log.
+   */
+  episode?: number | null;
+  /**
+   * Last episode when one log covers several; ignored unless greater than episode.
+   */
+  episodeEnd?: number | null;
+  /**
+   * Episode subtitle. May be empty.
+   */
+  subtitle?: string;
   program?: ProgramInfo | null;
 }
 export interface ProgramInfo {
   channel: string;
   date: string;
   start?: string;
+  /**
+   * HH:mm. May be empty.
+   */
+  end?: string;
   title?: string;
+  /**
+   * Where the program info came from, for example "nhk" or "manual". May be empty.
+   */
+  source?: string;
+  /**
+   * An https URL of the official program page, or an empty string.
+   */
+  url?: string;
 }

@@ -35,10 +35,19 @@ export function validateWorkFile(json: string, relPath: string): DataProblem[] {
   if (!validator(data)) {
     for (const e of validator.errors ?? []) problems.push({ file: relPath, message: `${e.instancePath || '/'} ${e.message}` });
   } else {
-    const expected = workDataPath((data as { id: string }).id);
+    const work = data as { id: string; logs: { id: string }[] };
+    const expected = workDataPath(work.id);
     if (relPath !== expected) problems.push({ file: relPath, message: `/id must match the file path (expected ${expected})` });
+    for (const id of duplicates(work.logs.map((l) => l.id))) problems.push({ file: relPath, message: `/logs ids must be unique (duplicate: ${id})` });
   }
   return problems;
+}
+
+function duplicates(values: string[]): string[] {
+  const seen = new Set<string>();
+  const dup = new Set<string>();
+  for (const v of values) (seen.has(v) ? dup : seen).add(v);
+  return [...dup];
 }
 
 // GitHub Actions workflow command: shows up as an annotation on the run.

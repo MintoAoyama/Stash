@@ -144,12 +144,21 @@ test('a schema violation stops the build, leaves the output untouched, and the n
 });
 
 const validBody = (id: string) => JSON.stringify({ id, type: 'movie', title: 't', path: '', tags: [], logs: [] });
+const duplicateLogs = JSON.stringify({
+  id: 'broken',
+  type: 'movie',
+  title: 't',
+  path: '',
+  tags: [],
+  logs: [1, 2].map(() => ({ id: 'same', author: 'a', loggedAt: '2026-10-11', text: '' })),
+});
 const brokenFiles: [string, string, string, string][] = [
   ['unparsable JSON', 'n/broken.json', '{broken', 'invalid JSON'],
   ['id that differs from the file name', 'n/broken.json', validBody('other'), 'file path'],
   ['work file in a directory that is not the shard of its id', 'x/broken.json', validBody('broken'), 'file path'],
   ['work file directly under data/works', 'broken.json', validBody('broken'), 'file path'],
   ['work file nested deeper than the shard directory', 'n/sub/broken.json', validBody('broken'), 'file path'],
+  ['log ids that are not unique within the work', 'n/broken.json', duplicateLogs, 'unique'],
 ];
 for (const [name, relPath, content, expected] of brokenFiles) {
   test(`rejects ${name}`, () => {
