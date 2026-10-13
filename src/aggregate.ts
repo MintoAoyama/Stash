@@ -1,3 +1,4 @@
+import { highestEpisode } from './episodes.ts';
 import { seasonOf } from './season.ts';
 import type { MediaType, Work } from './types.ts';
 
@@ -5,6 +6,8 @@ export interface SiteData {
   // byType and seasons count every work, including those without logs, because they decide which navigation links lead to a page.
   counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number };
   recent: { id: string; title: string; type: MediaType; loggedAt: string; author: string; rating: number | null }[];
+  // Works with episode logs, most recently logged first; episode is the highest one logged.
+  watching: { id: string; title: string; episode: number; episodeCount: number | null; loggedAt: string }[];
   years: { year: string; logs: number }[];
   // "MM-dd" -> records on that day in any year, for "on this day"
   days: Record<string, { year: string; id: string; title: string }[]>;
@@ -13,6 +16,18 @@ export interface SiteData {
 }
 
 const RECENT_LIMIT = 30;
+const WATCHING_LIMIT = 12;
+
+function watchingOf(works: Work[]): SiteData['watching'] {
+  return works
+    .flatMap((w) => {
+      const episode = highestEpisode(w);
+      const loggedAt = w.logs.map((l) => l.loggedAt).sort().at(-1) ?? '';
+      return episode === null ? [] : [{ id: w.id, title: w.title, episode, episodeCount: w.episodeCount ?? null, loggedAt }];
+    })
+    .sort((a, b) => b.loggedAt.localeCompare(a.loggedAt) || a.id.localeCompare(b.id))
+    .slice(0, WATCHING_LIMIT);
+}
 
 export function buildSiteData(works: Iterable<Work>): SiteData {
   const all = [...works];
@@ -47,6 +62,7 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
       author: l.author,
       rating: l.rating ?? null,
     })),
+    watching: watchingOf(all),
     years: [...years].sort(([a], [b]) => b.localeCompare(a)).map(([year, logs]) => ({ year, logs })),
     days,
     activity,

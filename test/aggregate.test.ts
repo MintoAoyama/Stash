@@ -28,3 +28,28 @@ test('works that were given as a one-shot iterator are all counted', () => {
   const works = new Map([work('a1'), work('b2')].map((w) => [w.id, w]));
   assert.equal(buildSiteData(works.values()).counts.byType.tv, 2);
 });
+
+test('watching lists works with episode logs, most recently logged first, with the highest episode logged', () => {
+  const data = buildSiteData([
+    work('a1', { logs: [log({ id: 'x', episode: 1, loggedAt: '2026-10-05' }), log({ id: 'y', author: 'そら', episode: 2, episodeEnd: 4, loggedAt: '2026-10-06' })] }),
+    work('b2', { logs: [log({ id: 'x', episode: 7, loggedAt: '2026-10-12' })], episodeCount: 12 }),
+    work('c3', { logs: [log({ id: 'x', loggedAt: '2026-10-13' })] }),
+  ]);
+  assert.deepEqual(data.watching, [
+    { id: 'b2', title: '作品 b2', episode: 7, episodeCount: 12, loggedAt: '2026-10-12' },
+    { id: 'a1', title: '作品 a1', episode: 4, episodeCount: null, loggedAt: '2026-10-06' },
+  ]);
+});
+
+test('the date of a watching entry is the latest of all its logs, including ones without an episode', () => {
+  const data = buildSiteData([work('a1', { logs: [log({ id: 'x', episode: 3, loggedAt: '2026-10-05' }), log({ id: 'y', loggedAt: '2026-10-09' })] })]);
+  assert.equal(data.watching[0]?.loggedAt, '2026-10-09');
+});
+
+test('watching is limited to the 12 most recent works', () => {
+  const works = Array.from({ length: 15 }, (_, i) => work(`w${i}`, { logs: [log({ id: 'x', episode: 1, loggedAt: `2026-10-${String(i + 1).padStart(2, '0')}` })] }));
+  const data = buildSiteData(works);
+  assert.equal(data.watching.length, 12);
+  assert.equal(data.watching[0]?.id, 'w14');
+  assert.equal(data.watching[11]?.id, 'w3');
+});

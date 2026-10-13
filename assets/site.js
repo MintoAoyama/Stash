@@ -24,6 +24,19 @@ function fillStats(data) {
   }
 }
 
+function fillWatching(data) {
+  const section = document.querySelector('.watching');
+  if (!section || data.watching.length === 0) return;
+  const list = section.querySelector('ul');
+  for (const w of data.watching) {
+    const progress = w.episodeCount ? `第${w.episode}話まで / ${w.episodeCount}` : `第${w.episode}話まで`;
+    const li = el('li');
+    li.append(workLink(w.id, w.title), ' ', el('span', { class: 'count' }, progress), ' ', el('time', { class: 'count', datetime: w.loggedAt }, w.loggedAt));
+    list.append(li);
+  }
+  section.hidden = false;
+}
+
 function fillRecent(data) {
   const list = document.querySelector('.recent .timeline');
   if (!list) return;
@@ -67,6 +80,7 @@ try {
     const data = await res.json();
     showNav(data);
     fillStats(data);
+    fillWatching(data);
     fillRecent(data);
     fillYears(data);
     fillOnThisDay(data);

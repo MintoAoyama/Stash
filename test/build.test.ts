@@ -272,3 +272,13 @@ test('a full build clears season pages that no longer have a source', () => {
   build(repo, out, { full: true });
   assert.ok(!existsSync(join(out, 's/2020-winter')));
 });
+
+test('data/site.json lists the watching works and the navigation counts', () => {
+  writeWork('tv4', { type: 'tv', season: '2026-autumn', episodeCount: 8, logs: [episodeLog('ep1', 1), episodeLog('ep2', 2, { episodeEnd: 3 })] });
+  commit('add tv4');
+  build(repo, out);
+  const site = JSON.parse(readFileSync(join(out, 'data/site.json'), 'utf8'));
+  assert.deepEqual(site.watching.find((w: { id: string }) => w.id === 'tv4'), { id: 'tv4', title: '作品 tv4', episode: 3, episodeCount: 8, loggedAt: '2026-10-12' });
+  assert.ok(site.counts.byType.tv >= 1);
+  assert.equal(site.counts.seasons, 1);
+});
