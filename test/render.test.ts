@@ -75,15 +75,32 @@ test('the log page shows the work, the episode label, the subtitle and the whole
   assert.match(page, /<title>テストドラマ 第3〜5話 夜の手紙 \| stash<\/title>/);
 });
 
-test('the log page links to the neighbouring logs of the work in viewing order', () => {
+test('the log page links to the neighbouring logs of the same author, without the author name', () => {
   const page = render([binge], 'log:w1/b');
-  assert.match(page, /<a rel="prev" href="\/stash\/w\/1\/w1\/a\/">← 第2話 二夜 <span class="author">あお<\/span><\/a>/);
-  assert.match(page, /<a rel="next" href="\/stash\/w\/1\/w1\/c\/">第4話 <span class="author">そら<\/span> →<\/a>/);
+  assert.match(page, /<a rel="prev" href="\/stash\/w\/1\/w1\/a\/">← 第2話 二夜<\/a>/);
+  assert.ok(!page.includes('rel="next"'));
 });
 
-test('the first and last logs have only one neighbour', () => {
+test('the first and last logs of an author have only one neighbour', () => {
   assert.ok(!render([binge], 'log:w1/a').includes('rel="prev"'));
+  assert.ok(render([binge], 'log:w1/a').includes('rel="next"'));
+  assert.ok(!render([binge], 'log:w1/c').includes('rel="prev"'));
   assert.ok(!render([binge], 'log:w1/c').includes('rel="next"'));
+});
+
+test('the log page links to the other authors\' logs of the same episodes', () => {
+  assert.match(render([binge], 'log:w1/b'), /<p class="log-same">同じ話の記録: <a href="\/stash\/w\/1\/w1\/c\/" title="2026-10-12">そら（第4話）<\/a><\/p>/);
+  assert.match(render([binge], 'log:w1/c'), /同じ話の記録: <a href="\/stash\/w\/1\/w1\/b\/" title="2026-10-11">あお（第3〜5話）<\/a>/);
+});
+
+test('same-episode links name only the author when the episode is the same', () => {
+  const w = work([log({ id: 'a', episode: 3 }), log({ id: 'b', author: 'そら', episode: 3 }), log({ id: 'c', author: 'ぬし', episode: 3 })]);
+  assert.match(render([w], 'log:w1/a'), /同じ話の記録: <a href="[^"]*" title="[^"]*">そら<\/a> <a href="[^"]*" title="[^"]*">ぬし<\/a>/);
+});
+
+test('there is no same-episode line for a log without an episode or without company', () => {
+  assert.ok(!render([binge], 'log:w1/a').includes('log-same'));
+  assert.ok(!render([work([log({ text: '感想' }), log({ id: 'o', author: 'そら', episode: 1 })])], 'log:w1/l1').includes('log-same'));
 });
 
 test('a log without an episode is titled by its date', () => {

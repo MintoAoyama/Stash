@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { compareLogs, compareNewestFirst, coveringLog, episodeLabel, episodeSpan, highestEpisode, logHeading, neighbours, progressOf } from '../src/episodes.ts';
+import { compareLogs, compareNewestFirst, coveringLog, episodeLabel, episodeSpan, highestEpisode, logHeading, neighbours, progressOf, sameEpisodeLogs } from '../src/episodes.ts';
 import type { Log, Work } from '../src/types.ts';
 
 const log = (over: Partial<Log> = {}): Log => ({ id: 'l1', author: 'alice', loggedAt: '2026-10-11', text: '', ...over });
@@ -55,6 +55,38 @@ test('neighbours follow viewing order and stop at both ends', () => {
   assert.deepEqual(ids(w.logs[1]!), [undefined, 'b']);
   assert.deepEqual(ids(w.logs[0]!), ['a', 'c']);
   assert.deepEqual(ids(w.logs[2]!), ['b', undefined]);
+});
+
+test('neighbours never cross to another author', () => {
+  const w = work([
+    log({ id: 'a1', episode: 1 }),
+    log({ id: 'b1', author: 'そら', episode: 1 }),
+    log({ id: 'a2', episode: 2 }),
+    log({ id: 'b2', author: 'そら', episode: 2 }),
+  ]);
+  const n = neighbours(w, w.logs[0]!);
+  assert.deepEqual([n.prev?.id, n.next?.id], [undefined, 'a2']);
+  const m = neighbours(w, w.logs[3]!);
+  assert.deepEqual([m.prev?.id, m.next?.id], ['b1', undefined]);
+});
+
+test('same-episode logs are the other authors\' logs whose episodes overlap', () => {
+  const w = work([
+    log({ id: 'a', episode: 3, episodeEnd: 5 }),
+    log({ id: 'b', author: 'そら', episode: 4 }),
+    log({ id: 'c', author: 'そら', episode: 5, episodeEnd: 7 }),
+    log({ id: 'd', author: 'そら', episode: 6 }),
+    log({ id: 'e', author: 'そら' }),
+    log({ id: 'f', episode: 4 }),
+  ]);
+  assert.deepEqual(sameEpisodeLogs(w, w.logs[0]!).map((l) => l.id), ['b', 'c']);
+  assert.deepEqual(sameEpisodeLogs(w, w.logs[2]!).map((l) => l.id), ['a']);
+  assert.deepEqual(sameEpisodeLogs(w, w.logs[3]!), []);
+});
+
+test('a log without an episode has no same-episode logs', () => {
+  const w = work([log({ id: 'a' }), log({ id: 'b', author: 'そら', episode: 1 })]);
+  assert.deepEqual(sameEpisodeLogs(w, w.logs[0]!), []);
 });
 
 test('highestEpisode looks at the end of ranges and is null without episodes', () => {

@@ -1,4 +1,4 @@
-import { compareNewestFirst, coveringLog, logHeading, neighbours, progressOf, type ProgressRow } from './episodes.ts';
+import { compareNewestFirst, coveringLog, episodeLabel, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
 import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
@@ -254,12 +254,20 @@ ${logsBody}
 
 function logNav(site: Site, work: Work, log: Log): Raw {
   const { prev, next } = neighbours(work, log);
-  const several = authorsOf([work]).length > 1;
   const link = (rel: 'prev' | 'next', l: Log) => {
-    const label = html`${logHeading(l) || l.loggedAt}${several ? html` <span class="author">${l.author}</span>` : ''}`;
-    return html`<a rel="${rel}" href="${url(site, logKey(work.id, l.id))}">${rel === 'prev' ? html`← ${label}` : html`${label} →`}</a>`;
+    const label = logHeading(l) || l.loggedAt;
+    return html`<a rel="${rel}" href="${url(site, logKey(work.id, l.id))}">${rel === 'prev' ? `← ${label}` : `${label} →`}</a>`;
   };
   return html`<nav class="log-nav" aria-label="前後の記録">${prev ? link('prev', prev) : ''}${next ? link('next', next) : ''}</nav>`;
+}
+
+// Links to what the other authors wrote about the same episode.
+function sameEpisode(site: Site, work: Work, log: Log): Raw {
+  const others = sameEpisodeLogs(work, log);
+  if (others.length === 0) return raw('');
+  const label = (l: Log) => (episodeLabel(l) === episodeLabel(log) ? l.author : `${l.author}（${episodeLabel(l)}）`);
+  const links = others.map((l) => html`<a href="${url(site, logKey(work.id, l.id))}" title="${l.loggedAt}">${label(l)}</a>`);
+  return html`<p class="log-same">同じ話の記録: ${links.map((a, i) => (i === 0 ? a : html` ${a}`))}</p>`;
 }
 
 function renderLog(site: Site, arg: string): string | null {
@@ -282,6 +290,7 @@ ${cover(work, 'small')}
 </div>
 ${log.program ? programInfo(log.program, work.title) : ''}
 ${paragraphs(log.text)}
+${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}
 </article>`,
   );

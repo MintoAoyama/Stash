@@ -350,6 +350,12 @@ h1 {
   font-size: 0.9rem;
 }
 
+.log-same {
+  margin: 1.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .log-nav {
   display: flex;
   flex-wrap: wrap;
@@ -357,6 +363,10 @@ h1 {
   margin-top: 2rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--line);
+}
+
+.log-same + .log-nav {
+  margin-top: 0.75rem;
 }
 
 .log-nav a[rel="next"] {

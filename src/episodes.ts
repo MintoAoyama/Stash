@@ -30,10 +30,23 @@ export function compareNewestFirst(a: Log, b: Log): number {
   return b.loggedAt.localeCompare(a.loggedAt) || (b.episode ?? -1) - (a.episode ?? -1) || b.id.localeCompare(a.id);
 }
 
+// The previous and next log of the same author, in viewing order.
 export function neighbours(work: Work, log: Log): { prev?: Log; next?: Log } {
-  const ordered = [...work.logs].sort(compareLogs);
+  const ordered = work.logs.filter((l) => l.author === log.author).sort(compareLogs);
   const i = ordered.findIndex((l) => l.id === log.id);
   return { prev: ordered[i - 1], next: ordered[i + 1] };
+}
+
+// Logs by other authors whose episodes overlap this log's; none for a log without an episode.
+export function sameEpisodeLogs(work: Work, log: Log): Log[] {
+  const span = episodeSpan(log);
+  if (!span) return [];
+  return work.logs
+    .filter((l) => {
+      const other = episodeSpan(l);
+      return l.author !== log.author && other !== null && other[0] <= span[1] && span[0] <= other[1];
+    })
+    .sort(compareLogs);
 }
 
 export function highestEpisode(work: Work): number | null {
