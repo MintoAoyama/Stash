@@ -238,3 +238,37 @@ test('deleting a work removes its log pages too', () => {
   build(repo, out);
   assert.ok(!existsSync(join(out, 'w/1/tv1')));
 });
+
+test('season pages and the season index are written for works with a season', () => {
+  writeWork('tv2', { type: 'tv', season: '2026-autumn', episodeCount: 3, logs: [episodeLog('ep1', 1)] });
+  writeWork('tv3', { type: 'tv', season: '2026-summer', logs: [episodeLog('ep1', 1)] });
+  commit('add seasonal works');
+  build(repo, out);
+  assert.match(readFileSync(join(out, 's/2026-autumn/index.html'), 'utf8'), /作品 tv2/);
+  assert.match(readFileSync(join(out, 's/index.html'), 'utf8'), /2026年夏/);
+});
+
+test('moving a work to another season removes the emptied season page and updates the index', () => {
+  writeWork('tv3', { type: 'tv', season: '2026-autumn', logs: [episodeLog('ep1', 1)] });
+  commit('move tv3 to autumn');
+  const r = build(repo, out);
+  assert.equal(r.mode, 'incremental');
+  assert.ok(!existsSync(join(out, 's/2026-summer')));
+  assert.match(readFileSync(join(out, 's/2026-autumn/index.html'), 'utf8'), /作品 tv3/);
+  assert.ok(!readFileSync(join(out, 's/index.html'), 'utf8').includes('2026年夏'));
+});
+
+test('the season index disappears with the last season', () => {
+  writeWork('tv2', { type: 'tv', logs: [episodeLog('ep1', 1)] });
+  writeWork('tv3', { type: 'tv', logs: [episodeLog('ep1', 1)] });
+  commit('drop seasons');
+  build(repo, out);
+  assert.ok(!existsSync(join(out, 's')));
+});
+
+test('a full build clears season pages that no longer have a source', () => {
+  mkdirSync(join(out, 's/2020-winter'), { recursive: true });
+  writeFileSync(join(out, 's/2020-winter/index.html'), 'stale');
+  build(repo, out, { full: true });
+  assert.ok(!existsSync(join(out, 's/2020-winter')));
+});

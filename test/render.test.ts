@@ -159,3 +159,42 @@ test('a long-running work shows only the summary', () => {
   assert.ok(!page.includes('progress-cells'));
   assert.ok(page.includes('1 / 2000 話'));
 });
+
+const autumn = (id: string, over: Partial<Work> = {}): Work =>
+  work([log({ id: `${id}-1`, episode: 1, loggedAt: '2026-10-05' })], { id, title: `作品${id}`, season: '2026-autumn', ...over });
+
+test('the season page lists its works newest log first with their progress', () => {
+  const works = [
+    autumn('a1', { title: '古い作品' }),
+    autumn('b2', { title: '新しい作品', logs: [log({ id: 'x', episode: 2, loggedAt: '2026-10-12' })], episodeCount: 12 }),
+    autumn('c3', { season: '2026-summer', title: '別のシーズン' }),
+  ];
+  const page = render(works, 'season:2026-autumn');
+  assert.match(page, /<h1>2026年秋<\/h1>/);
+  assert.ok(page.indexOf('新しい作品') < page.indexOf('古い作品'));
+  assert.ok(!page.includes('別のシーズン'));
+  assert.ok(page.includes('1 / 12 話'));
+  assert.match(page, /<a class="season-title" href="\/stash\/w\/2\/b2\/">新しい作品<\/a>/);
+  assert.ok(page.includes('TV · <time datetime="2026-10-12">2026-10-12</time>'));
+});
+
+test('a season without works has no page', () => {
+  assert.equal(renderPage(site([autumn('a1')]), 'season:2026-summer'), null);
+});
+
+test('the season index lists seasons newest first with their work counts', () => {
+  const works = [autumn('a1', { season: '2025-autumn' }), autumn('b2'), autumn('c3'), autumn('d4', { season: '2026-summer' })];
+  const page = render(works, 'seasons');
+  const labels = ['2026年秋', '2026年夏', '2025年秋'].map((l) => page.indexOf(l));
+  assert.deepEqual([...labels].sort((a, b) => a - b), labels);
+  assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026年秋<\/a> <span class="count">2<\/span>/);
+});
+
+test('there is no season index while no work has a season', () => {
+  assert.equal(renderPage(site([work([log()])]), 'seasons'), null);
+});
+
+test('the work page links to its season', () => {
+  const page = render([autumn('a1')], 'work:a1');
+  assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026年秋<\/a>/);
+});

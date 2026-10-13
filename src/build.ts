@@ -9,7 +9,7 @@ import type { SiteConfig } from './types.ts';
 import { annotation, DataError } from './validate.ts';
 
 // What a full build clears; anything else in the output (pagefind/ etc.) is left alone.
-const GENERATED_ROOTS = ['index.html', 'w', 'd', 't', 'm', 'type', 'assets', 'data'];
+const GENERATED_ROOTS = ['index.html', 'w', 'd', 't', 's', 'm', 'type', 'assets', 'data'];
 const SOURCE_SHA_FILE = '.source-sha';
 
 function loadConfig(repoDir: string): SiteConfig {

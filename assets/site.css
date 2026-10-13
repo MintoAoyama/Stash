@@ -222,6 +222,7 @@ h1 {
 .tags,
 .dirs,
 .tag-cloud,
+.seasons,
 .months {
   list-style: none;
   padding: 0;
@@ -231,12 +232,14 @@ h1 {
 }
 
 .log-list,
+.season-works,
 .timeline {
   list-style: none;
   padding: 0;
 }
 
 .log,
+.season-work,
 .timeline li {
   border-top: 1px solid var(--line);
   padding-block: 0.75rem;
@@ -295,6 +298,28 @@ h1 {
 
 .ep--seen {
   background: var(--accent);
+}
+
+.season-work {
+  display: flex;
+  gap: 1rem;
+}
+
+.season-work > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.season-cover {
+  flex: none;
+}
+
+.season-title {
+  font-weight: 600;
+}
+
+.season-work .work-meta {
+  margin: 0;
 }
 
 .log-title {

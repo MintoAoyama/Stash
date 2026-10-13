@@ -1,6 +1,7 @@
 import { compareNewestFirst, coveringLog, logHeading, neighbours, progressOf, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
+import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
 import { MEDIA_TYPE_LABELS, MEDIA_TYPES, type Log, type MediaType, type SiteConfig, type Work } from './types.ts';
 
 export interface Site {
@@ -24,6 +25,10 @@ export function renderPage(site: Site, key: PageKey): string | null {
       return renderDir(site, arg === '' ? [] : arg.split('/'));
     case 'tags':
       return renderTagIndex(site);
+    case 'seasons':
+      return renderSeasonIndex(site);
+    case 'season':
+      return renderSeason(site, arg);
     case 'tag':
       return renderList(site, `#${arg}`, [...site.works.values()].filter((w) => w.tags.some((t) => safeSegment(t) === arg)));
     case 'type': {
@@ -89,7 +94,7 @@ function latestLog(work: Work): Log | undefined {
 }
 
 function byLatestDesc(a: Work, b: Work): number {
-  return (latestLog(b)?.loggedAt ?? '').localeCompare(latestLog(a)?.loggedAt ?? '');
+  return (latestLog(b)?.loggedAt ?? '').localeCompare(latestLog(a)?.loggedAt ?? '') || a.id.localeCompare(b.id);
 }
 
 function authorsOf(works: Work[]): string[] {
@@ -218,8 +223,10 @@ ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む
         )}</div>`
       : html`<ol class="log-list">${logs.map(logItem)}</ol>`;
 
+  const season = seasonOf(work);
   const meta = [
     html`<a href="${url(site, `type:${work.type}`)}">${MEDIA_TYPE_LABELS[work.type]}</a>`,
+    season ? html`<a href="${url(site, `season:${season}`)}">${seasonLabel(season)}</a>` : '',
     work.year ? html`${work.year}` : '',
     work.platform ? html`${work.platform}` : '',
     work.creators?.length ? html`${work.creators.join('、')}` : '',
@@ -320,6 +327,47 @@ function renderTagIndex(site: Site): string {
     site,
     'タグ',
     html`<h1>タグ</h1><ul class="tag-cloud">${tags.map(([k, { label, n }]) => html`<li><a href="${url(site, `tag:${k}`)}">#${label}</a> <span class="count">${n}</span></li>`)}</ul>`,
+  );
+}
+
+function renderSeasonIndex(site: Site): string | null {
+  const counts = new Map<string, number>();
+  for (const w of site.works.values()) {
+    const season = seasonOf(w);
+    if (season) counts.set(season, (counts.get(season) ?? 0) + 1);
+  }
+  if (counts.size === 0) return null;
+  const seasons = [...counts].sort(([a], [b]) => compareSeasons(a, b));
+  return layout(
+    site,
+    'シーズン',
+    html`<h1>シーズン</h1><ul class="seasons">${seasons.map(([s, n]) => html`<li><a href="${url(site, `season:${s}`)}">${seasonLabel(s)}</a> <span class="count">${n}</span></li>`)}</ul>`,
+  );
+}
+
+function seasonWork(site: Site, work: Work): Raw {
+  const href = url(site, `work:${work.id}`);
+  const latest = latestLog(work);
+  return html`<li class="season-work">
+<a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>
+<div>
+<a class="season-title" href="${href}">${work.title}</a>
+<p class="work-meta">${MEDIA_TYPE_LABELS[work.type]}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''}</p>
+${progressGrid(site, work)}
+</div>
+</li>`;
+}
+
+function renderSeason(site: Site, season: string): string | null {
+  const works = [...site.works.values()].filter((w) => seasonOf(w) === season).sort(byLatestDesc);
+  if (works.length === 0) return null;
+  const label = seasonLabel(season);
+  return layout(
+    site,
+    label,
+    html`<nav class="breadcrumbs"><a href="${url(site, 'seasons')}">シーズン</a></nav>
+<h1>${label}</h1><p class="count">${works.length} 件</p>
+<ul class="season-works">${works.map((w) => seasonWork(site, w))}</ul>`,
   );
 }
 
