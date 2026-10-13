@@ -60,7 +60,7 @@ after(() => {
 test('first build is full and renders every page', () => {
   const r = build(repo, out);
   assert.equal(r.mode, 'full');
-  for (const f of ['index.html', 'w/1/a1/index.html', 'w/2/b2/index.html', 'd/movies/index.html', 't/SF/index.html', 'm/2026/10/index.html', 'data/site.json', 'assets/site.css', '.source-sha']) {
+  for (const f of ['index.html', 'w/1/a1/index.html', 'w/1/a1/a1-l1/index.html', 'w/2/b2/index.html', 'd/movies/index.html', 't/SF/index.html', 'm/2026/10/index.html', 'data/site.json', 'assets/site.css', '.source-sha']) {
     assert.ok(existsSync(join(out, f)), f);
   }
   const site = JSON.parse(readFileSync(join(out, 'data/site.json'), 'utf8'));
@@ -188,4 +188,53 @@ test('a missing data/works directory means no works', () => {
   } finally {
     rmSync(empty, { recursive: true, force: true });
   }
+});
+
+const episodeLog = (id: string, episode: number, over: Record<string, unknown> = {}) => ({
+  id,
+  author: 'alice',
+  loggedAt: '2026-10-12',
+  rating: 4,
+  text: `第${episode}話の感想`,
+  episode,
+  subtitle: `サブタイトル${episode}`,
+  ...over,
+});
+
+test('every log gets a page under its work', () => {
+  writeWork('tv1', { type: 'tv', logs: [episodeLog('ep1', 1), episodeLog('ep2', 2)] });
+  commit('add tv1');
+  build(repo, out);
+  const page = readFileSync(join(out, 'w/1/tv1/ep2/index.html'), 'utf8');
+  assert.match(page, /第2話 サブタイトル2/);
+  assert.match(page, /rel="prev" href="\/w\/1\/tv1\/ep1\/"/);
+  assert.ok(existsSync(join(out, 'w/1/tv1/ep1/index.html')));
+});
+
+test('editing a work rewrites its log pages but not those of other works', () => {
+  const other = readFileSync(join(out, 'w/1/lenient1/index.html'), 'utf8');
+  writeWork('tv1', { type: 'tv', logs: [episodeLog('ep1', 1), episodeLog('ep2', 2), episodeLog('ep3', 3)] });
+  commit('add an episode to tv1');
+  const r = build(repo, out);
+  assert.equal(r.mode, 'incremental');
+  assert.match(readFileSync(join(out, 'w/1/tv1/ep3/index.html'), 'utf8'), /第3話 サブタイトル3/);
+  assert.match(readFileSync(join(out, 'w/1/tv1/ep2/index.html'), 'utf8'), /rel="next" href="\/w\/1\/tv1\/ep3\/"/);
+  assert.equal(readFileSync(join(out, 'w/1/lenient1/index.html'), 'utf8'), other);
+});
+
+test('removing a log removes its page and directory but keeps the work page', () => {
+  writeWork('tv1', { type: 'tv', logs: [episodeLog('ep1', 1), episodeLog('ep3', 3)] });
+  commit('remove ep2 from tv1');
+  build(repo, out);
+  assert.ok(!existsSync(join(out, 'w/1/tv1/ep2')));
+  assert.ok(existsSync(join(out, 'w/1/tv1/ep3/index.html')));
+  assert.ok(existsSync(join(out, 'w/1/tv1/index.html')));
+  assert.match(readFileSync(join(out, 'w/1/tv1/ep3/index.html'), 'utf8'), /rel="prev" href="\/w\/1\/tv1\/ep1\/"/);
+});
+
+test('deleting a work removes its log pages too', () => {
+  rmSync(join(repo, 'data/works/1/tv1.json'));
+  commit('delete tv1');
+  build(repo, out);
+  assert.ok(!existsSync(join(out, 'w/1/tv1')));
 });

@@ -24,8 +24,20 @@ test('safeSegment neutralizes path traversal and URL-breaking characters', () =>
 test('pageKeysForWork covers the work, every ancestor dir, tags, months and type', () => {
   assert.deepEqual(
     [...pageKeysForWork(work())].sort(),
-    ['dir:', 'dir:movies', 'dir:movies/2026', 'month:2026-10', 'tag:SF', 'tags', 'type:movie', 'work:w1', 'year:2026'].sort(),
+    ['dir:', 'dir:movies', 'dir:movies/2026', 'log:w1/l1', 'month:2026-10', 'tag:SF', 'tags', 'type:movie', 'work:w1', 'year:2026'].sort(),
   );
+});
+
+test('every log of a work gets its own page key', () => {
+  const logs = ['l1', 'l2', 'l3'].map((id) => ({ id, author: 'alice', loggedAt: '2026-10-11', text: '' }));
+  const keys = pageKeysForWork(work({ logs }));
+  for (const id of ['l1', 'l2', 'l3']) assert.ok(keys.has(`log:w1/${id}`), id);
+});
+
+test('affectedPages includes the page of a log that was removed', () => {
+  const logs = ['l1', 'l2'].map((id) => ({ id, author: 'alice', loggedAt: '2026-10-11', text: '' }));
+  const keys = affectedPages(work({ logs }), work({ logs: logs.slice(0, 1) }));
+  assert.ok(keys.has('log:w1/l2'));
 });
 
 test('affectedPages includes pages the work left as well as pages it joined', () => {
@@ -42,6 +54,11 @@ test('outputFile and pageUrl', () => {
   assert.equal(outputFile('month:2026-10'), 'm/2026/10/index.html');
   assert.equal(outputFile('dir:'), 'd/index.html');
   assert.equal(pageUrl('tag:ドラマ'), `t/${encodeURIComponent('ドラマ')}/`);
+});
+
+test('log pages live in a directory under their work', () => {
+  assert.equal(outputFile('log:mgx3a1k/mgabd456k2'), 'w/k/mgx3a1k/mgabd456k2/index.html');
+  assert.equal(pageUrl('log:mgx3a1k/mgabd456k2'), 'w/k/mgx3a1k/mgabd456k2/');
 });
 
 test('work pages and data files are split by the last character of the id', () => {

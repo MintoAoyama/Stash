@@ -1,5 +1,6 @@
+import { compareNewestFirst, logHeading, neighbours } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
-import { monthsOf, pageUrl, pathSegments, safeSegment, splitKey, type PageKey } from './pages.ts';
+import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
 import { MEDIA_TYPE_LABELS, MEDIA_TYPES, type Log, type MediaType, type SiteConfig, type Work } from './types.ts';
 
 export interface Site {
@@ -17,6 +18,8 @@ export function renderPage(site: Site, key: PageKey): string | null {
       const work = site.works.get(arg);
       return work ? renderWork(site, work) : null;
     }
+    case 'log':
+      return renderLog(site, arg);
     case 'dir':
       return renderDir(site, arg === '' ? [] : arg.split('/'));
     case 'tags':
@@ -93,7 +96,7 @@ function authorsOf(works: Work[]): string[] {
   return [...new Set(works.flatMap((w) => w.logs.map((l) => l.author)))].sort();
 }
 
-function cover(work: Work, size: 'thumb' | 'full'): Raw {
+function cover(work: Work, size: 'small' | 'thumb' | 'full'): Raw {
   if (!work.coverUrl) return html`<div class="cover cover--${size} cover--empty" aria-hidden="true">${MEDIA_TYPE_LABELS[work.type]}</div>`;
   return html`<img class="cover cover--${size}" src="${work.coverUrl}" alt="" loading="lazy" referrerpolicy="no-referrer" style="view-transition-name: cover-${work.id}">`;
 }
@@ -148,16 +151,41 @@ function breadcrumbs(site: Site, segs: string[]): Raw {
   return html`<nav class="breadcrumbs">${items.map((it, i) => (i < 2 ? it : html` / ${it}`))}</nav>`;
 }
 
+const EXCERPT_CHARS = 140;
+
+function truncate(text: string, max: number): { text: string; truncated: boolean } {
+  const chars = Array.from(text.trim());
+  if (chars.length <= max) return { text, truncated: false };
+  return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
+}
+
+function programInfo(program: NonNullable<Log['program']>, workTitle: string): Raw {
+  const time = program.start ? `${program.start}${program.end ? `–${program.end}` : ''}` : '';
+  const title = program.title && program.title !== workTitle ? `「${program.title}」` : '';
+  const link = program.url?.startsWith('https://') ? html` <a href="${program.url}" rel="noopener noreferrer">番組ページ</a>` : '';
+  return html`<div class="program">${[program.channel, program.date, time, title].filter(Boolean).join(' ')}${link}</div>`;
+}
+
 function renderWork(site: Site, work: Work): string {
   const segs = pathSegments(work.path);
-  const logs = [...work.logs].sort((a, b) => b.loggedAt.localeCompare(a.loggedAt));
+  const logs = [...work.logs].sort(compareNewestFirst);
   const authors = authorsOf([work]);
 
-  const logItem = (l: Log) => html`<li class="log">
-<div class="log-head"><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}"><time datetime="${l.loggedAt}">${l.loggedAt}</time></a> <span class="author">${l.author}</span> ${stars(l.rating)}</div>
-${l.program ? html`<div class="program">${l.program.channel} ${l.program.date} ${l.program.start ?? ''}${l.program.title && l.program.title !== work.title ? html` 「${l.program.title}」` : ''}</div>` : ''}
-${paragraphs(l.text)}
+  const logItem = (l: Log) => {
+    const href = url(site, logKey(work.id, l.id));
+    const heading = logHeading(l);
+    const excerpt = truncate(l.text, EXCERPT_CHARS);
+    const date = html`<time datetime="${l.loggedAt}">${l.loggedAt}</time>`;
+    const head = heading
+      ? html`<a class="log-title" href="${href}">${heading}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
+      : html`<a href="${href}">${date}</a>`;
+    return html`<li class="log">
+<div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}</div>
+${l.program ? programInfo(l.program, work.title) : ''}
+${paragraphs(excerpt.text)}
+${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む</a></p>` : ''}
 </li>`;
+  };
 
   const logsBody =
     authors.length > 1
@@ -187,6 +215,41 @@ ${work.tags.length ? html`<ul class="tags">${work.tags.map((t) => html`<li><a hr
 </div>
 </div>
 ${logsBody}
+</article>`,
+  );
+}
+
+function logNav(site: Site, work: Work, log: Log): Raw {
+  const { prev, next } = neighbours(work, log);
+  const several = authorsOf([work]).length > 1;
+  const link = (rel: 'prev' | 'next', l: Log) => {
+    const label = html`${logHeading(l) || l.loggedAt}${several ? html` <span class="author">${l.author}</span>` : ''}`;
+    return html`<a rel="${rel}" href="${url(site, logKey(work.id, l.id))}">${rel === 'prev' ? html`← ${label}` : html`${label} →`}</a>`;
+  };
+  return html`<nav class="log-nav" aria-label="前後の記録">${prev ? link('prev', prev) : ''}${next ? link('next', next) : ''}</nav>`;
+}
+
+function renderLog(site: Site, arg: string): string | null {
+  const [workId, logId] = splitLogArg(arg);
+  const work = site.works.get(workId);
+  const log = work?.logs.find((l) => l.id === logId);
+  if (!work || !log) return null;
+  const heading = logHeading(log);
+  return layout(
+    site,
+    `${work.title} ${heading || log.loggedAt}`,
+    html`<article class="log-page">
+<div class="log-page-head">
+${cover(work, 'small')}
+<div>
+<p class="log-work"><a href="${url(site, `work:${work.id}`)}">${work.title}</a></p>
+<h1>${heading || `${log.loggedAt} の記録`}</h1>
+<p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
+</div>
+</div>
+${log.program ? programInfo(log.program, work.title) : ''}
+${paragraphs(log.text)}
+${logNav(site, work, log)}
 </article>`,
   );
 }
