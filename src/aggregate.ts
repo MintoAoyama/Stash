@@ -1,7 +1,9 @@
+import { seasonOf } from './season.ts';
 import type { MediaType, Work } from './types.ts';
 
 export interface SiteData {
-  counts: { works: number; logs: number };
+  // byType and seasons count every work, including those without logs, because they decide which navigation links lead to a page.
+  counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number };
   recent: { id: string; title: string; type: MediaType; loggedAt: string; author: string; rating: number | null }[];
   years: { year: string; logs: number }[];
   // "MM-dd" -> records on that day in any year, for "on this day"
@@ -13,7 +15,8 @@ export interface SiteData {
 const RECENT_LIMIT = 30;
 
 export function buildSiteData(works: Iterable<Work>): SiteData {
-  const entries = [...works].flatMap((w) => w.logs.map((l) => ({ w, l })));
+  const all = [...works];
+  const entries = all.flatMap((w) => w.logs.map((l) => ({ w, l })));
   entries.sort((a, b) => b.l.loggedAt.localeCompare(a.l.loggedAt) || a.l.id.localeCompare(b.l.id));
 
   const years = new Map<string, number>();
@@ -31,8 +34,11 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
     counts[w.type] = (counts[w.type] ?? 0) + 1;
   }
 
+  const byType: SiteData['counts']['byType'] = {};
+  for (const w of all) byType[w.type] = (byType[w.type] ?? 0) + 1;
+
   return {
-    counts: { works: workIds.size, logs: entries.length },
+    counts: { works: workIds.size, logs: entries.length, byType, seasons: new Set(all.map(seasonOf).filter(Boolean)).size },
     recent: entries.slice(0, RECENT_LIMIT).map(({ w, l }) => ({
       id: w.id,
       title: w.title,

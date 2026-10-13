@@ -198,3 +198,19 @@ test('the work page links to its season', () => {
   const page = render([autumn('a1')], 'work:a1');
   assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026年秋<\/a>/);
 });
+
+const nav = (page: string): string => /<nav class="site-nav">[\s\S]*?<\/nav>/.exec(page)?.[0] ?? '';
+
+test('the navigation lists every type and the seasons, hidden until site.js reveals the ones that have records', () => {
+  const html = nav(render([], 'tags'));
+  for (const t of ['tv', 'movie', 'streaming', 'music', 'book', 'other']) assert.ok(html.includes(`data-nav-type="${t}" hidden`), t);
+  assert.ok(html.includes('data-nav-seasons hidden'));
+  assert.match(html, /<a href="\/stash\/d\/">ディレクトリ<\/a>\n<a href="\/stash\/t\/">タグ<\/a>/);
+  assert.ok(html.indexOf('data-nav-type="tv"') < html.indexOf('data-nav-type="movie"'));
+});
+
+test('no page embeds what exists elsewhere: the navigation and the home page do not depend on the works', () => {
+  const works = [autumn('a1'), work([log({ episode: 1 })], { id: 'b2', type: 'movie' })];
+  assert.equal(nav(render(works, 'tags')), nav(render([], 'tags')));
+  assert.equal(render(works, 'home'), render([], 'home'));
+});

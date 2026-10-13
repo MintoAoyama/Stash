@@ -67,7 +67,8 @@ ${styles ? raw(`<style>${styles}</style>`) : ''}
 <header class="site-header">
 <a class="site-title" href="${base}">${site.config.title}</a>
 <nav class="site-nav">
-${MEDIA_TYPES.filter((t) => t !== 'other').map((t) => html`<a href="${url(site, `type:${t}`)}">${MEDIA_TYPE_LABELS[t]}</a>`)}
+${MEDIA_TYPES.map((t) => html`<a href="${url(site, `type:${t}`)}" data-nav-type="${t}" hidden>${MEDIA_TYPE_LABELS[t]}</a>`)}
+<a href="${url(site, 'seasons')}" data-nav-seasons hidden>シーズン</a>
 <a href="${url(site, 'dir:')}">ディレクトリ</a>
 <a href="${url(site, 'tags')}">タグ</a>
 </nav>

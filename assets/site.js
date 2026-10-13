@@ -11,6 +11,12 @@ const el = (tag, attrs = {}, text) => {
 // Same shard rule as workShard in src/pages.ts.
 const workLink = (id, title) => el('a', { href: `${base}w/${encodeURIComponent(id.slice(-1))}/${encodeURIComponent(id)}/` }, title);
 
+// The links are hidden in the HTML so that no page depends on what exists elsewhere.
+function showNav(data) {
+  for (const link of document.querySelectorAll('[data-nav-type]')) link.hidden = !data.counts.byType[link.dataset.navType];
+  for (const link of document.querySelectorAll('[data-nav-seasons]')) link.hidden = !data.counts.seasons;
+}
+
 function fillStats(data) {
   for (const node of document.querySelectorAll('[data-stat]')) {
     const value = data.counts[node.dataset.stat];
@@ -59,6 +65,7 @@ try {
   const res = await fetch(`${base}data/site.json`);
   if (res.ok) {
     const data = await res.json();
+    showNav(data);
     fillStats(data);
     fillRecent(data);
     fillYears(data);
