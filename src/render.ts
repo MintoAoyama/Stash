@@ -170,11 +170,19 @@ function truncate(text: string, max: number): { text: string; truncated: boolean
   return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
 }
 
-function programInfo(program: NonNullable<Log['program']>, workTitle: string): Raw {
+function programInfo(program: NonNullable<Log['program']>, work: Work, onWorkPage: boolean): Raw {
+  const sameChannel = onWorkPage && program.channel === channelOf(work);
+  const brief = sameChannel && !!work.airtime;
   const time = program.start ? `${program.start}${program.end ? `–${program.end}` : ''}` : '';
-  const title = program.title && program.title !== workTitle ? `「${program.title}」` : '';
-  const link = program.url?.startsWith('https://') ? html` <a href="${program.url}" rel="noopener noreferrer">番組ページ</a>` : '';
-  return html`<div class="program">${[program.channel, program.date, time, title].filter(Boolean).join(' ')}${link}</div>`;
+  const title = program.title && program.title !== work.title ? `「${program.title}」` : '';
+  const text = (brief ? [program.date ? `${program.date} 放送` : ''] : [sameChannel ? '' : program.channel, program.date, time, title])
+    .filter(Boolean)
+    .join(' ');
+  const link = program.url?.startsWith('https://')
+    ? html`${text ? (brief ? ' · ' : ' ') : ''}<a href="${program.url}" rel="noopener noreferrer">番組ページ</a>`
+    : '';
+  if (!text && !link) return raw('');
+  return html`<div class="program">${text}${link}</div>`;
 }
 
 // NHK's terms require this credit wherever its program information is shown.
@@ -219,7 +227,7 @@ function renderWork(site: Site, work: Work): string {
       : html`<a href="${href}">${date}</a>`;
     return html`<li class="log">
 <div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}</div>
-${l.program ? programInfo(l.program, work.title) : ''}
+${l.program ? programInfo(l.program, work, true) : ''}
 ${paragraphs(excerpt.text)}
 ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む</a></p>` : ''}
 </li>`;
@@ -302,7 +310,7 @@ ${cover(work, 'small')}
 <p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
 </div>
 </div>
-${log.program ? programInfo(log.program, work.title) : ''}
+${log.program ? programInfo(log.program, work, false) : ''}
 ${paragraphs(log.text)}
 ${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}
