@@ -20,6 +20,9 @@ const valid = () => ({
   externalIds: { tmdb: 'movie/1' },
   season: '2026-autumn',
   episodeCount: 10,
+  channel: 'NHK総合',
+  airtime: '日曜 21:00〜21:45',
+  officialUrl: 'https://example.com/drama/',
   logs: [
     {
       id: 'l1',
@@ -54,7 +57,7 @@ test('episode fields may be empty or null, as the producer writes them', () => {
     { ...first, episode: null, episodeEnd: null, subtitle: '', program: { channel: 'ch', date: '2026-10-11', end: '', source: '', url: '' } },
     { ...second, episode: 0 },
   ];
-  assert.ok(validate({ ...valid(), season: '', episodeCount: null, logs }), JSON.stringify(validate.errors));
+  assert.ok(validate({ ...valid(), season: '', episodeCount: null, channel: '', airtime: '', officialUrl: '', logs }), JSON.stringify(validate.errors));
 });
 
 test('unknown properties and unknown media types are tolerated', () => {
@@ -74,6 +77,9 @@ const invalid: [string, (w: ReturnType<typeof valid>) => unknown][] = [
   ['program without channel', (w) => ({ ...w, logs: [{ ...w.logs[0], program: { date: '2026-10-11' } }] })],
   ['season in the wrong order', (w) => ({ ...w, season: 'autumn-2026' })],
   ['unknown season name', (w) => ({ ...w, season: '2026-fall' })],
+  ['non-https official url', (w) => ({ ...w, officialUrl: 'http://example.com/' })],
+  ['official url that is not a URL', (w) => ({ ...w, officialUrl: 'example.com' })],
+  ['non-string channel', (w) => ({ ...w, channel: 1 })],
   ['episode count of zero', (w) => ({ ...w, episodeCount: 0 })],
   ['fractional episode count', (w) => ({ ...w, episodeCount: 1.5 })],
   ['log id with an uppercase letter', (w) => ({ ...w, logs: [{ ...w.logs[0], id: 'L1' }] })],

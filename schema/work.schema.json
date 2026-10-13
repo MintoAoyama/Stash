@@ -43,6 +43,16 @@
       "minimum": 1,
       "description": "Total number of episodes, when known."
     },
+    "channel": { "type": "string", "description": "Broadcast channel of the work, for example \"NHK総合\". May be empty." },
+    "airtime": {
+      "type": "string",
+      "description": "The regular slot as free text, for example \"日曜 21:00〜21:45\". May be empty."
+    },
+    "officialUrl": {
+      "type": "string",
+      "pattern": "^(https://.+)?$",
+      "description": "An https URL of the official page of the work, or an empty string."
+    },
     "logs": { "type": "array", "items": { "$ref": "#/$defs/LogEntry" } }
   },
   "$defs": {

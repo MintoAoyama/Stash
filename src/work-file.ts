@@ -37,6 +37,18 @@ export interface WorkFile {
    * Total number of episodes, when known.
    */
   episodeCount?: number | null;
+  /**
+   * Broadcast channel of the work, for example "NHK総合". May be empty.
+   */
+  channel?: string;
+  /**
+   * The regular slot as free text, for example "日曜 21:00〜21:45". May be empty.
+   */
+  airtime?: string;
+  /**
+   * An https URL of the official page of the work, or an empty string.
+   */
+  officialUrl?: string;
   logs: LogEntry[];
 }
 export interface LogEntry {
