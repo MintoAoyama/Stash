@@ -170,12 +170,17 @@ function truncate(text: string, max: number): { text: string; truncated: boolean
   return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
 }
 
-function programInfo(program: NonNullable<Log['program']>, work: Work, onWorkPage: boolean): Raw {
+function programInfo(log: Log, work: Work, onWorkPage: boolean): Raw {
+  const program = log.program;
+  if (!program) return raw('');
   const sameChannel = onWorkPage && program.channel === channelOf(work);
   const brief = sameChannel && !!work.airtime;
+  let date = program.date ?? '';
+  if (onWorkPage && date === log.loggedAt) date = '';
+  else if (onWorkPage && date.slice(0, 4) === log.loggedAt.slice(0, 4)) date = date.slice(5);
   const time = program.start ? `${program.start}${program.end ? `–${program.end}` : ''}` : '';
   const title = program.title && program.title !== work.title ? `「${program.title}」` : '';
-  const text = (brief ? [program.date ? `${program.date} 放送` : ''] : [sameChannel ? '' : program.channel, program.date, time, title])
+  const text = (brief ? [date ? `${date} 放送` : ''] : [sameChannel ? '' : program.channel, date, time, title])
     .filter(Boolean)
     .join(' ');
   const link = program.url?.startsWith('https://')
@@ -227,7 +232,7 @@ function renderWork(site: Site, work: Work): string {
       : html`<a href="${href}">${date}</a>`;
     return html`<li class="log">
 <div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}</div>
-${l.program ? programInfo(l.program, work, true) : ''}
+${programInfo(l, work, true)}
 ${paragraphs(excerpt.text)}
 ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む</a></p>` : ''}
 </li>`;
@@ -310,7 +315,7 @@ ${cover(work, 'small')}
 <p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
 </div>
 </div>
-${log.program ? programInfo(log.program, work, false) : ''}
+${programInfo(log, work, false)}
 ${paragraphs(log.text)}
 ${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}

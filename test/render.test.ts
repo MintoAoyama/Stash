@@ -55,23 +55,32 @@ test('program info shows the time range and an https link to the official page',
   assert.ok(page.includes('NHK総合 2026-10-11 21:00–21:45 「放送タイトル」 <a href="https://example.com/p/1" rel="noopener noreferrer">番組ページ</a>'));
 });
 
-test('on the work page a program on the work channel with an airtime shows only its date and link', () => {
-  const page = render([work([log({ program })], { channel: 'NHK総合', airtime: '日曜 21:00〜21:45' })], 'work:w1');
-  assert.ok(page.includes('<div class="program">2026-10-11 放送 · <a href="https://example.com/p/1" rel="noopener noreferrer">番組ページ</a></div>'));
+const regular = { channel: 'NHK総合', airtime: '日曜 21:00〜21:45' };
+
+test('on the work page a program on the work channel with an airtime, watched the day it aired, is only a link', () => {
+  const page = render([work([log({ program })], regular)], 'work:w1');
+  assert.ok(page.includes('<div class="program"><a href="https://example.com/p/1" rel="noopener noreferrer">番組ページ</a></div>'));
 });
 
-test('on the work page a program on the work channel without an airtime drops only the channel', () => {
+test('on the work page a program watched later shows its broadcast date, without the year when it is the same', () => {
+  const later = render([work([log({ program, loggedAt: '2026-10-13' })], regular)], 'work:w1');
+  assert.ok(later.includes('<div class="program">10-11 放送 · <a'));
+  const nextYear = render([work([log({ program, loggedAt: '2027-01-02' })], regular)], 'work:w1');
+  assert.ok(nextYear.includes('<div class="program">2026-10-11 放送 · <a'));
+});
+
+test('on the work page a program on the work channel without an airtime drops only the channel and the date', () => {
   const page = render([work([log({ program })], { channel: 'NHK総合' })], 'work:w1');
-  assert.ok(page.includes('<div class="program">2026-10-11 21:00–21:45 「放送タイトル」 <a'));
+  assert.ok(page.includes('<div class="program">21:00–21:45 「放送タイトル」 <a'));
 });
 
-test('on the work page a program on another channel is shown in full', () => {
-  const page = render([work([log({ program: { ...program, channel: 'NHK BS' } })], { channel: 'NHK総合', airtime: '日曜 21:00〜21:45' })], 'work:w1');
-  assert.ok(page.includes('NHK BS 2026-10-11 21:00–21:45 「放送タイトル」'));
+test('on the work page a program on another channel keeps its channel', () => {
+  const page = render([work([log({ program: { ...program, channel: 'NHK BS' }, loggedAt: '2026-10-13' })], regular)], 'work:w1');
+  assert.ok(page.includes('NHK BS 10-11 21:00–21:45 「放送タイトル」'));
 });
 
 test('a program with nothing left to show draws no line', () => {
-  const page = render([work([log({ program: { channel: 'NHK総合', date: '' } })], { channel: 'NHK総合', airtime: '日曜 21:00' })], 'work:w1');
+  const page = render([work([log({ program: { channel: 'NHK総合', date: '2026-10-11' } })], regular)], 'work:w1');
   assert.ok(!page.includes('class="program"'));
 });
 
