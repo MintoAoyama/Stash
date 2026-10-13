@@ -231,3 +231,31 @@ test('no page embeds what exists elsewhere: the navigation and the home page do 
   assert.equal(nav(render(works, 'tags')), nav(render([], 'tags')));
   assert.equal(render(works, 'home'), render([], 'home'));
 });
+
+const NHK_CREDIT = 'ＮＨＫ番組の情報提供:ＮＨＫ';
+const nhk = { channel: 'NHK総合', date: '2026-10-11', source: 'nhk', url: 'https://example.com/p/1' };
+const manual = { channel: 'ch', date: '2026-10-11', source: 'manual', url: '' };
+
+test('a page that shows NHK program information carries the NHK credit in its footer', () => {
+  const w = work([log({ program: nhk })]);
+  for (const key of ['work:w1', 'log:w1/l1']) {
+    const footer = /<footer[\s\S]*<\/footer>/.exec(render([w], key))?.[0] ?? '';
+    assert.ok(footer.includes(`<p>${NHK_CREDIT}</p>`), key);
+    assert.ok(footer.includes('TMDB'), key);
+  }
+});
+
+test('program information from other sources needs no NHK credit', () => {
+  const w = work([log({ program: manual }), log({ id: 'l2', program: null })]);
+  for (const key of ['work:w1', 'log:w1/l1']) assert.ok(!render([w], key).includes(NHK_CREDIT), key);
+});
+
+test('the credit belongs to the page that shows the program: other logs and other pages do not carry it', () => {
+  const w = work([log({ program: nhk }), log({ id: 'l2', program: manual })], { season: '2026-autumn' });
+  assert.ok(render([w], 'work:w1').includes(NHK_CREDIT));
+  assert.ok(render([w], 'log:w1/l1').includes(NHK_CREDIT));
+  assert.ok(!render([w], 'log:w1/l2').includes(NHK_CREDIT));
+  for (const key of ['home', 'tags', 'type:tv', 'season:2026-autumn', 'seasons', 'month:2026-10', 'year:2026', 'dir:']) {
+    assert.ok(!render([w], key).includes(NHK_CREDIT), key);
+  }
+});

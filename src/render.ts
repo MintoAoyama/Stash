@@ -49,7 +49,8 @@ function url(site: Site, key: PageKey): string {
   return site.config.basePath + pageUrl(key);
 }
 
-function layout(site: Site, title: string, body: Raw, styles?: string): string {
+// footer holds notices that only apply to this page's own content.
+function layout(site: Site, title: string, body: Raw, styles?: string, footer?: Raw): string {
   const base = site.config.basePath;
   const fullTitle = title === site.config.title ? title : `${title} | ${site.config.title}`;
   return html`<!doctype html>
@@ -78,6 +79,7 @@ ${body}
 </main>
 <footer class="site-footer">
 <p>作品情報の一部は TMDB API を利用しています（This product uses the TMDB API but is not endorsed or certified by TMDB）</p>
+${footer ?? ''}
 </footer>
 </body>
 </html>
@@ -174,6 +176,11 @@ function programInfo(program: NonNullable<Log['program']>, workTitle: string): R
   return html`<div class="program">${[program.channel, program.date, time, title].filter(Boolean).join(' ')}${link}</div>`;
 }
 
+// NHK's terms require this credit wherever its program information is shown.
+function nhkCredit(logs: Log[]): Raw {
+  return logs.some((l) => l.program?.source === 'nhk') ? html`<p>ＮＨＫ番組の情報提供:ＮＨＫ</p>` : raw('');
+}
+
 function progressCells(site: Site, work: Work, row: ProgressRow, total: number): Raw {
   return html`<span class="progress-cells">${Array.from({ length: total }, (_, i) => {
     const episode = i + 1;
@@ -249,6 +256,8 @@ ${progressGrid(site, work)}
 </div>
 ${logsBody}
 </article>`,
+    undefined,
+    nhkCredit(work.logs),
   );
 }
 
@@ -293,6 +302,8 @@ ${paragraphs(log.text)}
 ${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}
 </article>`,
+    undefined,
+    nhkCredit([log]),
   );
 }
 
