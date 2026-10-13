@@ -105,7 +105,6 @@ function authorsOf(works: Work[]): string[] {
   return [...new Set(works.flatMap((w) => w.logs.map((l) => l.author)))].sort();
 }
 
-// Most works have no cover; layouts must work without one, so nothing is drawn in its place.
 function cover(work: Work, size: 'small' | 'thumb' | 'full'): Raw {
   if (!work.coverUrl) return raw('');
   return html`<img class="cover cover--${size}" src="${work.coverUrl}" alt="" loading="lazy" referrerpolicy="no-referrer" style="view-transition-name: cover-${work.id}">`;
