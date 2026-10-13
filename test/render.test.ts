@@ -27,7 +27,7 @@ test('a log without episode or subtitle has its date as the permalink', () => {
 test('logs on the work page are listed newest first, later episode first within a day', () => {
   const logs = [log({ id: 'a', episode: 1 }), log({ id: 'b', episode: 2 }), log({ id: 'c', loggedAt: '2026-10-12', episode: 3 })];
   const page = render([work(logs)], 'work:w1');
-  const order = ['/w1/c/', '/w1/b/', '/w1/a/'].map((p) => page.indexOf(`href="/stash/w/1${p}"`));
+  const order = ['/w1/c/', '/w1/b/', '/w1/a/'].map((p) => page.indexOf(`class="log-title" href="/stash/w/1${p}"`));
   assert.ok(order.every((i) => i >= 0));
   assert.deepEqual([...order].sort((x, y) => x - y), order);
 });
@@ -101,4 +101,61 @@ test('user text on the log page is escaped', () => {
   assert.ok(!page.includes('<img src=x'));
   assert.ok(!page.includes('<script>alert'));
   assert.ok(!page.includes('<b>x'));
+});
+
+const count = (page: string, needle: string): number => page.split(needle).length - 1;
+
+const watched = work(
+  [
+    ...[1, 2, 3].map((n) => log({ id: `a${n}`, episode: n, loggedAt: `2026-10-1${n}` })),
+    ...[1, 2].map((n) => log({ id: `s${n}`, author: 'そら', episode: n, loggedAt: `2026-10-0${n}` })),
+  ],
+  { episodeCount: 10 },
+);
+
+test('the work page draws one row of cells per author, filled where the episode is logged', () => {
+  const page = render([watched], 'work:w1');
+  assert.equal(count(page, 'class="progress-row"'), 2);
+  assert.equal(count(page, 'class="ep ep--seen"'), 5);
+  assert.equal(count(page, 'class="ep"'), 15);
+  assert.ok(page.includes('3 / 10 話'));
+  assert.ok(page.includes('2 / 10 話'));
+  assert.ok(page.indexOf('あお') < page.indexOf('そら'));
+});
+
+test('filled cells link to the log page and are titled with the episode and date', () => {
+  const page = render([watched], 'work:w1');
+  assert.ok(page.includes('<a class="ep ep--seen" href="/stash/w/1/w1/a3/" title="第3話 2026-10-13" aria-label="第3話 2026-10-13"></a>'));
+  assert.ok(page.includes('<span class="ep" title="第4話"></span>'));
+});
+
+test('a log covering several episodes fills all of them and links each to that log', () => {
+  const page = render([work([log({ id: 'b', episode: 3, episodeEnd: 5 })], { episodeCount: 6 })], 'work:w1');
+  assert.equal(count(page, 'class="ep ep--seen"'), 3);
+  assert.equal(count(page, 'href="/stash/w/1/w1/b/" title="第'), 3);
+  assert.ok(page.includes('3 / 6 話'));
+});
+
+test('without an episode count the summary has no total and the grid ends at the highest episode', () => {
+  const page = render([work([log({ episode: 3 })])], 'work:w1');
+  assert.ok(page.includes('1 話'));
+  assert.ok(!page.includes(' / '));
+  assert.equal(count(page, 'class="ep"') + count(page, 'class="ep ep--seen"'), 3);
+});
+
+test('episode 0 is not drawn', () => {
+  const page = render([work([log({ episode: 0 })], { episodeCount: 3 })], 'work:w1');
+  assert.equal(count(page, 'class="ep ep--seen"'), 0);
+  assert.equal(count(page, 'class="ep"'), 3);
+  assert.ok(page.includes('0 / 3 話'));
+});
+
+test('a work without episode numbers has no grid', () => {
+  assert.ok(!render([work([log()], { episodeCount: 10 })], 'work:w1').includes('class="progress"'));
+});
+
+test('a long-running work shows only the summary', () => {
+  const page = render([work([log({ episode: 3 })], { episodeCount: 2000 })], 'work:w1');
+  assert.ok(!page.includes('progress-cells'));
+  assert.ok(page.includes('1 / 2000 話'));
 });

@@ -1,4 +1,4 @@
-import { compareNewestFirst, logHeading, neighbours } from './episodes.ts';
+import { compareNewestFirst, coveringLog, logHeading, neighbours, progressOf, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
 import { MEDIA_TYPE_LABELS, MEDIA_TYPES, type Log, type MediaType, type SiteConfig, type Work } from './types.ts';
@@ -152,6 +152,8 @@ function breadcrumbs(site: Site, segs: string[]): Raw {
 }
 
 const EXCERPT_CHARS = 140;
+// Beyond this the cells say nothing at a glance, so only the summary is shown.
+const MAX_GRID_EPISODES = 500;
 
 function truncate(text: string, max: number): { text: string; truncated: boolean } {
   const chars = Array.from(text.trim());
@@ -164,6 +166,28 @@ function programInfo(program: NonNullable<Log['program']>, workTitle: string): R
   const title = program.title && program.title !== workTitle ? `「${program.title}」` : '';
   const link = program.url?.startsWith('https://') ? html` <a href="${program.url}" rel="noopener noreferrer">番組ページ</a>` : '';
   return html`<div class="program">${[program.channel, program.date, time, title].filter(Boolean).join(' ')}${link}</div>`;
+}
+
+function progressCells(site: Site, work: Work, row: ProgressRow, total: number): Raw {
+  return html`<span class="progress-cells">${Array.from({ length: total }, (_, i) => {
+    const episode = i + 1;
+    const log = coveringLog(row, episode);
+    if (!log) return html`<span class="ep" title="第${episode}話"></span>`;
+    const label = `第${episode}話 ${log.loggedAt}`;
+    return html`<a class="ep ep--seen" href="${url(site, logKey(work.id, log.id))}" title="${label}" aria-label="${label}"></a>`;
+  })}</span>`;
+}
+
+// One row per author: which episodes they have logged, as filled cells that link to the log.
+function progressGrid(site: Site, work: Work): Raw {
+  const progress = progressOf(work);
+  if (!progress) return raw('');
+  const cells = (row: ProgressRow) => (progress.total <= MAX_GRID_EPISODES ? progressCells(site, work, row, progress.total) : '');
+  const summary = (row: ProgressRow) => `${row.count}${progress.countKnown ? ` / ${progress.total}` : ''} 話`;
+  const rows = progress.rows.map(
+    (row) => html`<li class="progress-row"><span class="progress-author">${row.author}</span>${cells(row)}<span class="progress-count">${summary(row)}</span></li>`,
+  );
+  return html`<ul class="progress" aria-label="視聴の進み具合">${rows}</ul>`;
 }
 
 function renderWork(site: Site, work: Work): string {
@@ -212,6 +236,7 @@ ${cover(work, 'full')}
 <h1>${work.title}</h1>
 <p class="work-meta">${meta.map((m, i) => (i === 0 ? m : html` · ${m}`))}</p>
 ${work.tags.length ? html`<ul class="tags">${work.tags.map((t) => html`<li><a href="${url(site, `tag:${safeSegment(t)}`)}">#${t}</a></li>`)}</ul>` : ''}
+${progressGrid(site, work)}
 </div>
 </div>
 ${logsBody}
