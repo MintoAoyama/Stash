@@ -101,6 +101,10 @@ h1 {
   font-size: 0.85rem;
 }
 
+time {
+  white-space: nowrap;
+}
+
 .rating {
   color: var(--star);
   letter-spacing: 0.05em;
