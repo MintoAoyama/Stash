@@ -105,8 +105,9 @@ function authorsOf(works: Work[]): string[] {
   return [...new Set(works.flatMap((w) => w.logs.map((l) => l.author)))].sort();
 }
 
+// Most works have no cover; layouts must work without one, so nothing is drawn in its place.
 function cover(work: Work, size: 'small' | 'thumb' | 'full'): Raw {
-  if (!work.coverUrl) return html`<div class="cover cover--${size} cover--empty" aria-hidden="true">${MEDIA_TYPE_LABELS[work.type]}</div>`;
+  if (!work.coverUrl) return raw('');
   return html`<img class="cover cover--${size}" src="${work.coverUrl}" alt="" loading="lazy" referrerpolicy="no-referrer" style="view-transition-name: cover-${work.id}">`;
 }
 
@@ -136,14 +137,14 @@ ${authors.map((a, i) => html`<label><input type="radio" name="fa" id="fa-${i}">$
   const cards = sorted.map((w) => {
     const latest = latestLog(w);
     const a = [...new Set(w.logs.map((l) => `a${authors.indexOf(l.author)}`))].join(' ');
-    return html`<li class="card" data-type="${w.type}" data-a="${a}">
+    return html`<li class="card${w.coverUrl ? '' : ' card--text'}" data-type="${w.type}" data-a="${a}">
 <a href="${url(site, `work:${w.id}`)}">${cover(w, 'thumb')}<span class="card-title">${w.title}</span></a>
 <span class="card-meta">${MEDIA_TYPE_LABELS[w.type]}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''} ${stars(latest?.rating)}</span>
 </li>`;
   });
 
   return {
-    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards">${cards}</ul>`,
+    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards${sorted.some((w) => w.coverUrl) ? '' : ' cards--text'}">${cards}</ul>`,
     styles: rules.join('\n'),
   };
 }
@@ -375,7 +376,7 @@ function seasonWork(site: Site, work: Work): Raw {
   const href = url(site, `work:${work.id}`);
   const latest = latestLog(work);
   return html`<li class="season-work">
-<a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>
+${work.coverUrl ? html`<a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>` : ''}
 <div>
 <a class="season-title" href="${href}">${work.title}</a>
 <p class="work-meta">${[MEDIA_TYPE_LABELS[work.type], channelOf(work)].filter(Boolean).join(' · ')}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''}</p>

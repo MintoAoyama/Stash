@@ -307,3 +307,51 @@ test('the season page shows the channel next to the type, with the same fallback
   assert.ok(page.includes('TV · TBS · <time datetime="2026-10-06">'));
   assert.equal(count(page, '<p class="work-meta">TV · <time'), 1);
 });
+
+const withCover = (id: string, over: Partial<Work> = {}): Work =>
+  work([log({ id: `${id}-1`, loggedAt: '2026-10-05' })], { id, title: `作品${id}`, season: '2026-autumn', coverUrl: 'https://example.com/c.jpg', ...over });
+const pagesOf = (works: Work[]) => ({
+  work: render(works, `work:${works[0]!.id}`),
+  log: render(works, `log:${works[0]!.id}/${works[0]!.logs[0]!.id}`),
+  season: render(works, 'season:2026-autumn'),
+  list: render(works, 'type:tv'),
+});
+
+test('a work without a cover has no cover element on any page, not even a placeholder', () => {
+  const pages = pagesOf([autumn('a1')]);
+  for (const [name, page] of Object.entries(pages)) {
+    assert.ok(!page.includes('class="cover'), name);
+    assert.ok(!page.includes('cover--empty'), name);
+    assert.ok(!page.includes('season-cover'), name);
+  }
+});
+
+test('a work with a cover keeps its image on every page', () => {
+  const pages = pagesOf([withCover('c1')]);
+  assert.ok(pages.work.includes('<img class="cover cover--full" src="https://example.com/c.jpg"'));
+  assert.ok(pages.log.includes('<img class="cover cover--small" src="https://example.com/c.jpg"'));
+  assert.ok(pages.season.includes('<a class="season-cover"'));
+  assert.ok(pages.season.includes('class="cover cover--small"'));
+  assert.ok(pages.list.includes('<img class="cover cover--thumb" src="https://example.com/c.jpg"'));
+});
+
+test('a list of works without covers is a grid of text cards with the title, type, latest date and rating', () => {
+  const page = render([autumn('a1'), autumn('b2')], 'type:tv');
+  assert.ok(page.includes('<ul class="cards cards--text">'));
+  assert.equal(count(page, '<li class="card card--text"'), 2);
+  assert.match(page, /<a href="\/stash\/w\/1\/a1\/"><span class="card-title">作品a1<\/span><\/a>/);
+  assert.ok(page.includes('TV · <time datetime="2026-10-05">2026-10-05</time>'));
+});
+
+test('in a mixed list only the works without a cover are text cards', () => {
+  const page = render([withCover('c1'), autumn('b2')], 'type:tv');
+  assert.ok(page.includes('<ul class="cards">'));
+  assert.equal(count(page, 'card--text'), 1);
+  assert.equal(count(page, 'class="cover cover--thumb"'), 1);
+});
+
+test('season rows without a cover are plain text rows', () => {
+  const page = render([autumn('a1'), withCover('c1')], 'season:2026-autumn');
+  assert.equal(count(page, '<li class="season-work">'), 2);
+  assert.equal(count(page, 'class="season-cover"'), 1);
+});

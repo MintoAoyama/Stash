@@ -171,11 +171,48 @@ time {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
   gap: 1rem;
+  align-items: start;
 }
 
 .card a {
   display: block;
   text-decoration: none;
+}
+
+/* Works without a cover are tiles of text; a list without any cover uses wider tiles. */
+.cards--text {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  align-items: stretch;
+}
+
+.card--text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.card--text a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card--text:hover {
+  border-color: var(--accent);
+}
+
+.card--text:has(a:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.card--text .card-title {
+  margin-top: 0;
 }
 
 .card-title {
@@ -192,13 +229,6 @@ time {
   object-fit: cover;
   border-radius: 6px;
   background: var(--line);
-}
-
-.cover--empty {
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  font-size: 0.85rem;
 }
 
 .cover--full {
