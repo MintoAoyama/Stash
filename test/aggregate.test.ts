@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { buildSiteData } from '../src/aggregate.ts';
+import { buildSiteData, WATCHING_MAX_IDLE_DAYS } from '../src/aggregate.ts';
 import type { Log, Work } from '../src/types.ts';
 
 const log = (over: Partial<Log> = {}): Log => ({ id: 'l1', author: 'あお', loggedAt: '2026-10-11', text: '', ...over });
@@ -69,4 +69,23 @@ test('watching entries carry the channel of the work, or the one its logs mentio
   const onAir = (channel: string) => log({ id: 'x', episode: 1, program: { channel, date: '2026-10-11' } });
   const data = buildSiteData([work('a1', { channel: 'NHK総合', logs: [onAir('ＢＳ')] }), work('b2', { logs: [onAir('TBS')] }), work('c3', { logs: [log({ episode: 1 })] })]);
   assert.deepEqual(data.watching.map((w) => [w.id, w.channel]), [['a1', 'NHK総合'], ['b2', 'TBS'], ['c3', '']]);
+});
+
+const daysBefore = (date: string, days: number): string => new Date(Date.parse(date) - days * 86_400_000).toISOString().slice(0, 10);
+const watched = (id: string, loggedAt: string) => work(id, { logs: [log({ id: 'x', episode: 1, loggedAt })] });
+
+test('watching leaves out works idle for longer than the limit, counted from the newest log of the whole data set', () => {
+  const newest = '2026-10-31';
+  const data = buildSiteData([
+    work('n1', { type: 'movie', logs: [log({ id: 'x', loggedAt: newest })] }),
+    watched('a1', daysBefore(newest, WATCHING_MAX_IDLE_DAYS)),
+    watched('b2', daysBefore(newest, WATCHING_MAX_IDLE_DAYS + 1)),
+    watched('c3', newest),
+  ]);
+  assert.deepEqual(data.watching.map((w) => w.id), ['c3', 'a1']);
+});
+
+test('the idle limit depends on the data, not on the day the site is built', () => {
+  const old = buildSiteData([watched('a1', '2020-01-01'), watched('b2', '2020-01-20')]);
+  assert.deepEqual(old.watching.map((w) => w.id), ['b2', 'a1']);
 });
