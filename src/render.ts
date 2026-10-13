@@ -170,24 +170,25 @@ function truncate(text: string, max: number): { text: string; truncated: boolean
   return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
 }
 
-function programInfo(log: Log, work: Work, onWorkPage: boolean): Raw {
+function programInfo(log: Log, work: Work, onWorkPage: boolean): { brief: boolean; html: Raw } {
   const program = log.program;
-  if (!program) return raw('');
+  if (!program) return { brief: false, html: raw('') };
   const sameChannel = onWorkPage && program.channel === channelOf(work);
   const brief = sameChannel && !!work.airtime;
   let date = program.date ?? '';
   if (onWorkPage && date === log.loggedAt) date = '';
   else if (onWorkPage && date.slice(0, 4) === log.loggedAt.slice(0, 4)) date = date.slice(5);
+  const link = program.url?.startsWith('https://') ? html`<a href="${program.url}" rel="noopener noreferrer">番組ページ</a>` : '';
+
+  if (brief) {
+    const parts = [date ? `${date} 放送` : '', link].filter(Boolean);
+    return { brief, html: parts.length ? html`<span class="program"> · ${parts.map((p, i) => html`${i ? ' · ' : ''}${p}`)}</span>` : raw('') };
+  }
   const time = program.start ? `${program.start}${program.end ? `–${program.end}` : ''}` : '';
   const title = program.title && program.title !== work.title ? `「${program.title}」` : '';
-  const text = (brief ? [date ? `${date} 放送` : ''] : [sameChannel ? '' : program.channel, date, time, title])
-    .filter(Boolean)
-    .join(' ');
-  const link = program.url?.startsWith('https://')
-    ? html`${text ? (brief ? ' · ' : ' ') : ''}<a href="${program.url}" rel="noopener noreferrer">番組ページ</a>`
-    : '';
-  if (!text && !link) return raw('');
-  return html`<div class="program">${text}${link}</div>`;
+  const text = [sameChannel ? '' : program.channel, date, time, title].filter(Boolean).join(' ');
+  if (!text && !link) return { brief, html: raw('') };
+  return { brief, html: html`<div class="program">${text}${text && link ? ' ' : ''}${link}</div>` };
 }
 
 // NHK's terms require this credit wherever its program information is shown.
@@ -230,9 +231,10 @@ function renderWork(site: Site, work: Work): string {
     const head = heading
       ? html`<a class="log-title" href="${href}">${heading}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
       : html`<a href="${href}">${date}</a>`;
+    const program = programInfo(l, work, true);
     return html`<li class="log">
-<div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}</div>
-${programInfo(l, work, true)}
+<div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}${program.brief ? program.html : ''}</div>
+${program.brief ? '' : program.html}
 ${paragraphs(excerpt.text)}
 ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む</a></p>` : ''}
 </li>`;
@@ -315,7 +317,7 @@ ${cover(work, 'small')}
 <p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
 </div>
 </div>
-${programInfo(log, work, false)}
+${programInfo(log, work, false).html}
 ${paragraphs(log.text)}
 ${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}

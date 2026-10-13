@@ -57,16 +57,17 @@ test('program info shows the time range and an https link to the official page',
 
 const regular = { channel: 'NHK総合', airtime: '日曜 21:00〜21:45' };
 
-test('on the work page a program on the work channel with an airtime, watched the day it aired, is only a link', () => {
-  const page = render([work([log({ program })], regular)], 'work:w1');
-  assert.ok(page.includes('<div class="program"><a href="https://example.com/p/1" rel="noopener noreferrer">番組ページ</a></div>'));
+test('on the work page a program on the work channel with an airtime, watched the day it aired, is only a link at the end of the log heading', () => {
+  const page = render([work([log({ program, rating: 4 })], regular)], 'work:w1');
+  assert.match(page, /<div class="log-head">[^\n]*★☆<\/span><span class="program"> · <a href="https:\/\/example.com\/p\/1" rel="noopener noreferrer">番組ページ<\/a><\/span><\/div>/);
+  assert.ok(!page.includes('<div class="program">'));
 });
 
 test('on the work page a program watched later shows its broadcast date, without the year when it is the same', () => {
   const later = render([work([log({ program, loggedAt: '2026-10-13' })], regular)], 'work:w1');
-  assert.ok(later.includes('<div class="program">10-11 放送 · <a'));
+  assert.ok(later.includes('<span class="program"> · 10-11 放送 · <a'));
   const nextYear = render([work([log({ program, loggedAt: '2027-01-02' })], regular)], 'work:w1');
-  assert.ok(nextYear.includes('<div class="program">2026-10-11 放送 · <a'));
+  assert.ok(nextYear.includes('<span class="program"> · 2026-10-11 放送 · <a'));
 });
 
 test('on the work page a program on the work channel without an airtime drops only the channel and the date', () => {
