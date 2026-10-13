@@ -53,3 +53,14 @@ test('watching is limited to the 12 most recent works', () => {
   assert.equal(data.watching[0]?.id, 'w14');
   assert.equal(data.watching[11]?.id, 'w3');
 });
+
+test('watching leaves out works whose length is known and that every author has watched to the end', () => {
+  const both = (episodeEnd: number) => [log({ id: 'x', episode: 1, episodeEnd }), log({ id: 'y', author: 'そら', episode: 1, episodeEnd })];
+  const data = buildSiteData([
+    work('a1', { logs: both(3), episodeCount: 3 }),
+    work('b2', { logs: both(3), episodeCount: 4 }),
+    work('c3', { logs: [log({ id: 'x', episode: 1, episodeEnd: 3 }), log({ id: 'y', author: 'そら', episode: 1 })], episodeCount: 3 }),
+    work('d4', { logs: both(3) }),
+  ]);
+  assert.deepEqual(data.watching.map((w) => w.id), ['b2', 'c3', 'd4']);
+});

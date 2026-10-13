@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { compareLogs, compareNewestFirst, coveringLog, episodeLabel, episodeSpan, highestEpisode, logHeading, neighbours, progressOf, sameEpisodeLogs } from '../src/episodes.ts';
+import { compareLogs, compareNewestFirst, coveringLog, episodeLabel, episodeSpan, highestEpisode, isFinished, logHeading, neighbours, progressOf, sameEpisodeLogs } from '../src/episodes.ts';
 import type { Log, Work } from '../src/types.ts';
 
 const log = (over: Partial<Log> = {}): Log => ({ id: 'l1', author: 'alice', loggedAt: '2026-10-11', text: '', ...over });
@@ -139,4 +139,20 @@ test('the earliest log wins when an episode was logged twice', () => {
 test('an absurd episode number does not make progress expensive', () => {
   const p = progressOf(work([log({ episode: 1, episodeEnd: 2_000_000_000 })]));
   assert.equal(p?.rows[0]?.count, 2_000_000_000);
+});
+
+test('a work is finished when its length is known and every author has covered all of it', () => {
+  const all = (author: string) => log({ id: author, author, episode: 1, episodeEnd: 3 });
+  assert.equal(isFinished(work([all('あお'), all('そら')], { episodeCount: 3 })), true);
+});
+
+test('a work is not finished while one author is missing an episode', () => {
+  const partial = log({ id: 'p', author: 'そら', episode: 1, episodeEnd: 2 });
+  assert.equal(isFinished(work([log({ episode: 1, episodeEnd: 3 }), partial], { episodeCount: 3 })), false);
+  assert.equal(isFinished(work([log({ id: 'a', episode: 1, episodeEnd: 2 }), log({ id: 'b', episode: 4 })], { episodeCount: 4 })), false);
+});
+
+test('a work of unknown length, or without episode logs, is never finished', () => {
+  assert.equal(isFinished(work([log({ episode: 1, episodeEnd: 3 })])), false);
+  assert.equal(isFinished(work([log()], { episodeCount: 3 })), false);
 });
