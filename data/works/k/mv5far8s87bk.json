@@ -10,6 +10,11 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "",
+  "airtime": "",
+  "officialUrl": "",
   "logs": [
     {
       "id": "mv5fasckp0kq",
@@ -17,6 +22,9 @@
       "loggedAt": "2026-10-13",
       "rating": null,
       "text": "（感想テスト2）",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
       "program": null
     }
   ]
