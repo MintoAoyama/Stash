@@ -1,5 +1,8 @@
+import { channelOf } from './channel.ts';
+import { compareNewestFirst, coveringLog, episodeLabel, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
-import { monthsOf, pageUrl, pathSegments, safeSegment, splitKey, type PageKey } from './pages.ts';
+import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
+import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
 import { MEDIA_TYPE_LABELS, MEDIA_TYPES, type Log, type MediaType, type SiteConfig, type Work } from './types.ts';
 
 export interface Site {
@@ -17,10 +20,16 @@ export function renderPage(site: Site, key: PageKey): string | null {
       const work = site.works.get(arg);
       return work ? renderWork(site, work) : null;
     }
+    case 'log':
+      return renderLog(site, arg);
     case 'dir':
       return renderDir(site, arg === '' ? [] : arg.split('/'));
     case 'tags':
       return renderTagIndex(site);
+    case 'seasons':
+      return renderSeasonIndex(site);
+    case 'season':
+      return renderSeason(site, arg);
     case 'tag':
       return renderList(site, `#${arg}`, [...site.works.values()].filter((w) => w.tags.some((t) => safeSegment(t) === arg)));
     case 'type': {
@@ -41,7 +50,8 @@ function url(site: Site, key: PageKey): string {
   return site.config.basePath + pageUrl(key);
 }
 
-function layout(site: Site, title: string, body: Raw, styles?: string): string {
+// footer holds notices that only apply to this page's own content.
+function layout(site: Site, title: string, body: Raw, styles?: string, footer?: Raw): string {
   const base = site.config.basePath;
   const fullTitle = title === site.config.title ? title : `${title} | ${site.config.title}`;
   return html`<!doctype html>
@@ -59,7 +69,8 @@ ${styles ? raw(`<style>${styles}</style>`) : ''}
 <header class="site-header">
 <a class="site-title" href="${base}">${site.config.title}</a>
 <nav class="site-nav">
-${MEDIA_TYPES.filter((t) => t !== 'other').map((t) => html`<a href="${url(site, `type:${t}`)}">${MEDIA_TYPE_LABELS[t]}</a>`)}
+${MEDIA_TYPES.map((t) => html`<a href="${url(site, `type:${t}`)}" data-nav-type="${t}" hidden>${MEDIA_TYPE_LABELS[t]}</a>`)}
+<a href="${url(site, 'seasons')}" data-nav-seasons hidden>シーズン</a>
 <a href="${url(site, 'dir:')}">ディレクトリ</a>
 <a href="${url(site, 'tags')}">タグ</a>
 </nav>
@@ -69,6 +80,7 @@ ${body}
 </main>
 <footer class="site-footer">
 <p>作品情報の一部は TMDB API を利用しています（This product uses the TMDB API but is not endorsed or certified by TMDB）</p>
+${footer ?? ''}
 </footer>
 </body>
 </html>
@@ -86,15 +98,15 @@ function latestLog(work: Work): Log | undefined {
 }
 
 function byLatestDesc(a: Work, b: Work): number {
-  return (latestLog(b)?.loggedAt ?? '').localeCompare(latestLog(a)?.loggedAt ?? '');
+  return (latestLog(b)?.loggedAt ?? '').localeCompare(latestLog(a)?.loggedAt ?? '') || a.id.localeCompare(b.id);
 }
 
 function authorsOf(works: Work[]): string[] {
   return [...new Set(works.flatMap((w) => w.logs.map((l) => l.author)))].sort();
 }
 
-function cover(work: Work, size: 'thumb' | 'full'): Raw {
-  if (!work.coverUrl) return html`<div class="cover cover--${size} cover--empty" aria-hidden="true">${MEDIA_TYPE_LABELS[work.type]}</div>`;
+function cover(work: Work, size: 'small' | 'thumb' | 'full'): Raw {
+  if (!work.coverUrl) return raw('');
   return html`<img class="cover cover--${size}" src="${work.coverUrl}" alt="" loading="lazy" referrerpolicy="no-referrer" style="view-transition-name: cover-${work.id}">`;
 }
 
@@ -124,14 +136,14 @@ ${authors.map((a, i) => html`<label><input type="radio" name="fa" id="fa-${i}">$
   const cards = sorted.map((w) => {
     const latest = latestLog(w);
     const a = [...new Set(w.logs.map((l) => `a${authors.indexOf(l.author)}`))].join(' ');
-    return html`<li class="card" data-type="${w.type}" data-a="${a}">
+    return html`<li class="card${w.coverUrl ? '' : ' card--text'}" data-type="${w.type}" data-a="${a}">
 <a href="${url(site, `work:${w.id}`)}">${cover(w, 'thumb')}<span class="card-title">${w.title}</span></a>
 <span class="card-meta">${MEDIA_TYPE_LABELS[w.type]}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''} ${stars(latest?.rating)}</span>
 </li>`;
   });
 
   return {
-    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards">${cards}</ul>`,
+    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards${sorted.some((w) => w.coverUrl) ? '' : ' cards--text'}">${cards}</ul>`,
     styles: rules.join('\n'),
   };
 }
@@ -148,16 +160,85 @@ function breadcrumbs(site: Site, segs: string[]): Raw {
   return html`<nav class="breadcrumbs">${items.map((it, i) => (i < 2 ? it : html` / ${it}`))}</nav>`;
 }
 
+const EXCERPT_CHARS = 140;
+// Beyond this the cells say nothing at a glance, so only the summary is shown.
+const MAX_GRID_EPISODES = 500;
+
+function truncate(text: string, max: number): { text: string; truncated: boolean } {
+  const chars = Array.from(text.trim());
+  if (chars.length <= max) return { text, truncated: false };
+  return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
+}
+
+function programInfo(log: Log, work: Work, onWorkPage: boolean): { brief: boolean; html: Raw } {
+  const program = log.program;
+  if (!program) return { brief: false, html: raw('') };
+  const sameChannel = onWorkPage && program.channel === channelOf(work);
+  const brief = sameChannel && !!work.airtime;
+  let date = program.date ?? '';
+  if (onWorkPage && date === log.loggedAt) date = '';
+  else if (onWorkPage && date.slice(0, 4) === log.loggedAt.slice(0, 4)) date = date.slice(5);
+  const link = program.url?.startsWith('https://') ? html`<a href="${program.url}" rel="noopener noreferrer">番組ページ</a>` : '';
+
+  if (brief) {
+    const parts = [date ? `${date} 放送` : '', link].filter(Boolean);
+    return { brief, html: parts.length ? html`<span class="program"> · ${parts.map((p, i) => html`${i ? ' · ' : ''}${p}`)}</span>` : raw('') };
+  }
+  const time = program.start ? `${program.start}${program.end ? `–${program.end}` : ''}` : '';
+  const title = program.title && program.title !== work.title ? `「${program.title}」` : '';
+  const text = [sameChannel ? '' : program.channel, date, time, title].filter(Boolean).join(' ');
+  if (!text && !link) return { brief, html: raw('') };
+  return { brief, html: html`<div class="program">${text}${text && link ? ' ' : ''}${link}</div>` };
+}
+
+// NHK's terms require this credit wherever its program information is shown.
+function nhkCredit(logs: Log[]): Raw {
+  return logs.some((l) => l.program?.source === 'nhk') ? html`<p>ＮＨＫ番組の情報提供:ＮＨＫ</p>` : raw('');
+}
+
+function progressCells(site: Site, work: Work, row: ProgressRow, total: number): Raw {
+  return html`<span class="progress-cells">${Array.from({ length: total }, (_, i) => {
+    const episode = i + 1;
+    const log = coveringLog(row, episode);
+    if (!log) return html`<span class="ep" title="第${episode}話"></span>`;
+    const label = `第${episode}話 ${log.loggedAt}`;
+    return html`<a class="ep ep--seen" href="${url(site, logKey(work.id, log.id))}" title="${label}" aria-label="${label}"></a>`;
+  })}</span>`;
+}
+
+// One row per author: which episodes they have logged, as filled cells that link to the log.
+function progressGrid(site: Site, work: Work): Raw {
+  const progress = progressOf(work);
+  if (!progress) return raw('');
+  const cells = (row: ProgressRow) => (progress.total <= MAX_GRID_EPISODES ? progressCells(site, work, row, progress.total) : '');
+  const summary = (row: ProgressRow) => `${row.count}${progress.countKnown ? ` / ${progress.total}` : ''} 話`;
+  const rows = progress.rows.map(
+    (row) => html`<li class="progress-row"><span class="progress-author">${row.author}</span>${cells(row)}<span class="progress-count">${summary(row)}</span></li>`,
+  );
+  return html`<ul class="progress" aria-label="視聴の進み具合">${rows}</ul>`;
+}
+
 function renderWork(site: Site, work: Work): string {
   const segs = pathSegments(work.path);
-  const logs = [...work.logs].sort((a, b) => b.loggedAt.localeCompare(a.loggedAt));
+  const logs = [...work.logs].sort(compareNewestFirst);
   const authors = authorsOf([work]);
 
-  const logItem = (l: Log) => html`<li class="log">
-<div class="log-head"><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}"><time datetime="${l.loggedAt}">${l.loggedAt}</time></a> <span class="author">${l.author}</span> ${stars(l.rating)}</div>
-${l.program ? html`<div class="program">${l.program.channel} ${l.program.date} ${l.program.start ?? ''}${l.program.title && l.program.title !== work.title ? html` 「${l.program.title}」` : ''}</div>` : ''}
-${paragraphs(l.text)}
+  const logItem = (l: Log) => {
+    const href = url(site, logKey(work.id, l.id));
+    const heading = logHeading(l);
+    const excerpt = truncate(l.text, EXCERPT_CHARS);
+    const date = html`<time datetime="${l.loggedAt}">${l.loggedAt}</time>`;
+    const head = heading
+      ? html`<a class="log-title" href="${href}">${heading}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
+      : html`<a href="${href}">${date}</a>`;
+    const program = programInfo(l, work, true);
+    return html`<li class="log">
+<div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}${program.brief ? program.html : ''}</div>
+${program.brief ? '' : program.html}
+${paragraphs(excerpt.text)}
+${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む</a></p>` : ''}
 </li>`;
+  };
 
   const logsBody =
     authors.length > 1
@@ -166,11 +247,17 @@ ${paragraphs(l.text)}
         )}</div>`
       : html`<ol class="log-list">${logs.map(logItem)}</ol>`;
 
+  const season = seasonOf(work);
   const meta = [
     html`<a href="${url(site, `type:${work.type}`)}">${MEDIA_TYPE_LABELS[work.type]}</a>`,
+    season ? html`<a href="${url(site, `season:${season}`)}">${seasonLabel(season)}</a>` : '',
+    channelOf(work),
+    work.airtime ?? '',
+    work.episodeCount ? `全${work.episodeCount}話` : '',
     work.year ? html`${work.year}` : '',
     work.platform ? html`${work.platform}` : '',
     work.creators?.length ? html`${work.creators.join('、')}` : '',
+    work.officialUrl?.startsWith('https://') ? html`<a href="${work.officialUrl}" rel="noopener noreferrer">公式サイト</a>` : '',
   ].filter((m) => m !== '');
 
   return layout(
@@ -184,10 +271,59 @@ ${cover(work, 'full')}
 <h1>${work.title}</h1>
 <p class="work-meta">${meta.map((m, i) => (i === 0 ? m : html` · ${m}`))}</p>
 ${work.tags.length ? html`<ul class="tags">${work.tags.map((t) => html`<li><a href="${url(site, `tag:${safeSegment(t)}`)}">#${t}</a></li>`)}</ul>` : ''}
+${progressGrid(site, work)}
 </div>
 </div>
 ${logsBody}
 </article>`,
+    undefined,
+    nhkCredit(work.logs),
+  );
+}
+
+function logNav(site: Site, work: Work, log: Log): Raw {
+  const { prev, next } = neighbours(work, log);
+  const link = (rel: 'prev' | 'next', l: Log) => {
+    const label = logHeading(l) || l.loggedAt;
+    return html`<a rel="${rel}" href="${url(site, logKey(work.id, l.id))}">${rel === 'prev' ? `← ${label}` : `${label} →`}</a>`;
+  };
+  return html`<nav class="log-nav" aria-label="前後の記録">${prev ? link('prev', prev) : ''}${next ? link('next', next) : ''}</nav>`;
+}
+
+// Links to what the other authors wrote about the same episode.
+function sameEpisode(site: Site, work: Work, log: Log): Raw {
+  const others = sameEpisodeLogs(work, log);
+  if (others.length === 0) return raw('');
+  const label = (l: Log) => (episodeLabel(l) === episodeLabel(log) ? l.author : `${l.author}（${episodeLabel(l)}）`);
+  const links = others.map((l) => html`<a href="${url(site, logKey(work.id, l.id))}" title="${l.loggedAt}">${label(l)}</a>`);
+  return html`<p class="log-same">同じ話の記録: ${links.map((a, i) => (i === 0 ? a : html` ${a}`))}</p>`;
+}
+
+function renderLog(site: Site, arg: string): string | null {
+  const [workId, logId] = splitLogArg(arg);
+  const work = site.works.get(workId);
+  const log = work?.logs.find((l) => l.id === logId);
+  if (!work || !log) return null;
+  const heading = logHeading(log);
+  return layout(
+    site,
+    `${work.title} ${heading || log.loggedAt}`,
+    html`<article class="log-page">
+<div class="log-page-head">
+${cover(work, 'small')}
+<div>
+<p class="log-work"><a href="${url(site, `work:${work.id}`)}">${work.title}</a></p>
+<h1>${heading || `${log.loggedAt} の記録`}</h1>
+<p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
+</div>
+</div>
+${programInfo(log, work, false).html}
+${paragraphs(log.text)}
+${sameEpisode(site, work, log)}
+${logNav(site, work, log)}
+</article>`,
+    undefined,
+    nhkCredit([log]),
   );
 }
 
@@ -232,6 +368,47 @@ function renderTagIndex(site: Site): string {
     site,
     'タグ',
     html`<h1>タグ</h1><ul class="tag-cloud">${tags.map(([k, { label, n }]) => html`<li><a href="${url(site, `tag:${k}`)}">#${label}</a> <span class="count">${n}</span></li>`)}</ul>`,
+  );
+}
+
+function renderSeasonIndex(site: Site): string | null {
+  const counts = new Map<string, number>();
+  for (const w of site.works.values()) {
+    const season = seasonOf(w);
+    if (season) counts.set(season, (counts.get(season) ?? 0) + 1);
+  }
+  if (counts.size === 0) return null;
+  const seasons = [...counts].sort(([a], [b]) => compareSeasons(a, b));
+  return layout(
+    site,
+    'シーズン',
+    html`<h1>シーズン</h1><ul class="seasons">${seasons.map(([s, n]) => html`<li><a href="${url(site, `season:${s}`)}">${seasonLabel(s)}</a> <span class="count">${n}</span></li>`)}</ul>`,
+  );
+}
+
+function seasonWork(site: Site, work: Work): Raw {
+  const href = url(site, `work:${work.id}`);
+  const latest = latestLog(work);
+  return html`<li class="season-work">
+${work.coverUrl ? html`<a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>` : ''}
+<div>
+<a class="season-title" href="${href}">${work.title}</a>
+<p class="work-meta">${[MEDIA_TYPE_LABELS[work.type], channelOf(work)].filter(Boolean).join(' · ')}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''}</p>
+${progressGrid(site, work)}
+</div>
+</li>`;
+}
+
+function renderSeason(site: Site, season: string): string | null {
+  const works = [...site.works.values()].filter((w) => seasonOf(w) === season).sort(byLatestDesc);
+  if (works.length === 0) return null;
+  const label = seasonLabel(season);
+  return layout(
+    site,
+    label,
+    html`<nav class="breadcrumbs"><a href="${url(site, 'seasons')}">シーズン</a></nav>
+<h1>${label}</h1><p class="count">${works.length} 件</p>
+<ul class="season-works">${works.map((w) => seasonWork(site, w))}</ul>`,
   );
 }
 
@@ -282,6 +459,7 @@ function renderHome(site: Site): string {
     site.config.title,
     html`<h1 class="visually-hidden">${site.config.title}</h1>
 <section class="stats" aria-label="記録の数"><span data-stat="works">-</span> 作品 · <span data-stat="logs">-</span> 件の記録</section>
+<section class="watching" hidden><h2>視聴中</h2><ul class="timeline"></ul></section>
 <section class="on-this-day" hidden><h2>過去の今日</h2><ul></ul></section>
 <section class="recent"><h2>最近の記録</h2><ol class="timeline"></ol></section>
 <section class="years"><h2>年ごと</h2><ul class="months"></ul></section>`,

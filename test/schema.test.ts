@@ -18,8 +18,23 @@ const valid = () => ({
   year: 2010,
   coverUrl: 'https://example.com/a.jpg',
   externalIds: { tmdb: 'movie/1' },
+  season: '2026-autumn',
+  episodeCount: 10,
+  channel: 'NHK総合',
+  airtime: '日曜 21:00〜21:45',
+  officialUrl: 'https://example.com/drama/',
   logs: [
-    { id: 'l1', author: 'alice', loggedAt: '2026-10-11', rating: 4, text: '', program: { channel: 'ch', date: '2026-10-11', start: '21:00' } },
+    {
+      id: 'l1',
+      author: 'alice',
+      loggedAt: '2026-10-11',
+      rating: 4,
+      text: '',
+      episode: 3,
+      episodeEnd: 5,
+      subtitle: '夜の手紙',
+      program: { channel: 'ch', date: '2026-10-11', start: '21:00', end: '21:45', source: 'nhk', url: 'https://example.com/p/1' },
+    },
     { id: 'l2', author: 'bob', loggedAt: '2026-10-12', rating: null, text: 'x', program: null },
   ],
 });
@@ -34,6 +49,15 @@ test('a complete work validates', () => {
 
 test('optional fields may be empty strings, as the producer writes them', () => {
   assert.ok(validate({ ...valid(), status: '', platform: '', coverUrl: '', creators: [], year: null }), JSON.stringify(validate.errors));
+});
+
+test('episode fields may be empty or null, as the producer writes them', () => {
+  const [first, second] = valid().logs;
+  const logs = [
+    { ...first, episode: null, episodeEnd: null, subtitle: '', program: { channel: 'ch', date: '2026-10-11', end: '', source: '', url: '' } },
+    { ...second, episode: 0 },
+  ];
+  assert.ok(validate({ ...valid(), season: '', episodeCount: null, channel: '', airtime: '', officialUrl: '', logs }), JSON.stringify(validate.errors));
 });
 
 test('unknown properties and unknown media types are tolerated', () => {
@@ -51,6 +75,19 @@ const invalid: [string, (w: ReturnType<typeof valid>) => unknown][] = [
   ['rating out of range', (w) => ({ ...w, logs: [{ ...w.logs[0], rating: 6 }] })],
   ['non-https cover', (w) => ({ ...w, coverUrl: 'http://example.com/a.jpg' })],
   ['program without channel', (w) => ({ ...w, logs: [{ ...w.logs[0], program: { date: '2026-10-11' } }] })],
+  ['season in the wrong order', (w) => ({ ...w, season: 'autumn-2026' })],
+  ['unknown season name', (w) => ({ ...w, season: '2026-fall' })],
+  ['non-https official url', (w) => ({ ...w, officialUrl: 'http://example.com/' })],
+  ['official url that is not a URL', (w) => ({ ...w, officialUrl: 'example.com' })],
+  ['non-string channel', (w) => ({ ...w, channel: 1 })],
+  ['episode count of zero', (w) => ({ ...w, episodeCount: 0 })],
+  ['fractional episode count', (w) => ({ ...w, episodeCount: 1.5 })],
+  ['log id with an uppercase letter', (w) => ({ ...w, logs: [{ ...w.logs[0], id: 'L1' }] })],
+  ['log id that is not a URL segment', (w) => ({ ...w, logs: [{ ...w.logs[0], id: 'a/b' }] })],
+  ['empty log id', (w) => ({ ...w, logs: [{ ...w.logs[0], id: '' }] })],
+  ['negative episode', (w) => ({ ...w, logs: [{ ...w.logs[0], episode: -1 }] })],
+  ['fractional episode end', (w) => ({ ...w, logs: [{ ...w.logs[0], episodeEnd: 2.5 }] })],
+  ['non-https program url', (w) => ({ ...w, logs: [{ ...w.logs[0], program: { channel: 'ch', date: '2026-10-11', url: 'http://example.com' } }] })],
 ];
 for (const [name, mutate] of invalid) {
   test(`rejects: ${name}`, () => {

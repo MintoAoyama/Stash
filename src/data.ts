@@ -14,6 +14,10 @@ function asString(v: unknown): string {
   return typeof v === 'string' ? v : '';
 }
 
+function asCount(v: unknown, min: number): number | null {
+  return typeof v === 'number' && Number.isInteger(v) && v >= min ? v : null;
+}
+
 function parseLog(v: unknown): Log | null {
   if (typeof v !== 'object' || v === null) return null;
   const o = v as Record<string, unknown>;
@@ -26,6 +30,9 @@ function parseLog(v: unknown): Log | null {
     loggedAt,
     rating: typeof o.rating === 'number' ? o.rating : null,
     text: asString(o.text),
+    episode: asCount(o.episode, 0),
+    episodeEnd: asCount(o.episodeEnd, 0),
+    subtitle: asString(o.subtitle),
     program,
   };
 }
@@ -57,6 +64,11 @@ export function parseWork(json: string, source: string): Work | null {
     creators: Array.isArray(o.creators) ? o.creators.map(String) : [],
     coverUrl: /^https:\/\//.test(asString(o.coverUrl)) ? asString(o.coverUrl) : undefined,
     externalIds: typeof o.externalIds === 'object' && o.externalIds !== null ? (o.externalIds as Record<string, string>) : {},
+    season: asString(o.season) || undefined,
+    episodeCount: asCount(o.episodeCount, 1),
+    channel: asString(o.channel) || undefined,
+    airtime: asString(o.airtime) || undefined,
+    officialUrl: /^https:\/\//.test(asString(o.officialUrl)) ? asString(o.officialUrl) : undefined,
     logs,
   };
 }

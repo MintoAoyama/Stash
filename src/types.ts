@@ -1,11 +1,11 @@
 import type { LogEntry, ProgramInfo, WorkFile } from './work-file.ts';
 
-export const MEDIA_TYPES = ['movie', 'tv', 'streaming', 'music', 'book', 'other'] as const;
+export const MEDIA_TYPES = ['tv', 'movie', 'streaming', 'music', 'book', 'other'] as const;
 export type MediaType = (typeof MEDIA_TYPES)[number];
 
 export const MEDIA_TYPE_LABELS: Record<MediaType, string> = {
-  movie: '映画',
   tv: 'TV',
+  movie: '映画',
   streaming: '配信',
   music: '音楽',
   book: '本',
