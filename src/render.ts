@@ -67,7 +67,10 @@ ${styles ? raw(`<style>${styles}</style>`) : ''}
 </head>
 <body>
 <header class="site-header">
-<a class="site-title" href="${base}">${site.config.title}</a>
+<a class="site-title" href="${base}"><picture>
+<source srcset="${base}assets/stash_logo_dark.svg" media="(prefers-color-scheme: dark)">
+<img class="site-logo" src="${base}assets/stash_logo_light.svg" alt="${site.config.title}" width="99" height="28">
+</picture></a>
 <nav class="site-nav">
 ${MEDIA_TYPES.map((t) => html`<a href="${url(site, `type:${t}`)}" data-nav-type="${t}" hidden>${MEDIA_TYPE_LABELS[t]}</a>`)}
 <a href="${url(site, 'seasons')}" data-nav-seasons hidden>シーズン</a>
