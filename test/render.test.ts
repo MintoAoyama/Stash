@@ -14,7 +14,7 @@ const render = (works: Work[], key: string): string => {
 
 test('the work page links each log to its own page and shows its episode and subtitle', () => {
   const page = render([work([log({ episode: 3, subtitle: '夜の手紙', text: '短い感想' })])], 'work:w1');
-  assert.match(page, /<a class="log-title" href="\/stash\/w\/1\/w1\/l1\/">第3話 夜の手紙<\/a>/);
+  assert.match(page, /<a class="log-title" href="\/stash\/w\/1\/w1\/l1\/"><span class="log-ep">第3話<\/span> <span class="log-sub">夜の手紙<\/span><\/a>/);
   assert.ok(page.includes('短い感想'));
 });
 
@@ -99,7 +99,7 @@ const binge = work([
 test('the log page shows the work, the episode label, the subtitle and the whole text', () => {
   const page = render([binge], 'log:w1/b');
   assert.match(page, /<p class="log-work"><a href="\/stash\/w\/1\/w1\/">テストドラマ<\/a><\/p>/);
-  assert.match(page, /<h1>第3〜5話 夜の手紙<\/h1>/);
+  assert.match(page, /<h1><span class="log-ep">第3〜5話<\/span> <span class="log-sub">夜の手紙<\/span><\/h1>/);
   assert.ok(page.includes('あ'.repeat(300)));
   assert.ok(!page.includes('続きを読む'));
   assert.match(page, /<title>テストドラマ 第3〜5話 夜の手紙 \| stash<\/title>/);
