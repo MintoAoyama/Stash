@@ -221,6 +221,13 @@ function progressGrid(site: Site, work: Work): Raw {
   return html`<ul class="progress" aria-label="視聴の進み具合">${rows}</ul>`;
 }
 
+// logHeading with the episode and the subtitle as their own elements.
+function headingHtml(log: Log): Raw {
+  const ep = episodeLabel(log);
+  const parts = [ep ? html`<span class="log-ep">${ep}</span>` : '', log.subtitle ? html`<span class="log-sub">${log.subtitle}</span>` : ''];
+  return html`${parts.filter((p) => p !== '').map((p, i) => (i === 0 ? p : html` ${p}`))}`;
+}
+
 function renderWork(site: Site, work: Work): string {
   const segs = pathSegments(work.path);
   const logs = [...work.logs].sort(compareNewestFirst);
@@ -232,7 +239,7 @@ function renderWork(site: Site, work: Work): string {
     const excerpt = truncate(l.text, EXCERPT_CHARS);
     const date = html`<time datetime="${l.loggedAt}">${l.loggedAt}</time>`;
     const head = heading
-      ? html`<a class="log-title" href="${href}">${heading}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
+      ? html`<a class="log-title" href="${href}">${headingHtml(l)}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
       : html`<a href="${href}">${date}</a>`;
     const program = programInfo(l, work, true);
     return html`<li class="log">
@@ -316,7 +323,7 @@ function renderLog(site: Site, arg: string): string | null {
 ${cover(work, 'small')}
 <div>
 <p class="log-work"><a href="${url(site, `work:${work.id}`)}">${work.title}</a></p>
-<h1>${heading || `${log.loggedAt} の記録`}</h1>
+<h1>${heading ? headingHtml(log) : `${log.loggedAt} の記録`}</h1>
 <p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
 </div>
 </div>
