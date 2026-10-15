@@ -2,6 +2,7 @@ import { channelOf } from './channel.ts';
 import { compareNewestFirst, coveringLog, episodeLabel, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
+import { weekLabel, weekOf, weekRange } from './week.ts';
 import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
 import { MEDIA_TYPE_LABELS, MEDIA_TYPES, type Log, type MediaType, type SiteConfig, type Work } from './types.ts';
 
@@ -41,6 +42,8 @@ export function renderPage(site: Site, key: PageKey): string | null {
       return renderYear(site, arg);
     case 'month':
       return renderMonth(site, arg);
+    case 'week':
+      return renderWeek(site, arg);
     default:
       throw new Error(`unknown page key: ${key}`);
   }
@@ -422,9 +425,9 @@ function renderSeason(site: Site, season: string): string | null {
   );
 }
 
-function logsInMonth(site: Site, month: string): { work: Work; log: Log }[] {
+function logsWhere(site: Site, keep: (log: Log) => boolean): { work: Work; log: Log }[] {
   const out: { work: Work; log: Log }[] = [];
-  for (const w of site.works.values()) for (const l of w.logs) if (l.loggedAt.startsWith(month)) out.push({ work: w, log: l });
+  for (const w of site.works.values()) for (const l of w.logs) if (keep(l)) out.push({ work: w, log: l });
   return out.sort((a, b) => b.log.loggedAt.localeCompare(a.log.loggedAt));
 }
 
@@ -433,22 +436,51 @@ function excerpt(text: string, max = 120): string {
   return flat.length > max ? `${flat.slice(0, max)}…` : flat;
 }
 
+function timeline(site: Site, entries: { work: Work; log: Log }[]): Raw {
+  return html`<ol class="timeline">${entries.map(
+    ({ work, log }) => html`<li>
+<time datetime="${log.loggedAt}">${log.loggedAt.slice(5)}</time>
+<a href="${url(site, `work:${work.id}`)}">${work.title}</a> <span class="author">${log.author}</span> ${stars(log.rating)}
+${log.text ? html`<p>${excerpt(log.text)}</p>` : ''}
+</li>`,
+  )}</ol>`;
+}
+
 function renderMonth(site: Site, month: string): string | null {
-  const entries = logsInMonth(site, month);
+  const entries = logsWhere(site, (l) => l.loggedAt.startsWith(month));
   if (entries.length === 0) return null;
   const [y, m] = month.split('-');
+  // Every week with a log of this month, also one that belongs to the month next to it.
+  const weeks = new Map<string, number>();
+  for (const { log } of entries) {
+    const w = weekOf(log.loggedAt);
+    if (w) weeks.set(w, (weeks.get(w) ?? 0) + 1);
+  }
+  const weekName = (w: string): string => (w.startsWith(`${month}-`) ? `${w.slice(8)}週目` : weekLabel(w).replace(/^\d+年/, ''));
   return layout(
     site,
     `${y}年${Number(m)}月`,
     html`<nav class="breadcrumbs"><a href="${url(site, `year:${y}`)}">${y}年</a></nav>
 <h1>${y}年${Number(m)}月</h1><p class="count">${entries.length} 件</p>
-<ol class="timeline">${entries.map(
-      ({ work, log }) => html`<li>
-<time datetime="${log.loggedAt}">${log.loggedAt.slice(5)}</time>
-<a href="${url(site, `work:${work.id}`)}">${work.title}</a> <span class="author">${log.author}</span> ${stars(log.rating)}
-${log.text ? html`<p>${excerpt(log.text)}</p>` : ''}
-</li>`,
-    )}</ol>`,
+<ul class="months weeks">${[...weeks].sort(([a], [b]) => a.localeCompare(b)).map(
+      ([w, n]) => html`<li><a href="${url(site, `week:${w}`)}">${weekName(w)}</a> <span class="range">（${weekRange(w)}）</span> <span class="count">${n}</span></li>`,
+    )}</ul>
+${timeline(site, entries)}`,
+  );
+}
+
+function renderWeek(site: Site, week: string): string | null {
+  const entries = logsWhere(site, (l) => weekOf(l.loggedAt) === week);
+  if (entries.length === 0) return null;
+  // The months its logs fall in: a week across a month end may have no log in the month it belongs to.
+  const months = [...new Set(entries.map(({ log }) => log.loggedAt.slice(0, 7)))].sort();
+  const label = weekLabel(week);
+  return layout(
+    site,
+    label,
+    html`<nav class="breadcrumbs">${months.map((mo, i) => html`${i > 0 ? ' · ' : ''}<a href="${url(site, `month:${mo}`)}">${mo.slice(0, 4)}年${Number(mo.slice(5))}月</a>`)}</nav>
+<h1>${label}</h1><p class="count">${weekRange(week)} · ${entries.length} 件</p>
+${timeline(site, entries)}`,
   );
 }
 

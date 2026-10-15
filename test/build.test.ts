@@ -247,7 +247,7 @@ test('season pages and the season index are written for works with a season', ()
   commit('add seasonal works');
   build(repo, out);
   assert.match(readFileSync(join(out, 's/2026-autumn/index.html'), 'utf8'), /作品 tv2/);
-  assert.match(readFileSync(join(out, 's/index.html'), 'utf8'), /2026年夏/);
+  assert.match(readFileSync(join(out, 's/index.html'), 'utf8'), /2026夏/);
 });
 
 test('moving a work to another season removes the emptied season page and updates the index', () => {
@@ -257,7 +257,7 @@ test('moving a work to another season removes the emptied season page and update
   assert.equal(r.mode, 'incremental');
   assert.ok(!existsSync(join(out, 's/2026-summer')));
   assert.match(readFileSync(join(out, 's/2026-autumn/index.html'), 'utf8'), /作品 tv3/);
-  assert.ok(!readFileSync(join(out, 's/index.html'), 'utf8').includes('2026年夏'));
+  assert.ok(!readFileSync(join(out, 's/index.html'), 'utf8').includes('2026夏'));
 });
 
 test('the season index disappears with the last season', () => {

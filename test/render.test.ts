@@ -217,7 +217,7 @@ test('the season page lists its works newest log first with their progress', () 
     autumn('c3', { season: '2026-summer', title: '別のシーズン' }),
   ];
   const page = render(works, 'season:2026-autumn');
-  assert.match(page, /<h1>2026年秋<\/h1>/);
+  assert.match(page, /<h1>2026秋<\/h1>/);
   assert.ok(page.indexOf('新しい作品') < page.indexOf('古い作品'));
   assert.ok(!page.includes('別のシーズン'));
   assert.ok(page.includes('1 / 12 話'));
@@ -232,9 +232,9 @@ test('a season without works has no page', () => {
 test('the season index lists seasons newest first with their work counts', () => {
   const works = [autumn('a1', { season: '2025-autumn' }), autumn('b2'), autumn('c3'), autumn('d4', { season: '2026-summer' })];
   const page = render(works, 'seasons');
-  const labels = ['2026年秋', '2026年夏', '2025年秋'].map((l) => page.indexOf(l));
+  const labels = ['2026秋', '2026夏', '2025秋'].map((l) => page.indexOf(l));
   assert.deepEqual([...labels].sort((a, b) => a - b), labels);
-  assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026年秋<\/a> <span class="count">2<\/span>/);
+  assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026秋<\/a> <span class="count">2<\/span>/);
 });
 
 test('there is no season index while no work has a season', () => {
@@ -243,7 +243,7 @@ test('there is no season index while no work has a season', () => {
 
 test('the work page links to its season', () => {
   const page = render([autumn('a1')], 'work:a1');
-  assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026年秋<\/a>/);
+  assert.match(page, /<a href="\/stash\/s\/2026-autumn\/">2026秋<\/a>/);
 });
 
 const nav = (page: string): string => /<nav class="site-nav">[\s\S]*?<\/nav>/.exec(page)?.[0] ?? '';
@@ -304,7 +304,7 @@ test('the work meta line lists type, season, channel, airtime, episode count, ye
     officialUrl: 'https://example.com/drama/',
   });
   const meta = metaOf(render([w], 'work:a1'));
-  assert.equal(text(meta), 'TV · 2026年秋 · NHK総合 · 日曜 21:00〜21:45 · 全12話 · 2026 · NHKプラス · 架空 太郎、架空 花子 · 公式サイト');
+  assert.equal(text(meta), 'TV · 2026秋 · NHK総合 · 日曜 21:00〜21:45 · 全12話 · 2026 · NHKプラス · 架空 太郎、架空 花子 · 公式サイト');
   assert.ok(meta.includes('<a href="https://example.com/drama/" rel="noopener noreferrer">公式サイト</a>'));
 });
 
@@ -384,4 +384,27 @@ test('season rows without a cover are plain text rows', () => {
   const page = render([autumn('a1'), withCover('c1')], 'season:2026-autumn');
   assert.equal(count(page, '<li class="season-work">'), 2);
   assert.equal(count(page, 'class="season-cover"'), 1);
+});
+
+// 2026-08-01 is a Saturday: 8/1 and 8/2 are in the last week of July, 8/3 starts the first week of August.
+const aroundAugust = work([
+  log({ id: 'a', loggedAt: '2026-07-30', text: '七月の回' }),
+  log({ id: 'b', loggedAt: '2026-08-01', text: '八月一日の回' }),
+  log({ id: 'c', loggedAt: '2026-08-04', text: '八月四日の回' }),
+  log({ id: 'd', loggedAt: '2026-08-05' }),
+]);
+
+test('the month page lists the weeks of its logs, naming a week of the month next to it in full', () => {
+  const page = render([aroundAugust], 'month:2026-08');
+  assert.match(page, /<a href="\/stash\/m\/2026\/07\/w5\/">7月5週目<\/a> <span class="range">（7\/27〜8\/2）<\/span> <span class="count">1<\/span>/);
+  assert.match(page, /<a href="\/stash\/m\/2026\/08\/w1\/">1週目<\/a> <span class="range">（8\/3〜8\/9）<\/span> <span class="count">2<\/span>/);
+  assert.ok(page.indexOf('7月5週目') < page.indexOf('>1週目'));
+});
+
+test('the week page lists the logs of that week across the month end and links the months they are in', () => {
+  const page = render([aroundAugust], 'week:2026-07-5');
+  assert.match(page, /<h1>2026年7月5週目<\/h1><p class="count">7\/27〜8\/2 · 2 件<\/p>/);
+  assert.ok(page.includes('七月の回') && page.includes('八月一日の回') && !page.includes('八月四日の回'));
+  assert.match(page, /<nav class="breadcrumbs"><a href="\/stash\/m\/2026\/07\/">2026年7月<\/a> · <a href="\/stash\/m\/2026\/08\/">2026年8月<\/a><\/nav>/);
+  assert.equal(renderPage(site([aroundAugust]), 'week:2026-08-2'), null);
 });

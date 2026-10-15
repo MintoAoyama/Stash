@@ -11,10 +11,10 @@ test('seasons sort newest first: year descending, then autumn, summer, spring, w
 });
 
 test('seasons are labelled by year and season', () => {
-  assert.equal(seasonLabel('2026-autumn'), '2026年秋');
-  assert.equal(seasonLabel('2026-winter'), '2026年冬');
-  assert.equal(seasonLabel('2026-spring'), '2026年春');
-  assert.equal(seasonLabel('2026-summer'), '2026年夏');
+  assert.equal(seasonLabel('2026-autumn'), '2026秋');
+  assert.equal(seasonLabel('2026-winter'), '2026冬');
+  assert.equal(seasonLabel('2026-spring'), '2026春');
+  assert.equal(seasonLabel('2026-summer'), '2026夏');
 });
 
 test('seasonOf ignores empty and malformed values', () => {
