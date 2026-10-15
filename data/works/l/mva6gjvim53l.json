@@ -1,0 +1,39 @@
+{
+  "id": "mva6gjvim53l",
+  "type": "tv",
+  "title": "モープラFT",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "BSテレ東",
+  "airtime": "金曜 07:05〜08:00",
+  "officialUrl": "https://www.bs-tvtokyo.co.jp/mplusft/",
+  "logs": [
+    {
+      "id": "mva6gkdr3d0c",
+      "author": "minto",
+      "loggedAt": "2026-10-16",
+      "rating": null,
+      "text": "FTカルチャーにてドキュメンタリー映画『さよなら、私のロシア』 https://littlegraywolf.jp/ および『プーチンの愛国教室』 https://transformer.co.jp/movie/mrnobody/ を紹介。\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "アカデミー賞受賞作に見る 露プロパガンダ教育の実態/TSMC決算",
+      "program": {
+        "channel": "BSテレ東",
+        "title": "モープラFT",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202610/23593_202610160705.html",
+        "end": "08:00",
+        "date": "2026-10-16",
+        "start": "07:05",
+        "source": "bstvtokyo"
+      }
+    }
+  ]
+}
