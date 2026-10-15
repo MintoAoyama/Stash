@@ -21,10 +21,10 @@ test('safeSegment neutralizes path traversal and URL-breaking characters', () =>
   assert.equal(safeSegment('ドラマ'), 'ドラマ');
 });
 
-test('pageKeysForWork covers the work, every ancestor dir, tags, months and type', () => {
+test('pageKeysForWork covers the work, every ancestor dir, tags, months, weeks and type', () => {
   assert.deepEqual(
     [...pageKeysForWork(work())].sort(),
-    ['dir:', 'dir:movies', 'dir:movies/2026', 'log:w1/l1', 'month:2026-10', 'tag:SF', 'tags', 'type:movie', 'work:w1', 'year:2026'].sort(),
+    ['dir:', 'dir:movies', 'dir:movies/2026', 'log:w1/l1', 'month:2026-10', 'tag:SF', 'tags', 'type:movie', 'week:2026-10-2', 'work:w1', 'year:2026'].sort(),
   );
 });
 
@@ -72,6 +72,7 @@ test('affectedPages handles creation and deletion', () => {
 
 test('outputFile and pageUrl', () => {
   assert.equal(outputFile('month:2026-10'), 'm/2026/10/index.html');
+  assert.equal(outputFile('week:2026-08-1'), 'm/2026/08/w1/index.html');
   assert.equal(outputFile('dir:'), 'd/index.html');
   assert.equal(pageUrl('tag:ドラマ'), `t/${encodeURIComponent('ドラマ')}/`);
 });

@@ -1,8 +1,9 @@
 import { seasonOf } from './season.ts';
+import { weekOf } from './week.ts';
 import { MEDIA_TYPES, type Work } from './types.ts';
 
 // Pages are identified by string keys so that affected sets can be unioned cheaply:
-//   home | work:<id> | log:<workId>/<logId> | dir:<a/b> (root is "dir:") | tags | tag:<t> | seasons | season:<yyyy-name> | year:<yyyy> | month:<yyyy-MM> | type:<t>
+//   home | work:<id> | log:<workId>/<logId> | dir:<a/b> (root is "dir:") | tags | tag:<t> | seasons | season:<yyyy-name> | year:<yyyy> | month:<yyyy-MM> | week:<yyyy-MM-n> | type:<t>
 export type PageKey = string;
 
 const UNSAFE_SEGMENT = /[\/\\:*?"<>|#%\u0000-\u001f]/g;
@@ -46,6 +47,10 @@ export function monthsOf(work: Work): string[] {
   return [...new Set(work.logs.map((l) => l.loggedAt.slice(0, 7)).filter((m) => /^\d{4}-\d{2}$/.test(m)))];
 }
 
+export function weeksOf(work: Work): string[] {
+  return [...new Set(work.logs.map((l) => weekOf(l.loggedAt)).filter((w): w is string => w !== undefined))];
+}
+
 export function pageKeysForWork(work: Work): Set<PageKey> {
   const keys = new Set<PageKey>([`work:${work.id}`, `type:${work.type}`, 'tags']);
   for (const log of work.logs) keys.add(logKey(work.id, log.id));
@@ -61,6 +66,7 @@ export function pageKeysForWork(work: Work): Set<PageKey> {
     keys.add(`month:${month}`);
     keys.add(`year:${month.slice(0, 4)}`);
   }
+  for (const week of weeksOf(work)) keys.add(`week:${week}`);
   return keys;
 }
 
@@ -109,6 +115,10 @@ export function outputFile(key: PageKey): string {
       return `m/${arg}/index.html`;
     case 'month':
       return `m/${arg.replace('-', '/')}/index.html`;
+    case 'week': {
+      const [y, m, n] = arg.split('-');
+      return `m/${y}/${m}/w${n}/index.html`;
+    }
     case 'type':
       return `type/${arg}/index.html`;
     default:

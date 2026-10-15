@@ -17,10 +17,10 @@ export function seasonOf(work: Work): string | undefined {
   return work.season && SEASON.test(work.season) ? work.season : undefined;
 }
 
-// "2026-autumn" -> "2026年秋"
+// "2026-autumn" -> "2026秋"
 export function seasonLabel(season: string): string {
   const s = parseSeason(season);
-  return s ? `${s.year}年${SEASON_LABELS[s.name]}` : season;
+  return s ? `${s.year}${SEASON_LABELS[s.name]}` : season;
 }
 
 // Newest season first.
