@@ -1,6 +1,7 @@
 import { channelOf } from './channel.ts';
 import { compareNewestFirst, coveringLog, episodeLabel, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
+import { markdown, plainText } from './markdown.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
 import { weekLabel, weekOf, weekRange } from './week.ts';
 import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
@@ -239,7 +240,8 @@ function renderWork(site: Site, work: Work): string {
   const logItem = (l: Log) => {
     const href = url(site, logKey(work.id, l.id));
     const heading = logHeading(l);
-    const excerpt = truncate(l.text, EXCERPT_CHARS);
+    // A long text is cut as plain text, so the cut never lands inside the markup.
+    const excerpt = truncate(plainText(l.text), EXCERPT_CHARS);
     const date = html`<time datetime="${l.loggedAt}">${l.loggedAt}</time>`;
     const head = heading
       ? html`<a class="log-title" href="${href}">${headingHtml(l)}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
@@ -248,7 +250,7 @@ function renderWork(site: Site, work: Work): string {
     return html`<li class="log">
 <div class="log-head">${head} <span class="author">${l.author}</span> ${stars(l.rating)}${program.brief ? program.html : ''}</div>
 ${program.brief ? '' : program.html}
-${paragraphs(excerpt.text)}
+${l.text.trim() ? html`<div class="log-text">${excerpt.truncated ? paragraphs(excerpt.text) : markdown(l.text)}</div>` : ''}
 ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む</a></p>` : ''}
 </li>`;
   };
@@ -331,7 +333,7 @@ ${cover(work, 'small')}
 </div>
 </div>
 ${programInfo(log, work, false).html}
-${paragraphs(log.text)}
+${log.text.trim() ? html`<div class="log-text">${markdown(log.text)}</div>` : ''}
 ${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}
 </article>`,
@@ -441,7 +443,7 @@ function timeline(site: Site, entries: { work: Work; log: Log }[]): Raw {
     ({ work, log }) => html`<li>
 <time datetime="${log.loggedAt}">${log.loggedAt.slice(5)}</time>
 <a href="${url(site, `work:${work.id}`)}">${work.title}</a> <span class="author">${log.author}</span> ${stars(log.rating)}
-${log.text ? html`<p>${excerpt(log.text)}</p>` : ''}
+${log.text ? html`<p>${excerpt(plainText(log.text))}</p>` : ''}
 </li>`,
   )}</ol>`;
 }
