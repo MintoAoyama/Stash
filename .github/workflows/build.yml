@@ -28,6 +28,8 @@ permissions:
 
 jobs:
   deploy:
+    # A manual run may pick any branch; only main is published here (other branches: the preview workflow).
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Generate GitHub App Token

@@ -1,0 +1,110 @@
+name: Preview
+
+# Whatever is pushed to the preview branch is published under its own path, with the records of main.
+on:
+  push:
+    branches: [preview]
+
+concurrency:
+  group: preview-stash
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PREVIEW_DIR: stash-preview
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App Token
+        id: generate_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ vars.DEPLOY_REPO_NAME }}
+
+      - name: Checkout source
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # Pushing main (or anything with the same code) to preview means there is nothing to preview: the path goes away.
+      - name: Compare with main
+        id: diff
+        run: |
+          if git diff --quiet origin/main HEAD -- . ':(exclude)data/works'; then
+            echo "same=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "same=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Take the records from main
+        if: steps.diff.outputs.same == 'false'
+        run: |
+          rm -rf data/works
+          git checkout origin/main -- data/works
+
+      - name: Setup Node.js
+        if: steps.diff.outputs.same == 'false'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.diff.outputs.same == 'false'
+        run: npm ci
+
+      - name: Type check
+        if: steps.diff.outputs.same == 'false'
+        run: npm run check
+
+      - name: Checkout deploy repository
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ github.repository_owner }}/${{ vars.DEPLOY_REPO_NAME }}
+          token: ${{ steps.generate_token.outputs.token }}
+          path: site
+
+      - name: Build
+        if: steps.diff.outputs.same == 'false'
+        run: BASE_PATH="/$PREVIEW_DIR/" npm run build -- --out "site/$PREVIEW_DIR" --full
+
+      # The preview repeats the published pages; keep it out of search results.
+      - name: Mark pages noindex
+        if: steps.diff.outputs.same == 'false'
+        run: find "site/$PREVIEW_DIR" -name '*.html' -exec sed -i 's|<head>|<head>\n<meta name="robots" content="noindex">|' {} +
+
+      - name: Remove the preview
+        if: steps.diff.outputs.same == 'true'
+        run: rm -rf "site/$PREVIEW_DIR"
+
+      - name: Commit and push
+        working-directory: site
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          # The directory may be gone (removed above) or may never have existed.
+          if [ -e "$PREVIEW_DIR" ] || git ls-files --error-unmatch "$PREVIEW_DIR" > /dev/null 2>&1; then
+            git add -A -- "$PREVIEW_DIR"
+          fi
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          if [ -e "$PREVIEW_DIR" ]; then
+            git commit -q -m "deploy: update $PREVIEW_DIR from ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
+          else
+            git commit -q -m "deploy: remove $PREVIEW_DIR"
+          fi
+          # Other workflows may push to the same repository.
+          for attempt in 1 2 3; do
+            git pull --rebase -q origin main && git push origin main && exit 0
+            sleep 5
+          done
+          exit 1

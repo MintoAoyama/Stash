@@ -91,7 +91,9 @@ npm run build -- --out out --full   # 全件ビルド
 
 ## デプロイ
 
-ワークフローが、GitHub App のトークンで配信用リポジトリを checkout し、`site.config.json` の `basePath` に対応するディレクトリへビルド結果を push する。
+ワークフローが、GitHub App のトークンで配信用リポジトリを checkout し、`site.config.json` の `basePath` に対応するディレクトリへビルド結果を push する。公開するのは main だけで、手動で実行するときに別のブランチを選んでも何もしない。
+
+マージ前の確認には `preview` ブランチを使う。ここに push したものが、`stash-preview/` に全件ビルドで公開される（`.github/workflows/preview.yml`）。記録のデータは main の最新を使い、全ページに `noindex` を付ける。`git push -f origin <ブランチ>:preview` で、試したいブランチをいつでも入れ替えられる。push したコミットにこのワークフローが含まれている必要がある。試し終えたら `git push -f origin main:preview` で main に戻す。コード（`data/works` 以外）が main と同じなら、`stash-preview/` を消す。
 
 | 種類 | 名前 | 内容 |
 |---|---|---|
