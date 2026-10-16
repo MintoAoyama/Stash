@@ -42,6 +42,28 @@ test('long texts are cut at 140 characters with a link to the log page; short on
   assert.match(page, /<p class="log-more"><a href="\/stash\/w\/1\/w1\/l1\/">続きを読む<\/a><\/p>/);
 });
 
+test('a short text is rendered as Markdown on the work page; a long one is cut as plain text', () => {
+  const page = render([work([log({ text: '**良かった**\n\n- 一\n- 二' }), log({ id: 'l2', text: `**${'あ'.repeat(150)}** [リンク](https://example.com/)` })])], 'work:w1');
+  assert.ok(page.includes('<div class="log-text"><p><strong>良かった</strong></p>\n<ul>\n<li>一</li>\n<li>二</li>\n</ul>\n</div>'));
+  assert.ok(page.includes(`<div class="log-text"><p>${'あ'.repeat(140)}…</p></div>`));
+  assert.ok(!page.includes('**'));
+});
+
+test('the log page renders the whole text as Markdown', () => {
+  const page = render([work([log({ text: `# 感想\n\n**${'あ'.repeat(150)}**` })])], 'log:w1/l1');
+  assert.ok(page.includes(`<div class="log-text"><h3>感想</h3>\n<p><strong>${'あ'.repeat(150)}</strong></p>\n</div>`));
+});
+
+test('a log without text has no text block', () => {
+  assert.ok(!render([work([log({ text: '' })])], 'work:w1').includes('log-text'));
+  assert.ok(!render([work([log({ text: '  \n' })])], 'log:w1/l1').includes('log-text'));
+});
+
+test('timelines show the text without its markup', () => {
+  const page = render([work([log({ text: '**太字**と[リンク](https://example.com/)' })])], 'month:2026-10');
+  assert.ok(page.includes('<p>太字とリンク</p>'));
+});
+
 test('truncation does not split a surrogate pair', () => {
   const page = render([work([log({ text: '😀'.repeat(141) })])], 'work:w1');
   assert.ok(page.includes(`${'😀'.repeat(140)}…`));
