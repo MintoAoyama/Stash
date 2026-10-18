@@ -74,7 +74,7 @@ const program = { channel: 'NHK総合', date: '2026-10-11', start: '21:00', end:
 
 test('program info shows the time range and an https link to the official page', () => {
   const page = render([work([log({ program })])], 'log:w1/l1');
-  assert.ok(page.includes('NHK総合 2026-10-11 21:00–21:45 「放送タイトル」 <a href="https://example.com/p/1" rel="noopener noreferrer">番組ページ</a>'));
+  assert.ok(page.includes('NHK総合 21:00–21:45 放送 「放送タイトル」 <a href="https://example.com/p/1" rel="noopener noreferrer">番組ページ</a>'));
 });
 
 const regular = { channel: 'NHK総合', airtime: '日曜 21:00〜21:45' };
@@ -85,21 +85,72 @@ test('on the work page a program on the work channel with an airtime, watched th
   assert.ok(!page.includes('<div class="program">'));
 });
 
-test('on the work page a program watched later shows its broadcast date, without the year when it is the same', () => {
+test('on the work page a program watched later is dated by its broadcast day, with the day it was watched after it, without the year when it is the same', () => {
   const later = render([work([log({ program, loggedAt: '2026-10-13' })], regular)], 'work:w1');
-  assert.ok(later.includes('<span class="program"> · 10-11 放送 · <a'));
+  assert.ok(later.includes('<time datetime="2026-10-11">2026-10-11</time>'));
+  assert.ok(!later.includes('2026-10-13'));
+  assert.ok(later.includes('<span class="program"> · 10-13 鑑賞 · <a'));
   const nextYear = render([work([log({ program, loggedAt: '2027-01-02' })], regular)], 'work:w1');
-  assert.ok(nextYear.includes('<span class="program"> · 2026-10-11 放送 · <a'));
+  assert.ok(nextYear.includes('<span class="program"> · 2027-01-02 鑑賞 · <a'));
 });
 
-test('on the work page a program on the work channel without an airtime drops only the channel and the date', () => {
+test('on the work page a program on the work channel without an airtime drops only the channel', () => {
   const page = render([work([log({ program })], { channel: 'NHK総合' })], 'work:w1');
-  assert.ok(page.includes('<div class="program">21:00–21:45 「放送タイトル」 <a'));
+  assert.ok(page.includes('<div class="program">21:00–21:45 放送 「放送タイトル」 <a'));
 });
 
 test('on the work page a program on another channel keeps its channel', () => {
   const page = render([work([log({ program: { ...program, channel: 'NHK BS' }, loggedAt: '2026-10-13' })], regular)], 'work:w1');
-  assert.ok(page.includes('NHK BS 10-11 21:00–21:45 「放送タイトル」'));
+  assert.ok(page.includes('NHK BS 10-11 21:00–21:45 放送 「放送タイトル」 · 10-13 鑑賞'));
+  const nextYear = render([work([log({ program: { ...program, channel: 'NHK BS' }, loggedAt: '2027-01-02' })], regular)], 'work:w1');
+  assert.ok(nextYear.includes('NHK BS 2026-10-11 21:00–21:45 放送 「放送タイトル」 · 2027-01-02 鑑賞'));
+});
+
+test('the log page is dated by the broadcast day and names the day it was watched', () => {
+  const page = render([work([log({ program, loggedAt: '2026-10-13' })])], 'log:w1/l1');
+  assert.ok(page.includes('<a href="/stash/m/2026/10/"><time datetime="2026-10-11">2026-10-11</time></a>'));
+  assert.ok(page.includes('NHK総合 2026-10-11 21:00–21:45 放送 「放送タイトル」 · 2026-10-13 鑑賞 <a'));
+  const old = render([work([log({ program: { ...program, date: '2014-11-27' }, loggedAt: '2026-10-13' })])], 'log:w1/l1');
+  assert.ok(old.includes('<a href="/stash/m/2014/11/"><time datetime="2014-11-27">2014-11-27</time></a>'));
+  assert.ok(old.includes('<title>テストドラマ 2014-11-27 | stash</title>'));
+});
+
+test('a log without a program keeps the day it was logged', () => {
+  const page = render([work([log({ loggedAt: '2026-10-13' })])], 'log:w1/l1');
+  assert.ok(page.includes('<time datetime="2026-10-13">2026-10-13</time>'));
+  assert.ok(!page.includes('鑑賞'));
+});
+
+test('logs on the work page are ordered by their broadcast day, not the day they were watched', () => {
+  const caught = log({ id: 'a', episode: 1, loggedAt: '2026-10-18', program: { ...program, date: '2026-10-04' } });
+  const live = log({ id: 'b', episode: 2, loggedAt: '2026-10-18', program: { ...program, date: '2026-10-11' } });
+  const at = (page: string, id: string): number => page.indexOf(`class="log-title" href="/stash/w/1/w1/${id}/"`);
+  const page = render([work([caught, live])], 'work:w1');
+  assert.ok(at(page, 'b') >= 0 && at(page, 'b') < at(page, 'a'));
+  const older = log({ id: 'c', episode: 3, loggedAt: '2026-10-19', program: { ...program, date: '2014-11-27' } });
+  const reordered = render([work([caught, live, older])], 'work:w1');
+  assert.ok(at(reordered, 'a') >= 0 && at(reordered, 'a') < at(reordered, 'c'));
+});
+
+test('the month, week and year pages place a log on its broadcast day and name the day it was watched', () => {
+  const old = log({ loggedAt: '2026-10-18', program: { ...program, date: '2014-11-27' } });
+  const w = work([old, log({ id: 'l2', loggedAt: '2026-10-18', text: '映画' })]);
+  const month = render([w], 'month:2014-11');
+  assert.ok(month.includes('<time datetime="2014-11-27">11-27</time>'));
+  assert.ok(month.includes('<span class="watched">2026-10-18 鑑賞</span>'));
+  assert.ok(render([w], 'week:2014-11-4').includes('2026-10-18 鑑賞'));
+  assert.ok(render([w], 'year:2014').includes('<a href="/stash/m/2014/11/">11月</a>'));
+  const current = render([w], 'month:2026-10');
+  assert.ok(current.includes('1 件'));
+  assert.ok(!current.includes('鑑賞'));
+});
+
+test('the cards of a list show the broadcast day of the latest log, and a work is as new as that', () => {
+  const old = work([log({ id: 'o', loggedAt: '2026-10-18', program: { ...program, date: '2014-11-27' } })], { id: 'old', title: '古い録画' });
+  const fresh = work([log({ id: 'n', loggedAt: '2026-10-05' })], { id: 'new', title: '新しい作品' });
+  const page = render([old, fresh], 'type:tv');
+  assert.ok(page.includes('<time datetime="2014-11-27">2014-11-27</time>'));
+  assert.ok(page.indexOf('新しい作品') < page.indexOf('古い録画'));
 });
 
 test('a program with nothing left to show draws no line', () => {

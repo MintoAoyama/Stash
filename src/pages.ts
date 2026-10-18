@@ -1,3 +1,4 @@
+import { logDate } from './episodes.ts';
 import { seasonOf } from './season.ts';
 import { weekOf } from './week.ts';
 import { MEDIA_TYPES, type Work } from './types.ts';
@@ -44,11 +45,11 @@ export function splitLogArg(arg: string): [string, string] {
 }
 
 export function monthsOf(work: Work): string[] {
-  return [...new Set(work.logs.map((l) => l.loggedAt.slice(0, 7)).filter((m) => /^\d{4}-\d{2}$/.test(m)))];
+  return [...new Set(work.logs.map((l) => logDate(l).slice(0, 7)).filter((m) => /^\d{4}-\d{2}$/.test(m)))];
 }
 
 export function weeksOf(work: Work): string[] {
-  return [...new Set(work.logs.map((l) => weekOf(l.loggedAt)).filter((w): w is string => w !== undefined))];
+  return [...new Set(work.logs.map((l) => weekOf(logDate(l))).filter((w): w is string => w !== undefined))];
 }
 
 export function pageKeysForWork(work: Work): Set<PageKey> {

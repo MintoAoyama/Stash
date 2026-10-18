@@ -1,5 +1,5 @@
 import { channelOf } from './channel.ts';
-import { highestEpisode, isFinished } from './episodes.ts';
+import { highestEpisode, isFinished, logDate } from './episodes.ts';
 import { seasonOf } from './season.ts';
 import type { MediaType, Work } from './types.ts';
 
@@ -7,13 +7,15 @@ export interface SiteData {
   // byType and seasons count every work, including those without logs, because they decide which navigation links lead to a page.
   // authors decides whether author names are shown: with a single author they say nothing.
   counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number; authors: number };
-  recent: { id: string; title: string; type: MediaType; loggedAt: string; author: string; rating: number | null }[];
+  // Newest loggedAt first; aired is the day the log belongs to when that is not loggedAt.
+  recent: { id: string; title: string; type: MediaType; loggedAt: string; aired?: string; author: string; rating: number | null }[];
   // Works with episode logs that are neither finished nor idle, most recently logged first; episode is the highest one logged.
   watching: { id: string; title: string; channel: string; episode: number; episodeCount: number | null; loggedAt: string }[];
+  // years and days go by the day a log belongs to (logDate), like the year and month pages they lead to.
   years: { year: string; logs: number }[];
   // "MM-dd" -> records on that day in any year, for "on this day"
   days: Record<string, { year: string; id: string; title: string }[]>;
-  // "yyyy-MM-dd" -> number of records per media type, for the activity heatmap
+  // "yyyy-MM-dd" (the day it was logged) -> number of records per media type, for the activity heatmap
   activity: Record<string, Partial<Record<MediaType, number>>>;
 }
 
@@ -50,9 +52,9 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
   const workIds = new Set<string>();
   for (const { w, l } of entries) {
     workIds.add(w.id);
-    const year = l.loggedAt.slice(0, 4);
+    const year = logDate(l).slice(0, 4);
     years.set(year, (years.get(year) ?? 0) + 1);
-    const day = l.loggedAt.slice(5, 10);
+    const day = logDate(l).slice(5, 10);
     const list = (days[day] ??= []);
     if (!list.some((d) => d.year === year && d.id === w.id)) list.push({ year, id: w.id, title: w.title });
     const counts = (activity[l.loggedAt] ??= {});
@@ -75,6 +77,7 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
       title: w.title,
       type: w.type,
       loggedAt: l.loggedAt,
+      ...(logDate(l) !== l.loggedAt ? { aired: logDate(l) } : {}),
       author: l.author,
       rating: l.rating ?? null,
     })),

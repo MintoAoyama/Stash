@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { compareLogs, compareNewestFirst, coveringLog, episodeLabel, episodeSpan, highestEpisode, isFinished, logHeading, neighbours, progressOf, sameEpisodeLogs } from '../src/episodes.ts';
+import { compareLogs, compareNewestFirst, coveringLog, episodeLabel, episodeSpan, highestEpisode, isFinished, logDate, logHeading, neighbours, progressOf, sameEpisodeLogs } from '../src/episodes.ts';
 import type { Log, Work } from '../src/types.ts';
 
 const log = (over: Partial<Log> = {}): Log => ({ id: 'l1', author: 'alice', loggedAt: '2026-10-11', text: '', ...over });
@@ -44,6 +44,29 @@ test('viewing order sorts by episode, then date, with episode-less logs last', (
 test('newest first puts the later episode first within a day', () => {
   const logs = [log({ id: 'a', episode: 1 }), log({ id: 'b', episode: 2 }), log({ id: 'c', loggedAt: '2026-10-12' })];
   assert.deepEqual(logs.sort(compareNewestFirst).map((l) => l.id), ['c', 'b', 'a']);
+});
+
+test('a log belongs to the broadcast day of its program, else to the day it was logged', () => {
+  assert.equal(logDate(log({ loggedAt: '2026-10-18', program: { channel: 'NHK総合', date: '2014-11-27' } })), '2014-11-27');
+  assert.equal(logDate(log({ loggedAt: '2026-10-18' })), '2026-10-18');
+  assert.equal(logDate(log({ loggedAt: '2026-10-18', program: null })), '2026-10-18');
+});
+
+test('newest first goes by the broadcast day, not the day the log was made', () => {
+  const logs = [
+    log({ id: 'a', loggedAt: '2026-10-18', program: { channel: 'TBS', date: '2026-10-04' } }),
+    log({ id: 'b', loggedAt: '2026-10-18', program: { channel: 'TBS', date: '2026-10-11' } }),
+    log({ id: 'c', loggedAt: '2026-10-12' }),
+  ];
+  assert.deepEqual(logs.sort(compareNewestFirst).map((l) => l.id), ['c', 'b', 'a']);
+});
+
+test('viewing order still goes by the day the logs were made', () => {
+  const logs = [
+    log({ id: 'b', episode: 1, loggedAt: '2026-10-18', program: { channel: 'TBS', date: '2026-10-04' } }),
+    log({ id: 'a', episode: 1, loggedAt: '2026-10-12', program: { channel: 'TBS', date: '2026-10-11' } }),
+  ];
+  assert.deepEqual(logs.sort(compareLogs).map((l) => l.id), ['a', 'b']);
 });
 
 test('neighbours follow viewing order and stop at both ends', () => {
