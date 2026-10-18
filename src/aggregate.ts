@@ -1,5 +1,5 @@
 import { channelOf } from './channel.ts';
-import { highestEpisode, isFinished, logDate } from './episodes.ts';
+import { highestEpisode, logDate } from './episodes.ts';
 import { seasonOf } from './season.ts';
 import type { MediaType, Work } from './types.ts';
 
@@ -9,10 +9,11 @@ export interface SiteData {
   counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number; authors: number };
   // Newest loggedAt first; aired is the day the log belongs to when that is not loggedAt.
   recent: { id: string; title: string; type: MediaType; loggedAt: string; aired?: string; author: string; rating: number | null }[];
-  // Works with episode logs that are neither finished nor idle, most recently logged first; episode is the highest one logged.
-  watching: { id: string; title: string; channel: string; episode: number; episodeCount: number | null; loggedAt: string }[];
-  // years and days go by the day a log belongs to (logDate), like the year and month pages they lead to.
-  years: { year: string; logs: number }[];
+  // Season -> its works, most recently logged first and works without logs last; episode is the highest one logged.
+  // The home page picks the season of the day it is opened, so every season is listed.
+  seasonWorks: Record<string, { id: string; title: string; channel: string; episode: number | null; episodeCount: number | null; loggedAt: string | null }[]>;
+  // years and days go by the day a log belongs to (logDate), like the year and month pages they lead to; months holds the records of January to December.
+  years: { year: string; logs: number; months: number[] }[];
   // "MM-dd" -> records on that day in any year, for "on this day"
   days: Record<string, { year: string; id: string; title: string }[]>;
   // "yyyy-MM-dd" (the day it was logged) -> number of records per media type, for the activity heatmap
@@ -20,25 +21,19 @@ export interface SiteData {
 }
 
 const RECENT_LIMIT = 30;
-const WATCHING_LIMIT = 12;
-// How long a work may go without a log before it stops counting as being watched, measured from the newest log of the whole data set so that site.json only changes with the data.
-export const WATCHING_MAX_IDLE_DAYS = 30;
-const DAY_MS = 24 * 60 * 60 * 1000;
 
-function daysBetween(from: string, to: string): number {
-  return (Date.parse(to) - Date.parse(from)) / DAY_MS;
-}
-
-function watchingOf(works: Work[], newest: string): SiteData['watching'] {
-  return works
-    .flatMap((w) => {
-      const episode = highestEpisode(w);
-      const loggedAt = w.logs.map((l) => l.loggedAt).sort().at(-1) ?? '';
-      if (episode === null || isFinished(w) || daysBetween(loggedAt, newest) > WATCHING_MAX_IDLE_DAYS) return [];
-      return [{ id: w.id, title: w.title, channel: channelOf(w), episode, episodeCount: w.episodeCount ?? null, loggedAt }];
-    })
-    .sort((a, b) => b.loggedAt.localeCompare(a.loggedAt) || a.id.localeCompare(b.id))
-    .slice(0, WATCHING_LIMIT);
+function seasonWorksOf(works: Work[]): SiteData['seasonWorks'] {
+  const bySeason: SiteData['seasonWorks'] = {};
+  for (const w of works) {
+    const season = seasonOf(w);
+    if (!season) continue;
+    const loggedAt = w.logs.map((l) => l.loggedAt).sort().at(-1) ?? null;
+    (bySeason[season] ??= []).push({ id: w.id, title: w.title, channel: channelOf(w), episode: highestEpisode(w), episodeCount: w.episodeCount ?? null, loggedAt });
+  }
+  for (const list of Object.values(bySeason)) {
+    list.sort((a, b) => (b.loggedAt ?? '').localeCompare(a.loggedAt ?? '') || a.id.localeCompare(b.id));
+  }
+  return bySeason;
 }
 
 export function buildSiteData(works: Iterable<Work>): SiteData {
@@ -46,14 +41,16 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
   const entries = all.flatMap((w) => w.logs.map((l) => ({ w, l })));
   entries.sort((a, b) => b.l.loggedAt.localeCompare(a.l.loggedAt) || a.l.id.localeCompare(b.l.id));
 
-  const years = new Map<string, number>();
+  const years = new Map<string, number[]>();
   const days: SiteData['days'] = {};
   const activity: SiteData['activity'] = {};
   const workIds = new Set<string>();
   for (const { w, l } of entries) {
     workIds.add(w.id);
     const year = logDate(l).slice(0, 4);
-    years.set(year, (years.get(year) ?? 0) + 1);
+    const months = years.get(year) ?? Array<number>(12).fill(0);
+    months[Number(logDate(l).slice(5, 7)) - 1]!++;
+    years.set(year, months);
     const day = logDate(l).slice(5, 10);
     const list = (days[day] ??= []);
     if (!list.some((d) => d.year === year && d.id === w.id)) list.push({ year, id: w.id, title: w.title });
@@ -81,8 +78,8 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
       author: l.author,
       rating: l.rating ?? null,
     })),
-    watching: watchingOf(all, entries[0]?.l.loggedAt ?? ''),
-    years: [...years].sort(([a], [b]) => b.localeCompare(a)).map(([year, logs]) => ({ year, logs })),
+    seasonWorks: seasonWorksOf(all),
+    years: [...years].sort(([a], [b]) => b.localeCompare(a)).map(([year, months]) => ({ year, logs: months.reduce((a, b) => a + b, 0), months })),
     days,
     activity,
   };

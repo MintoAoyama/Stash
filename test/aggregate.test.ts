@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { buildSiteData, WATCHING_MAX_IDLE_DAYS } from '../src/aggregate.ts';
+import { buildSiteData } from '../src/aggregate.ts';
 import type { Log, Work } from '../src/types.ts';
 
 const log = (over: Partial<Log> = {}): Log => ({ id: 'l1', author: 'あお', loggedAt: '2026-10-11', text: '', ...over });
@@ -33,7 +33,8 @@ const oldRecording = log({ id: 'o', loggedAt: '2026-10-18', program: { channel: 
 
 test('years and on-this-day go by the broadcast day, the activity calendar by the day it was logged', () => {
   const data = buildSiteData([work('a1', { logs: [oldRecording] }), work('b2')]);
-  assert.deepEqual(data.years, [{ year: '2026', logs: 1 }, { year: '2014', logs: 1 }]);
+  assert.deepEqual(data.years.map((y) => [y.year, y.logs]), [['2026', 1], ['2014', 1]]);
+  assert.equal(data.years[1]?.months[10], 1);
   assert.deepEqual(data.days['11-27'], [{ year: '2014', id: 'a1', title: '作品 a1' }]);
   assert.equal(data.days['10-18'], undefined);
   assert.deepEqual(data.activity['2026-10-18'], { tv: 1 });
@@ -51,63 +52,45 @@ test('works that were given as a one-shot iterator are all counted', () => {
   assert.equal(buildSiteData(works.values()).counts.byType.tv, 2);
 });
 
-test('watching lists works with episode logs, most recently logged first, with the highest episode logged', () => {
+test('seasonWorks groups works by season, most recently logged first, works without logs last', () => {
   const data = buildSiteData([
-    work('a1', { logs: [log({ id: 'x', episode: 1, loggedAt: '2026-10-05' }), log({ id: 'y', author: 'そら', episode: 2, episodeEnd: 4, loggedAt: '2026-10-06' })] }),
-    work('b2', { logs: [log({ id: 'x', episode: 7, loggedAt: '2026-10-12' })], episodeCount: 12 }),
-    work('c3', { logs: [log({ id: 'x', loggedAt: '2026-10-13' })] }),
+    work('a1', { season: '2026-autumn', logs: [log({ id: 'x', episode: 1, loggedAt: '2026-10-05' }), log({ id: 'y', author: 'そら', episode: 2, episodeEnd: 4, loggedAt: '2026-10-06' })] }),
+    work('b2', { season: '2026-autumn', logs: [log({ id: 'x', episode: 7, loggedAt: '2026-10-12' })], episodeCount: 12 }),
+    work('c3', { season: '2026-autumn', logs: [] }),
+    work('d4', { season: '2026-summer', logs: [log({ id: 'x', loggedAt: '2026-08-01' })] }),
+    work('e5', { logs: [log({ id: 'x' })] }),
   ]);
-  assert.deepEqual(data.watching, [
-    { id: 'b2', title: '作品 b2', channel: '', episode: 7, episodeCount: 12, loggedAt: '2026-10-12' },
-    { id: 'a1', title: '作品 a1', channel: '', episode: 4, episodeCount: null, loggedAt: '2026-10-06' },
-  ]);
+  assert.deepEqual(data.seasonWorks, {
+    '2026-autumn': [
+      { id: 'b2', title: '作品 b2', channel: '', episode: 7, episodeCount: 12, loggedAt: '2026-10-12' },
+      { id: 'a1', title: '作品 a1', channel: '', episode: 4, episodeCount: null, loggedAt: '2026-10-06' },
+      { id: 'c3', title: '作品 c3', channel: '', episode: null, episodeCount: null, loggedAt: null },
+    ],
+    '2026-summer': [{ id: 'd4', title: '作品 d4', channel: '', episode: null, episodeCount: null, loggedAt: '2026-08-01' }],
+  });
 });
 
-test('the date of a watching entry is the latest of all its logs, including ones without an episode', () => {
-  const data = buildSiteData([work('a1', { logs: [log({ id: 'x', episode: 3, loggedAt: '2026-10-05' }), log({ id: 'y', loggedAt: '2026-10-09' })] })]);
-  assert.equal(data.watching[0]?.loggedAt, '2026-10-09');
+test('seasonWorks keeps works that have been watched to the end', () => {
+  const data = buildSiteData([work('a1', { season: '2026-autumn', episodeCount: 3, logs: [log({ id: 'x', episode: 1, episodeEnd: 3 })] })]);
+  assert.deepEqual(data.seasonWorks['2026-autumn']?.map((w) => w.id), ['a1']);
 });
 
-test('watching is limited to the 12 most recent works', () => {
-  const works = Array.from({ length: 15 }, (_, i) => work(`w${i}`, { logs: [log({ id: 'x', episode: 1, loggedAt: `2026-10-${String(i + 1).padStart(2, '0')}` })] }));
-  const data = buildSiteData(works);
-  assert.equal(data.watching.length, 12);
-  assert.equal(data.watching[0]?.id, 'w14');
-  assert.equal(data.watching[11]?.id, 'w3');
-});
-
-test('watching leaves out works whose length is known and that every author has watched to the end', () => {
-  const both = (episodeEnd: number) => [log({ id: 'x', episode: 1, episodeEnd }), log({ id: 'y', author: 'そら', episode: 1, episodeEnd })];
-  const data = buildSiteData([
-    work('a1', { logs: both(3), episodeCount: 3 }),
-    work('b2', { logs: both(3), episodeCount: 4 }),
-    work('c3', { logs: [log({ id: 'x', episode: 1, episodeEnd: 3 }), log({ id: 'y', author: 'そら', episode: 1 })], episodeCount: 3 }),
-    work('d4', { logs: both(3) }),
-  ]);
-  assert.deepEqual(data.watching.map((w) => w.id), ['b2', 'c3', 'd4']);
-});
-
-test('watching entries carry the channel of the work, or the one its logs mention most', () => {
+test('seasonWorks entries carry the channel of the work, or the one its logs mention most', () => {
   const onAir = (channel: string) => log({ id: 'x', episode: 1, program: { channel, date: '2026-10-11' } });
-  const data = buildSiteData([work('a1', { channel: 'NHK総合', logs: [onAir('ＢＳ')] }), work('b2', { logs: [onAir('TBS')] }), work('c3', { logs: [log({ episode: 1 })] })]);
-  assert.deepEqual(data.watching.map((w) => [w.id, w.channel]), [['a1', 'NHK総合'], ['b2', 'TBS'], ['c3', '']]);
-});
-
-const daysBefore = (date: string, days: number): string => new Date(Date.parse(date) - days * 86_400_000).toISOString().slice(0, 10);
-const watched = (id: string, loggedAt: string) => work(id, { logs: [log({ id: 'x', episode: 1, loggedAt })] });
-
-test('watching leaves out works idle for longer than the limit, counted from the newest log of the whole data set', () => {
-  const newest = '2026-10-31';
   const data = buildSiteData([
-    work('n1', { type: 'movie', logs: [log({ id: 'x', loggedAt: newest })] }),
-    watched('a1', daysBefore(newest, WATCHING_MAX_IDLE_DAYS)),
-    watched('b2', daysBefore(newest, WATCHING_MAX_IDLE_DAYS + 1)),
-    watched('c3', newest),
+    work('a1', { season: '2026-autumn', channel: 'NHK総合', logs: [onAir('ＢＳ')] }),
+    work('b2', { season: '2026-autumn', logs: [onAir('TBS')] }),
   ]);
-  assert.deepEqual(data.watching.map((w) => w.id), ['c3', 'a1']);
+  assert.deepEqual(data.seasonWorks['2026-autumn']?.map((w) => [w.id, w.channel]), [['a1', 'NHK総合'], ['b2', 'TBS']]);
 });
 
-test('the idle limit depends on the data, not on the day the site is built', () => {
-  const old = buildSiteData([watched('a1', '2020-01-01'), watched('b2', '2020-01-20')]);
-  assert.deepEqual(old.watching.map((w) => w.id), ['b2', 'a1']);
+test('years carry the number of records of each month, by the day a log belongs to', () => {
+  const data = buildSiteData([
+    work('a1', { logs: [log({ id: 'x', loggedAt: '2026-10-11' }), log({ id: 'y', loggedAt: '2026-10-12' }), log({ id: 'z', loggedAt: '2026-03-01' })] }),
+    work('b2', { logs: [log({ id: 'x', loggedAt: '2025-12-31' })] }),
+  ]);
+  assert.deepEqual(data.years, [
+    { year: '2026', logs: 3, months: [0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0] },
+    { year: '2025', logs: 1, months: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] },
+  ]);
 });

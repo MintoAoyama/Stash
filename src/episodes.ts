@@ -117,9 +117,3 @@ export function progressOf(work: Work): Progress | null {
 export function coveringLog(row: ProgressRow, episode: number): Log | undefined {
   return row.watched.find((w) => w.from <= episode && episode <= w.to)?.log;
 }
-
-// The length is known and every author with episode logs has covered all of it.
-export function isFinished(work: Work): boolean {
-  const progress = progressOf(work);
-  return progress !== null && progress.countKnown && progress.rows.every((r) => r.count >= progress.total);
-}
