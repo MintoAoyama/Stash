@@ -64,7 +64,7 @@ test('first build is full and renders every page', () => {
     assert.ok(existsSync(join(out, f)), f);
   }
   const site = JSON.parse(readFileSync(join(out, 'data/site.json'), 'utf8'));
-  assert.deepEqual(site.counts, { works: 2, logs: 2, byType: { movie: 1, book: 1 }, seasons: 0 });
+  assert.deepEqual(site.counts, { works: 2, logs: 2, byType: { movie: 1, book: 1 }, seasons: 0, authors: 1 });
 });
 
 test('editing one work re-renders only the pages it touches', () => {
