@@ -34,6 +34,25 @@
         "start": "07:05",
         "source": "bstvtokyo"
       }
+    },
+    {
+      "id": "mvegcngju6bj",
+      "author": "minto",
+      "loggedAt": "2026-10-19",
+      "rating": null,
+      "text": "- 「FT Today」プライベートジェット生産の遅れで中古市場の価格高騰。購入直後に転売しているらしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "「国産AI」実現の課題は ノエトラの丹波社長生出演",
+      "program": {
+        "channel": "BSテレ東",
+        "end": "08:00",
+        "start": "07:05",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202610/23593_202610190705.html",
+        "source": "bstvtokyo",
+        "date": "2026-10-19",
+        "title": "モープラFT"
+      }
     }
   ]
 }
