@@ -5,7 +5,8 @@ import type { MediaType, Work } from './types.ts';
 
 export interface SiteData {
   // byType and seasons count every work, including those without logs, because they decide which navigation links lead to a page.
-  counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number };
+  // authors decides whether author names are shown: with a single author they say nothing.
+  counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number; authors: number };
   recent: { id: string; title: string; type: MediaType; loggedAt: string; author: string; rating: number | null }[];
   // Works with episode logs that are neither finished nor idle, most recently logged first; episode is the highest one logged.
   watching: { id: string; title: string; channel: string; episode: number; episodeCount: number | null; loggedAt: string }[];
@@ -62,7 +63,13 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
   for (const w of all) byType[w.type] = (byType[w.type] ?? 0) + 1;
 
   return {
-    counts: { works: workIds.size, logs: entries.length, byType, seasons: new Set(all.map(seasonOf).filter(Boolean)).size },
+    counts: {
+      works: workIds.size,
+      logs: entries.length,
+      byType,
+      seasons: new Set(all.map(seasonOf).filter(Boolean)).size,
+      authors: new Set(entries.map(({ l }) => l.author)).size,
+    },
     recent: entries.slice(0, RECENT_LIMIT).map(({ w, l }) => ({
       id: w.id,
       title: w.title,

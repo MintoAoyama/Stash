@@ -21,7 +21,12 @@ test('counts per media type and of seasons decide which navigation links are sho
 
 test('an empty site has no types or seasons', () => {
   const data = buildSiteData([]);
-  assert.deepEqual(data.counts, { works: 0, logs: 0, byType: {}, seasons: 0 });
+  assert.deepEqual(data.counts, { works: 0, logs: 0, byType: {}, seasons: 0, authors: 0 });
+});
+
+test('authors counts the distinct authors of all logs, which decides whether their names are shown', () => {
+  assert.equal(buildSiteData([work('a1', { logs: [log(), log({ id: 'l2' })] }), work('b2')]).counts.authors, 1);
+  assert.equal(buildSiteData([work('a1'), work('b2', { logs: [log({ author: 'そら' })] })]).counts.authors, 2);
 });
 
 test('works that were given as a one-shot iterator are all counted', () => {
