@@ -28,6 +28,13 @@ test('pageKeysForWork covers the work, every ancestor dir, tags, months, weeks a
   );
 });
 
+test('a log with a program belongs to the month, week and year of its broadcast day', () => {
+  const logs = [{ id: 'l1', author: 'alice', loggedAt: '2026-10-18', text: '', program: { channel: 'NHK総合', date: '2014-11-27' } }];
+  const keys = pageKeysForWork(work({ logs }));
+  for (const k of ['month:2014-11', 'week:2014-11-4', 'year:2014']) assert.ok(keys.has(k), k);
+  for (const k of ['month:2026-10', 'week:2026-10-3', 'year:2026']) assert.ok(!keys.has(k), k);
+});
+
 test('every log of a work gets its own page key', () => {
   const logs = ['l1', 'l2', 'l3'].map((id) => ({ id, author: 'alice', loggedAt: '2026-10-11', text: '' }));
   const keys = pageKeysForWork(work({ logs }));

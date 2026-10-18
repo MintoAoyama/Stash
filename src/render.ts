@@ -1,5 +1,5 @@
 import { channelOf } from './channel.ts';
-import { compareNewestFirst, coveringLog, episodeLabel, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
+import { compareNewestFirst, coveringLog, episodeLabel, logDate, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
 import { markdown, plainText } from './markdown.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
@@ -101,11 +101,15 @@ function stars(rating: number | null | undefined): Raw {
 }
 
 function latestLog(work: Work): Log | undefined {
-  return work.logs.reduce<Log | undefined>((a, l) => (!a || l.loggedAt > a.loggedAt ? l : a), undefined);
+  return work.logs.reduce<Log | undefined>((a, l) => (!a || logDate(l) > logDate(a) ? l : a), undefined);
 }
 
 function byLatestDesc(a: Work, b: Work): number {
-  return (latestLog(b)?.loggedAt ?? '').localeCompare(latestLog(a)?.loggedAt ?? '') || a.id.localeCompare(b.id);
+  const latest = (w: Work): string => {
+    const l = latestLog(w);
+    return l ? logDate(l) : '';
+  };
+  return latest(b).localeCompare(latest(a)) || a.id.localeCompare(b.id);
 }
 
 function authorsOf(works: Work[]): string[] {
@@ -145,7 +149,7 @@ ${authors.map((a, i) => html`<label><input type="radio" name="fa" id="fa-${i}">$
     const a = [...new Set(w.logs.map((l) => `a${authors.indexOf(l.author)}`))].join(' ');
     return html`<li class="card${w.coverUrl ? '' : ' card--text'}" data-type="${w.type}" data-a="${a}">
 <a href="${url(site, `work:${w.id}`)}">${cover(w, 'thumb')}<span class="card-title">${w.title}</span></a>
-<span class="card-meta">${MEDIA_TYPE_LABELS[w.type]}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''} ${stars(latest?.rating)}</span>
+<span class="card-meta">${MEDIA_TYPE_LABELS[w.type]}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''} ${stars(latest?.rating)}</span>
 </li>`;
   });
 
@@ -177,23 +181,35 @@ function truncate(text: string, max: number): { text: string; truncated: boolean
   return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
 }
 
+// The work page leaves out the year of a day in the year of the other day it shows.
+function dayText(day: string, other: string, onWorkPage: boolean): string {
+  return onWorkPage && day.slice(0, 4) === other.slice(0, 4) ? day.slice(5) : day;
+}
+
+// "2026-10-18 鑑賞": the day the log was made, when that is not the day it belongs to (the broadcast day, which heads the log).
+function watchedNote(log: Log, onWorkPage: boolean): string {
+  const day = logDate(log);
+  return log.loggedAt === day ? '' : `${dayText(log.loggedAt, day, onWorkPage)} 鑑賞`;
+}
+
 function programInfo(log: Log, work: Work, onWorkPage: boolean): { brief: boolean; html: Raw } {
   const program = log.program;
   if (!program) return { brief: false, html: raw('') };
   const sameChannel = onWorkPage && program.channel === channelOf(work);
   const brief = sameChannel && !!work.airtime;
-  let date = program.date ?? '';
-  if (onWorkPage && date === log.loggedAt) date = '';
-  else if (onWorkPage && date.slice(0, 4) === log.loggedAt.slice(0, 4)) date = date.slice(5);
+  const watched = watchedNote(log, onWorkPage);
   const link = program.url?.startsWith('https://') ? html`<a href="${program.url}" rel="noopener noreferrer">番組ページ</a>` : '';
 
   if (brief) {
-    const parts = [date ? `${date} 放送` : '', link].filter(Boolean);
+    const parts = [watched, link].filter(Boolean);
     return { brief, html: parts.length ? html`<span class="program"> · ${parts.map((p, i) => html`${i ? ' · ' : ''}${p}`)}</span>` : raw('') };
   }
+  // The broadcast day is in the line only beside a day it was watched on, so that the two are told apart.
+  const day = logDate(log);
   const time = program.start ? `${program.start}${program.end ? `–${program.end}` : ''}` : '';
+  const when = [log.loggedAt === day ? '' : dayText(day, log.loggedAt, onWorkPage), time].filter(Boolean).join(' ');
   const title = program.title && program.title !== work.title ? `「${program.title}」` : '';
-  const text = [sameChannel ? '' : program.channel, date, time, title].filter(Boolean).join(' ');
+  const text = [[sameChannel ? '' : program.channel, when ? `${when} 放送` : '', title].filter(Boolean).join(' '), watched].filter(Boolean).join(' · ');
   if (!text && !link) return { brief, html: raw('') };
   return { brief, html: html`<div class="program">${text}${text && link ? ' ' : ''}${link}</div>` };
 }
@@ -208,7 +224,7 @@ function progressCells(site: Site, work: Work, row: ProgressRow, total: number):
     const episode = i + 1;
     const log = coveringLog(row, episode);
     if (!log) return html`<span class="ep" title="第${episode}話"></span>`;
-    const label = `第${episode}話 ${log.loggedAt}`;
+    const label = `第${episode}話 ${logDate(log)}`;
     return html`<a class="ep ep--seen" href="${url(site, logKey(work.id, log.id))}" title="${label}" aria-label="${label}"></a>`;
   })}</span>`;
 }
@@ -242,9 +258,10 @@ function renderWork(site: Site, work: Work): string {
     const heading = logHeading(l);
     // A long text is cut as plain text, so the cut never lands inside the markup.
     const excerpt = truncate(plainText(l.text), EXCERPT_CHARS);
-    const date = html`<time datetime="${l.loggedAt}">${l.loggedAt}</time>`;
+    const day = logDate(l);
+    const date = html`<time datetime="${day}">${day}</time>`;
     const head = heading
-      ? html`<a class="log-title" href="${href}">${headingHtml(l)}</a><a href="${url(site, `month:${l.loggedAt.slice(0, 7)}`)}">${date}</a>`
+      ? html`<a class="log-title" href="${href}">${headingHtml(l)}</a><a href="${url(site, `month:${day.slice(0, 7)}`)}">${date}</a>`
       : html`<a href="${href}">${date}</a>`;
     const program = programInfo(l, work, true);
     return html`<li class="log">
@@ -299,7 +316,7 @@ ${logsBody}
 function logNav(site: Site, work: Work, log: Log): Raw {
   const { prev, next } = neighbours(work, log);
   const link = (rel: 'prev' | 'next', l: Log) => {
-    const label = logHeading(l) || l.loggedAt;
+    const label = logHeading(l) || logDate(l);
     return html`<a rel="${rel}" href="${url(site, logKey(work.id, l.id))}">${rel === 'prev' ? `← ${label}` : `${label} →`}</a>`;
   };
   return html`<nav class="log-nav" aria-label="前後の記録">${prev ? link('prev', prev) : ''}${next ? link('next', next) : ''}</nav>`;
@@ -310,7 +327,7 @@ function sameEpisode(site: Site, work: Work, log: Log): Raw {
   const others = sameEpisodeLogs(work, log);
   if (others.length === 0) return raw('');
   const label = (l: Log) => (episodeLabel(l) === episodeLabel(log) ? l.author : `${l.author}（${episodeLabel(l)}）`);
-  const links = others.map((l) => html`<a href="${url(site, logKey(work.id, l.id))}" title="${l.loggedAt}">${label(l)}</a>`);
+  const links = others.map((l) => html`<a href="${url(site, logKey(work.id, l.id))}" title="${logDate(l)}">${label(l)}</a>`);
   return html`<p class="log-same">同じ話の記録: ${links.map((a, i) => (i === 0 ? a : html` ${a}`))}</p>`;
 }
 
@@ -320,16 +337,17 @@ function renderLog(site: Site, arg: string): string | null {
   const log = work?.logs.find((l) => l.id === logId);
   if (!work || !log) return null;
   const heading = logHeading(log);
+  const day = logDate(log);
   return layout(
     site,
-    `${work.title} ${heading || log.loggedAt}`,
+    `${work.title} ${heading || day}`,
     html`<article class="log-page">
 <div class="log-page-head">
 ${cover(work, 'small')}
 <div>
 <p class="log-work"><a href="${url(site, `work:${work.id}`)}">${work.title}</a></p>
-<h1>${heading ? headingHtml(log) : `${log.loggedAt} の記録`}</h1>
-<p class="work-meta"><a href="${url(site, `month:${log.loggedAt.slice(0, 7)}`)}"><time datetime="${log.loggedAt}">${log.loggedAt}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
+<h1>${heading ? headingHtml(log) : `${day} の記録`}</h1>
+<p class="work-meta"><a href="${url(site, `month:${day.slice(0, 7)}`)}"><time datetime="${day}">${day}</time></a> <span class="author">${log.author}</span> ${stars(log.rating)}</p>
 </div>
 </div>
 ${programInfo(log, work, false).html}
@@ -408,7 +426,7 @@ function seasonWork(site: Site, work: Work): Raw {
 ${work.coverUrl ? html`<a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>` : ''}
 <div>
 <a class="season-title" href="${href}">${work.title}</a>
-<p class="work-meta">${[MEDIA_TYPE_LABELS[work.type], channelOf(work)].filter(Boolean).join(' · ')}${latest ? html` · <time datetime="${latest.loggedAt}">${latest.loggedAt}</time>` : ''}</p>
+<p class="work-meta">${[MEDIA_TYPE_LABELS[work.type], channelOf(work)].filter(Boolean).join(' · ')}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''}</p>
 ${progressGrid(site, work)}
 </div>
 </li>`;
@@ -430,7 +448,7 @@ function renderSeason(site: Site, season: string): string | null {
 function logsWhere(site: Site, keep: (log: Log) => boolean): { work: Work; log: Log }[] {
   const out: { work: Work; log: Log }[] = [];
   for (const w of site.works.values()) for (const l of w.logs) if (keep(l)) out.push({ work: w, log: l });
-  return out.sort((a, b) => b.log.loggedAt.localeCompare(a.log.loggedAt));
+  return out.sort((a, b) => logDate(b.log).localeCompare(logDate(a.log)));
 }
 
 function excerpt(text: string, max = 120): string {
@@ -438,24 +456,29 @@ function excerpt(text: string, max = 120): string {
   return flat.length > max ? `${flat.slice(0, max)}…` : flat;
 }
 
+// The day it was watched, beside a log that belongs to another day.
+function watchedMark(log: Log): Raw {
+  return log.loggedAt === logDate(log) ? raw('') : html` <span class="watched">${log.loggedAt} 鑑賞</span>`;
+}
+
 function timeline(site: Site, entries: { work: Work; log: Log }[]): Raw {
   return html`<ol class="timeline">${entries.map(
     ({ work, log }) => html`<li>
-<time datetime="${log.loggedAt}">${log.loggedAt.slice(5)}</time>
-<a href="${url(site, `work:${work.id}`)}">${work.title}</a> <span class="author">${log.author}</span> ${stars(log.rating)}
+<time datetime="${logDate(log)}">${logDate(log).slice(5)}</time>
+<a href="${url(site, `work:${work.id}`)}">${work.title}</a> <span class="author">${log.author}</span> ${stars(log.rating)}${watchedMark(log)}
 ${log.text ? html`<p>${excerpt(plainText(log.text))}</p>` : ''}
 </li>`,
   )}</ol>`;
 }
 
 function renderMonth(site: Site, month: string): string | null {
-  const entries = logsWhere(site, (l) => l.loggedAt.startsWith(month));
+  const entries = logsWhere(site, (l) => logDate(l).startsWith(month));
   if (entries.length === 0) return null;
   const [y, m] = month.split('-');
   // Every week with a log of this month, also one that belongs to the month next to it.
   const weeks = new Map<string, number>();
   for (const { log } of entries) {
-    const w = weekOf(log.loggedAt);
+    const w = weekOf(logDate(log));
     if (w) weeks.set(w, (weeks.get(w) ?? 0) + 1);
   }
   const weekName = (w: string): string => (w.startsWith(`${month}-`) ? `${w.slice(8)}週目` : weekLabel(w).replace(/^\d+年/, ''));
@@ -472,10 +495,10 @@ ${timeline(site, entries)}`,
 }
 
 function renderWeek(site: Site, week: string): string | null {
-  const entries = logsWhere(site, (l) => weekOf(l.loggedAt) === week);
+  const entries = logsWhere(site, (l) => weekOf(logDate(l)) === week);
   if (entries.length === 0) return null;
   // The months its logs fall in: a week across a month end may have no log in the month it belongs to.
-  const months = [...new Set(entries.map(({ log }) => log.loggedAt.slice(0, 7)))].sort();
+  const months = [...new Set(entries.map(({ log }) => logDate(log).slice(0, 7)))].sort();
   const label = weekLabel(week);
   return layout(
     site,
@@ -490,7 +513,7 @@ function renderYear(site: Site, year: string): string | null {
   const works = [...site.works.values()].filter((w) => monthsOf(w).some((m) => m.startsWith(year)));
   if (works.length === 0) return null;
   const months = new Map<string, number>();
-  for (const w of works) for (const l of w.logs) if (l.loggedAt.startsWith(year)) months.set(l.loggedAt.slice(0, 7), (months.get(l.loggedAt.slice(0, 7)) ?? 0) + 1);
+  for (const w of works) for (const l of w.logs) if (logDate(l).startsWith(year)) months.set(logDate(l).slice(0, 7), (months.get(logDate(l).slice(0, 7)) ?? 0) + 1);
   const lead = html`<ul class="months">${[...months].sort(([a], [b]) => a.localeCompare(b)).map(
     ([mo, n]) => html`<li><a href="${url(site, `month:${mo}`)}">${Number(mo.slice(5))}月</a> <span class="count">${n}</span></li>`,
   )}</ul>`;

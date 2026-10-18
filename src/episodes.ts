@@ -1,5 +1,11 @@
 import type { Log, Work } from './types.ts';
 
+// The day a log belongs to: when its program was on air, else the day it was logged. Pages, months and the order
+// of a work's logs go by it; the home page's recent logs and the watching list go by loggedAt.
+export function logDate(log: Log): string {
+  return log.program?.date || log.loggedAt;
+}
+
 // Inclusive range of episodes a log covers; null when it has no episode number.
 export function episodeSpan(log: Log): [number, number] | null {
   if (log.episode == null) return null;
@@ -27,7 +33,7 @@ export function compareLogs(a: Log, b: Log): number {
 
 // Newest date first; within a day, the later episode first.
 export function compareNewestFirst(a: Log, b: Log): number {
-  return b.loggedAt.localeCompare(a.loggedAt) || (b.episode ?? -1) - (a.episode ?? -1) || b.id.localeCompare(a.id);
+  return logDate(b).localeCompare(logDate(a)) || (b.episode ?? -1) - (a.episode ?? -1) || b.id.localeCompare(a.id);
 }
 
 // The previous and next log of the same author, in viewing order.

@@ -29,6 +29,23 @@ test('authors counts the distinct authors of all logs, which decides whether the
   assert.equal(buildSiteData([work('a1'), work('b2', { logs: [log({ author: 'そら' })] })]).counts.authors, 2);
 });
 
+const oldRecording = log({ id: 'o', loggedAt: '2026-10-18', program: { channel: 'NHK総合', date: '2014-11-27' } });
+
+test('years and on-this-day go by the broadcast day, the activity calendar by the day it was logged', () => {
+  const data = buildSiteData([work('a1', { logs: [oldRecording] }), work('b2')]);
+  assert.deepEqual(data.years, [{ year: '2026', logs: 1 }, { year: '2014', logs: 1 }]);
+  assert.deepEqual(data.days['11-27'], [{ year: '2014', id: 'a1', title: '作品 a1' }]);
+  assert.equal(data.days['10-18'], undefined);
+  assert.deepEqual(data.activity['2026-10-18'], { tv: 1 });
+  assert.equal(data.activity['2014-11-27'], undefined);
+});
+
+test('recent logs go by the day they were logged and name the broadcast day when it is another', () => {
+  const data = buildSiteData([work('a1', { logs: [oldRecording] }), work('b2', { logs: [log({ id: 'n', loggedAt: '2026-10-17' })] })]);
+  assert.deepEqual(data.recent.map((r) => [r.id, r.loggedAt, r.aired]), [['a1', '2026-10-18', '2014-11-27'], ['b2', '2026-10-17', undefined]]);
+  assert.ok(!('aired' in data.recent[1]!));
+});
+
 test('works that were given as a one-shot iterator are all counted', () => {
   const works = new Map([work('a1'), work('b2')].map((w) => [w.id, w]));
   assert.equal(buildSiteData(works.values()).counts.byType.tv, 2);
