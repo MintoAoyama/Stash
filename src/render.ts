@@ -86,7 +86,6 @@ ${MEDIA_TYPES.map((t) => html`<a href="${url(site, `type:${t}`)}" data-nav-type=
 ${body}
 </main>
 <footer class="site-footer">
-<p>作品情報の一部は TMDB API を利用しています（This product uses the TMDB API but is not endorsed or certified by TMDB）</p>
 ${footer ?? ''}
 </footer>
 </body>
@@ -162,7 +161,7 @@ ${authors.map((a, i) => html`<label><input type="radio" name="fa" id="fa-${i}">$
 function renderList(site: Site, title: string, works: Work[], lead?: Raw): string | null {
   if (works.length === 0) return null;
   const list = cardList(site, works);
-  return layout(site, title, html`<h1>${title}</h1>${lead ?? ''}<p class="count">${works.length} 件</p>${list.body}`, list.styles);
+  return layout(site, title, html`<h1>${title}</h1>${lead ?? ''}<p class="count">${works.length} 件</p>${list.body}`, list.styles, tmdbCredit(works));
 }
 
 function breadcrumbs(site: Site, segs: string[]): Raw {
@@ -217,6 +216,18 @@ function programInfo(log: Log, work: Work, onWorkPage: boolean): { brief: boolea
 // NHK's terms require this credit wherever its program information is shown.
 function nhkCredit(logs: Log[]): Raw {
   return logs.some((l) => l.program?.source === 'nhk') ? html`<p>ＮＨＫ番組の情報提供:ＮＨＫ</p>` : raw('');
+}
+
+const TMDB_COVER_PREFIX = 'https://image.tmdb.org/';
+
+// TMDB's terms require this credit wherever its data is shown: a work with a TMDB id or a TMDB cover has some.
+function tmdbCredit(works: Iterable<Work>): Raw {
+  for (const w of works) {
+    if (w.externalIds?.tmdb || w.coverUrl?.startsWith(TMDB_COVER_PREFIX)) {
+      return html`<p>作品情報の一部は TMDB API を利用しています（This product uses the TMDB API but is not endorsed or certified by TMDB）</p>`;
+    }
+  }
+  return raw('');
 }
 
 function progressCells(site: Site, work: Work, row: ProgressRow, total: number): Raw {
@@ -309,7 +320,7 @@ ${progressGrid(site, work)}
 ${logsBody}
 </article>`,
     undefined,
-    nhkCredit(work.logs),
+    html`${tmdbCredit([work])}${nhkCredit(work.logs)}`,
   );
 }
 
@@ -356,7 +367,7 @@ ${sameEpisode(site, work, log)}
 ${logNav(site, work, log)}
 </article>`,
     undefined,
-    nhkCredit([log]),
+    html`${tmdbCredit([work])}${nhkCredit([log])}`,
   );
 }
 
@@ -385,6 +396,7 @@ function renderDir(site: Site, segs: string[]): string | null {
 ${childList.length ? html`<ul class="dirs">${childList.map(([c, n]) => html`<li><a href="${url(site, `dir:${[...segs, c].join('/')}`)}">${c}/</a> <span class="count">${n}</span></li>`)}</ul>` : ''}
 ${list ? list.body : ''}`,
     list?.styles,
+    tmdbCredit(direct),
   );
 }
 
@@ -442,6 +454,8 @@ function renderSeason(site: Site, season: string): string | null {
     html`<nav class="breadcrumbs"><a href="${url(site, 'seasons')}">シーズン</a></nav>
 <h1>${label}</h1><p class="count">${works.length} 件</p>
 <ul class="season-works">${works.map((w) => seasonWork(site, w))}</ul>`,
+    undefined,
+    tmdbCredit(works),
   );
 }
 

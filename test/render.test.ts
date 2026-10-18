@@ -344,7 +344,6 @@ test('a page that shows NHK program information carries the NHK credit in its fo
   for (const key of ['work:w1', 'log:w1/l1']) {
     const footer = /<footer[\s\S]*<\/footer>/.exec(render([w], key))?.[0] ?? '';
     assert.ok(footer.includes(`<p>${NHK_CREDIT}</p>`), key);
-    assert.ok(footer.includes('TMDB'), key);
   }
 });
 
@@ -361,6 +360,35 @@ test('the credit belongs to the page that shows the program: other logs and othe
   for (const key of ['home', 'tags', 'type:tv', 'season:2026-autumn', 'seasons', 'month:2026-10', 'year:2026', 'dir:']) {
     assert.ok(!render([w], key).includes(NHK_CREDIT), key);
   }
+});
+
+const TMDB_CREDIT = '作品情報の一部は TMDB API を利用しています';
+const fromTmdb = (id: string, over: Partial<Work> = {}): Work => work([log({ episode: 1 })], { id, type: 'movie', title: `映画${id}`, season: '2026-autumn', externalIds: { tmdb: 'movie/1' }, ...over });
+
+test('a page that shows a work from TMDB carries the TMDB credit in its footer', () => {
+  const w = fromTmdb('m1', { path: 'movies', tags: ['SF'] });
+  for (const key of ['work:m1', 'log:m1/l1', 'type:movie', 'dir:movies', 'tag:SF', 'season:2026-autumn', 'year:2026']) {
+    assert.ok(render([w], key).includes(TMDB_CREDIT), key);
+  }
+});
+
+test('a cover from TMDB is TMDB data too, whatever the ids say', () => {
+  const w = work([log()], { coverUrl: 'https://image.tmdb.org/t/p/w342/x.jpg' });
+  assert.ok(render([w], 'work:w1').includes(TMDB_CREDIT));
+  assert.ok(!render([work([log()], { coverUrl: 'https://example.com/c.jpg' })], 'work:w1').includes(TMDB_CREDIT));
+});
+
+test('a page that shows no TMDB work has no TMDB credit, not even beside TMDB works elsewhere', () => {
+  const own = work([log()], { id: 'own', path: 'tv' });
+  const other = fromTmdb('m1', { path: 'movies' });
+  for (const key of ['work:own', 'log:own/l1', 'dir:tv', 'month:2026-10', 'week:2026-10-2', 'tags', 'seasons', 'home']) {
+    assert.ok(!render([own, other], key).includes(TMDB_CREDIT), key);
+  }
+  assert.ok(!render([own, other], 'type:tv').includes(TMDB_CREDIT));
+});
+
+test('a list that includes a TMDB work among others carries the credit', () => {
+  assert.ok(render([work([log()], { id: 'own' }), fromTmdb('m1', { type: 'tv' })], 'type:tv').includes(TMDB_CREDIT));
 });
 
 const metaOf = (page: string): string => /<p class="work-meta">([\s\S]*?)<\/p>/.exec(page)?.[1] ?? '';
