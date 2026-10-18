@@ -1,0 +1,39 @@
+{
+  "id": "mvef2epflcxz",
+  "type": "tv",
+  "title": "彼方から",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "月曜 00:00〜00:30",
+  "officialUrl": "",
+  "logs": [
+    {
+      "id": "mvef2epgawxi",
+      "author": "minto",
+      "loggedAt": "2026-10-19",
+      "rating": null,
+      "text": "- ぎっくり腰を疑うコメントに笑う\n- 1年分の疲れが一気に来る、分かるような分からないような\n- 悪党の肩に乗っているマスコットが気になる\n  - 説明が意図的に中断されるし\n  - 「俺の可愛いアレ」\n  - 謎の短距離テレポートの源であることは最後に示唆される\n  - グッズ化不可避\n- ヒロインは無力かもしれないけど頑張るので好感が持てるタイプ",
+      "episode": 3,
+      "episodeEnd": null,
+      "subtitle": "悪夢",
+      "program": {
+        "date": "2026-10-19",
+        "source": "mx",
+        "end": "00:30",
+        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261019&ch=1&hm=0000",
+        "start": "00:00",
+        "title": "彼方から"
+      }
+    }
+  ]
+}
