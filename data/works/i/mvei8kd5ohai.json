@@ -1,0 +1,39 @@
+{
+  "id": "mvei8kd5ohai",
+  "type": "tv",
+  "title": "ライフトレード",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "金曜 00:30〜01:00",
+  "officialUrl": "https://www.tv-tokyo.co.jp/lifetrade/",
+  "logs": [
+    {
+      "id": "mvei8kd5h93c",
+      "author": "minto",
+      "loggedAt": "2026-10-17",
+      "rating": 3,
+      "text": "* 録画の都合上途中から見ることになり、肝心の \"交換\" するまでの瞬間を目にしていない\n* ただそれが結果的に良かったのかもしれない。真木よう子が本来の役どころであるはずの大人しい孤独のレイではなく、サバサバ堂々としたアンコとして出てきたあとのファーストインプレッションがその外見年齢と相まってインパクトが凄かった。それだけでもヒキがあるので1話の最後まで見られてしまったし\n* でもコンセプトがコンセプトなので継続視聴は厳しいんだけど…",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "キャバ嬢と主婦の入れ替わり逆襲劇開幕!",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/28819_202610152430.html",
+        "start": "00:30",
+        "title": "ライフトレード",
+        "date": "2026-10-09",
+        "end": "01:00",
+        "source": "tvtokyo",
+        "channel": "テレビ東京"
+      }
+    }
+  ]
+}

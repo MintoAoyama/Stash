@@ -1,0 +1,39 @@
+{
+  "id": "mvei1l0oxjnd",
+  "type": "tv",
+  "title": "ワールド・トラックロード 〜俺の助手席に乗らないか〜",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK BS",
+  "airtime": "金曜 14:41〜15:40",
+  "officialUrl": "https://www.web.nhk/tv/pl/series-tep-1JR3YP6KZJ",
+  "logs": [
+    {
+      "id": "mvei1l0omxhi",
+      "author": "minto",
+      "loggedAt": "2026-10-17",
+      "rating": null,
+      "text": "* 予告から「穏やかな \"爆走風塵\"（中国のトラックドライバーたちの過酷な実態・激変する物流業界のリアルに迫る骨太ドキュメンタリー）」かなと思っていたけど穏やかも穏やかな内容だった\n  * 初回放送は 2026年3月7日(土) だったらしい\n  * 1時間という尺もゆったりだけど、何日にも渡る旅を一緒に過ごす気持ちで鑑賞すべき番組\n  * 80's 中心の楽曲が劇伴代わりになり、これもすごいNHKっぽい。風景も相まって穏やか\n* インドからカナダに移住した若い夫婦が主役。交代でトラックを運転する。すごい。一応配送しているようなんだけどざっくり見ている限りそれに気付かないくらいのゆったり感だった\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "カナダ編(2)ロッキー山脈を越えて",
+      "program": {
+        "start": "14:41",
+        "source": "nhk",
+        "date": "2026-10-16",
+        "end": "15:40",
+        "channel": "NHK BS",
+        "url": "https://www.web.nhk/tv/pl/series-tep-1JR3YP6KZJ/ep/VKK66YG885",
+        "title": "ワールド・トラックロード 〜俺の助手席に乗らないか〜"
+      }
+    }
+  ]
+}
