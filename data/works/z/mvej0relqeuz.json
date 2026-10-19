@@ -1,0 +1,39 @@
+{
+  "id": "mvej0relqeuz",
+  "type": "tv",
+  "title": "ぽかぽか 岡崎紗絵＆笠松将が撮影現場の裏側から韓国での仰天話まで大公開SP",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "火曜 11:47〜13:50",
+  "officialUrl": "https://www.fujitv.co.jp/pokapoka/index.html",
+  "logs": [
+    {
+      "id": "mvej0remku9n",
+      "author": "minto",
+      "loggedAt": "2026-10-17",
+      "rating": null,
+      "text": "- 「kiDnap GAME」から岡崎紗絵、笠松将ゲスト\n- 笠松将のバラエティ出演は珍しいはずだけど、非常によく喋るし気が回る。生放送で不慣れなところはあるはずだけど勢いでカバーしている。各コーナーに対する真剣さが好感触\n- 「超ギリギリ洗面器」メインMCもいうように地味すぎるコーナーなのでスルーしがちだったんだけど、先週からテコ入れがあったらしく「ビー玉を落とした時のSE」「\"スキップ\" や \"ルーレット\" などの切り札になるカードの導入」など非常に映えるようになっている。これはうまく行っていると思う\n- 笠松将の「エキストラ俳優出身で経験した \"俳優の壁\"」、「セリフが一言ある」→「1話に一言で10話よばれる」→「メインゲスト」など図式で示される気合の入れようで実際に話も面白いので良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "end": "13:50",
+        "title": "ぽかぽか 藤田ニコル&香音が明かす芸能人の子育て事情",
+        "date": "2026-10-13",
+        "start": "11:47"
+      }
+    }
+  ]
+}
