@@ -34,6 +34,25 @@
         "channel": "テレビ東京",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610152200.html"
       }
+    },
+    {
+      "id": "mvfwdnr3okwn",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- Nscale のイギリス AI向けデータセンター建設計画から Microsoft が撤退\n  - 電力供給が2030年代まで見込めないため徹底の判断に至った可能性があるんだとか\n  - CoreWeave ショックの件もあるし、ネオクラウド事業者の先の読めないニュースが続く",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "source": "bstvtokyo",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/14132_202610192300.html",
+        "title": "WBS",
+        "channel": "BSテレ東",
+        "start": "23:00",
+        "end": "00:00",
+        "date": "2026-10-19"
+      }
     }
   ]
 }

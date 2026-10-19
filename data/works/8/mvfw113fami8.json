@@ -1,0 +1,39 @@
+{
+  "id": "mvfw113fami8",
+  "type": "tv",
+  "title": "国際報道 2026",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "火曜 04:15〜05:00",
+  "officialUrl": "https://www.web.nhk/tv/an/kokusaihoudou/pl/series-tep-8M689W8RVX",
+  "logs": [
+    {
+      "id": "mvfw113go3uw",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- [SPOT LIGHT] パキスタン イスラマバード、ガソリン高騰で電動バイク人気\n  - 従来は日系メーカーのガソリン式バイクが主流で、3000万台の規模。それが中国やパキスタン製になりつつあるという\n  - ソーラーパネルの普及が進んでいることも背景にあり、実質燃料費が無料になっているんだとか\n  - 電動バイクのほとんどがスクータータイプで、足を広げる必要がないから女性が利用しやすい（社会に受け入れられやすい）という事情もあるらしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "パキスタン ガソリン高騰で電動バイク人気",
+      "program": {
+        "url": "https://www.web.nhk/tv/an/kokusaihoudou/pl/series-tep-8M689W8RVX/ep/HHA6TU3ED8",
+        "start": "04:15",
+        "end": "05:00",
+        "title": "国際報道 2026",
+        "channel": "NHK総合",
+        "date": "2026-10-20",
+        "source": "nhk"
+      }
+    }
+  ]
+}
