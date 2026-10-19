@@ -1,0 +1,39 @@
+{
+  "id": "mvfvgr3gl7zt",
+  "type": "tv",
+  "title": "視る日経!ニュースNEXT",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "BSテレ東",
+  "airtime": "月曜 21:00〜22:00",
+  "officialUrl": "https://www.bs-tvtokyo.co.jp/nikkeinext/",
+  "logs": [
+    {
+      "id": "mvfvgr3g6y2o",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- [FT] 迎撃リスクのため、ホルムズ海峡通航タンカーの船主が月収200万から1000万になった\n  - その分船員の給与を上げたりとか、引き受けなかったら二度と雇わないと脅したりとか、色々大変らしい\n- ユニ・チャーム メイクをしたような効果のマスク「unicharm SMART COLOR ツヤのせBeige」、耳紐も色分けしているらしい。すごい\n  - コロナ禍に増産の設備投資を行なった結果の有効活用という側面もあるということで非常に腑に落ちる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "迫る米中間選挙!トランプ流戦術は/日米の利上げ見送りか?",
+      "program": {
+        "title": "視る日経!ニュースNEXT",
+        "channel": "BSテレ東",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610192100.html",
+        "source": "bstvtokyo",
+        "date": "2026-10-19",
+        "end": "22:00",
+        "start": "21:00"
+      }
+    }
+  ]
+}
