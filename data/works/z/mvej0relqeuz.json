@@ -24,15 +24,15 @@
       "text": "- 「kiDnap GAME」から岡崎紗絵、笠松将ゲスト\n- 笠松将のバラエティ出演は珍しいはずだけど、非常によく喋るし気が回る。生放送で不慣れなところはあるはずだけど勢いでカバーしている。各コーナーに対する真剣さが好感触\n- 「超ギリギリ洗面器」メインMCもいうように地味すぎるコーナーなのでスルーしがちだったんだけど、先週からテコ入れがあったらしく「ビー玉を落とした時のSE」「\"スキップ\" や \"ルーレット\" などの切り札になるカードの導入」など非常に映えるようになっている。これはうまく行っていると思う\n- 笠松将の「エキストラ俳優出身で経験した \"俳優の壁\"」、「セリフが一言ある」→「1話に一言で10話よばれる」→「メインゲスト」など図式で示される気合の入れようで実際に話も面白いので良かった",
       "episode": null,
       "episodeEnd": null,
-      "subtitle": "",
+      "subtitle": "岡崎紗絵＆笠松将が撮影現場の裏側から韓国での仰天話まで大公開SP",
       "program": {
+        "title": "ぽかぽか 藤田ニコル&香音が明かす芸能人の子育て事情",
         "channel": "フジテレビ",
         "source": "fuji",
-        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
-        "end": "13:50",
-        "title": "ぽかぽか 藤田ニコル&香音が明かす芸能人の子育て事情",
         "date": "2026-10-13",
-        "start": "11:47"
+        "end": "13:50",
+        "start": "11:47",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html"
       }
     },
     {
@@ -52,6 +52,44 @@
         "channel": "フジテレビ",
         "source": "fuji",
         "date": "2026-10-14"
+      }
+    },
+    {
+      "id": "mvgrvtxysv9y",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- 男気チェックにおける本田響矢の「田中じゃろ」が全て。何度見返しても面白かった。ミラクルと澤部のアシストによる天丼が神がかっていた\n  - 本来であればザキヤマのテクニックによりどういう状況でも面白くできるんだけど、困惑させた上でよりしっかり面白くなったのは奇跡だと思う",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "本田響矢&小関裕太&小宮璃央へ豪華(秘)証言SP▽人気企画ザキヤマ参戦",
+      "program": {
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "start": "11:47",
+        "end": "13:50",
+        "title": "ぽかぽか",
+        "date": "2026-10-15",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html"
+      }
+    },
+    {
+      "id": "mvgt57z4cjb9",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- まさかの 0:40 に緊急地震速報（後に誤発表と発覚）\n- 信子のYOUのモノマネ初めて聞いた",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "磯村勇斗&Aぇ末澤が映画撮影(秘)ウラ話暴露▽麻辣湯の具材をぴったんこ",
+      "program": {
+        "source": "fuji",
+        "channel": "フジテレビ",
+        "end": "13:50",
+        "date": "2026-10-16",
+        "start": "11:47",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "title": "ぽかぽか"
       }
     }
   ]
