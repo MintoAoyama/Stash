@@ -1,7 +1,7 @@
 {
   "id": "mvej0relqeuz",
   "type": "tv",
-  "title": "ぽかぽか 岡崎紗絵＆笠松将が撮影現場の裏側から韓国での仰天話まで大公開SP",
+  "title": "ぽかぽか",
   "path": "",
   "tags": [],
   "status": "",
@@ -33,6 +33,25 @@
         "title": "ぽかぽか 藤田ニコル&香音が明かす芸能人の子育て事情",
         "date": "2026-10-13",
         "start": "11:47"
+      }
+    },
+    {
+      "id": "mvg4xu1ke63w",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- メインMC岩井夏休みのため、中田敦彦が代打\n- [バーガーバーガーバーガー] パーフェクト・バーガーマン 余計な動きのキレを含めて良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ニコル流(秘)ワンオペ術とは",
+      "program": {
+        "end": "13:50",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "title": "ぽかぽか 藤田ニコル&香音が明かす芸能人の子育て事情",
+        "start": "11:47",
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "date": "2026-10-14"
       }
     }
   ]
