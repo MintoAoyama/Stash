@@ -1,0 +1,39 @@
+{
+  "id": "mvi5ggyceba3",
+  "type": "tv",
+  "title": "首都圏ネットワーク",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "水曜 18:10〜19:00",
+  "officialUrl": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR",
+  "logs": [
+    {
+      "id": "mvi5ggyd5x1h",
+      "author": "minto",
+      "loggedAt": "2026-10-21",
+      "rating": null,
+      "text": "- 横浜市にで TKB（トイレ・キッチン・ベッド）\"新たな避難所\" 作る模索\n  - 300人の受け入れのために3億円近い購入費用が掛かっているのはすごい\n- [クマ対策最前線] 新システムで対応",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "都心で30度超 最も遅い真夏日",
+      "program": {
+        "end": "19:00",
+        "channel": "NHK総合",
+        "date": "2026-10-21",
+        "url": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR/ep/SU6UKEIEIY",
+        "title": "首都圏ネットワーク",
+        "source": "nhk",
+        "start": "18:10"
+      }
+    }
+  ]
+}
