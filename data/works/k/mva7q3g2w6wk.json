@@ -53,6 +53,25 @@
         "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/14132_202610192300.html",
         "title": "WBS"
       }
+    },
+    {
+      "id": "mvhb5qaq1dus",
+      "author": "minto",
+      "loggedAt": "2026-10-21",
+      "rating": null,
+      "text": "- teppay、システム的に難しいのは重々承知しているんだけど、Suicaと残高が別なのがハードルになる。無いよりはあった方が仕組みではあるんだろうけど…。せめてSuicaから出せれば違うんだけど\n- ペロブスカイトもヨウ素大国日本も知ってはいたけど、ペロブスカイトの原料に関連しているのは知らなかった\n  - 2025年末にペロブスカイト関連の特許出願数を中国が上回っているらしい\n- ドイツ 反移民・経済格差による極右台頭\n  - 州内120以上の移民団体を束ねる支援組織 ラムザ、ベルリンの壁崩壊直後から住んでいる日本人（貝山美夏さん）が幹部を務めているという話もすごい\n    - 歌手を目指して海外に渡ったことがきっかけという話もすごい（[三十路インタビュー: 貝山美夏 ドイツ、ザクセンアンハルト州移民ネットワーク代表 1/2｜勉三くん](https://note.com/kosokosolife/n/n4d600a372a81)）\n- サブスク型住宅設備修理「ホームサーブ」\n  - \"点検商法\" に対抗するという側面も",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "コード決済teppay、PayPayに挑む▼曲がる太陽電池実用化▼欧州で極右台頭",
+      "program": {
+        "start": "22:00",
+        "title": "WBS",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610202200.html",
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "end": "22:58",
+        "date": "2026-10-20"
+      }
     }
   ]
 }
