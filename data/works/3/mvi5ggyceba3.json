@@ -34,6 +34,25 @@
         "source": "nhk",
         "start": "18:10"
       }
+    },
+    {
+      "id": "mvjnv46vjtlv",
+      "author": "minto",
+      "loggedAt": "2026-10-22",
+      "rating": null,
+      "text": "- PHPの脆弱性特集。このままだと世間一般の認知度がもっとも高いプログラミング言語になりそう",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "2026年10月22日午後06時10分",
+      "program": {
+        "date": "2026-10-22",
+        "start": "18:10",
+        "url": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR/ep/68E66KDIKQ",
+        "end": "19:00",
+        "title": "首都圏ネットワーク",
+        "channel": "NHK総合",
+        "source": "nhk"
+      }
     }
   ]
 }

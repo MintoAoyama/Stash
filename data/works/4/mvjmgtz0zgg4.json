@@ -1,0 +1,39 @@
+{
+  "id": "mvjmgtz0zgg4",
+  "type": "tv",
+  "title": "天は赤い河のほとり AnichU",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "水曜 01:29〜01:59",
+  "officialUrl": "https://www.vap.co.jp/sorahaakaikawanohotori/",
+  "logs": [
+    {
+      "id": "mvjmgtz0r7q3",
+      "author": "minto",
+      "loggedAt": "2026-10-22",
+      "rating": null,
+      "text": "- 僧侶枠すぎるシーンに笑う\n- 大事な時に流れる効果音に笑う",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "date": "2026-10-21",
+        "title": "天は赤い河のほとり AnichU",
+        "end": "01:59",
+        "start": "01:29",
+        "channel": "日本テレビ",
+        "source": "ntv",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=202627F8"
+      }
+    }
+  ]
+}

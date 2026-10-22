@@ -40,17 +40,36 @@
       "author": "minto",
       "loggedAt": "2026-10-21",
       "rating": null,
-      "text": "- [LBS] 東邦ガスの異業種参入事例。いまざと農園としてシャインマスカット栽培を行なっている\n  - エネルギー以外の事業利益が既に40億あり、2027年度末に100億を目指しているらしい\n  - LBSなのでYouTubeにもある（[なぜガス会社が「高級マスカット」　東邦ガスの異業種参入に迫る　シャインマスカット【LBS栃木発】 - YouTube](https://youtu.be/XwwBpTMbbtI)）",
+      "text": "- [LBS] 東邦ガスの異業種参入事例。いまざと農園としてシャインマスカット栽培を行なっている\n  - エネルギー以外の事業利益が既に40億あり、2027年度末に100億を目指しているらしい\n  - LBSなのでYouTubeにもある（[なぜガス会社が「高級マスカット」　東邦ガスの異業種参入に迫る　シャインマスカット【LBS栃木発】 - YouTube](https://youtu.be/XwwBpTMbbtI)）\n- 「進化する社員食堂」、オカムラの企業向けプロデュース。まあ、この辺りは色々な側面で二極化するよな…",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "AI相場は暴発寸前?導火線は新興クラウド!投資家どうする",
       "program": {
         "channel": "BSテレ東",
-        "source": "bstvtokyo",
-        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610202100.html",
         "end": "22:00",
+        "source": "bstvtokyo",
         "date": "2026-10-20",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610202100.html",
+        "start": "21:00",
+        "title": "視る日経!ニュースNEXT"
+      }
+    },
+    {
+      "id": "mvjkuzfrh9ow",
+      "author": "minto",
+      "loggedAt": "2026-10-22",
+      "rating": null,
+      "text": "- PHPの脆弱性特集。簡潔かつ分かりやすく説明することの難しさを感じた",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "スペースXとテスラが統合!?「マスク帝国」の狙いは?",
+      "program": {
+        "source": "bstvtokyo",
         "title": "視る日経!ニュースNEXT",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610222100.html",
+        "date": "2026-10-22",
+        "end": "22:00",
+        "channel": "BSテレ東",
         "start": "21:00"
       }
     }
