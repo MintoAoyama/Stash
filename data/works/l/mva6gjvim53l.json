@@ -53,6 +53,25 @@
         "date": "2026-10-19",
         "title": "モープラFT"
       }
+    },
+    {
+      "id": "mvk5yaa7jldd",
+      "author": "minto",
+      "loggedAt": "2026-10-23",
+      "rating": null,
+      "text": "- [マンガで学ぶ] ゴルゴ13が描く 世界経済の裏側\n  - 独自の麻生財務大臣を想起させるキャラクターが登場した際のエピソードを紹介\n  - 2015年206巻「地獄のダンサー」、1994年106巻「オフサイド・トラップ」、2004年155巻「PKO プライス・キーピング・オペレーション」、2014年201巻「最終通貨の攻防」を紹介",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "「ゴルゴ13」に学ぶ 世界経済の裏側/ナスダック急落の背景",
+      "program": {
+        "title": "モープラFT",
+        "channel": "BSテレ東",
+        "end": "08:00",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202610/23593_202610230705.html",
+        "source": "bstvtokyo",
+        "date": "2026-10-23",
+        "start": "07:05"
+      }
     }
   ]
 }
