@@ -1,0 +1,39 @@
+{
+  "id": "mvmfszwra13v",
+  "type": "tv",
+  "title": "土曜くりぃむ雑学",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ朝日",
+  "airtime": "土曜 18:30〜18:56",
+  "officialUrl": "https://www.tv-asahi.co.jp/cream_zatsugaku/",
+  "logs": [
+    {
+      "id": "mvmfszwsjztr",
+      "author": "minto",
+      "loggedAt": "2026-10-24",
+      "rating": null,
+      "text": "- 初回放送。特番からのレギュラー化なので「雑学を愛する上田一家」とコンセプト説明はほぼ説明なく、淡々と雑学を紹介。伊東家の食卓 + トリビアの泉 （どっちも他局）\n- 説明にAI生成による映像が使われている。イラストから一歩進んだ印象\n  - ただしどのサービスを使ったのかはスタッフロールにも出てこなかった。残念",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "date": "2026-10-17",
+        "start": "18:30",
+        "url": "https://www.tv-asahi.co.jp/pr/contents/20261031_07962.html",
+        "channel": "テレビ朝日",
+        "title": "土曜くりぃむ雑学",
+        "source": "tvasahi",
+        "end": "18:56"
+      }
+    }
+  ]
+}

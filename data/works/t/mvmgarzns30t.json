@@ -1,0 +1,39 @@
+{
+  "id": "mvmgarzns30t",
+  "type": "tv",
+  "title": "ぽかぽか",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "月曜 11:47〜13:50",
+  "officialUrl": "https://www.fujitv.co.jp/pokapoka/index.html",
+  "logs": [
+    {
+      "id": "mvmgarznfwlx",
+      "author": "minto",
+      "loggedAt": "2026-10-24",
+      "rating": null,
+      "text": "- 高橋文哉は本当に真面目。他局（「Tシャツが乾くまで」）の話をすることをずっと心配していた\n  - 一方でこなれてきているからこそ、「カッコいいからこれをやっている・極めている」と言ったことを素直かつ面白がってもらえるように話せているのも良い\n- 渡邊圭祐（ウォズ）もVTRでコメント\n- リアクションダウト対決（ビリビリホチキス）、松田の色気が強すぎる。回答者にバレないようにカメラ（視聴者）に向かって感情を抑えながら「もう無理…」と口パクで伝える様子がすごかった。才能という他ない\n  - フックになりそうなコメントを拾って叫ぶところもそうだけどしっかりこなれてきている。元々上手いんだけど",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "高橋文哉&久保史緒里が月10ドラマ撮影裏話をぶっちゃけ&雑学クイズ",
+      "program": {
+        "date": "2026-10-19",
+        "channel": "フジテレビ",
+        "start": "11:47",
+        "end": "13:50",
+        "title": "ぽかぽか◆高橋文哉&久保史緒里が月10ドラマ撮影裏話をぶっちゃけ&雑学クイズ",
+        "source": "fuji",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html"
+      }
+    }
+  ]
+}
