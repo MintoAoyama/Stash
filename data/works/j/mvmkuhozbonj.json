@@ -1,0 +1,38 @@
+{
+  "id": "mvmkuhozbonj",
+  "type": "tv",
+  "title": "青と碧",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "tvk",
+  "airtime": "月曜 23:30〜00:00",
+  "officialUrl": "",
+  "logs": [
+    {
+      "id": "mvmkuhoz4ngo",
+      "author": "minto",
+      "loggedAt": "2026-10-25",
+      "rating": null,
+      "text": "- ピンと来ていない",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "澄み切った青空に、まだ碧は。",
+      "program": {
+        "end": "00:00",
+        "title": "青と碧",
+        "start": "23:30",
+        "date": "2026-10-05",
+        "source": "tvk",
+        "channel": "tvk"
+      }
+    }
+  ]
+}
