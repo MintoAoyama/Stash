@@ -72,6 +72,25 @@
         "date": "2026-10-23",
         "start": "07:05"
       }
+    },
+    {
+      "id": "mvofycch3nb2",
+      "author": "minto",
+      "loggedAt": "2026-10-26",
+      "rating": null,
+      "text": "- [値段の方程式] コーナー開始から8年。初回放送のVTRを挟み、この8年のiPhone・ビックマック・カカオなどの値段の変化を振り返る\n  - そして今嫌な予感はしていたけど今回が村野孝直さん出演最終回！！！ 本当にお疲れ様でした！ そしてコーナーはどうなるんだ！",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "値段の方程式 8年で値段はこんなに変わった",
+      "program": {
+        "channel": "BSテレ東",
+        "end": "08:00",
+        "title": "モープラFT",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202610/23593_202610260705.html",
+        "source": "bstvtokyo",
+        "start": "07:05",
+        "date": "2026-10-26"
+      }
     }
   ]
 }
