@@ -1,0 +1,39 @@
+{
+  "id": "mvpyg55za0o2",
+  "type": "tv",
+  "title": "ファントムシータの違和館◆Adoプロデュース異端アイドルの初冠レギュラー",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "月曜 01:25〜01:55",
+  "officialUrl": "https://www.fujitv.co.jp/phantomsiita/index.html",
+  "logs": [
+    {
+      "id": "mvpyg55z68oz",
+      "author": "minto",
+      "loggedAt": "2026-10-27",
+      "rating": null,
+      "text": "- Adoプロデュースのアイドル「ファントムシータ」のバラエティ番組\n- アイドルを面白くするために芸人と組んでもらうという形は良くある中で、いわゆるTVのバラエティを経験してもらうという文脈で、インカムで \"ささやき悪魔ゲスト\" から指示を受けるという仕掛けになっている\n- ただ、誰が指示を受けているのか、どういった指示を受けているのかといった部分を別のメンバーが当てるといったクイズ的な要素があるわけでなく、挙句それが滑ってしまうとなると何のための仕掛けなのかよく分からなくなりそう\n- でもそれもこれも、スタジオや演者の作りから \"違和感\" をテーマにしているのは分かるんだけど、分かるんだけど、といった番組\n- ベタベタのバラエティのテーマに対するほんの僅かな滑り気味の違和感は結局ベタになってしまう気がする",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "end": "01:55",
+        "url": "https://www.fujitv.co.jp/phantomsiita/index.html",
+        "start": "01:25",
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "date": "2026-10-26",
+        "title": "ファントムシータの違和館◆Adoプロデュース異端アイドルの初冠レギュラー"
+      }
+    }
+  ]
+}
