@@ -1,0 +1,39 @@
+{
+  "id": "mvoj602ddnxe",
+  "type": "tv",
+  "title": "アリタチャンピオン2",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TBS",
+  "airtime": "土曜 00:58〜01:28",
+  "officialUrl": "",
+  "logs": [
+    {
+      "id": "mvoj602d8asy",
+      "author": "minto",
+      "loggedAt": "2026-10-26",
+      "rating": null,
+      "text": "- 若手実力派のチャンピオン経験芸人による審査によって真のチャンピオンを決めるという趣旨のネタ番組",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "くりぃむしちゅー有田が手掛ける新お笑い番組始動",
+      "program": {
+        "date": "2026-10-17",
+        "url": "https://www.tbs.co.jp/tv/20261016_C285.html",
+        "channel": "TBS",
+        "end": "01:28",
+        "source": "tbs",
+        "start": "00:58",
+        "title": "アリタチャンピオン2"
+      }
+    }
+  ]
+}
