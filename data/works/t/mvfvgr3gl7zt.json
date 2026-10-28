@@ -72,6 +72,25 @@
         "channel": "BSテレ東",
         "start": "21:00"
       }
+    },
+    {
+      "id": "mvrbo7t6mx7j",
+      "author": "minto",
+      "loggedAt": "2026-10-28",
+      "rating": null,
+      "text": "- GMO 不正アクセス問題\n  - デスクトップクラウドの説明もあるものの詳細な解説は省略\n  - GMO 自体に個人的恨みがあるように感じるという解説\n- 海外で好調 \"チェキ\" 新製品発表\n- [“チェキ” instax mini Evo 2™ | FUJIFILM](https://instax.jp/mini_evo_2/)\n  - コロナ禍から中国を中心に人気に\n  - インバウンドでフィルムを購入することもあり品薄状態\n  - 富士フイルムも神奈川県の工場に30億円を投じて生産設備を増強予定らしい\n- [LBS] 日本一のおにぎり製造機メーカー 世界へ\n  - コンビニに並ぶおにぎりの約9割の製造を支えている不二精機\n  - [ホーム - 不二精機株式会社](https://fuji-seiki.co.jp/)\n  - 海外の市場規模が拡大しているというのが面白い",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "中間選挙後は買い!株の経験則今回も当てはまる?",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610272100.html",
+        "date": "2026-10-27",
+        "end": "22:00",
+        "title": "視る日経!ニュースNEXT",
+        "channel": "BSテレ東",
+        "start": "21:00",
+        "source": "bstvtokyo"
+      }
     }
   ]
 }
