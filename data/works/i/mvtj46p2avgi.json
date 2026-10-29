@@ -1,0 +1,39 @@
+{
+  "id": "mvtj46p2avgi",
+  "type": "tv",
+  "title": "スゴ腕!お宝ハンターズ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK BS",
+  "airtime": "木曜 20:00〜21:00",
+  "officialUrl": "https://www.web.nhk/tv/pl/series-tep-L68PYWZPXM",
+  "logs": [
+    {
+      "id": "mvtj46p3ehpn",
+      "author": "minto",
+      "loggedAt": "2026-10-29",
+      "rating": null,
+      "text": "- 韓国に伝わる「人が生き返る」とされる高麗人参の一種、山参（サンサム）\n- 探し出すのはシンマニと呼ばれるハンターたち\n- 山の中で唐突な全裸\n- 山参は神聖なもの。山に入ることが決まったら夜の営みを避けるべきとする言い伝え\n- 韓国南西部のチョルラナムドに住むシンマニ協会会長\n- 何もかもが聞いたことがないにわかに信じがたい世界でジワジワ来る",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "“人が生き返る”幻の薬草を追え!",
+      "program": {
+        "source": "nhk",
+        "channel": "NHK BS",
+        "start": "20:00",
+        "title": "スゴ腕!お宝ハンターズ",
+        "url": "https://www.web.nhk/tv/pl/series-tep-L68PYWZPXM/ep/EYLP639833",
+        "date": "2026-10-29",
+        "end": "21:00"
+      }
+    }
+  ]
+}
