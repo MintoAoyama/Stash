@@ -110,6 +110,25 @@
         "channel": "BSテレ東",
         "title": "視る日経!ニュースNEXT"
       }
+    },
+    {
+      "id": "mvtm1863cdd0",
+      "author": "minto",
+      "loggedAt": "2026-10-29",
+      "rating": null,
+      "text": "- マーケター・オブ・ザ・イヤー2026 大賞は「ビオレ キッズスタンプUV」\n  - 肉球型のスタンプで楽しく塗れる子ども用日焼け止め\n  - 消費者の課題をアイディアで解決する頃が評価された",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "1日の経済・投資・マーケット情報を深掘り、明日に生かす!",
+      "program": {
+        "start": "21:00",
+        "channel": "BSテレ東",
+        "end": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610292100.html",
+        "title": "視る日経!ニュースNEXT",
+        "date": "2026-10-29",
+        "source": "bstvtokyo"
+      }
     }
   ]
 }
