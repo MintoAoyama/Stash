@@ -91,6 +91,25 @@
         "start": "21:00",
         "source": "bstvtokyo"
       }
+    },
+    {
+      "id": "mvsr65qa945q",
+      "author": "minto",
+      "loggedAt": "2026-10-29",
+      "rating": null,
+      "text": "- 富士フイルム 磁気テープ20年ぶり大型量産\n  - AIデータセンター向けの需要が影響しているらしい\n  - 保管時は電力不要、設備費やランニングコスト含めHDDの1/10になる\n  - コンピュータから切り離せるということでハッキングリスクの観点からも注目されているんだとか",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ニデック永守氏ら提訴!運命の期限!上場廃止回避なるか?",
+      "program": {
+        "end": "22:00",
+        "source": "bstvtokyo",
+        "start": "21:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/22663_202610282100.html",
+        "date": "2026-10-28",
+        "channel": "BSテレ東",
+        "title": "視る日経!ニュースNEXT"
+      }
     }
   ]
 }

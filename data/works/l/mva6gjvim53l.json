@@ -110,6 +110,25 @@
         "source": "bstvtokyo",
         "end": "08:00"
       }
+    },
+    {
+      "id": "mvsqvclphf7b",
+      "author": "minto",
+      "loggedAt": "2026-10-29",
+      "rating": null,
+      "text": "- ゆうちょ銀 松井証券に2割出資\n  - ゆうちょ銀のアプリ経由で松井証券の証券口座に繋がり、株などの売買が可能になるらしい\n  - 各ネット証券の資本関係も振り返り",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "「タカ派的据え置き」か FRB今後の焦点",
+      "program": {
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202610/23593_202610290705.html",
+        "end": "08:00",
+        "start": "07:05",
+        "date": "2026-10-29",
+        "channel": "BSテレ東",
+        "source": "bstvtokyo",
+        "title": "モープラFT"
+      }
     }
   ]
 }
