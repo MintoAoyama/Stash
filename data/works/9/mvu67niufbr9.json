@@ -1,0 +1,39 @@
+{
+  "id": "mvu67niufbr9",
+  "type": "tv",
+  "title": "未来CHO人図鑑",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "木曜 22:54〜23:00",
+  "officialUrl": "https://www.fujitv.co.jp/b_hp/miraichojinzukan/index.html",
+  "logs": [
+    {
+      "id": "mvu67niumwfu",
+      "author": "minto",
+      "loggedAt": "2026-10-30",
+      "rating": null,
+      "text": "- 加古川のおばちゃんと呼ばれる角橋久恵は、「全国◯◯おばちゃんのれん会」としておばちゃんを束ねている\n- その土地に1人しかいないの怖すぎるな",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "全国◯◯おばちゃんのれん会 角橋久恵(1)",
+      "program": {
+        "source": "fuji",
+        "url": "https://www.fujitv.co.jp/b_hp/miraichojinzukan/index.html",
+        "end": "23:00",
+        "title": "未来CHO人図鑑",
+        "start": "22:54",
+        "date": "2026-10-29",
+        "channel": "フジテレビ"
+      }
+    }
+  ]
+}

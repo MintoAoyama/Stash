@@ -167,6 +167,25 @@
         "start": "22:00",
         "end": "22:58"
       }
+    },
+    {
+      "id": "mvu6u3543fii",
+      "author": "minto",
+      "loggedAt": "2026-10-30",
+      "rating": null,
+      "text": "- GMO不正アクセス問題\n  - 日本ハッカー協会 代表理事 の杉浦隆幸さん出演（[@lumin](https://x.com/lumin)）\n  - WPS Sheets という表計算ソフトを利用していることが添付ファイルから分析できた\n    - 「中国で使うソフト」（日本国内でも安いPCでバンドルされることがある）ということから、「中国にゆかりのある人かお金がない人のどちらか」\n  - 多くの記録を残していることから明らかにプロではない、「テストをせずに本番実行している」\n- アドフラウド広告費増に AIブロック\n  - Spider Labs\n  - [Spider AF(スパイダーエーエフ)の不正対策でマーケティングセキュリティを一元化](https://jp.spideraf.com/)\n  - まさかの [Orb（オーブ）](https://world.org/ja-jp/orb) も紹介\n- [トレたま] [津波・水害用ドライスーツ 「TASKAL®」 | 太陽工業株式会社](https://www.taiyokogyo.co.jp/products/73704/)\n\n\n\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "GMO不正アクセス…攻撃者の“有力情報”とは？",
+      "program": {
+        "start": "22:00",
+        "source": "tvtokyo",
+        "title": "WBS",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610292200.html",
+        "date": "2026-10-29",
+        "end": "22:58",
+        "channel": "テレビ東京"
+      }
     }
   ]
 }
