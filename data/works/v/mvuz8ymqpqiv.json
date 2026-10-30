@@ -1,0 +1,39 @@
+{
+  "id": "mvuz8ymqpqiv",
+  "type": "tv",
+  "title": "わたしの幸せな結婚 特別篇 後編",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "日曜 20:00〜20:30",
+  "officialUrl": "",
+  "logs": [
+    {
+      "id": "mvuz8ymqvhzr",
+      "author": "minto",
+      "loggedAt": "2026-10-25",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "end": "20:30",
+        "channel": "TOKYO MX",
+        "title": "わたしの幸せな結婚 特別篇 後編",
+        "start": "20:00",
+        "date": "2026-10-25",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261025&ch=1&hm=2000",
+        "source": "mx"
+      }
+    }
+  ]
+}

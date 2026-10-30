@@ -1,0 +1,39 @@
+{
+  "id": "mvuz7pnww8we",
+  "type": "tv",
+  "title": "ぽかぽか 芸能30周年!生田斗真に小栗旬&中村倫也タレコミ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "水曜 11:47〜13:50",
+  "officialUrl": "https://www.fujitv.co.jp/pokapoka/index.html",
+  "logs": [
+    {
+      "id": "mvuz7pnw1e1y",
+      "author": "minto",
+      "loggedAt": "2026-10-29",
+      "rating": null,
+      "text": "- 風間俊介と同じ歌わない踊らない枠のはずの生田斗真が何故歌うことになったのか…\n  - まあきっかけ自体は番組内でも触れてるけどそれでも謎\n- 小栗旬・風間俊介・中村倫也からのタレコミ（メッセージ）全部面白かった。仲の良さが伝わるし、本人を含めこの年齢だからこそのこなれ感が心地良い。こうありたいものだ\n- 「劇団演技者。」の「男の夢」回での近藤春菜との共演の振り返りはジワジワくる。当時の放送は見てるような見てないようなという感じだけど、近藤春菜が出ていることには全く気付いていなかった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "歌手デビュー生歌唱",
+      "program": {
+        "date": "2026-10-21",
+        "title": "ぽかぽか 芸能30周年!生田斗真に小栗旬&中村倫也タレコミ",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "channel": "フジテレビ",
+        "end": "13:50",
+        "source": "fuji",
+        "start": "11:47"
+      }
+    }
+  ]
+}
