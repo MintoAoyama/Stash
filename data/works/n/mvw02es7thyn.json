@@ -1,0 +1,39 @@
+{
+  "id": "mvw02es7thyn",
+  "type": "tv",
+  "title": "【夜ドラ】青の花 器の森",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "月曜 22:45〜23:00",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mvw02es7q5ca",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 原作は『坂道のアポロン』の作者 小玉ユキ のコミック\n- キャラクターの言動がベタすぎるだろと思ったらやはりコミック原作だった\n  - 仲良くなる前段の気難しさというのがもう\n- 「陶磁器と坂の町」、長崎県波佐見町を舞台にしている\n- [制作統括も語る](https://www.nhk.jp/g/ts/G8ILDESSLH/blog/bl/pnwQbBJmyo/bp/pNWrJ4l2o7/) ように、ロケーションとして映える舞台でシンプルに良い話をやりたいというのは伝わる\n  - だからこそ継続して観たいと思わせるフックは足りない\n  - もう少し映画的なルックになると惹きになるのかもしれない（完全に個人の感覚）\n- 2話を何故か録り逃していて、3話をちらっと見て中断",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "NHK総合",
+        "start": "22:45",
+        "source": "nasne",
+        "end": "23:00",
+        "date": "2026-10-26",
+        "title": "【夜ドラ】青の花 器の森(1)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "mvw6hk8j1lau",
+  "type": "tv",
+  "title": "情熱のしずく",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "土曜 22:37〜22:40",
+  "officialUrl": "https://www.ntv.co.jp/jonetsunoshizuku/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mvw6hk8jfvba",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- [File No.39 刃先を折って切れ味復活！「カッターナイフ」｜情熱のしずく｜日本テレビ](https://www.ntv.co.jp/jonetsunoshizuku/backnumber/39/)\n- 折り刃式カッターナイフを発明したオルファ株式会社の創業者岡田良男さん\n- かつては普通のカミソリを使っていたという\n- 靴職人が刃の代わりにガラスを使い割っていたこと、板チョコの溝がヒントに\n- 溝や刃の角度に苦労したという",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "File No.39 刃先を折って切れ味復活！「カッターナイフ」",
+      "program": {
+        "channel": "日本テレビ",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=202626B3",
+        "end": "22:40",
+        "start": "22:37",
+        "title": "情熱のしずく",
+        "source": "ntv",
+        "date": "2026-10-10"
+      }
+    },
+    {
+      "id": "mvw6v0wi17oe",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- [File No.41 人生に寄り添う「服飾医療ターバン」｜情熱のしずく｜日本テレビ](https://www.ntv.co.jp/jonetsunoshizuku/backnumber/41/)\n- オリジナルターバンを制作・販売する「rippmonster」のプロデューサー兼デザイナーのmicaさん\n- 母親が36歳の時にすい臓がんで亡くなった際、治療で変わり果てた母の姿を見て幼かった自分が怖がってしまったことが発明の原動力だという\n  - 実はそれに加え、数年前に自分が同じ病気の疑いがあったことが大きなきっかけになっているらしい（ [ファッションを生きる力に。おしゃれなターバンで「服飾医療」を目指すrippmonsterの取組み | ヨガジャーナルオンライン](https://yogajournal.jp/20130) ）\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "File No.41 人生に寄り添う「服飾医療ターバン」",
+      "program": {
+        "start": "21:54",
+        "channel": "日本テレビ",
+        "date": "2026-10-24",
+        "title": "情熱のしずく",
+        "source": "ntv",
+        "end": "22:00",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=2026285F"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "mvw6otamrbsz",
+  "type": "tv",
+  "title": "情熱のしずく",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "土曜 21:54〜22:00",
+  "officialUrl": "https://www.ntv.co.jp/jonetsunoshizuku/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mvw6otanaod2",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- [File No.40 親子の外出を支える「トイレ用ベビーチェア」｜情熱のしずく｜日本テレビ](https://www.ntv.co.jp/jonetsunoshizuku/backnumber/40/)\n- トイレ用ベビーチェアを発明したコンビウィズ株式会社の近藤豊さん\n- 1980年代、和式トイレが主流の時代に苦労して開発された経緯が語られた",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "File No.40 親子の外出を支える「トイレ用ベビーチェア」",
+      "program": {
+        "date": "2026-10-17",
+        "end": "22:00",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=2026278B",
+        "source": "ntv",
+        "channel": "日本テレビ",
+        "start": "21:54",
+        "title": "情熱のしずく"
+      }
+    }
+  ]
+}

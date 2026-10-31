@@ -1,0 +1,40 @@
+{
+  "id": "mvw7r4e286ei",
+  "type": "tv",
+  "title": "なんでも検証!? 全力戦士OWV",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "水曜 02:15〜02:45",
+  "officialUrl": "https://www.fujitv.co.jp/zenryoku_owv/index.html",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mvw7r4e20psr",
+      "author": "minto",
+      "loggedAt": "2026-10-21",
+      "rating": null,
+      "text": "- 最高の企画\n- 左折あるある・右折あるある 良い\n- ずっとやっててほしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "右折VS左折どちらが早く目的地に着けるか? 後編",
+      "program": {
+        "channel": "フジテレビ",
+        "title": "なんでも検証!? 全力戦士OWV◆右折VS左折どちらが早く目的地に着けるか?後編",
+        "source": "fuji",
+        "end": "02:45",
+        "date": "2026-10-21",
+        "url": "https://www.fujitv.co.jp/zenryoku_owv/index.html",
+        "start": "02:15"
+      }
+    }
+  ]
+}

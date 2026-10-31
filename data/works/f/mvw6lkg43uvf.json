@@ -1,0 +1,61 @@
+{
+  "id": "mvw6lkg43uvf",
+  "type": "tv",
+  "title": "アッコとジャンボ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TBS",
+  "airtime": "水曜 00:56〜01:26",
+  "officialUrl": "",
+  "genres": [
+    "5"
+  ],
+  "logs": [
+    {
+      "id": "mvw6lkg44h48",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 世界一クレーンゲームが多い店としてギネス世界記録に認定されている「タイトーステーション 府中くるる店」を訪れる\n- 楽しそうでなにより",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "奇跡再びクレーンゲーム第2弾",
+      "program": {
+        "source": "tbs",
+        "title": "アッコとジャンボ",
+        "url": "https://www.tbs.co.jp/tv/20261013_C0CF.html",
+        "end": "01:26",
+        "channel": "TBS",
+        "start": "00:56",
+        "date": "2026-10-14"
+      }
+    },
+    {
+      "id": "mvw7plrfgkqk",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- [横浜市緑区の鴨居自動車学校](https://www.kamoi-ds.co.jp/) にてロケ\n- まさかの教習所回。教習所回はYouTubeをよく探しているので嬉しい\n- アッコが無免許なのによく喋るのが謎だ…。ロケとしては楽しいですが\n  - 無免許の素人ほど駐車に関して口を出してしまうらしい。よく分からん",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "第30話 ジャンボの脱ペーパードライバースペシャル",
+      "program": {
+        "url": "https://www.tbs.co.jp/tv/20261027_C2C3.html",
+        "title": "アッコとジャンボ",
+        "source": "tbs",
+        "start": "01:36",
+        "date": "2026-10-28",
+        "channel": "TBS",
+        "end": "02:06"
+      }
+    }
+  ]
+}
