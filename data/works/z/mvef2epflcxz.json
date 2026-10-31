@@ -15,7 +15,28 @@
   "channel": "TOKYO MX",
   "airtime": "月曜 00:00〜00:30",
   "officialUrl": "",
+  "genres": [
+    "70"
+  ],
   "logs": [
+    {
+      "id": "mvwdk18rlo3c",
+      "author": "minto",
+      "loggedAt": "2026-10-12",
+      "rating": 5,
+      "text": "- 異世界の言葉を覚え始めるという丁寧な工程がいい\n- イザークの体調の異変、どことなくおかしみが感じられるのがいい",
+      "episode": 2,
+      "episodeEnd": null,
+      "subtitle": "言葉の壁",
+      "program": {
+        "date": "2026-10-12",
+        "source": "nasne",
+        "end": "00:30",
+        "channel": "TOKYO MX",
+        "title": "彼方から",
+        "start": "00:00"
+      }
+    },
     {
       "id": "mvef2epgawxi",
       "author": "minto",
@@ -33,6 +54,61 @@
         "url": "https://s.mxtv.jp/bangumi/program.html?date=20261019&ch=1&hm=0000",
         "start": "00:00",
         "title": "彼方から"
+      }
+    },
+    {
+      "id": "mvwcuiowjgpk",
+      "author": "minto",
+      "loggedAt": "2026-10-24",
+      "rating": 5,
+      "text": "- 言葉が分からないのに町の人たちを呼んでくるのがすごい\n- イザークの体調不調が年1というのがいい。月1じゃないんだっていう\n  - なんかちょっと曖昧な感じなのがいい。こういうのは理屈じゃないんだよな\n- 肩に乗っているアレが何なのか気になっていたら遂に何なのかが分かった、と思ったら分かったような分からないような展開に\n- 「オレのかわいいアレがーーー！」\n  - 本人ですらアレって言ってる\n- 超展開すごいな。何度も見返してしまった",
+      "episode": 3,
+      "episodeEnd": null,
+      "subtitle": "悪夢",
+      "program": {
+        "channel": "TOKYO MX",
+        "end": "00:30",
+        "source": "mx",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261019&ch=1&hm=0000",
+        "start": "00:00",
+        "date": "2026-10-19",
+        "title": "彼方から"
+      }
+    },
+    {
+      "id": "mvwd01k28bhc",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": 5,
+      "text": "- 「十分かわいいじゃないか！」おもしれー町長\n  - なんかいちいちセリフもシナリオもフックがあるんだよな。こうでなくっちゃな\n- まだアレって言ってる\n- 「とてつもなくつよいやつ」\n- 言葉の通じない中でのコミュニケーションがユニークだな\n- 思ったよりサイキックバトルなんだな。この違和感も面白くなってしまうのが卑怯だ\n- 「人間ならな」面白すぎる\n- やっぱすごいな。作画がイマイチでもこれだけ面白くできるんだな\n- 「わたし…ウマ…ヘタ///」\n  - 少しずつ言葉を覚えるという展開もいい\n- ニコニコ実況民曰くここで2巻まで消化しているらしい。だとすると良作らしさを感じるペースっぽい",
+      "episode": 4,
+      "episodeEnd": null,
+      "subtitle": "強敵",
+      "program": {
+        "start": "00:00",
+        "channel": "TOKYO MX",
+        "date": "2026-10-26",
+        "source": "mx",
+        "title": "彼方から",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261026&ch=1&hm=0000",
+        "end": "00:30"
+      }
+    },
+    {
+      "id": "mvwd9obut0nk",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": 5,
+      "text": "- コミック原作。「LaLa」連載から35周年を記念し待望のアニメ化\n- キャラデや作画が発表当初から不安視されていたが、シナリオがしっかりしているので見れる\n- 異世界で言葉が通じないということを実直にやっている作品は意外に少ない。ましてやそれを数十年前の作品にやられてしまってはな…\n  - 登場人物が視聴者が理解できない言葉でペラペラ喋るのがいい\n- 黒沢ともよがすごく昭和ヒロイン声を実現していてビックリした。これだけでも観る価値があるのかもしれない",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "目覚め",
+      "program": {
+        "start": "00:00",
+        "end": "00:30",
+        "channel": "TOKYO MX",
+        "date": "2026-10-05",
+        "source": "manual"
       }
     }
   ]

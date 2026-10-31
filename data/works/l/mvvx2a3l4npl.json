@@ -15,7 +15,9 @@
   "channel": "フジテレビ",
   "airtime": "金曜 23:00〜23:30",
   "officialUrl": "https://www.fujitv.co.jp/DNN/index.html",
-  "genres": [],
+  "genres": [
+    "52"
+  ],
   "logs": [
     {
       "id": "mvvx2a3l8h3l",

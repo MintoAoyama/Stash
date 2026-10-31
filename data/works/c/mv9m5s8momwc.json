@@ -15,6 +15,9 @@
   "channel": "NHK総合",
   "airtime": "木曜 20:15〜20:42",
   "officialUrl": "https://www.web.nhk/tv/pl/series-tep-GQMG8ZMML2",
+  "genres": [
+    "22"
+  ],
   "logs": [
     {
       "id": "mv9m5t2qlpnj",

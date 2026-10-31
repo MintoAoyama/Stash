@@ -15,7 +15,9 @@
   "channel": "フジテレビ",
   "airtime": "水曜 02:15〜02:45",
   "officialUrl": "https://www.fujitv.co.jp/zenryoku_owv/index.html",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mvw7r4e20psr",

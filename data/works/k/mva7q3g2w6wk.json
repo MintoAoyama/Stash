@@ -15,7 +15,9 @@
   "channel": "テレビ東京",
   "airtime": "木曜 22:00〜22:58",
   "officialUrl": "https://www.tv-tokyo.co.jp/wbs/",
-  "genres": [],
+  "genres": [
+    "0"
+  ],
   "logs": [
     {
       "id": "mva7q421pz0f",

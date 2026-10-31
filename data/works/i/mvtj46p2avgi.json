@@ -15,7 +15,9 @@
   "channel": "NHK BS",
   "airtime": "木曜 20:00〜21:00",
   "officialUrl": "https://www.web.nhk/tv/pl/series-tep-L68PYWZPXM",
-  "genres": [],
+  "genres": [
+    "84"
+  ],
   "logs": [
     {
       "id": "mvtj46p3ehpn",

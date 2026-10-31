@@ -15,7 +15,11 @@
   "channel": "NHK総合",
   "airtime": "水曜 18:10〜19:00",
   "officialUrl": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR",
-  "genres": [],
+  "genres": [
+    "00",
+    "09",
+    "22"
+  ],
   "logs": [
     {
       "id": "mvi5ggyd5x1h",

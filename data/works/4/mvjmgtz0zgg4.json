@@ -15,6 +15,9 @@
   "channel": "日本テレビ",
   "airtime": "水曜 01:29〜01:59",
   "officialUrl": "https://www.vap.co.jp/sorahaakaikawanohotori/",
+  "genres": [
+    "70"
+  ],
   "logs": [
     {
       "id": "mvjmgtz0r7q3",

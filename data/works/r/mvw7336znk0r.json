@@ -15,25 +15,27 @@
   "channel": "TBS",
   "airtime": "月曜 21:54〜22:57",
   "officialUrl": "https://www.tbs.co.jp/imasarashirou_tbs/",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mvw7336zidtp",
       "author": "minto",
       "loggedAt": "2026-10-31",
       "rating": null,
-      "text": "- 岡田准一は「嵐ックス」であり「一番弱いゴリラ」\n- 二宮和也の地元 新小岩\n- タカラトミーが葛飾にあるの意外すぎる\n  - タカラトミー社員、リカちゃん、[のりのりタイムズ](https://www.takaratomy.co.jp/products/tomiplaworld/norinoritimes/character/) でお馴染みティーくん・プラくん、黒ひげくん、ポリスブレイバー（タカラトミー社長）\n    - リカちゃんの着ぐるみ迫力あるな\n    - リカちゃんの開発会議怖いな\n  - 今年2月にリリースされた「ぷちリカちゃん」\n  - 現代に転生してきたクロミが好きな侍（岡田准一）",
+      "text": "- 岡田准一は「嵐ックス」であり「一番弱いゴリラ」\n- 二宮和也の地元 新小岩\n- タカラトミーが葛飾にあるの意外すぎる\n  - タカラトミー社員、リカちゃん、[のりのりタイムズ](https://www.takaratomy.co.jp/products/tomiplaworld/norinoritimes/character/) でお馴染みティーくん・プラくん、黒ひげくん、ポリスブレイバー（タカラトミー社長）\n    - リカちゃんの着ぐるみ迫力あるな\n    - リカちゃんの開発会議怖いな\n  - 今年2月にリリースされた「ぷちリカちゃん」\n  - 現代に転生してきたクロミが好きな侍（岡田准一）\n- 初めて消しゴムを買った店を覚えている二宮和也\n- [足腰の負担なく立ち仕事ができるアシストスーツ「アルケリス」とは | 製品紹介 | アルケリス株式会社](https://www.archelis.com/product/product-archelis/)\n  - ミヨシはプラスチックパーツの製造元\n  - [アルケリス導入事例 | 株式会社ミヨシ プラスチック成形 | 立ち仕事を楽に支えるアシストスーツ「アルケリス」 | アルケリス株式会社](https://www.archelis.com/casestudy/casestudy-industrial/casestudy-miyoshi/)\n    - パーツの製造元でありながら工場への導入事例にも出てくるというややこしさ\n",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "二宮和也参戦!地元葛飾へ...タカラトミー潜入",
       "program": {
-        "start": "21:54",
-        "source": "tbs",
-        "title": "岡田准一とロバート秋山の今さらシロー!二宮和也参戦!地元葛飾へ...タカラトミー潜入",
-        "date": "2026-10-12",
         "url": "https://www.tbs.co.jp/tv/20261012_C0A9.html",
+        "source": "tbs",
         "end": "22:57",
-        "channel": "TBS"
+        "date": "2026-10-12",
+        "title": "岡田准一とロバート秋山の今さらシロー!二宮和也参戦!地元葛飾へ...タカラトミー潜入",
+        "channel": "TBS",
+        "start": "21:54"
       }
     }
   ]

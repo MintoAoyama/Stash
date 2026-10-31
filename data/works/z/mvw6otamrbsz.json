@@ -15,7 +15,10 @@
   "channel": "日本テレビ",
   "airtime": "土曜 21:54〜22:00",
   "officialUrl": "https://www.ntv.co.jp/jonetsunoshizuku/",
-  "genres": [],
+  "genres": [
+    "8F",
+    "2F"
+  ],
   "logs": [
     {
       "id": "mvw6otanaod2",

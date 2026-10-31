@@ -15,7 +15,9 @@
   "channel": "フジテレビ",
   "airtime": "月曜 11:47〜13:50",
   "officialUrl": "https://www.fujitv.co.jp/pokapoka/index.html",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mvej0remku9n",

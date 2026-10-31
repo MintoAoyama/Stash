@@ -15,7 +15,9 @@
   "channel": "NHK総合",
   "airtime": "月曜 22:45〜23:00",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "30"
+  ],
   "logs": [
     {
       "id": "mvw02es7q5ca",

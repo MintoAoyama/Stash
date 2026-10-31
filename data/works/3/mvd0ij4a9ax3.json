@@ -15,6 +15,10 @@
   "channel": "TBS",
   "airtime": "日曜 07:30〜08:00",
   "officialUrl": "https://www.tbs.co.jp/gacchiri/",
+  "genres": [
+    "22",
+    "52"
+  ],
   "logs": [
     {
       "id": "mvmlpzwbqxxl",

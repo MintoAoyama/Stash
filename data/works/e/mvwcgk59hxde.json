@@ -1,0 +1,43 @@
+{
+  "id": "mvwcgk59hxde",
+  "type": "tv",
+  "title": "首都圏ネットワーク",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "金曜 18:10〜18:38",
+  "officialUrl": "",
+  "genres": [
+    "00",
+    "09",
+    "22"
+  ],
+  "logs": [
+    {
+      "id": "mvwcgk59x5wx",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 渋谷 ハロウィーン前日\n  - 2018年の軽トラック横転が契機に\n  - 何故か [池袋ハロウィンコスプレフェス2026](池袋ハロウィンコスプレフェス2026) も取材\n- \"赤十字マーク使わないで\" ハロウィーン注意 日本赤十字社\n  - 法律などで原則、日本赤十字社もしくは自衛隊の衛生部隊しか使えない\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "4600万円相当の高級時計 中野でまた窃盗事件",
+      "program": {
+        "channel": "NHK総合",
+        "source": "nasne",
+        "end": "18:38",
+        "date": "2026-10-30",
+        "title": "首都圏ネットワーク 4600万円相当の高級時計 中野でまた窃盗事件",
+        "start": "18:10"
+      }
+    }
+  ]
+}

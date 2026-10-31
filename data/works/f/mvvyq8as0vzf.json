@@ -15,7 +15,9 @@
   "channel": "TOKYO MX",
   "airtime": "金曜 23:00〜23:30",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "30"
+  ],
   "logs": [
     {
       "id": "mvvyq8atwz82",
