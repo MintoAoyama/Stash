@@ -1,0 +1,58 @@
+{
+  "id": "mvvx2a3l4npl",
+  "type": "tv",
+  "title": "全力!脱力タイムズ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "金曜 23:00〜23:30",
+  "officialUrl": "https://www.fujitv.co.jp/DNN/index.html",
+  "logs": [
+    {
+      "id": "mvvx2a3l8h3l",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 「左下」のくだりと目の前にいるくだりは良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "錦鯉長谷川&久保史緒里▼春の次は夏だからですよ!?",
+      "program": {
+        "start": "23:00",
+        "source": "fuji",
+        "date": "2026-10-16",
+        "url": "https://www.fujitv.co.jp/DNN/index.html",
+        "title": "全力!脱力タイムズ",
+        "end": "23:30",
+        "channel": "フジテレビ"
+      }
+    },
+    {
+      "id": "mvvy4j2o7jv8",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 数字を優先するためにインタビューシーンに\n- 結果仕掛け人側が収録時間を掛けている\n- このマッチョは誰だろうと思って「フジテレビ アナウンサー 男性 マッチョ」でググったら [ヤマケン](https://ja.wikipedia.org/wiki/%E5%B1%B1%E6%9C%AC%E8%B3%A2%E5%A4%AA) が出てきてひどく悲しい気持ちになった\n  - 調べたら番組内ではフリーアナウンサー表記だったはずがそれも嘘で、サラリーマンをしながらダンスや俳優活動をしている人だったらしい。[高木良輔さん](https://tarzanweb.jp/post-292680#:~:text=%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%8D-,%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%97%E3%83%AA%EF%BD%9C%E9%AB%98%E6%9C%A8%E8%89%AF%E8%BC%94%E3%81%95%E3%82%93,-25%E6%AD%B3%E3%83%BB%E4%BC%9A)。よくこんなフジテレビ男性アナっぽい人を連れてこれたな\n- 兎がコンプライアンス委員会未経験過ぎて新鮮な反応になっているのは地味に面白かった。番組自体知らなかったのかもしれない。最後に知ってるふりをしていたけどもうダメ",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ロングコートダディ兎&森香澄▼番組見たことあります?",
+      "program": {
+        "channel": "フジテレビ",
+        "url": "https://www.fujitv.co.jp/DNN/index.html",
+        "source": "fuji",
+        "date": "2026-10-23",
+        "end": "23:30",
+        "title": "全力!脱力タイムズ",
+        "start": "23:00"
+      }
+    }
+  ]
+}

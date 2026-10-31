@@ -1,0 +1,76 @@
+{
+  "id": "mvvuduw15dll",
+  "type": "tv",
+  "title": "キテレツキテル!",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "火曜 00:30〜01:00",
+  "officialUrl": "https://www.tv-tokyo.co.jp/keytolit/",
+  "logs": [
+    {
+      "id": "mvvub2cwmjxw",
+      "author": "minto",
+      "loggedAt": "2026-10-17",
+      "rating": null,
+      "text": "- 特番を経てのレギュラー化らしい。特番は見てない\n- ハリー・ポッター スタジオツアー東京 にて「setlog を使った鬼ごっこ」という謎レクリエーション\n  - どれくらい本気でやるのか探り探りな感じがある",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "祝KEY TO LIT念願の初グループレギュラー番組始動!",
+      "program": {
+        "title": "キテレツキテル! 祝KEY TO LIT念願の初グループレギュラー番組始動!",
+        "start": "00:30",
+        "source": "nasne",
+        "channel": "テレビ東京",
+        "date": "2026-10-13",
+        "end": "01:00"
+      }
+    },
+    {
+      "id": "mvvtyeaw8rco",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 恋に悩む男性（沖縄出身のお笑いをやっている立教大生）をモテ男に変身させる中村嶺亜\n  - 振る舞いを見ていると気配りのできる彼女にしか見えない\n- 猪狩の好きな嶺亜の発言「胸キュンは学問」",
+      "episode": 3,
+      "episodeEnd": null,
+      "subtitle": "ヘアメイク、ファッションを中村嶺亜プロデュース",
+      "program": {
+        "end": "01:00",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/29224_202610262430.html",
+        "start": "00:30",
+        "date": "2026-10-27",
+        "source": "tvtokyo",
+        "title": "キテレツキテル! ヘアメイク、ファッションを中村嶺亜プロデュース"
+      }
+    },
+    {
+      "id": "mvvuduw15tr8",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- 各メンバーの告白勝負のくだり、土屋アンナがあまりにも落ち着きすぎている。北斗晶未満みたいな。元々こうなのか歳を重ねてこうなったのかが分からない（思い出せない）",
+      "episode": 2,
+      "episodeEnd": null,
+      "subtitle": "奇天烈高校!漢の三番勝負!土屋アンナ参戦!",
+      "program": {
+        "source": "tvtokyo",
+        "date": "2026-10-20",
+        "start": "00:30",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/29224_202610192430.html",
+        "channel": "テレビ東京",
+        "end": "01:00",
+        "title": "キテレツキテル!奇天烈高校!漢の三番勝負!土屋アンナ参戦!"
+      }
+    }
+  ]
+}
