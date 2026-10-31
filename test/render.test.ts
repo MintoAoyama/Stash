@@ -525,3 +525,27 @@ test('the week page lists the logs of that week across the month end and links t
   assert.match(page, /<nav class="breadcrumbs"><a href="\/stash\/m\/2026\/07\/">2026年7月<\/a> · <a href="\/stash\/m\/2026\/08\/">2026年8月<\/a><\/nav>/);
   assert.equal(renderPage(site([aroundAugust]), 'week:2026-08-2'), null);
 });
+
+test('the season page puts the works under the heading of their main genre, works without one last', () => {
+  const works = [
+    work([log()], { id: 'a1', title: 'ドラマA', season: '2026-autumn', genres: ['30'], airtime: '月曜 21:00' }),
+    work([log()], { id: 'b2', title: 'バラエティB', season: '2026-autumn', genres: ['52', '30'] }),
+    work([log()], { id: 'c3', title: 'ドラマC', season: '2026-autumn', genres: ['3'], airtime: '日曜 21:00' }),
+    work([log()], { id: 'd4', title: '不明D', season: '2026-autumn' }),
+  ];
+  const page = render(works, 'season:2026-autumn');
+  const at = (text: string) => page.indexOf(text);
+  assert.ok(at('<h2>ドラマ ') < at('ドラマA') && at('ドラマA') < at('ドラマC') && at('ドラマC') < at('<h2>バラエティ '));
+  assert.ok(at('バラエティB') < at('<h2>ジャンルなし ') && at('<h2>ジャンルなし ') < at('不明D'));
+  assert.match(page, /data-type="tv" data-g="g5 g3"/, 'a work answers to each of its genres');
+  assert.ok(page.includes('body:has(#fg-3:checked) .card-group:not(:has(.card[data-g~="g3"])){display:none}'));
+});
+
+test('the other lists filter by genre and show the main one beside the type', () => {
+  const works = [work([log()], { id: 'a1', genres: ['70'] }), work([log()], { id: 'b2', genres: ['A5', '52'] })];
+  const page = render(works, 'type:tv');
+  assert.match(page, /<legend>ジャンル<\/legend>/);
+  assert.ok(page.includes('TV · アニメ・特撮'));
+  assert.ok(!page.includes('card-group'));
+  assert.ok(!render([work([log()], { genres: ['30'] })], 'type:tv').includes('<legend>ジャンル</legend>'), 'one genre is nothing to filter by');
+});

@@ -592,3 +592,8 @@ time {
 :root:not([data-authors="many"]) :is(.author, .progress-author) {
   display: none;
 }
+
+.card-group h2 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+}

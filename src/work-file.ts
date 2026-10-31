@@ -46,6 +46,10 @@ export interface WorkFile {
    */
   airtime?: string;
   /**
+   * Genres as ARIB STD-B10 content genres, main one first: the major and the minor genre as two hex digits ("30" is ドラマ / 国内ドラマ), or the major alone ("3").
+   */
+  genres?: string[];
+  /**
    * An https URL of the official page of the work, or an empty string.
    */
   officialUrl?: string;

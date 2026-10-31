@@ -48,6 +48,11 @@
       "type": "string",
       "description": "The regular slot as free text, for example \"日曜 21:00〜21:45\". May be empty."
     },
+    "genres": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[0-9A-F]{1,2}$" },
+      "description": "Genres as ARIB STD-B10 content genres, main one first: the major and the minor genre as two hex digits (\"30\" is ドラマ / 国内ドラマ), or the major alone (\"3\")."
+    },
     "officialUrl": {
       "type": "string",
       "pattern": "^(https://.+)?$",
