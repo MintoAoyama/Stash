@@ -3,7 +3,7 @@ import { channelOf } from './channel.ts';
 import { compareNewestFirst, coveringLog, episodeLabel, logDate, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { GENRE_LABELS, genreMajors } from './genre.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
-import { markdown, plainText } from './markdown.ts';
+import { digest, markdown, plainText } from './markdown.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
 import { weekLabel, weekOf, weekRange } from './week.ts';
 import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
@@ -210,15 +210,8 @@ function breadcrumbs(site: Site, segs: string[]): Raw {
   return html`<nav class="breadcrumbs">${items.map((it, i) => (i < 2 ? it : html` / ${it}`))}</nav>`;
 }
 
-const EXCERPT_CHARS = 140;
 // Beyond this the cells say nothing at a glance, so only the summary is shown.
 const MAX_GRID_EPISODES = 500;
-
-function truncate(text: string, max: number): { text: string; truncated: boolean } {
-  const chars = Array.from(text.trim());
-  if (chars.length <= max) return { text, truncated: false };
-  return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
-}
 
 // The work page leaves out the year of a day in the year of the other day it shows.
 function dayText(day: string, other: string, onWorkPage: boolean): string {
@@ -307,8 +300,7 @@ function renderWork(site: Site, work: Work): string {
   const logItem = (l: Log) => {
     const href = url(site, logKey(work.id, l.id));
     const heading = logHeading(l);
-    // A long text is cut as plain text, so the cut never lands inside the markup.
-    const excerpt = truncate(plainText(l.text), EXCERPT_CHARS);
+    const excerpt = digest(l.text);
     const day = logDate(l);
     const date = html`<time datetime="${day}">${day}</time>`;
     const head = heading
@@ -582,9 +574,9 @@ function renderHome(site: Site): string {
     site.config.title,
     html`<h1 class="visually-hidden">${site.config.title}</h1>
 <section class="stats" aria-label="記録の数"><span data-stat="works">-</span> 作品 · <span data-stat="logs">-</span> 件の記録</section>
-<section class="this-season" hidden><h2>今シーズン <a class="season-link"></a></h2><ul class="timeline"></ul></section>
+<section class="this-season" hidden><h2><a class="season-link"></a></h2><ul class="cards cards--text"></ul><p class="more" hidden><a class="season-more"></a></p></section>
 <section class="on-this-day" hidden><h2>過去の今日</h2><ul></ul></section>
-<section class="recent"><h2>最近の記録</h2><ol class="timeline"></ol></section>
+<section class="recent" hidden><h2>最近の記録</h2><ul class="cards cards--text"></ul></section>
 <section class="archive"><h2>アーカイブ</h2><ul class="archive-years"></ul></section>`,
   );
 }

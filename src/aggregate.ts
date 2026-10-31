@@ -1,17 +1,20 @@
 import { channelOf } from './channel.ts';
-import { highestEpisode, logDate } from './episodes.ts';
+import { highestEpisode, logDate, logHeading } from './episodes.ts';
+import { digest } from './markdown.ts';
 import { seasonOf } from './season.ts';
-import type { MediaType, Work } from './types.ts';
+import type { Log, MediaType, Work } from './types.ts';
 
 export interface SiteData {
   // byType and seasons count every work, including those without logs, because they decide which navigation links lead to a page.
   // authors decides whether author names are shown: with a single author they say nothing.
   counts: { works: number; logs: number; byType: Partial<Record<MediaType, number>>; seasons: number; authors: number };
-  // Newest loggedAt first; aired is the day the log belongs to when that is not loggedAt.
-  recent: { id: string; title: string; type: MediaType; loggedAt: string; aired?: string; author: string; rating: number | null }[];
-  // Season -> its works, most recently logged first and works without logs last; episode is the highest one logged.
-  // The home page picks the season of the day it is opened, so every season is listed.
-  seasonWorks: Record<string, { id: string; title: string; channel: string; episode: number | null; episodeCount: number | null; loggedAt: string | null }[]>;
+  // Newest loggedAt first; aired is the day the log belongs to when that is not loggedAt. The home page leaves out the
+  // works of the season of the day it is opened, which it shows apart, so there are more than it shows.
+  // heading is the episode and subtitle; digest the start of the text as the work page shows it.
+  recent: (LogDigest & { id: string; title: string; type: MediaType; log: string; loggedAt: string; aired?: string; author: string; season?: string })[];
+  // Season -> its works, most recently logged first and works without logs last; episode is the highest one logged,
+  // and the digest is of the latest log. The home page picks the season of the day it is opened, so every season is listed.
+  seasonWorks: Record<string, (Partial<LogDigest> & { id: string; title: string; channel: string; episode: number | null; episodeCount: number | null; loggedAt: string | null })[]>;
   // years and days go by the day a log belongs to (logDate), like the year and month pages they lead to; months holds the records of January to December.
   years: { year: string; logs: number; months: number[] }[];
   // "MM-dd" -> records on that day in any year, for "on this day"
@@ -20,15 +23,25 @@ export interface SiteData {
   activity: Record<string, Partial<Record<MediaType, number>>>;
 }
 
-const RECENT_LIMIT = 30;
+const RECENT_LIMIT = 60;
+
+type LogDigest = { heading: string; digest: string; rating: number | null };
+
+function logDigest(l: Log): LogDigest {
+  return { heading: logHeading(l), digest: digest(l.text).text, rating: l.rating ?? null };
+}
 
 function seasonWorksOf(works: Work[]): SiteData['seasonWorks'] {
   const bySeason: SiteData['seasonWorks'] = {};
   for (const w of works) {
     const season = seasonOf(w);
     if (!season) continue;
-    const loggedAt = w.logs.map((l) => l.loggedAt).sort().at(-1) ?? null;
-    (bySeason[season] ??= []).push({ id: w.id, title: w.title, channel: channelOf(w), episode: highestEpisode(w), episodeCount: w.episodeCount ?? null, loggedAt });
+    const latest = [...w.logs].sort((a, b) => b.loggedAt.localeCompare(a.loggedAt) || b.id.localeCompare(a.id))[0];
+    const loggedAt = latest?.loggedAt ?? null;
+    (bySeason[season] ??= []).push({
+      id: w.id, title: w.title, channel: channelOf(w), episode: highestEpisode(w), episodeCount: w.episodeCount ?? null, loggedAt,
+      ...(latest ? logDigest(latest) : {}),
+    });
   }
   for (const list of Object.values(bySeason)) {
     list.sort((a, b) => (b.loggedAt ?? '').localeCompare(a.loggedAt ?? '') || a.id.localeCompare(b.id));
@@ -73,10 +86,12 @@ export function buildSiteData(works: Iterable<Work>): SiteData {
       id: w.id,
       title: w.title,
       type: w.type,
+      log: l.id,
       loggedAt: l.loggedAt,
       ...(logDate(l) !== l.loggedAt ? { aired: logDate(l) } : {}),
       author: l.author,
-      rating: l.rating ?? null,
+      ...(seasonOf(w) ? { season: seasonOf(w) } : {}),
+      ...logDigest(l),
     })),
     seasonWorks: seasonWorksOf(all),
     years: [...years].sort(([a], [b]) => b.localeCompare(a)).map(([year, months]) => ({ year, logs: months.reduce((a, b) => a + b, 0), months })),
