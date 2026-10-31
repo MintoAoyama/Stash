@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import { GENRE_CODE } from './genre.ts';
 import { isValidWorkId, workDataPath } from './pages.ts';
 import { MEDIA_TYPES, type Log, type MediaType, type Work } from './types.ts';
 import { DataError, validateWorkFile, type DataProblem } from './validate.ts';
@@ -69,6 +70,7 @@ export function parseWork(json: string, source: string): Work | null {
     channel: asString(o.channel) || undefined,
     airtime: asString(o.airtime) || undefined,
     officialUrl: /^https:\/\//.test(asString(o.officialUrl)) ? asString(o.officialUrl) : undefined,
+    genres: Array.isArray(o.genres) ? o.genres.map(String).filter((g) => GENRE_CODE.test(g)) : [],
     logs,
   };
 }

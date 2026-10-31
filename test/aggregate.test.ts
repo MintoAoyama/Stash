@@ -62,11 +62,11 @@ test('seasonWorks groups works by season, most recently logged first, works with
   ]);
   assert.deepEqual(data.seasonWorks, {
     '2026-autumn': [
-      { id: 'b2', title: '作品 b2', channel: '', episode: 7, episodeCount: 12, loggedAt: '2026-10-12' },
-      { id: 'a1', title: '作品 a1', channel: '', episode: 4, episodeCount: null, loggedAt: '2026-10-06' },
+      { id: 'b2', title: '作品 b2', channel: '', episode: 7, episodeCount: 12, loggedAt: '2026-10-12', heading: '第7話', digest: '', rating: null },
+      { id: 'a1', title: '作品 a1', channel: '', episode: 4, episodeCount: null, loggedAt: '2026-10-06', heading: '第2〜4話', digest: '', rating: null },
       { id: 'c3', title: '作品 c3', channel: '', episode: null, episodeCount: null, loggedAt: null },
     ],
-    '2026-summer': [{ id: 'd4', title: '作品 d4', channel: '', episode: null, episodeCount: null, loggedAt: '2026-08-01' }],
+    '2026-summer': [{ id: 'd4', title: '作品 d4', channel: '', episode: null, episodeCount: null, loggedAt: '2026-08-01', heading: '', digest: '', rating: null }],
   });
 });
 
@@ -93,4 +93,19 @@ test('years carry the number of records of each month, by the day a log belongs 
     { year: '2026', logs: 3, months: [0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0] },
     { year: '2025', logs: 1, months: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] },
   ]);
+});
+
+test('the home page gets the start of each log as plain text, with its episode, and the season of its work', () => {
+  const long = `**強調**と[リンク](https://example.com)。${'あ'.repeat(200)}`;
+  const data = buildSiteData([
+    work('a1', { season: '2026-autumn', logs: [log({ id: 'x', episode: 3, subtitle: '再会', rating: 4, text: long }), log({ id: 'y', loggedAt: '2026-10-01', text: '前の回' })] }),
+    work('b2', { logs: [log({ id: 'z', loggedAt: '2026-10-05', text: '- 一つ目\n- 二つ目' })] }),
+  ]);
+  const latest = data.seasonWorks['2026-autumn']![0]!;
+  assert.equal(latest.heading, '第3話 再会');
+  assert.equal(latest.rating, 4);
+  assert.ok(latest.digest!.startsWith('強調とリンク。あ'));
+  assert.equal(Array.from(latest.digest!).length, 141, 'cut where the work page cuts, with an ellipsis');
+  assert.deepEqual(data.recent.map((r) => [r.log, r.season]), [['x', '2026-autumn'], ['z', undefined], ['y', '2026-autumn']]);
+  assert.equal(data.recent[1]!.digest, '・一つ目\n・二つ目');
 });

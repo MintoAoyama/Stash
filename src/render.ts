@@ -1,8 +1,9 @@
 import { airtimeOrder } from './airtime.ts';
 import { channelOf } from './channel.ts';
 import { compareNewestFirst, coveringLog, episodeLabel, logDate, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
+import { GENRE_LABELS, genreMajors } from './genre.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
-import { markdown, plainText } from './markdown.ts';
+import { digest, markdown, plainText } from './markdown.ts';
 import { logKey, monthsOf, pageUrl, pathSegments, safeSegment, splitKey, splitLogArg, type PageKey } from './pages.ts';
 import { weekLabel, weekOf, weekRange } from './week.ts';
 import { compareSeasons, seasonLabel, seasonOf } from './season.ts';
@@ -123,25 +124,41 @@ function cover(work: Work, size: 'small' | 'thumb' | 'full'): Raw {
 
 function typeAndDate(work: Work): Raw {
   const latest = latestLog(work);
-  return html`${MEDIA_TYPE_LABELS[work.type]}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''} ${stars(latest?.rating)}`;
+  const genre = genreMajors(work)[0];
+  return html`${MEDIA_TYPE_LABELS[work.type]}${genre === undefined ? '' : ` · ${GENRE_LABELS[genre]}`}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''} ${stars(latest?.rating)}`;
 }
 
-type CardOptions = { order?: (a: Work, b: Work) => number; meta?: (work: Work) => Raw; extra?: (work: Work) => Raw; className?: string };
+// group: the cards under a heading per main genre, in the order of the standard; works without a genre come last.
+type CardOptions = { order?: (a: Work, b: Work) => number; meta?: (work: Work) => Raw; extra?: (work: Work) => Raw; className?: string; group?: boolean };
 
 function cardList(site: Site, works: Work[], options: CardOptions = {}): { body: Raw; styles: string } {
   const meta = options.meta ?? typeAndDate;
   const sorted = [...works].sort(options.order ?? byLatestDesc);
   const types = MEDIA_TYPES.filter((t) => sorted.some((w) => w.type === t));
+  const genres = GENRE_LABELS.map((_, i) => i).filter((g) => sorted.some((w) => genreMajors(w).includes(g)));
   const authors = authorsOf(sorted);
+  // A filter hides the cards that do not match it, and the groups left without a card.
   const rules: string[] = [];
-  for (const t of types) rules.push(`body:has(#ft-${t}:checked) .card:not([data-type="${t}"]){display:none}`);
-  authors.forEach((_, i) => rules.push(`body:has(#fa-${i}:checked) .card:not([data-a~="a${i}"]){display:none}`));
+  const hide = (input: string, match: string) => {
+    rules.push(`body:has(#${input}:checked) .card:not(${match}){display:none}`);
+    if (options.group) rules.push(`body:has(#${input}:checked) .card-group:not(:has(.card${match})){display:none}`);
+  };
+  for (const t of types) hide(`ft-${t}`, `[data-type="${t}"]`);
+  for (const g of genres) hide(`fg-${g}`, `[data-g~="g${g}"]`);
+  authors.forEach((_, i) => hide(`fa-${i}`, `[data-a~="a${i}"]`));
 
   const typeFilter =
     types.length > 1
       ? html`<fieldset class="filter"><legend>種類</legend>
 <label><input type="radio" name="ft" id="ft-all" checked>すべて</label>
 ${types.map((t) => html`<label><input type="radio" name="ft" id="ft-${t}">${MEDIA_TYPE_LABELS[t]}</label>`)}
+</fieldset>`
+      : '';
+  const genreFilter =
+    genres.length > 1
+      ? html`<fieldset class="filter"><legend>ジャンル</legend>
+<label><input type="radio" name="fg" id="fg-all" checked>すべて</label>
+${genres.map((g) => html`<label><input type="radio" name="fg" id="fg-${g}">${GENRE_LABELS[g]}</label>`)}
 </fieldset>`
       : '';
   const authorFilter =
@@ -152,16 +169,31 @@ ${authors.map((a, i) => html`<label><input type="radio" name="fa" id="fa-${i}">$
 </fieldset>`
       : '';
 
-  const cards = sorted.map((w) => {
+  const card = (w: Work) => {
     const a = [...new Set(w.logs.map((l) => `a${authors.indexOf(l.author)}`))].join(' ');
-    return html`<li class="card${w.coverUrl ? '' : ' card--text'}" data-type="${w.type}" data-a="${a}">
+    const g = genreMajors(w).map((m) => `g${m}`).join(' ');
+    return html`<li class="card${w.coverUrl ? '' : ' card--text'}" data-type="${w.type}" data-g="${g}" data-a="${a}">
 <a href="${url(site, `work:${w.id}`)}">${cover(w, 'thumb')}<span class="card-title">${w.title}</span></a>
 <span class="card-meta">${meta(w)}</span>${options.extra ? options.extra(w) : ''}
 </li>`;
-  });
+  };
+  const listClass = `cards${sorted.some((w) => w.coverUrl) ? '' : ' cards--text'}${options.className ? ` ${options.className}` : ''}`;
+  const cardsOf = (ws: Work[]) => html`<ul class="${listClass}">${ws.map(card)}</ul>`;
+
+  let cards: Raw;
+  if (options.group) {
+    const main = (w: Work) => genreMajors(w)[0] ?? GENRE_LABELS.length;
+    const keys = [...new Set(sorted.map(main))].sort((x, y) => x - y);
+    cards = html`${keys.map((k) => {
+      const ws = sorted.filter((w) => main(w) === k);
+      return html`<section class="card-group"><h2>${GENRE_LABELS[k] ?? 'ジャンルなし'} <span class="count">${ws.length}</span></h2>${cardsOf(ws)}</section>`;
+    })}`;
+  } else {
+    cards = cardsOf(sorted);
+  }
 
   return {
-    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards${sorted.some((w) => w.coverUrl) ? '' : ' cards--text'}${options.className ? ` ${options.className}` : ''}">${cards}</ul>`,
+    body: html`<div class="filters">${typeFilter}${genreFilter}${authorFilter}</div>${cards}`,
     styles: rules.join('\n'),
   };
 }
@@ -178,15 +210,8 @@ function breadcrumbs(site: Site, segs: string[]): Raw {
   return html`<nav class="breadcrumbs">${items.map((it, i) => (i < 2 ? it : html` / ${it}`))}</nav>`;
 }
 
-const EXCERPT_CHARS = 140;
 // Beyond this the cells say nothing at a glance, so only the summary is shown.
 const MAX_GRID_EPISODES = 500;
-
-function truncate(text: string, max: number): { text: string; truncated: boolean } {
-  const chars = Array.from(text.trim());
-  if (chars.length <= max) return { text, truncated: false };
-  return { text: `${chars.slice(0, max).join('').trimEnd()}…`, truncated: true };
-}
 
 // The work page leaves out the year of a day in the year of the other day it shows.
 function dayText(day: string, other: string, onWorkPage: boolean): string {
@@ -275,8 +300,7 @@ function renderWork(site: Site, work: Work): string {
   const logItem = (l: Log) => {
     const href = url(site, logKey(work.id, l.id));
     const heading = logHeading(l);
-    // A long text is cut as plain text, so the cut never lands inside the markup.
-    const excerpt = truncate(plainText(l.text), EXCERPT_CHARS);
+    const excerpt = digest(l.text);
     const day = logDate(l);
     const date = html`<time datetime="${day}">${day}</time>`;
     const head = heading
@@ -302,6 +326,7 @@ ${excerpt.truncated ? html`<p class="log-more"><a href="${href}">続きを読む
   const meta = [
     html`<a href="${url(site, `type:${work.type}`)}">${MEDIA_TYPE_LABELS[work.type]}</a>`,
     season ? html`<a href="${url(site, `season:${season}`)}">${seasonLabel(season)}</a>` : '',
+    genreMajors(work).map((g) => GENRE_LABELS[g]).join('・'),
     channelOf(work),
     work.airtime ?? '',
     work.episodeCount ? `全${work.episodeCount}話` : '',
@@ -456,7 +481,7 @@ function renderSeason(site: Site, season: string): string | null {
   const works = [...site.works.values()].filter((w) => seasonOf(w) === season);
   if (works.length === 0) return null;
   const label = seasonLabel(season);
-  const list = cardList(site, works, { order: bySlot, meta: seasonMeta, extra: (w) => progressGrid(site, w), className: 'cards--season' });
+  const list = cardList(site, works, { order: bySlot, meta: seasonMeta, extra: (w) => progressGrid(site, w), className: 'cards--season', group: true });
   return layout(
     site,
     label,
@@ -549,9 +574,9 @@ function renderHome(site: Site): string {
     site.config.title,
     html`<h1 class="visually-hidden">${site.config.title}</h1>
 <section class="stats" aria-label="記録の数"><span data-stat="works">-</span> 作品 · <span data-stat="logs">-</span> 件の記録</section>
-<section class="this-season" hidden><h2>今シーズン <a class="season-link"></a></h2><ul class="timeline"></ul></section>
+<section class="this-season" hidden><h2><a class="season-link"></a></h2><ul class="cards cards--text"></ul><p class="more" hidden><a class="season-more"></a></p></section>
 <section class="on-this-day" hidden><h2>過去の今日</h2><ul></ul></section>
-<section class="recent"><h2>最近の記録</h2><ol class="timeline"></ol></section>
+<section class="recent" hidden><h2>最近の記録</h2><ul class="cards cards--text"></ul></section>
 <section class="archive"><h2>アーカイブ</h2><ul class="archive-years"></ul></section>`,
   );
 }

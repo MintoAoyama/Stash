@@ -83,3 +83,13 @@ export function plainText(text: string): string {
     .map((p, i, all) => (i === 0 ? '' : p.kind !== 'block' && p.kind === all[i - 1]!.kind ? '\n' : '\n\n') + p.text)
     .join('');
 }
+
+// The start of a log as plain text, as the work page and the home page show it; the cut never lands inside the markup.
+const DIGEST_CHARS = 140;
+
+export function digest(text: string): { text: string; truncated: boolean } {
+  const plain = plainText(text);
+  const chars = Array.from(plain.trim());
+  if (chars.length <= DIGEST_CHARS) return { text: plain, truncated: false };
+  return { text: `${chars.slice(0, DIGEST_CHARS).join('').trimEnd()}…`, truncated: true };
+}

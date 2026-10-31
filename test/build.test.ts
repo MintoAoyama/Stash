@@ -280,7 +280,7 @@ test('data/site.json lists the works of each season and the navigation counts', 
   commit('add tv4');
   build(repo, out);
   const site = JSON.parse(readFileSync(join(out, 'data/site.json'), 'utf8'));
-  assert.deepEqual(site.seasonWorks['2026-autumn'].find((w: { id: string }) => w.id === 'tv4'), { id: 'tv4', title: '作品 tv4', channel: '', episode: 3, episodeCount: 8, loggedAt: '2026-10-12' });
+  assert.deepEqual(site.seasonWorks['2026-autumn'].find((w: { id: string }) => w.id === 'tv4'), { id: 'tv4', title: '作品 tv4', channel: '', episode: 3, episodeCount: 8, loggedAt: '2026-10-12', heading: '第2〜3話 サブタイトル2', digest: '第2話の感想', rating: 4 });
   assert.ok(site.counts.byType.tv >= 1);
   assert.equal(site.counts.seasons, 1);
 });
