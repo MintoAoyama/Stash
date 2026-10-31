@@ -1,3 +1,4 @@
+import { airtimeOrder } from './airtime.ts';
 import { channelOf } from './channel.ts';
 import { compareNewestFirst, coveringLog, episodeLabel, logDate, logHeading, neighbours, progressOf, sameEpisodeLogs, type ProgressRow } from './episodes.ts';
 import { html, paragraphs, raw, type Raw } from './html.ts';
@@ -120,8 +121,16 @@ function cover(work: Work, size: 'small' | 'thumb' | 'full'): Raw {
   return html`<img class="cover cover--${size}" src="${work.coverUrl}" alt="" loading="lazy" referrerpolicy="no-referrer" style="view-transition-name: cover-${work.id}">`;
 }
 
-function cardList(site: Site, works: Work[]): { body: Raw; styles: string } {
-  const sorted = [...works].sort(byLatestDesc);
+function typeAndDate(work: Work): Raw {
+  const latest = latestLog(work);
+  return html`${MEDIA_TYPE_LABELS[work.type]}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''} ${stars(latest?.rating)}`;
+}
+
+type CardOptions = { order?: (a: Work, b: Work) => number; meta?: (work: Work) => Raw; extra?: (work: Work) => Raw; className?: string };
+
+function cardList(site: Site, works: Work[], options: CardOptions = {}): { body: Raw; styles: string } {
+  const meta = options.meta ?? typeAndDate;
+  const sorted = [...works].sort(options.order ?? byLatestDesc);
   const types = MEDIA_TYPES.filter((t) => sorted.some((w) => w.type === t));
   const authors = authorsOf(sorted);
   const rules: string[] = [];
@@ -144,16 +153,15 @@ ${authors.map((a, i) => html`<label><input type="radio" name="fa" id="fa-${i}">$
       : '';
 
   const cards = sorted.map((w) => {
-    const latest = latestLog(w);
     const a = [...new Set(w.logs.map((l) => `a${authors.indexOf(l.author)}`))].join(' ');
     return html`<li class="card${w.coverUrl ? '' : ' card--text'}" data-type="${w.type}" data-a="${a}">
 <a href="${url(site, `work:${w.id}`)}">${cover(w, 'thumb')}<span class="card-title">${w.title}</span></a>
-<span class="card-meta">${MEDIA_TYPE_LABELS[w.type]}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''} ${stars(latest?.rating)}</span>
+<span class="card-meta">${meta(w)}</span>${options.extra ? options.extra(w) : ''}
 </li>`;
   });
 
   return {
-    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards${sorted.some((w) => w.coverUrl) ? '' : ' cards--text'}">${cards}</ul>`,
+    body: html`<div class="filters">${typeFilter}${authorFilter}</div><ul class="cards${sorted.some((w) => w.coverUrl) ? '' : ' cards--text'}${options.className ? ` ${options.className}` : ''}">${cards}</ul>`,
     styles: rules.join('\n'),
   };
 }
@@ -431,30 +439,31 @@ function renderSeasonIndex(site: Site): string | null {
   );
 }
 
-function seasonWork(site: Site, work: Work): Raw {
-  const href = url(site, `work:${work.id}`);
-  const latest = latestLog(work);
-  return html`<li class="season-work">
-${work.coverUrl ? html`<a class="season-cover" href="${href}" tabindex="-1" aria-hidden="true">${cover(work, 'small')}</a>` : ''}
-<div>
-<a class="season-title" href="${href}">${work.title}</a>
-<p class="work-meta">${[MEDIA_TYPE_LABELS[work.type], channelOf(work)].filter(Boolean).join(' · ')}${latest ? html` · <time datetime="${logDate(latest)}">${logDate(latest)}</time>` : ''}</p>
-${progressGrid(site, work)}
-</div>
-</li>`;
+// The type and the date are left out: a season is all broadcasts, and the progress shows how far it has been watched.
+function seasonMeta(work: Work): Raw {
+  return html`${[channelOf(work), work.airtime ?? ''].filter(Boolean).join(' · ')} ${stars(latestLog(work)?.rating)}`;
+}
+
+// By the slot, so the page reads like a week of the program guide. Works without one come after, newest log first.
+function bySlot(a: Work, b: Work): number {
+  const sa = airtimeOrder(a.airtime);
+  const sb = airtimeOrder(b.airtime);
+  if (sa === undefined || sb === undefined) return (sa === undefined ? 1 : 0) - (sb === undefined ? 1 : 0) || byLatestDesc(a, b);
+  return sa - sb || byLatestDesc(a, b);
 }
 
 function renderSeason(site: Site, season: string): string | null {
-  const works = [...site.works.values()].filter((w) => seasonOf(w) === season).sort(byLatestDesc);
+  const works = [...site.works.values()].filter((w) => seasonOf(w) === season);
   if (works.length === 0) return null;
   const label = seasonLabel(season);
+  const list = cardList(site, works, { order: bySlot, meta: seasonMeta, extra: (w) => progressGrid(site, w), className: 'cards--season' });
   return layout(
     site,
     label,
     html`<nav class="breadcrumbs"><a href="${url(site, 'seasons')}">シーズン</a></nav>
 <h1>${label}</h1><p class="count">${works.length} 件</p>
-<ul class="season-works">${works.map((w) => seasonWork(site, w))}</ul>`,
-    undefined,
+${list.body}`,
+    list.styles,
     tmdbCredit(works),
   );
 }

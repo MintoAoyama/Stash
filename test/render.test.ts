@@ -283,10 +283,10 @@ test('a long-running work shows only the summary', () => {
 const autumn = (id: string, over: Partial<Work> = {}): Work =>
   work([log({ id: `${id}-1`, episode: 1, loggedAt: '2026-10-05' })], { id, title: `作品${id}`, season: '2026-autumn', ...over });
 
-test('the season page lists its works newest log first with their progress', () => {
+test('the season page lists its works as cards with their channel, slot and progress', () => {
   const works = [
     autumn('a1', { title: '古い作品' }),
-    autumn('b2', { title: '新しい作品', logs: [log({ id: 'x', episode: 2, loggedAt: '2026-10-12' })], episodeCount: 12 }),
+    autumn('b2', { title: '新しい作品', logs: [log({ id: 'x', episode: 2, loggedAt: '2026-10-12' })], episodeCount: 12, channel: 'NHK総合', airtime: '日曜 21:00〜21:45' }),
     autumn('c3', { season: '2026-summer', title: '別のシーズン' }),
   ];
   const page = render(works, 'season:2026-autumn');
@@ -294,8 +294,24 @@ test('the season page lists its works newest log first with their progress', () 
   assert.ok(page.indexOf('新しい作品') < page.indexOf('古い作品'));
   assert.ok(!page.includes('別のシーズン'));
   assert.ok(page.includes('1 / 12 話'));
-  assert.match(page, /<a class="season-title" href="\/stash\/w\/2\/b2\/">新しい作品<\/a>/);
-  assert.ok(page.includes('TV · <time datetime="2026-10-12">2026-10-12</time>'));
+  assert.ok(page.includes('<ul class="cards cards--text cards--season">'));
+  assert.match(page, /<a href="\/stash\/w\/2\/b2\/"><span class="card-title">新しい作品<\/span><\/a>/);
+  assert.ok(page.includes('<span class="card-meta">NHK総合 · 日曜 21:00〜21:45'));
+  assert.ok(!page.includes('<time'));
+});
+
+test('the season page goes by the slot through the week, then the works without one newest log first', () => {
+  const works = [
+    autumn('a1', { title: '日曜の夜', airtime: '日曜 22:30〜23:00' }),
+    autumn('b2', { title: '月曜の深夜', airtime: '月曜 01:25〜01:55' }),
+    autumn('c3', { title: '月曜の朝', airtime: '月曜 05:45〜07:05' }),
+    autumn('d4', { title: '枠なし・古い' }),
+    autumn('e5', { title: '枠なし・新しい', logs: [log({ id: 'x', loggedAt: '2026-10-12' })] }),
+  ];
+  const page = render(works, 'season:2026-autumn');
+  const order = ['月曜の朝', '日曜の夜', '月曜の深夜', '枠なし・新しい', '枠なし・古い'].map((t) => page.indexOf(`>${t}<`));
+  assert.ok(order.every((i) => i >= 0));
+  assert.deepEqual(order, [...order].sort((x, y) => x - y));
 });
 
 test('a season without works has no page', () => {
@@ -427,16 +443,16 @@ test('without a channel on the work, the meta line uses the most frequent channe
   assert.equal(text(metaOf(render([w], 'work:w1'))), 'TV · NHK総合');
 });
 
-test('the season page shows the channel next to the type, with the same fallback', () => {
+test('the season cards show the channel, with the same fallback', () => {
   const works = [
     autumn('a1', { channel: 'NHK総合' }),
     autumn('b2', { logs: [onAir('x', '2026-10-06', 'TBS', { episode: 1 })] }),
     autumn('c3'),
   ];
   const page = render(works, 'season:2026-autumn');
-  assert.ok(page.includes('TV · NHK総合 · <time datetime="2026-10-05">'));
-  assert.ok(page.includes('TV · TBS · <time datetime="2026-10-06">'));
-  assert.equal(count(page, '<p class="work-meta">TV · <time'), 1);
+  assert.ok(page.includes('<span class="card-meta">NHK総合 '));
+  assert.ok(page.includes('<span class="card-meta">TBS '));
+  assert.equal(count(page, '<span class="card-meta"> '), 1);
 });
 
 const withCover = (id: string, over: Partial<Work> = {}): Work =>
@@ -461,8 +477,7 @@ test('a work with a cover keeps its image on every page', () => {
   const pages = pagesOf([withCover('c1')]);
   assert.ok(pages.work.includes('<img class="cover cover--full" src="https://example.com/c.jpg"'));
   assert.ok(pages.log.includes('<img class="cover cover--small" src="https://example.com/c.jpg"'));
-  assert.ok(pages.season.includes('<a class="season-cover"'));
-  assert.ok(pages.season.includes('class="cover cover--small"'));
+  assert.ok(pages.season.includes('<img class="cover cover--thumb" src="https://example.com/c.jpg"'));
   assert.ok(pages.list.includes('<img class="cover cover--thumb" src="https://example.com/c.jpg"'));
 });
 
@@ -481,10 +496,11 @@ test('in a mixed list only the works without a cover are text cards', () => {
   assert.equal(count(page, 'class="cover cover--thumb"'), 1);
 });
 
-test('season rows without a cover are plain text rows', () => {
+test('in a season only the works without a cover are text cards', () => {
   const page = render([autumn('a1'), withCover('c1')], 'season:2026-autumn');
-  assert.equal(count(page, '<li class="season-work">'), 2);
-  assert.equal(count(page, 'class="season-cover"'), 1);
+  assert.ok(page.includes('<ul class="cards cards--season">'));
+  assert.equal(count(page, 'card--text'), 1);
+  assert.equal(count(page, 'class="cover cover--thumb"'), 1);
 });
 
 // 2026-08-01 is a Saturday: 8/1 and 8/2 are in the last week of July, 8/3 starts the first week of August.
