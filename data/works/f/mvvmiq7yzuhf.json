@@ -1,0 +1,39 @@
+{
+  "id": "mvvmiq7yzuhf",
+  "type": "tv",
+  "title": "川島・山内のマンガ沼",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "金曜 02:05〜02:35",
+  "officialUrl": "https://www.ytv.co.jp/manganuma/",
+  "logs": [
+    {
+      "id": "mvvmiq7yhlv9",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "- ほぼマンガ関係ないコーナーになってる\n- ただ、ここ最近がマンガを扱っているにも関わらず面白くなかったので本当に厳しい\n  - 今回はバラエティという意味でまだ見られる\n- 漫画クリスタルに引導を渡して欲しい\n- （次々と終わっていった、面白かったマンガ関連の番組に想いを馳せる）\n  - ハナコ書店アーカイブないから録画とっておけばよかったな\n- この2人が30分喋ってれば数字取れるということに尽きると思うのでまあしょうがない",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "マンガ思い出調査~山内編~",
+      "program": {
+        "source": "ntv",
+        "channel": "日本テレビ",
+        "date": "2026-10-30",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=20262907",
+        "end": "02:35",
+        "title": "川島・山内のマンガ沼★マンガ思い出調査~山内編~",
+        "start": "02:05"
+      }
+    }
+  ]
+}
