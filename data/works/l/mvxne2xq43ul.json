@@ -1,0 +1,42 @@
+{
+  "id": "mvxne2xq43ul",
+  "type": "tv",
+  "title": "名探偵プリキュア!",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ朝日",
+  "airtime": "日曜 08:30〜09:00",
+  "officialUrl": "https://www.tv-asahi.co.jp/precure/",
+  "genres": [
+    "70"
+  ],
+  "logs": [
+    {
+      "id": "mvxne2xr4ymo",
+      "author": "minto",
+      "loggedAt": "2026-11-01",
+      "rating": null,
+      "text": "* 「おジャ魔女」と書いてあるので第1話・コナンコラボ以来の鑑賞\n* 1999年当時の設定なのでおジャ魔女どれみのコスプレも出てくるという\n  * 映像も出てくるという\n  * 設定とかキャラクターとか結構説明する\n  * ある意味この間のコナンコラボみたいなものか\n",
+      "episode": 39,
+      "episodeEnd": null,
+      "subtitle": "おジャ魔女なハロウィン♪",
+      "program": {
+        "title": "名探偵プリキュア!",
+        "url": "https://www.tv-asahi.co.jp/pr/contents/20261025_06407.html",
+        "source": "tvasahi",
+        "channel": "テレビ朝日",
+        "start": "08:30",
+        "end": "09:00",
+        "date": "2026-10-25"
+      }
+    }
+  ]
+}

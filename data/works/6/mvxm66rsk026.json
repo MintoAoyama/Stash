@@ -1,0 +1,42 @@
+{
+  "id": "mvxm66rsk026",
+  "type": "tv",
+  "title": "Dearにっぽん",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "日曜 08:25〜08:50",
+  "officialUrl": "https://www.web.nhk/tv/pl/series-tep-P71P7Q379L",
+  "genres": [
+    "87"
+  ],
+  "logs": [
+    {
+      "id": "mvxm66rtkp6s",
+      "author": "minto",
+      "loggedAt": "2026-11-01",
+      "rating": null,
+      "text": "- 横浜駅の近くの「116段の階段」。神奈川区鶴屋町から台町の旧東海道へと続く、通称「台町の階段」\n- そこに住む83歳の女性に密着すると、階段で荷物を持ってくれる人が次々と出てくる…\n- 1人の人間に注目する構成になると不思議な気持ちになってくる\n  - ずっとスタッフが密着しているわけだし\n  - この女性も頼み慣れているのが面白い\n  - そんなに頻繁に買い物に行く必要がないはずなのに通ってしまうという\n  - まあそれでいいんだよな。どこか肯定的に見辛いんだけど、きっとこれでいいはず\n- そこから27歳の頃まで遡る\n- これってどういうきっかけの取材だったんだろう。若手ディレクターが手掛ける「[ドキュメント20min.](https://www.web.nhk/tv/pl/series-tep-YN5YRJ9KP6)」シリーズみがある\n  - 1週間以上密着しているんじゃないだろうか\n- 「いつも助けてくれる」と言われていた \"石田さん\" 、個別で取材した際に「善人ではない。道を避けることもある」「欲があるのかもしれない」と答えていたのが良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "きょうも、116段の階段で〜神奈川・横浜〜",
+      "program": {
+        "start": "08:25",
+        "channel": "NHK総合",
+        "url": "https://www.web.nhk/tv/pl/series-tep-P71P7Q379L/ep/TEMT5KEMNN",
+        "date": "2026-11-01",
+        "title": "Dearにっぽん",
+        "end": "08:50",
+        "source": "nhk"
+      }
+    }
+  ]
+}
