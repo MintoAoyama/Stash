@@ -1,0 +1,40 @@
+{
+  "id": "mvxqu7sz2sbk",
+  "type": "tv",
+  "title": "妻を引退します",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "月曜 23:06〜23:55",
+  "officialUrl": "https://www.tv-tokyo.co.jp/tsumaintai/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mvxqu7szvwdh",
+      "author": "minto",
+      "loggedAt": "2026-11-01",
+      "rating": null,
+      "text": "- 『大ヒット作「夫の家庭を壊すまで」の原作チームがおくる話題作を実写ドラマ化！』\n  - この手のものはまずまあ継続できないんだよな\n  - 評価している人たちはこういうシチュエーションによっぽど共感できる人たちなんだろうか\n  - いわゆる大映ドラマ的なものともちょっと違うんだよな\n    - 牡丹と薔薇もそう、あれはあれでまあ分かる。同系統といってもいいのかもしれないけど楽しめる感じではないからやっぱ別物に感じるのかも\n- 主演2人とも貫禄が出てきているのでこの手の迫力ある感じはまあまあ怖い（ポスタービジュアルとかでなく冒頭の映像の話）\n- にしても [配信のサムネ](https://tver.jp/episodes/epmx5vsxu8)（ある方向に）凄い拘ってんな…",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "芸能界なんて大嫌い",
+      "program": {
+        "start": "23:06",
+        "end": "23:55",
+        "date": "2026-10-05",
+        "url": "https://www.tv-tokyo.co.jp/tsumaintai/lineup/202610/29307_202610262306.html",
+        "title": "妻を引退します",
+        "source": "tvtokyo",
+        "channel": "テレビ東京"
+      }
+    }
+  ]
+}

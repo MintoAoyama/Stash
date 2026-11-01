@@ -1,0 +1,114 @@
+{
+  "id": "mvxom2rxdn28",
+  "type": "tv",
+  "title": "FX戦士くるみちゃん",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "木曜 22:30〜23:00",
+  "officialUrl": "",
+  "genres": [
+    "70"
+  ],
+  "logs": [
+    {
+      "id": "mvxovj1asp26",
+      "author": "minto",
+      "loggedAt": "2026-10-03",
+      "rating": 3,
+      "text": "",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "FXって、なぁに？",
+      "program": {
+        "channel": "TOKYO MX",
+        "source": "manual",
+        "date": "2026-10-01",
+        "start": "22:30",
+        "end": "23:00"
+      }
+    },
+    {
+      "id": "mvxorf05p01o",
+      "author": "minto",
+      "loggedAt": "2026-10-10",
+      "rating": 3,
+      "text": "",
+      "episode": 2,
+      "episodeEnd": null,
+      "subtitle": "レバレッジあるから大丈夫ぅ♪",
+      "program": {
+        "start": "22:30",
+        "date": "2026-10-08",
+        "source": "manual",
+        "channel": "TOKYO MX",
+        "end": "23:00"
+      }
+    },
+    {
+      "id": "mvxon91l1acp",
+      "author": "minto",
+      "loggedAt": "2026-10-17",
+      "rating": null,
+      "text": "",
+      "episode": 3,
+      "episodeEnd": null,
+      "subtitle": "損切りしなきゃ、だめ......?",
+      "program": {
+        "channel": "TOKYO MX",
+        "source": "mx",
+        "end": "23:00",
+        "title": "FX戦士くるみちゃん",
+        "date": "2026-10-15",
+        "start": "22:30",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261015&ch=1&hm=2230"
+      }
+    },
+    {
+      "id": "mvxomj63gsi5",
+      "author": "minto",
+      "loggedAt": "2026-10-24",
+      "rating": 3,
+      "text": "",
+      "episode": 4,
+      "episodeEnd": null,
+      "subtitle": "含み損がないってサイコ~・",
+      "program": {
+        "date": "2026-10-22",
+        "end": "23:00",
+        "title": "FX戦士くるみちゃん",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261022&ch=1&hm=2230",
+        "start": "22:30",
+        "channel": "TOKYO MX",
+        "source": "mx"
+      }
+    },
+    {
+      "id": "mvxom2rxkx2q",
+      "author": "minto",
+      "loggedAt": "2026-11-01",
+      "rating": 3,
+      "text": "",
+      "episode": 5,
+      "episodeEnd": null,
+      "subtitle": "ロング?ショート?どっちにする?",
+      "program": {
+        "date": "2026-10-29",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261029&ch=1&hm=2230",
+        "end": "23:00",
+        "title": "FX戦士くるみちゃん",
+        "channel": "TOKYO MX",
+        "start": "22:30",
+        "source": "mx"
+      }
+    }
+  ]
+}

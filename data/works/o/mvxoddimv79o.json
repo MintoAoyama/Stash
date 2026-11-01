@@ -1,0 +1,41 @@
+{
+  "id": "mvxoddimv79o",
+  "type": "tv",
+  "title": "ポップパップポルターズ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ朝日",
+  "airtime": "日曜 10:00〜10:05",
+  "officialUrl": "",
+  "genres": [
+    "70"
+  ],
+  "logs": [
+    {
+      "id": "mvxoddimx2tc",
+      "author": "minto",
+      "loggedAt": "2026-11-01",
+      "rating": null,
+      "text": "- 「映画みたいにカッコよく車を運転したい！と憧れるポップ。そんなポップのために、みんなでペットボトルを車に改造することに。」\n- 唐突なカーアクション\n- \"家主\" が仕事が忙しい中で妄想の世界に入っていることが示唆されている…\n- カメラワークのこだわりが益々凄い。かなり手間掛かってる\n- ペットに車載動画を見せて運転気分のシチュエーション",
+      "episode": 4,
+      "episodeEnd": null,
+      "subtitle": "走れ！ペットボトルカー！",
+      "program": {
+        "title": "ポップパップポルターズ",
+        "end": "10:05",
+        "source": "nasne",
+        "start": "10:00",
+        "date": "2026-11-01",
+        "channel": "テレビ朝日"
+      }
+    }
+  ]
+}
