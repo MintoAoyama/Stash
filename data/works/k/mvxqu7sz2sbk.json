@@ -15,7 +15,9 @@
   "channel": "テレビ東京",
   "airtime": "月曜 23:06〜23:55",
   "officialUrl": "https://www.tv-tokyo.co.jp/tsumaintai/",
-  "genres": [],
+  "genres": [
+    "3"
+  ],
   "logs": [
     {
       "id": "mvxqu7szvwdh",
