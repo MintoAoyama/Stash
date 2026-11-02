@@ -149,6 +149,25 @@
         "title": "モープラFT",
         "start": "07:05"
       }
+    },
+    {
+      "id": "mvyfh55ol2jc",
+      "author": "minto",
+      "loggedAt": "2026-11-02",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "日銀「物価2%目標」14年目の到達 金融政策・市場の行方",
+      "program": {
+        "title": "モープラFT",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202611/23593_202611020705.html",
+        "end": "08:00",
+        "channel": "BSテレ東",
+        "source": "bstvtokyo",
+        "date": "2026-11-02",
+        "start": "07:05"
+      }
     }
   ]
 }

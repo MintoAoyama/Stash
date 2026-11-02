@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "2026-autumn",
+  "season": "",
   "episodeCount": null,
   "channel": "テレビ東京",
   "airtime": "月曜 05:45〜07:05",
@@ -93,6 +93,25 @@
         "end": "07:05",
         "date": "2026-10-29",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14445_202610290545.html"
+      }
+    },
+    {
+      "id": "mvyffizhbm3x",
+      "author": "minto",
+      "loggedAt": "2026-11-02",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "日銀・利上げのペースとターミナルレート",
+      "program": {
+        "source": "tvtokyo",
+        "end": "07:05",
+        "channel": "テレビ東京",
+        "title": "Newsモーニングサテライト",
+        "start": "05:45",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14445_202611020545.html",
+        "date": "2026-11-02"
       }
     }
   ]

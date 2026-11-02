@@ -38,6 +38,25 @@
         "date": "2026-10-18",
         "start": "07:30"
       }
+    },
+    {
+      "id": "mvygwdb4o3ld",
+      "author": "minto",
+      "loggedAt": "2026-11-02",
+      "rating": null,
+      "text": "- 国内洋服店店舗数No. 1（1420店舗）なのは知らなかった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "社長出演「しまむら」店舗数1位で売上7千億!?極秘商談に潜入!",
+      "program": {
+        "end": "08:00",
+        "title": "がっちりマンデー!!",
+        "channel": "TBS",
+        "start": "07:30",
+        "source": "tbs",
+        "date": "2026-11-01",
+        "url": "https://www.tbs.co.jp/tv/20261101_C34F.html"
+      }
     }
   ]
 }
