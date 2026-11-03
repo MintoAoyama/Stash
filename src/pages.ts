@@ -4,7 +4,7 @@ import { weekOf } from './week.ts';
 import { MEDIA_TYPES, type Work } from './types.ts';
 
 // Pages are identified by string keys so that affected sets can be unioned cheaply:
-//   home | work:<id> | log:<workId>/<logId> | dir:<a/b> (root is "dir:") | tags | tag:<t> | seasons | season:<yyyy-name> | year:<yyyy> | month:<yyyy-MM> | week:<yyyy-MM-n> | type:<t>
+//   home | search | work:<id> | log:<workId>/<logId> | dir:<a/b> (root is "dir:") | tags | tag:<t> | seasons | season:<yyyy-name> | year:<yyyy> | month:<yyyy-MM> | week:<yyyy-MM-n> | type:<t>
 export type PageKey = string;
 
 const UNSAFE_SEGMENT = /[\/\\:*?"<>|#%\u0000-\u001f]/g;
@@ -24,7 +24,7 @@ export function isValidWorkId(id: string): boolean {
   return /^[a-z0-9]([a-z0-9-]*[a-z0-9])?$/.test(id);
 }
 
-// Mirrored by workLink in assets/site.js.
+// Mirrored by workHref in assets/site.js and assets/search.js.
 export function workShard(id: string): string {
   return id.slice(-1);
 }
@@ -80,7 +80,7 @@ export function affectedPages(before: Work | undefined, after: Work | undefined)
 }
 
 export function allPageKeys(works: Iterable<Work>): Set<PageKey> {
-  const keys = new Set<PageKey>(['home', 'dir:', 'tags', 'seasons']);
+  const keys = new Set<PageKey>(['home', 'search', 'dir:', 'tags', 'seasons']);
   for (const t of MEDIA_TYPES) keys.add(`type:${t}`);
   for (const w of works) for (const k of pageKeysForWork(w)) keys.add(k);
   return keys;
@@ -96,6 +96,8 @@ export function outputFile(key: PageKey): string {
   switch (kind) {
     case 'home':
       return 'index.html';
+    case 'search':
+      return 'search/index.html';
     case 'work':
       return `w/${workShard(arg)}/${arg}/index.html`;
     case 'log': {

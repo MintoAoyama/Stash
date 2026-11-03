@@ -60,7 +60,7 @@ after(() => {
 test('first build is full and renders every page', () => {
   const r = build(repo, out);
   assert.equal(r.mode, 'full');
-  for (const f of ['index.html', 'w/1/a1/index.html', 'w/1/a1/a1-l1/index.html', 'w/2/b2/index.html', 'd/movies/index.html', 't/SF/index.html', 'm/2026/10/index.html', 'data/site.json', 'assets/site.css', '.source-sha']) {
+  for (const f of ['index.html', 'w/1/a1/index.html', 'w/1/a1/a1-l1/index.html', 'w/2/b2/index.html', 'd/movies/index.html', 't/SF/index.html', 'm/2026/10/index.html', 'search/index.html', 'data/site.json', 'data/search.json', 'assets/site.css', 'assets/search.js', '.source-sha']) {
     assert.ok(existsSync(join(out, f)), f);
   }
   const site = JSON.parse(readFileSync(join(out, 'data/site.json'), 'utf8'));

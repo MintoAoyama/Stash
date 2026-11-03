@@ -2,14 +2,15 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, rmdirSync, rmSync, wr
 import { dirname, join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { buildSiteData } from './aggregate.ts';
+import { buildSearchData } from './search.ts';
 import { changesSince, headCommit, loadWorks, workAtCommit } from './data.ts';
 import { affectedPages, allPageKeys, outputFile, type PageKey } from './pages.ts';
 import { renderPage, type Site } from './render.ts';
 import type { SiteConfig } from './types.ts';
 import { annotation, DataError } from './validate.ts';
 
-// What a full build clears; anything else in the output (pagefind/ etc.) is left alone.
-const GENERATED_ROOTS = ['index.html', 'w', 'd', 't', 's', 'm', 'type', 'assets', 'data'];
+// What a full build clears; anything else in the output is left alone.
+const GENERATED_ROOTS = ['index.html', 'search', 'w', 'd', 't', 's', 'm', 'type', 'assets', 'data'];
 const SOURCE_SHA_FILE = '.source-sha';
 
 function loadConfig(repoDir: string): SiteConfig {
@@ -79,8 +80,9 @@ export function build(repoDir: string, outDir: string, opts: { full?: boolean } 
     }
   }
 
-  // Depends on every work, so it is rewritten on every build.
+  // Depend on every work, so they are rewritten on every build.
   writeIfChanged(join(outDir, 'data/site.json'), `${JSON.stringify(buildSiteData(works.values()))}\n`);
+  writeIfChanged(join(outDir, 'data/search.json'), `${JSON.stringify(buildSearchData(works.values()))}\n`);
   if (changes.full) cpSync(join(repoDir, 'assets'), join(outDir, 'assets'), { recursive: true });
   // Only when the output is the root of its own Pages site.
   if (config.cname) {
