@@ -1,0 +1,41 @@
+{
+  "id": "mw0os298wzh3",
+  "type": "tv",
+  "title": "刑事フォイル",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "日曜 23:00〜23:49",
+  "officialUrl": "",
+  "genres": [
+    "31"
+  ],
+  "logs": [
+    {
+      "id": "mw0os298wg8a",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- このドラマ自体も時を超えていると言えるし、ここで扱われているテーマもまた時を超えている\n- スタンレー役を演じている人、すごく見覚えがあると思ったらトビアス・メンジーズか。数年後に『007 カジノ・ロワイヤル』（2006）でMI6長官の秘書ヴィリアーズ役を演じる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "(3)「臆病者」(前編)",
+      "program": {
+        "channel": "NHK総合",
+        "start": "23:00",
+        "date": "2026-10-25",
+        "end": "23:49",
+        "source": "nasne",
+        "title": "刑事フォイル"
+      }
+    }
+  ]
+}

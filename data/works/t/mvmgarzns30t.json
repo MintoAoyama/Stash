@@ -10,10 +10,10 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "2026-autumn",
+  "season": "",
   "episodeCount": null,
   "channel": "フジテレビ",
-  "airtime": "月曜 11:47〜13:50",
+  "airtime": "月曜〜金曜 11:47〜13:50",
   "officialUrl": "https://www.fujitv.co.jp/pokapoka/index.html",
   "genres": [
     "5"
@@ -162,13 +162,13 @@
       "episodeEnd": null,
       "subtitle": "最新婚活事情をカリスマ植草美幸が母娘解説SP▼元アイドル真剣相談",
       "program": {
+        "source": "fuji",
+        "date": "2026-10-27",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "channel": "フジテレビ",
         "start": "11:47",
         "title": "ぽかぽか",
-        "end": "13:50",
-        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
-        "source": "fuji",
-        "channel": "フジテレビ",
-        "date": "2026-10-27"
+        "end": "13:50"
       }
     }
   ]

@@ -1,0 +1,40 @@
+{
+  "id": "mw0lm1dboj8a",
+  "type": "tv",
+  "title": "小峠英二の試乗最高!",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-spring",
+  "episodeCount": null,
+  "channel": "BSフジ",
+  "airtime": "月曜 22:00〜22:55",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mw0lm1dbwefj",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- 横浜本牧の MOONEYES まで行ったり、センチュリーに乗ったり\n  - [センチュリーのプライバシーガラス](https://toyota.jp/centurynewbt/design/#:~:text=%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82-,3%E6%AE%B5%E9%9A%8E%E8%AA%BF%E5%85%89%E6%A9%9F%E8%83%BD%E4%BB%98%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%82%AC%E3%83%A9%E3%82%B9,-3%E6%AE%B5%E9%9A%8E%E3%81%AE)（透明・半透明・調光の3段階でホワイト調に変えられる）すごい\n  - [AGCの調光ガラス Digital Curtain](https://www.agc.com/news/detail/1204654_2148.html) を採用しているらしい\n    - 2枚のガラスの間に挟み込んだ特殊フィルムの中の特殊材料の「分散と配向」を電圧でコントロールしている\n- 小峠の適当な流し、毎回ドキドキする\n  - 回生ブレーキというか、一切無駄にしない感じ\n  - それを明確に指摘されるのは [フットボールアワー後藤輝基の回](https://www.bsfuji.tv/kotouge-drive/archives/detail.html?id=012) だったんだけど",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ゲスト:くっきー!(野性爆弾)",
+      "program": {
+        "url": "https://www.bsfuji.tv/kotouge-drive/pub/015.html",
+        "end": "22:55",
+        "start": "22:00",
+        "channel": "BSフジ",
+        "date": "2026-08-24",
+        "title": "小峠英二の試乗最高!",
+        "source": "bsfuji"
+      }
+    }
+  ]
+}

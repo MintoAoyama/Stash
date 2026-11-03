@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "テレビ東京",
   "airtime": "木曜 22:00〜22:58",
@@ -188,6 +188,25 @@
         "date": "2026-10-29",
         "end": "22:58",
         "channel": "テレビ東京"
+      }
+    },
+    {
+      "id": "mw0mstt0n0i6",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- 転職活況！ビズリーチの成長戦略\n  - そうかー…、2009年にリリースしたころはまだ36㎡のワンルームマンションを借りていたんだな。代表の雰囲気が全然違う\n  - [出世ビル　Visional（ビズリーチ）編｜出世ビル](https://note.com/shussebuilding/n/nd4f56804499e)\n    - 変遷についてまとまっているようなので後で読んでみよう\n    - エグゼクティブなイメージに合わせるために様々なことをしている点も含めて興味深い\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "GMO情報流出を謝罪…会見で語ったことは▼米中間選挙で株と為替は",
+      "program": {
+        "source": "tvtokyo",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611022200.html",
+        "start": "22:00",
+        "date": "2026-11-02",
+        "end": "23:04",
+        "title": "WBS"
       }
     }
   ]
