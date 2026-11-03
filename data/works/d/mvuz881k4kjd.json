@@ -1,7 +1,7 @@
 {
   "id": "mvuz881k4kjd",
   "type": "tv",
-  "title": "わたしの幸せな結婚 特別篇 前編",
+  "title": "わたしの幸せな結婚 特別篇",
   "path": "",
   "tags": [],
   "status": "",
@@ -13,27 +13,67 @@
   "season": "2026-autumn",
   "episodeCount": null,
   "channel": "TOKYO MX",
-  "airtime": "日曜 19:00〜19:30",
-  "officialUrl": "",
-  "genres": [],
+  "airtime": "",
+  "officialUrl": "https://watakon-anime.com/",
+  "genres": [
+    "7"
+  ],
   "logs": [
     {
       "id": "mvuz881khqp7",
       "author": "minto",
       "loggedAt": "2026-10-25",
       "rating": null,
-      "text": "",
-      "episode": null,
+      "text": "- タイトルからして総集編かと思っていたが、フィナーレを飾る新作エピソードだった\n- しかもNetflixの独占配信より先行しての地上波最速方法\n  - 19:00 から1時間半の放送を経て放送直後の 20:30 からの配信\n- 主題歌OP・EDも書き下ろし\n",
+      "episode": 1,
       "episodeEnd": null,
-      "subtitle": "",
+      "subtitle": "前編",
       "program": {
-        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261025&ch=1&hm=1900",
-        "source": "mx",
-        "title": "わたしの幸せな結婚 特別篇 前編",
         "date": "2026-10-25",
-        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261025&ch=1&hm=1900",
+        "title": "わたしの幸せな結婚 特別篇 前編",
         "start": "19:00",
-        "end": "19:30"
+        "end": "19:30",
+        "source": "mx",
+        "channel": "TOKYO MX"
+      }
+    },
+    {
+      "id": "mvuz8o2poas0",
+      "author": "minto",
+      "loggedAt": "2026-10-25",
+      "rating": null,
+      "text": "",
+      "episode": 2,
+      "episodeEnd": null,
+      "subtitle": "中編",
+      "program": {
+        "title": "わたしの幸せな結婚 特別篇 中編",
+        "start": "19:30",
+        "end": "20:00",
+        "source": "mx",
+        "channel": "TOKYO MX",
+        "date": "2026-10-25",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261025&ch=1&hm=1930"
+      }
+    },
+    {
+      "id": "mvuz8ymqvhzr",
+      "author": "minto",
+      "loggedAt": "2026-10-25",
+      "rating": null,
+      "text": "",
+      "episode": 3,
+      "episodeEnd": null,
+      "subtitle": "後編",
+      "program": {
+        "start": "20:00",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261025&ch=1&hm=2000",
+        "source": "mx",
+        "date": "2026-10-25",
+        "title": "わたしの幸せな結婚 特別篇 後編",
+        "end": "20:30",
+        "channel": "TOKYO MX"
       }
     }
   ]
