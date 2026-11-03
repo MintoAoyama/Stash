@@ -1,0 +1,40 @@
+{
+  "id": "mw0pqidutoys",
+  "type": "tv",
+  "title": "ウォーキングのひむ太郎",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "BS朝日",
+  "airtime": "火曜 22:00〜22:30",
+  "officialUrl": "https://www.bs-asahi.co.jp/himutaro/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mw0pqidu2lde",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- 馴染みのある場所ということでチェック\n- ひむ太郎（バナナマン日村勇紀）がお休みのため、スピードワゴンの井戸田潤が「いと次郎」として代打で出ている\n- 以前から時々見ていたけどスケッチャーズ提供だったのか\n- そしてOMO（星野リゾート）提供。OMO7横浜を見かけてしっかり言及している\n- 山下公園も大さん橋も赤レンガも横浜スタジアムも中には入らない・入れないわけだ\n- そして ゆで太郎（関内ベイスターズ通り店）ゴール\n  - 店内にカメラが入れるってことは提供なのか？ 全然事情を知らない\n  - 鴨せいろ食べる時間が長えな…",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "いと次郎が歩く!横浜スタジアム周辺編",
+      "program": {
+        "end": "22:30",
+        "start": "22:00",
+        "channel": "BS朝日",
+        "source": "bsasahi",
+        "title": "ウォーキングのひむ太郎",
+        "date": "2026-11-03",
+        "url": "https://www.bs-asahi.co.jp/himutaro/"
+      }
+    }
+  ]
+}

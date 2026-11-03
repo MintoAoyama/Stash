@@ -1,0 +1,40 @@
+{
+  "id": "mw0qmbrxbfr8",
+  "type": "tv",
+  "title": "きっちりおじさんのてんやわんやクッキング",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "BS朝日",
+  "airtime": "金曜 22:00〜22:30",
+  "officialUrl": "https://www.bs-asahi.co.jp/kitchiriojisan/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mw0qmbrxmpg1",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- 今シーズンの目標である『オリジナルレシピ』に挑戦する会\n- 第1弾はフランスの家庭料理「じゃがいものガレット」にあんかけをアレンジ\n- レシピ本に頼らないというのも珍しい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "自炊51 オリジナルレシピ あんかけポテトガレット",
+      "program": {
+        "title": "きっちりおじさんのてんやわんやクッキング",
+        "end": "22:30",
+        "start": "22:00",
+        "date": "2026-09-25",
+        "channel": "BS朝日",
+        "source": "bsasahi",
+        "url": "https://www.bs-asahi.co.jp/kitchiriojisan/"
+      }
+    }
+  ]
+}
