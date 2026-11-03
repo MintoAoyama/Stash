@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "BSテレ東",
   "airtime": "月曜 21:00〜22:00",
@@ -129,6 +129,25 @@
         "title": "視る日経!ニュースNEXT",
         "date": "2026-10-29",
         "source": "bstvtokyo"
+      }
+    },
+    {
+      "id": "mvzx5d7bk823",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- ナフサ高で価格高騰も 「機能性スリッパ」に注目\n  - ここで扱われているのはいずれもインドア向け\n  - fit it BASIC\n    - [fit it｜オリジナルブランド｜スリッパの専門メーカー株式会社ホンシュ](https://honshu-ltd.co.jp/brand/fitit/)\n  - ゴリラの裸足\n    - ゴリラの足の裏や顔をイメージしたモコモコとした立体的な凹凸形状が特徴\n    - 家事の間に履くのが人気らしい\n- [FT] イギリス住宅ローン 働き方が多様化 審査厳しく\n  - 複数の働き口があるなどフリーランスのケース\n  - [住宅金融組合（Building society）](https://ja.wikipedia.org/wiki/%E4%BD%8F%E5%AE%85%E9%87%91%E8%9E%8D%E7%B5%84%E5%90%88?wprov=sfti1#) というイギリスならではの金融機関であれば対応できるケースもあるらしい\n  - 例えば「スキプトン」では1年以上家賃を支払っていることが証明できれば審査を通せるらしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米中間選挙直前!トランプ氏異例の戦術転換",
+      "program": {
+        "date": "2026-11-02",
+        "source": "bstvtokyo",
+        "start": "21:00",
+        "channel": "BSテレ東",
+        "title": "視る日経!ニュースNEXT",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611022100.html",
+        "end": "22:00"
       }
     }
   ]
