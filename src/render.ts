@@ -20,6 +20,8 @@ export function renderPage(site: Site, key: PageKey): string | null {
   switch (kind) {
     case 'home':
       return renderHome(site);
+    case 'search':
+      return renderSearch(site);
     case 'work': {
       const work = site.works.get(arg);
       return work ? renderWork(site, work) : null;
@@ -56,8 +58,8 @@ function url(site: Site, key: PageKey): string {
   return site.config.basePath + pageUrl(key);
 }
 
-// footer holds notices that only apply to this page's own content.
-function layout(site: Site, title: string, body: Raw, styles?: string, footer?: Raw): string {
+// footer holds notices that only apply to this page's own content. The search page has its own box in place of the header's.
+function layout(site: Site, title: string, body: Raw, styles?: string, footer?: Raw, { searchBox = true } = {}): string {
   const base = site.config.basePath;
   const fullTitle = title === site.config.title ? title : `${title} | ${site.config.title}`;
   return html`<!doctype html>
@@ -83,6 +85,7 @@ ${MEDIA_TYPES.map((t) => html`<a href="${url(site, `type:${t}`)}" data-nav-type=
 <a href="${url(site, 'dir:')}">ディレクトリ</a>
 <a href="${url(site, 'tags')}">タグ</a>
 </nav>
+${searchBox ? html`<form class="site-search" role="search" action="${url(site, 'search')}"><input type="search" name="q" placeholder="検索" aria-label="検索" enterkeyhint="search" autocomplete="off"></form>` : ''}
 </header>
 <main>
 ${body}
@@ -566,6 +569,23 @@ function renderYear(site: Site, year: string): string | null {
     ([mo, n]) => html`<li><a href="${url(site, `month:${mo}`)}">${Number(mo.slice(5))}月</a> <span class="count">${n}</span></li>`,
   )}</ul>`;
   return renderList(site, `${year}年`, works, lead);
+}
+
+// The results are drawn by assets/search.js from data/search.json.
+function renderSearch(site: Site): string {
+  const base = site.config.basePath;
+  return layout(
+    site,
+    '検索',
+    html`<h1>検索</h1>
+<form class="search-form" role="search" action="${url(site, 'search')}"><input type="search" name="q" aria-label="検索する語" placeholder="作品名・本文・タグなど" enterkeyhint="search" autocomplete="off" autofocus></form>
+<p class="search-status count" aria-live="polite"></p>
+<div class="search-results"></div>
+<script type="module" src="${base}assets/search.js"></script>`,
+    undefined,
+    undefined,
+    { searchBox: false },
+  );
 }
 
 function renderHome(site: Site): string {
