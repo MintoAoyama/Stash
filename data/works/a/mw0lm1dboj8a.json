@@ -15,7 +15,9 @@
   "channel": "BSフジ",
   "airtime": "月曜 22:00〜22:55",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "8"
+  ],
   "logs": [
     {
       "id": "mw0lm1dbwefj",
