@@ -1,0 +1,44 @@
+{
+  "id": "mw1acpvyysyd",
+  "type": "tv",
+  "title": "にっぽん縦断 こころ旅",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK BS4K",
+  "airtime": "水曜 07:45〜07:59",
+  "officialUrl": "https://www.web.nhk/tv/an/kokorotabi/pl/series-tep-PKRKV54PVL",
+  "genres": [
+    "81",
+    "A0",
+    "55"
+  ],
+  "logs": [
+    {
+      "id": "mw1acpvysk76",
+      "author": "minto",
+      "loggedAt": "2026-11-04",
+      "rating": null,
+      "text": "- 「2026秋の旅いよいよスタート！」らしいので新作なのか…\n- 旅人が田中美佐子というのも意外…と思ってたら2025年春から2代目としてやっていたらしい。そうなんだ！",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "朝版 1391日目 北海道3日目",
+      "program": {
+        "title": "にっぽん縦断 こころ旅",
+        "url": "https://www.web.nhk/tv/an/kokorotabi/pl/series-tep-PKRKV54PVL/ep/UFL4PRILLI",
+        "date": "2026-11-04",
+        "source": "nhk",
+        "channel": "NHK BS4K",
+        "start": "07:45",
+        "end": "07:59"
+      }
+    }
+  ]
+}

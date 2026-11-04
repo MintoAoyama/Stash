@@ -1,0 +1,44 @@
+{
+  "id": "mw1a863mdzbx",
+  "type": "tv",
+  "title": "推しエンタTV!",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "火曜 02:41〜02:56",
+  "officialUrl": "https://www.tv-tokyo.co.jp/oshientertv/",
+  "genres": [
+    "2",
+    "7",
+    "5"
+  ],
+  "logs": [
+    {
+      "id": "mw1a863mpzrc",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- 「テレビ東京が手掛けるアニメ・イベントのあらゆるジャンルの最新エンターテインメント情報をお届けする」番組のようで全然ノーマークだったんだけど、「モータースポーツ」で検索して見つかったので確認\n- [2026 D1GP最終戦！TOKYO DRIFT チケット情報 – D1 OFFICIAL WEBSITE](https://d1gp.co.jp/26903/)\n- WBSと若干トーン違うけど多分ナレーションは長部アナだな\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "2026 TOKYO DRIFT 特集",
+      "program": {
+        "date": "2026-11-03",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/28131_202611022641.html",
+        "title": "推しエンタTV!",
+        "end": "02:56",
+        "source": "tvtokyo",
+        "start": "02:41"
+      }
+    }
+  ]
+}

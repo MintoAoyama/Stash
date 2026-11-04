@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "BSテレ東",
   "airtime": "金曜 07:05〜08:00",
@@ -167,6 +167,25 @@
         "source": "bstvtokyo",
         "date": "2026-11-02",
         "start": "07:05"
+      }
+    },
+    {
+      "id": "mw1diayo0939",
+      "author": "minto",
+      "loggedAt": "2026-11-04",
+      "rating": null,
+      "text": "- [FT TODAY] マネー物語 NY州知事vsウォール街 銀行家の嘘\n  - \"ウォール街の保安官\" エリオット・スピッツァー元NY州司法長官 \n    - ITバブル期において投資銀行の利益相反を暴いた\n  - メリルリンチに対して明確な情報開示を行うよう命じて出てきた e-mail の話が興味深い\n    - 2001-2002年当時はあまり深く考えずあらゆることをメールに書いていたため、ウォール街の金儲けの仕組みにも触れるなど決定的な証拠が次々に出てくることになった（昨今のセキュリティインシデントを踏まえると笑えない話ではあるんだけど）\n    - TV番組などの公では特定のIT企業の株を推奨しながら、その企業に対して投資銀行業務を受注することで巨額の手数料を回収し、社内では中傷的な発言を行なっていたことなども明らかになった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米中間選挙 市場からの視点~エコノミスト上野泰也氏が分析",
+      "program": {
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202611/23593_202611040705.html",
+        "source": "bstvtokyo",
+        "channel": "BSテレ東",
+        "start": "07:05",
+        "title": "モープラFT",
+        "end": "08:00",
+        "date": "2026-11-04"
       }
     }
   ]
