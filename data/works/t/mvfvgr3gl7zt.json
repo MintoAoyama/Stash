@@ -168,6 +168,25 @@
         "date": "2026-11-03",
         "channel": "BSテレ東"
       }
+    },
+    {
+      "id": "mw2qzfdr84ta",
+      "author": "minto",
+      "loggedAt": "2026-11-05",
+      "rating": null,
+      "text": "- 米中間選挙特集、まさかのマイケル・マカティア\n  - しかも街歩きでそれぞれの支持者の話を聞くという野心的な企画\n  - 相変わらずすごいテンションで下ネタも絶好調\n  - この人がNHKでレギュラーを持っているという事実。NHKの良心（？）と言っていい\n- [LBS] [名寄の土がプロ野球の球場に　「土管」の製造技術がマウンド支える](https://youtu.be/Eocsd0fulHE)\n  - 北海道の土管メーカーが手掛ける特別な土が札幌ドームを始めとした野球場に納品されているという話\n  - 素焼きの土管の製造工程など知らないことが多い",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "いよいよ投票日!米中間選挙で反トランプの勢いは?",
+      "program": {
+        "source": "bstvtokyo",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611032100.html",
+        "date": "2026-11-03",
+        "end": "22:00",
+        "channel": "BSテレ東",
+        "title": "視る日経!ニュースNEXT",
+        "start": "21:00"
+      }
     }
   ]
 }

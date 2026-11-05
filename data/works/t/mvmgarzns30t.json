@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "フジテレビ",
   "airtime": "月曜〜金曜 11:47〜13:50",
@@ -359,6 +359,44 @@
         "date": "2026-11-02",
         "end": "23:04",
         "title": "WBS"
+      }
+    },
+    {
+      "id": "mw2qjknseie3",
+      "author": "minto",
+      "loggedAt": "2026-11-04",
+      "rating": null,
+      "text": "- 神田愛花考案の悪夢のようなハロウィーン仮装。理由もすごい\n  - 神田 … テイラー・スウィフト（仮装したいくらい大好きだから）\n  - 岩井 … イカ（白くて薄くてイカみたいだから食べたら一番おいしい）\n  - 澤部 … 魚肉ソーセージ（肌の色が多くて\n魚肉ソーセージみたいだから）\n  - 信子 … 地味な家政婦（気遣い屋さんで周りをよく見ている人だから）\n  - 児嶋 … 普通のおじさん（いつも若い格好をしているけど普通のおじさんになった状態を見てみたいから）\n- しかし麻雀牌しかり投扇興しかり仮装の状態の方が好調という。やはり刺激というか変化というかメリハリは大事なのかもしれない",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "三宅健とプレッシャーよわよわ王決定戦▽神田愛花考案ハロウィーン仮装",
+      "program": {
+        "start": "11:47",
+        "channel": "フジテレビ",
+        "date": "2026-10-30",
+        "title": "ぽかぽか",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "end": "13:50",
+        "source": "fuji"
+      }
+    },
+    {
+      "id": "mw2rh6a2kmpg",
+      "author": "minto",
+      "loggedAt": "2026-11-05",
+      "rating": null,
+      "text": "- 米中間選挙特集\n- 日経トレンディの2027年ヒット予測\n  - UHA味覚糖のカード型エナジードリンク「[ENERGY ARTS](https://www.uha-mikakuto.co.jp/company/news-releases/news20260120.html )」\n  - 手の甲に埋め込まれた12mmのチップ「[I'm HUMAN](https://quwak.com/)」\n    - 割と浮き出ており気になる印象",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米中間選挙の投票始まる!トランプ政権の行方は…",
+      "program": {
+        "title": "WBS",
+        "start": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611032200.html",
+        "date": "2026-11-03",
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "end": "23:04"
       }
     }
   ]
