@@ -37,6 +37,25 @@
         "source": "ntv",
         "url": "https://www.ntv.co.jp/program/detail/?programid=202627F8"
       }
+    },
+    {
+      "id": "mw3jmjkjo6am",
+      "author": "minto",
+      "loggedAt": "2026-11-05",
+      "rating": null,
+      "text": "- サバ折りで洗脳を解く！",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "＃１８「無罪の証明」",
+      "program": {
+        "source": "ntv",
+        "start": "01:40",
+        "end": "02:10",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=202629AF",
+        "title": "天は赤い河のほとり AnichU",
+        "date": "2026-11-04",
+        "channel": "日本テレビ"
+      }
     }
   ]
 }
