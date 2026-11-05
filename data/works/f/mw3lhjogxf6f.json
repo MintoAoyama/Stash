@@ -1,0 +1,42 @@
+{
+  "id": "mw3lhjogxf6f",
+  "type": "tv",
+  "title": "アナログナース 〜デジタルってなんなんだよ!?〜",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ朝日",
+  "airtime": "木曜 21:00〜22:00",
+  "officialUrl": "https://www.tv-asahi.co.jp/analog-nurse/",
+  "genres": [
+    "30"
+  ],
+  "logs": [
+    {
+      "id": "mw3lhjoh2viv",
+      "author": "minto",
+      "loggedAt": "2026-11-05",
+      "rating": null,
+      "text": "- まさかの「ACK」\n- アバンが出オチすぎる\n  - トラベルナースは別に出オチってわけでもなかったからな\n- トリアージのタグを毛糸🧶でやるのジワジワ来るな\n- 津田健次郎がキャスト2番目に来ている。すごい\n- 複数人が同時に「ACK!」笑ってしまう\n- 津田健次郎の喋り方が爆笑問題カーボーイの「飛び出せ！バウンディくん」のそれ\n- アナログ主義も度が過ぎると迷惑を掛けることになりかねないと思うんだけど、そこまでしないとこのシリーズの主演にはなれないんだな\n- にしてもあれだけの振る舞いの後でナース服違和感あるな…\n- アラームもうるさいし集中できない執刀医も面白いし「黙れAI」も勢いある\n- このシリーズは絶妙過ぎる。バラエティみたいなノリのようでギリギリドラマになっている\n- いきなり1話の段階でトラベルナースの2人を出せるんだ。出し惜しみしないな",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "ドクターX",
+      "program": {
+        "source": "tvasahi",
+        "start": "21:00",
+        "date": "2026-10-22",
+        "title": "アナログナース 〜デジタルってなんなんだよ!?〜",
+        "end": "22:00",
+        "url": "https://www.tv-asahi.co.jp/pr/contents/20261022_05648.html",
+        "channel": "テレビ朝日"
+      }
+    }
+  ]
+}
