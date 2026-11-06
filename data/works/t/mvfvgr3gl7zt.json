@@ -187,6 +187,44 @@
         "title": "視る日経!ニュースNEXT",
         "start": "21:00"
       }
+    },
+    {
+      "id": "mw46siut5cc7",
+      "author": "minto",
+      "loggedAt": "2026-11-06",
+      "rating": null,
+      "text": "- 個人情報「持たない」選択 不正アクセス懸念で会員制廃止\n  - ウェンディーズ・ジャパンでは会員情報をあだな・生年月日・性別のみにした他、入力自体も任意にしているとか\n  - 購入履歴を元にクーポンや特典を配信することに\n  - [リアル行動データプラットフォーム『Beacon Bank』を運営しているunerry](https://www.unerry.co.jp/) \n    - 人流データから顧客の属性や行動を分析\n- 個人預金「保護対象外」（ペイオフ）140兆円超に 相続で大口化 金融リスクに",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米民主党圧勝でマーケットどうなる?為替や日本株を徹底分析",
+      "program": {
+        "start": "21:00",
+        "end": "22:00",
+        "date": "2026-11-05",
+        "title": "視る日経!ニュースNEXT",
+        "channel": "BSテレ東",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611052100.html",
+        "source": "bstvtokyo"
+      }
+    },
+    {
+      "id": "mw475p1c4jow",
+      "author": "minto",
+      "loggedAt": "2026-11-06",
+      "rating": null,
+      "text": "- 三菱UFJ 新銀行でキャッシュカード全廃\n  - 大手銀行で初 セブン銀行と提携してスマートフォンで預金を引き出せるようにする\n  - 来年1月開始予定のデジタルバンク「エムットバンク」で\n  - エムットバンク自体、Google Cloudで勘定系システム基盤を動かしたり色々しているらしい\n    - [MUFGのデジタルバンク「エムットバンク」始動　27年1～3月開始 - Impress Watch](https://www.watch.impress.co.jp/docs/news/2142949.html)\n- [ビヨンド・ザ・ボーダー] マイクロプラスチックゼロへ 海中で溶ける新素材\n  - 木材成分のセルロースが主原料の塩水で溶けるプラスチック\n  - 理化学研究所で開発",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米中間選挙開票速報!現地から中継!激戦州を制するのは?",
+      "program": {
+        "end": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611042100.html",
+        "start": "21:00",
+        "channel": "BSテレ東",
+        "date": "2026-11-04",
+        "title": "視る日経!ニュースNEXT",
+        "source": "bstvtokyo"
+      }
     }
   ]
 }

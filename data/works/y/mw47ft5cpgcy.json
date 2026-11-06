@@ -1,0 +1,42 @@
+{
+  "id": "mw47ft5cpgcy",
+  "type": "tv",
+  "title": "刃牙道",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "日曜 23:30〜00:00",
+  "officialUrl": "",
+  "genres": [
+    "70"
+  ],
+  "logs": [
+    {
+      "id": "mw47ft5cctd7",
+      "author": "minto",
+      "loggedAt": "2026-11-06",
+      "rating": null,
+      "text": "- 宮根誠司によく似た司会者が宮本武蔵を取材\n- 「リアルタイムエア斬殺事件」\n- 安住紳一郎にも羽鳥慎一にも似たアナウンサー\n- つくづく実況向きのコンテンツだ",
+      "episode": 18,
+      "episodeEnd": null,
+      "subtitle": "国斬り",
+      "program": {
+        "start": "23:30",
+        "end": "00:00",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261101&ch=1&hm=2330",
+        "title": "刃牙道",
+        "source": "mx",
+        "date": "2026-11-01",
+        "channel": "TOKYO MX"
+      }
+    }
+  ]
+}
