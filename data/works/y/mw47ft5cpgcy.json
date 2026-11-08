@@ -20,6 +20,25 @@
   ],
   "logs": [
     {
+      "id": "mw7xleewixhp",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "",
+      "episode": 17,
+      "episodeEnd": null,
+      "subtitle": "守護(しゅご)り",
+      "program": {
+        "channel": "TOKYO MX",
+        "title": "刃牙道",
+        "source": "mx",
+        "date": "2026-10-25",
+        "end": "00:00",
+        "start": "23:30",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261025&ch=1&hm=2330"
+      }
+    },
+    {
       "id": "mw47ft5cctd7",
       "author": "minto",
       "loggedAt": "2026-11-06",

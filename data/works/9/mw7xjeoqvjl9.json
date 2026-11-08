@@ -1,0 +1,78 @@
+{
+  "id": "mw7xjeoqvjl9",
+  "type": "tv",
+  "title": "漫画クリスタル",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "BSテレ東",
+  "airtime": "木曜 00:36〜01:05",
+  "officialUrl": "https://www.bs-tvtokyo.co.jp/comics-crystal/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mw7xjx29grfi",
+      "author": "minto",
+      "loggedAt": "2026-10-31",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "【全国民に読んでもらいたい】ゆるキャン△秘話も「COMIC FUZ」特集",
+      "program": {
+        "date": "2026-10-28",
+        "title": "漫画クリスタル",
+        "source": "tvtokyo",
+        "end": "04:05",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/29347_202610272735.html",
+        "start": "03:35",
+        "channel": "テレビ東京"
+      }
+    },
+    {
+      "id": "mw7xjeoqc8wv",
+      "author": "minto",
+      "loggedAt": "2026-11-08",
+      "rating": null,
+      "text": "- やはり漫画クリスタルはマンガ番組の良心\n- ドラマ化きっかけとはいえ作者を読んで本気で語れる番組は本当に貴重",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "【ドラマ化で話題沸騰中】不朽の名作『赤灯えれじい』特集!先生登場",
+      "program": {
+        "date": "2026-11-05",
+        "title": "漫画クリスタル",
+        "channel": "BSテレ東",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/29018_202611042436.html",
+        "start": "00:36",
+        "source": "bstvtokyo",
+        "end": "01:05"
+      }
+    },
+    {
+      "id": "mw7xkprjehiv",
+      "author": "minto",
+      "loggedAt": "2026-11-08",
+      "rating": null,
+      "text": "- ここにきてトーチ特集するのがアツい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "【なんだこの漫画】野田も驚愕!独自の世界観を築くトーチweb特集!",
+      "program": {
+        "date": "2026-10-21",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/29347_202610202735.html",
+        "source": "tvtokyo",
+        "title": "漫画クリスタル",
+        "end": "04:05",
+        "start": "03:35"
+      }
+    }
+  ]
+}

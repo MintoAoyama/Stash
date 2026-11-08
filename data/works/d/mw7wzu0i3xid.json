@@ -1,0 +1,42 @@
+{
+  "id": "mw7wzu0i3xid",
+  "type": "tv",
+  "title": "薬屋のひとりごと FRIDAY ANIME NIGHT",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "金曜 23:30〜00:00",
+  "officialUrl": "https://kusuriyanohitorigoto.jp/",
+  "genres": [
+    "70"
+  ],
+  "logs": [
+    {
+      "id": "mw7wzu0iquvl",
+      "author": "minto",
+      "loggedAt": "2026-11-08",
+      "rating": null,
+      "text": "- 毛毛（マオマオ）\n  - 大きさなど人間と同じ瞳をしている猫のデザイン",
+      "episode": 54,
+      "episodeEnd": null,
+      "subtitle": "紙の村",
+      "program": {
+        "date": "2026-11-06",
+        "end": "00:00",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=202629FC",
+        "source": "ntv",
+        "title": "薬屋のひとりごと FRIDAY ANIME NIGHT",
+        "channel": "日本テレビ",
+        "start": "23:30"
+      }
+    }
+  ]
+}

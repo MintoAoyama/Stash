@@ -1,0 +1,42 @@
+{
+  "id": "mw7xgdglzjqe",
+  "type": "tv",
+  "title": "うちの弟どもがすみません",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "土曜 00:00〜00:30",
+  "officialUrl": "",
+  "genres": [
+    "70"
+  ],
+  "logs": [
+    {
+      "id": "mw7xgdglbczr",
+      "author": "minto",
+      "loggedAt": "2026-11-08",
+      "rating": null,
+      "text": "- そうそう、なんで騎馬戦で半裸なんだ。「ドキッ！丸ごと水着 男だらけの騎馬戦」なのか？\n- 長男の「チッ」を収録している様子のメイキングをください\n- CM見ていて今更気付いたけどOPが「ねぐせ」でEDが「まばたき」なのか",
+      "episode": 18,
+      "episodeEnd": null,
+      "subtitle": "騎馬戦!!弟vs弟",
+      "program": {
+        "start": "00:00",
+        "end": "00:30",
+        "title": "うちの弟どもがすみません",
+        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261107&ch=1&hm=0000",
+        "source": "mx",
+        "date": "2026-11-07"
+      }
+    }
+  ]
+}
