@@ -1,0 +1,44 @@
+{
+  "id": "mw5vmfb6ypjl",
+  "type": "tv",
+  "title": "週刊フジテレビ批評",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "土曜 05:30〜06:00",
+  "officialUrl": "https://www.fujitv.co.jp/newhihyo/index.html",
+  "genres": [
+    "2F",
+    "27",
+    "88"
+  ],
+  "logs": [
+    {
+      "id": "mw5vmfb6nb6i",
+      "author": "minto",
+      "loggedAt": "2026-11-07",
+      "rating": null,
+      "text": "- やはり概ね共感できない批評に\n- 批評家として引いて見すぎてるんじゃないか、ちゃんと自分の目で見て面白いのか感じているのか疑ってしまうところがある\n- 途中の話から気付いたというのも鈍感な気がする。1話で気付ける要素だったりするので\n- 後半に続く",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "秋ドラマ辛口放談！ドラマウォッチャー４人のオススメは？忖度なしのぶっちゃけトーク",
+      "program": {
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "url": "https://www.fujitv.co.jp/newhihyo/index.html",
+        "end": "06:00",
+        "start": "05:30",
+        "title": "週刊フジテレビ批評",
+        "date": "2026-11-07"
+      }
+    }
+  ]
+}
