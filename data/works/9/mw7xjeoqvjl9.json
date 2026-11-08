@@ -15,7 +15,9 @@
   "channel": "BSテレ東",
   "airtime": "木曜 00:36〜01:05",
   "officialUrl": "https://www.bs-tvtokyo.co.jp/comics-crystal/",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mw7xjx29grfi",
