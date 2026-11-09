@@ -1,0 +1,42 @@
+{
+  "id": "mw994cs1v7wz",
+  "type": "tv",
+  "title": "乾杯、ご一緒してもイイですか?飲食店で一杯おごる代わりに乾杯の理由を聞く番組",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "日曜 21:54〜22:00",
+  "officialUrl": "",
+  "genres": [
+    "5"
+  ],
+  "logs": [
+    {
+      "id": "mw994cs13q4e",
+      "author": "minto",
+      "loggedAt": "2026-11-09",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "end": "22:00",
+        "source": "tvtokyo",
+        "date": "2026-11-08",
+        "title": "乾杯、ご一緒してもイイですか?飲食店で一杯おごる代わりに乾杯の理由を聞く番組",
+        "channel": "テレビ東京",
+        "start": "21:54",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29112_202611082154.html"
+      }
+    }
+  ]
+}
