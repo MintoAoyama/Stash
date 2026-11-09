@@ -1,0 +1,42 @@
+{
+  "id": "mw9a0ngu3lrj",
+  "type": "tv",
+  "title": "突然ですが占ってもいいですか?",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "月曜 00:55〜01:25",
+  "officialUrl": "https://www.fujitv.co.jp/uranattemoiidesuka/index.html",
+  "genres": [
+    "5"
+  ],
+  "logs": [
+    {
+      "id": "mw9a0ngvpruu",
+      "author": "minto",
+      "loggedAt": "2026-11-09",
+      "rating": null,
+      "text": "- 窪塚愛流と井手上漠が友達というのは知らなかった\n- ここぞとばかりにIWGPのテーマ（忘却の空）が流してくる\n- 占いは興味ないと言いつつしっかりハマっていたのが良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "◆窪塚愛流&井手上漠を占い!",
+      "program": {
+        "start": "00:55",
+        "source": "fuji",
+        "title": "突然ですが占ってもいいですか?",
+        "end": "01:25",
+        "date": "2026-11-09",
+        "channel": "フジテレビ",
+        "url": "https://www.fujitv.co.jp/uranattemoiidesuka/index.html"
+      }
+    }
+  ]
+}

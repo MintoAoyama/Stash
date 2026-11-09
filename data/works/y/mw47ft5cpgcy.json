@@ -20,6 +20,25 @@
   ],
   "logs": [
     {
+      "id": "mw9a4097ql1q",
+      "author": "minto",
+      "loggedAt": "2026-10-19",
+      "rating": null,
+      "text": "",
+      "episode": 16,
+      "episodeEnd": null,
+      "subtitle": "物怪(もののけ)と武士(もののふ)",
+      "program": {
+        "date": "2026-10-18",
+        "channel": "TOKYO MX",
+        "end": "00:00",
+        "title": "刃牙道",
+        "start": "23:30",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261018&ch=1&hm=2330",
+        "source": "mx"
+      }
+    },
+    {
       "id": "mw7xleewixhp",
       "author": "minto",
       "loggedAt": "2026-10-31",

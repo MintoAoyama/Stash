@@ -94,6 +94,25 @@
         "title": "首都圏ネットワーク 4600万円相当の高級時計 中野でまた窃盗事件",
         "start": "18:10"
       }
+    },
+    {
+      "id": "mw9bp1rs8lij",
+      "author": "minto",
+      "loggedAt": "2026-11-09",
+      "rating": null,
+      "text": "- 無許可電波で一斉圏外に？ 中国籍の容疑者を逮捕\n  - 半径500mのスマホを圏外にした「ダウングレード攻撃」\n    - 現在普及している4G・5Gは基地局との認証を行うが、2Gではそれが行われない。今回はこの2Gで強制接続を行うことで詐欺メッセージを送信する目的があったと思われる\n    - こればかりはOSレベルで対応が必要なんだろうな…。設定でオフにできないんだろうか",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "都心1月並みの寒さ あすも冬の寒さに",
+      "program": {
+        "channel": "NHK総合",
+        "start": "18:10",
+        "title": "首都圏ネットワーク",
+        "end": "19:00",
+        "url": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR/ep/48LH8M9UXY",
+        "source": "nhk",
+        "date": "2026-11-09"
+      }
     }
   ]
 }

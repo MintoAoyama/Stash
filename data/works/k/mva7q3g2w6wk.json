@@ -1,0 +1,289 @@
+{
+  "id": "mva7q3g2w6wk",
+  "type": "tv",
+  "title": "WBS",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "木曜 22:00〜22:58",
+  "officialUrl": "https://www.tv-tokyo.co.jp/wbs/",
+  "genres": [
+    "0"
+  ],
+  "logs": [
+    {
+      "id": "mva7q421pz0f",
+      "author": "minto",
+      "loggedAt": "2026-10-16",
+      "rating": null,
+      "text": "* \"コアウィーブ・ショック\" GPU特化のクラウドベンダーの CoreWeave 初めて知った\n* 病院業務支援システム@linkの障害による医療機関への影響。従業員の稼働への影響もそうだけど、手術予定の患者が分からなくなっているのは厳しい。ネットそのものの障害も考慮して既にあるデータは手元で参照できるといいんだろうけど、そこまで考慮しているケースはなかなか無いよな\n* \"競争激化 コンビニコーヒー\" セブンカフェティーの対応店舗が拡大しづらいのはベンダーの種類を増やすことに対して売上が見合ってない状況なんだろうか…。青の豆の種類を増やすというのも利益を最大化する対策なんだろうし\n* 原田亮介解説キャスターはコンビニコーヒーのついでにせんべい🍘をついつい買ってしまうとのこと\n* 量子コンピュータの活用提案コンテスト \"NEDO Challenge\" の話題。現段階の話かもしれないけど従来に比べて数倍の効率化を謳うケースが目立っており、そこまで伸びてないのは少し気になった\n* \"大人のぬい活に商機\" 。ふわふわしたぬいぐるみと硬い成型ボディを組み合わせたBLOFFFu（ブロッフ）面白い\n* 軽量重量センサー + パンタグラフ構造 + 加速度センサーで子どもの体重の計測を均等にするという試み、課題も含めてトレたまっぽい良い企画。ペットにも応用できるとなると強そう",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "株価急落”コアウィーブ・ショック”▼不正アクセスで医療現場が混乱",
+      "program": {
+        "date": "2026-10-15",
+        "channel": "テレビ東京",
+        "end": "22:58",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610152200.html",
+        "source": "tvtokyo",
+        "start": "22:00",
+        "title": "WBS"
+      }
+    },
+    {
+      "id": "mvfwdnr3okwn",
+      "author": "minto",
+      "loggedAt": "2026-10-20",
+      "rating": null,
+      "text": "- Nscale のイギリス AI向けデータセンター建設計画から Microsoft が撤退\n  - 電力供給が2030年代まで見込めないため徹底の判断に至った可能性があるんだとか\n  - CoreWeave ショックの件もあるし、ネオクラウド事業者の先の読めないニュースが続く\n- 伊藤園 アルコール代替飲料のクラフト無糖炭酸飲料「CHASER BREWING」を発売\n  - 茶葉とホップを掛け合わせた苦味を売りにしたものらしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "source": "bstvtokyo",
+        "end": "00:00",
+        "date": "2026-10-19",
+        "channel": "BSテレ東",
+        "start": "23:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202610/14132_202610192300.html",
+        "title": "WBS"
+      }
+    },
+    {
+      "id": "mvhb5qaq1dus",
+      "author": "minto",
+      "loggedAt": "2026-10-21",
+      "rating": null,
+      "text": "- teppay、システム的に難しいのは重々承知しているんだけど、Suicaと残高が別なのがハードルになる。無いよりはあった方が仕組みではあるんだろうけど…。せめてSuicaから出せれば違うんだけど\n- ペロブスカイトもヨウ素大国日本も知ってはいたけど、ペロブスカイトの原料に関連しているのは知らなかった\n  - 2025年末にペロブスカイト関連の特許出願数を中国が上回っているらしい\n- ドイツ 反移民・経済格差による極右台頭\n  - 州内120以上の移民団体を束ねる支援組織 ラムザ、ベルリンの壁崩壊直後から住んでいる日本人（貝山美夏さん）が幹部を務めているという話もすごい\n    - 歌手を目指して海外に渡ったことがきっかけという話もすごい（[三十路インタビュー: 貝山美夏 ドイツ、ザクセンアンハルト州移民ネットワーク代表 1/2｜勉三くん](https://note.com/kosokosolife/n/n4d600a372a81)）\n- サブスク型住宅設備修理「ホームサーブ」\n  - \"点検商法\" に対抗するという側面も",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "コード決済teppay、PayPayに挑む▼曲がる太陽電池実用化▼欧州で極右台頭",
+      "program": {
+        "start": "22:00",
+        "title": "WBS",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610202200.html",
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "end": "22:58",
+        "date": "2026-10-20"
+      }
+    },
+    {
+      "id": "mvk6ue5mukyn",
+      "author": "minto",
+      "loggedAt": "2026-10-21",
+      "rating": null,
+      "text": "- 日経平均株価の規定値突破時のくす玉などでWBSも密着取材することが多く局レベルで繋がりのある、\"証券業界のアキダイ\" とも言われる岩井コスモ証券にサイバー攻撃\n  - 報道があった際、流石に当分取材を受けられないだろうと思っていたら冒頭から独自取材で出てきて驚く声も\n  - システム開発担当のトレードワークスの話も。先に5月に取材していた際のVTRを紹介している\n- 金属対ゴムなど、性質の異なる素材を接着させる「異素材吸着技術」\n  - [塗って乾かすだけで異種材料を強固に繋ぐ「多孔質アンカー」の開発 | NIMS](https://www.nims.go.jp/press/2026/09/202609100.html)\n  - つくばにある 物質・材料研究機構（NIMS）の研究開発\n  - 接着剤に揮発性の高い液体を混ぜ、乾燥時に細かい泡を形成。それぞれの素材に向いた既存の接着剤から製造できるらしい。VTR中の実験だと数tの力に耐えられていた\n- ツルハHD 新PB発表\n  - 経営統合や協業など、どことどこが繋がっているのか時々分からなくなる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "高市政権を採点！満点も▽独自取材！サイバー被害証券会社▽仏暴動と市場",
+      "program": {
+        "end": "22:58",
+        "start": "22:00",
+        "title": "WBS",
+        "date": "2026-10-21",
+        "source": "tvtokyo",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610222200.html"
+      }
+    },
+    {
+      "id": "mvmjqx6arach",
+      "author": "minto",
+      "loggedAt": "2026-10-25",
+      "rating": null,
+      "text": "- PHP脆弱性問題\n  - 今回の「PHP2Shell」を発見したCalifの研究者Ryan Austinがビデオインタビューで登場\n  - [株式会社エルブズ代表の田中秀樹さん](株式会社エルブズ代表の田中秀樹さん) が解説。PHP・脆弱性などの基本的な説明を丁寧に行なっている\n- [トレたまneo] ペーパーターフと言われる紙の人工芝\n  - アバカ（マニラ麻）からできた紙を糸状にしており、従来のプラスチックの人工芝と比べても柔らかく天然芝に近いらしい。水や火に強く屋外でも使える\n  - やはりネックになっているのは価格（2.5万/1m2）\n- 免税「リファンド」制度来月開始\n  - 本来の方式と異なり、税込価格で購入後に税関で確認、のちにクレカなどで税金分が返還される仕組みらしい。転売対策として一定の効果が見込める他、今の円安の状況だとさほどインバウンドにも影響はないだろうという見立て\n  - 免税申請のシステムで「[Ocean](https://ocean.inc/)」が事例として紹介。海外展開も視野に入れているとのこと\n- LINEマンガ 100円投資 縦読みのクリエイター支援\n  - 全然関係ないけどWebtoonは何故か1コマ1コマを単に引き伸ばして荒くなってしまっているものが多い印象\n  - 発祥とされる韓国の有名な作品だと変わるのかもしれないけどきちんと密度が感じられる絵づくりが見たい。そうでなくてもスクロールに対するパフォーマンスが悪い気がするので\n  - これまで良いなと思ったのは日本でもアニメ化された中国Webコミックの「悪偶」くらいしかなかった\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "▼PHP問題を緊急解説！生活や経済への影響は▼オリエンタルランド投資事業",
+      "program": {
+        "start": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610222200.html",
+        "end": "22:58",
+        "title": "WBS",
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "date": "2026-10-22"
+      }
+    },
+    {
+      "id": "mvmkjkjupwjw",
+      "author": "minto",
+      "loggedAt": "2026-10-25",
+      "rating": null,
+      "text": "- 不動産下落 2000万円引きも\n  - 物価高・金利上昇の影響で5月に1.8億円だったものが先週1.6億円程度に\n  - 評価されているマンションも含め適正価格になりつつあるという見方か\n- [The 追跡] 火葬まち\n  - 火葬場が混雑で追いつかず、葬儀場のスケジュールが空いてしまうという状態に\n  - 亡くなってから葬儀までに10日以上待つことになるケースも\n  - 葬儀場から依頼を受けて火葬まで冷蔵で遺体を預かる（故人に「おやすみになっていただく」）サービスも盛況。1泊3万円を超えるケースもあるらしい\n  - 「死亡者数の将来推計が2065年にピークを迎える」と聞いて、それって丁度俺が80の時やんけ…となった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "「利上げ」の行方は・・・マンション高騰に転機2千万円値下げの実情",
+      "program": {
+        "date": "2026-10-23",
+        "end": "23:58",
+        "source": "tvtokyo",
+        "channel": "テレビ東京",
+        "start": "23:00",
+        "title": "WBS 「利上げ」の行方は・・・マンション高騰に転機2千万円値下げの実情",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610232300.html"
+      }
+    },
+    {
+      "id": "mvrc77t9cdb7",
+      "author": "minto",
+      "loggedAt": "2026-10-28",
+      "rating": null,
+      "text": "- GMO 不正アクセス続報\n  - 終業後にPCの電源を落として帰るよう促すとある組織\n- 新たな収益源に? 通信大手「フィジカルAI」競争\n  - KDDI フィジカルAI 事業 本格参入\n    - ELYZA Robotics（イライザロボティクス）\n  - そもそもフィジカルAIに通信が必要な理由はどういったものがあるんだろう\n    - これについてはそもそも順番が逆のようだけど。必要というより既存事業が成熟しているからこその新事業\n  - ムジン（Mujin）\n    - 産業用ロボットや自動搬送車（AGV）を安全かつ安定して遠隔制御するための「OT（制御技術）セキュリティ」と「堅牢な無線・ネットワーク環境の構築」がコア事業らしい\n- 高級ブランド住宅（ブランデッドレジデンス） 市場拡大へ\n  - 「フェンディカーサ」フェンディ日本初のレジデンス事業。東京・広尾に約1000㎡の高級邸宅\n  - 日本人というより海外富裕層の邸宅ということで腑に落ちた\n  - アストンマーティンが去年手がけたアジア初の超高級住宅「N°001 Minami Aoyama（ナンバーワン ミナミアオヤマ）」の紹介も\n- 大学財政不安で資産運用\n  - 機材高騰が課題に\n  - 少子化で収入の大部分の授業料も減少\n  - 寄付金自体をそのまま使うのではなく運用に。運用益を使う\n  - 三菱UFJ信託銀行\n    - 29の大学法人と取引し、1500億円規模を運用している\n    - リスクをとってリターンを希望する大学法人が多いという\n      - 授業料を払う側にとっては複雑かもしれないけどある程度は致し方ないよな…\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "カギは通信?フィジカルAI最前線▼米中間選挙で経済は▼超高級ブランド邸宅",
+      "program": {
+        "date": "2026-10-27",
+        "end": "22:58",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610272200.html",
+        "start": "22:00",
+        "source": "tvtokyo",
+        "title": "WBS"
+      }
+    },
+    {
+      "id": "mvtfw61ic6yj",
+      "author": "minto",
+      "loggedAt": "2026-10-29",
+      "rating": null,
+      "text": "- 物流倉庫が都心接近・ヤマト配達速度アップ\n  - ヤマト運輸が東京江東にグループ最大級の物流施設\n  - 東京港・羽田空港まで20分のアクセスという立地の良さ\n- ホテルニューアカオなど再注目の熱海ホテルラッシュ\n- 中国レアメタル輸出管理強化でタングステン争奪戦\n  - レアアース≒レアメタル周り話題が多い",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "GMO攻撃側サイト閉鎖に専門家「プロの犯行ではない」▼熱海ホテルが刷新",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610282200.html",
+        "date": "2026-10-28",
+        "source": "tvtokyo",
+        "channel": "テレビ東京",
+        "title": "WBS",
+        "start": "22:00",
+        "end": "22:58"
+      }
+    },
+    {
+      "id": "mvu6u3543fii",
+      "author": "minto",
+      "loggedAt": "2026-10-30",
+      "rating": null,
+      "text": "- GMO不正アクセス問題\n  - 日本ハッカー協会 代表理事 の杉浦隆幸さん出演（[@lumin](https://x.com/lumin)）\n  - WPS Sheets という表計算ソフトを利用していることが添付ファイルから分析できた\n    - 「中国で使うソフト」（日本国内でも安いPCでバンドルされることがある）ということから、「中国にゆかりのある人かお金がない人のどちらか」\n  - 多くの記録を残していることから明らかにプロではない、「テストをせずに本番実行している」\n- アドフラウド広告費増に AIブロック\n  - Spider Labs\n  - [Spider AF(スパイダーエーエフ)の不正対策でマーケティングセキュリティを一元化](https://jp.spideraf.com/)\n  - まさかの [Orb（オーブ）](https://world.org/ja-jp/orb) も紹介\n- [トレたま] [津波・水害用ドライスーツ 「TASKAL®」 | 太陽工業株式会社](https://www.taiyokogyo.co.jp/products/73704/)\n\n\n\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "GMO不正アクセス…攻撃者の“有力情報”とは？",
+      "program": {
+        "start": "22:00",
+        "source": "tvtokyo",
+        "title": "WBS",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/14132_202610292200.html",
+        "date": "2026-10-29",
+        "end": "22:58",
+        "channel": "テレビ東京"
+      }
+    },
+    {
+      "id": "mw0mstt0n0i6",
+      "author": "minto",
+      "loggedAt": "2026-11-03",
+      "rating": null,
+      "text": "- 転職活況！ビズリーチの成長戦略\n  - そうかー…、2009年にリリースしたころはまだ36㎡のワンルームマンションを借りていたんだな。代表の雰囲気が全然違う\n  - [出世ビル　Visional（ビズリーチ）編｜出世ビル](https://note.com/shussebuilding/n/nd4f56804499e)\n    - 変遷についてまとまっているようなので後で読んでみよう\n    - エグゼクティブなイメージに合わせるために様々なことをしている点も含めて興味深い\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "GMO情報流出を謝罪…会見で語ったことは▼米中間選挙で株と為替は",
+      "program": {
+        "source": "tvtokyo",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611022200.html",
+        "start": "22:00",
+        "date": "2026-11-02",
+        "end": "23:04",
+        "title": "WBS"
+      }
+    },
+    {
+      "id": "mw2rh6a2kmpg",
+      "author": "minto",
+      "loggedAt": "2026-11-05",
+      "rating": null,
+      "text": "- 米中間選挙特集\n- 日経トレンディの2027年ヒット予測\n  - UHA味覚糖のカード型エナジードリンク「[ENERGY ARTS](https://www.uha-mikakuto.co.jp/company/news-releases/news20260120.html )」\n  - 手の甲に埋め込まれた12mmのチップ「[I'm HUMAN](https://quwak.com/)」\n    - 割と浮き出ており気になる印象",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米中間選挙の投票始まる!トランプ政権の行方は…",
+      "program": {
+        "title": "WBS",
+        "start": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611032200.html",
+        "date": "2026-11-03",
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "end": "23:04"
+      }
+    },
+    {
+      "id": "mw46futjmi7z",
+      "author": "minto",
+      "loggedAt": "2026-11-06",
+      "rating": null,
+      "text": "- 百貨店 来年の福袋 発表 食品減税を見据え冷凍庫付き福袋も\n  - 高島屋「冷凍食品のある暮らし」福袋\n  - 高島屋のオリジナル冷凍惣菜ブランド「百味彩菜」を30日分相当と冷凍庫をセットにした福袋\n  - 2027年にちなみ 税込20,270円\n  - [2027 高島屋の福袋](https://www.takashimaya.co.jp/store/special/fukubukuro/)\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "日経平均3000円下落…為替は？米の中間選挙の結果とマーケット影響を分析",
+      "program": {
+        "end": "23:04",
+        "title": "WBS",
+        "start": "22:00",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611042200.html",
+        "source": "tvtokyo",
+        "date": "2026-11-04"
+      }
+    },
+    {
+      "id": "mw9b2usw756y",
+      "author": "minto",
+      "loggedAt": "2026-11-07",
+      "rating": null,
+      "text": "- キッコーマン茂木名誉会長に聞く経営論\n  - 日本の食品メーカーで初めてアメリカでの現地生産・工場設立を始めたのが1973年\n  - アメリカ人に醤油を使ってもらうことがハードルだったため初めは赤字だったが、4年で累積黒字に\n  - もはや利益の9割が海外のグローバル企業になっている\n- 退職金制度 見直し 広がる前払い制度\n  - 退職一時金を大幅アップした介護施設の事例も",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "日経平均半年ぶり6万円割れ…AI半導体相場は終焉？▼脱年功序列の退職金",
+      "program": {
+        "start": "23:00",
+        "date": "2026-11-06",
+        "source": "tvtokyo",
+        "channel": "テレビ東京",
+        "title": "WBS",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611062300.html",
+        "end": "00:04"
+      }
+    },
+    {
+      "id": "mw9at3916uue",
+      "author": "minto",
+      "loggedAt": "2026-11-09",
+      "rating": null,
+      "text": "- 物価高 アメリカ でも人気 1兆円目指す ダイソー\n  - DAISO マンハッタン57丁目店 シュールすぎる。同じレイアウトなのが面白い\n  - 雑貨や菓子、文具など扱われている商品は同じ\n  - 全世界 6042店舗 のうち海外は 1134店舗（18.7%）。今秋に メキシコ ジョージア に出店予定\n  - マレーシアに世界最大の物流拠点も\n- アニメ映画「我々は宇宙人」\n  - 従来の製作委員会方式ではなく、映画レーベル1社のみから資金を提供される形（「この作品がダメだったらみんな沈没」）",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "米中間選挙「敗北」でトランプ氏どう動く?市場のゆくえ 池上彰氏が生出演",
+      "program": {
+        "date": "2026-11-05",
+        "source": "tvtokyo",
+        "title": "WBS",
+        "start": "22:00",
+        "end": "23:04",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611052200.html"
+      }
+    }
+  ]
+}
