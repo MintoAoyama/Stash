@@ -15,7 +15,9 @@
   "channel": "tvk",
   "airtime": "月曜 22:55〜23:00",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "3"
+  ],
   "logs": [
     {
       "id": "mvxra1tp649l",

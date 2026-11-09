@@ -10,12 +10,14 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "2026-autumn",
+  "season": "",
   "episodeCount": null,
   "channel": "BS朝日",
   "airtime": "火曜 22:00〜22:30",
   "officialUrl": "https://www.bs-asahi.co.jp/himutaro/",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mw0pqidu2lde",

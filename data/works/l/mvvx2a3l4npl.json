@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "2026-autumn",
+  "season": "",
   "episodeCount": null,
   "channel": "フジテレビ",
   "airtime": "金曜 23:00〜23:30",
@@ -67,12 +67,12 @@
       "episodeEnd": null,
       "subtitle": "大谷亮平&ロッチ中岡、僕はこの番組を引退します!?",
       "program": {
-        "title": "全力!脱力タイムズ",
-        "url": "https://www.fujitv.co.jp/DNN/index.html",
-        "start": "23:00",
         "source": "fuji",
+        "url": "https://www.fujitv.co.jp/DNN/index.html",
+        "title": "全力!脱力タイムズ",
         "end": "23:30",
         "channel": "フジテレビ",
+        "start": "23:00",
         "date": "2026-10-30"
       }
     }

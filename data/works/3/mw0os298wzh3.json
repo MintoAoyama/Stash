@@ -72,6 +72,24 @@
         "end": "23:49",
         "source": "nasne"
       }
+    },
+    {
+      "id": "mw9byvk8fy7w",
+      "author": "minto",
+      "loggedAt": "2026-11-09",
+      "rating": null,
+      "text": "- 「ダンケルク」に繋がる話",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "(4)「臆病者」(後編)",
+      "program": {
+        "date": "2026-11-01",
+        "start": "23:00",
+        "source": "nasne",
+        "end": "23:52",
+        "title": "刑事フォイル",
+        "channel": "NHK総合"
+      }
     }
   ]
 }

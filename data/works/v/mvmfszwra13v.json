@@ -15,7 +15,9 @@
   "channel": "テレビ朝日",
   "airtime": "土曜 18:30〜18:56",
   "officialUrl": "https://www.tv-asahi.co.jp/cream_zatsugaku/",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mvmfszwsjztr",
