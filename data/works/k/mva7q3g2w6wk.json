@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "テレビ東京",
   "airtime": "木曜 22:00〜22:58",
@@ -283,6 +283,25 @@
         "end": "23:04",
         "channel": "テレビ東京",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611052200.html"
+      }
+    },
+    {
+      "id": "mw9wgq31tj5a",
+      "author": "minto",
+      "loggedAt": "2026-11-10",
+      "rating": null,
+      "text": "- 飲まずに食べる コーヒー市場に新勢力\n  - UCC上島珈琲 YOINED（ヨインド）\n  - MOKABLE 食べるコーヒー",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "エヌビディア中国スパイ疑惑調査フアンCEOと「不倫関係」か▼半導体再編",
+      "program": {
+        "date": "2026-11-09",
+        "source": "tvtokyo",
+        "start": "22:00",
+        "title": "WBS",
+        "channel": "テレビ東京",
+        "end": "22:58",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611092200.html"
       }
     }
   ]
