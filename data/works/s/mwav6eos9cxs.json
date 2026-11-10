@@ -15,7 +15,9 @@
   "channel": "NHK総合",
   "airtime": "木曜 23:50〜00:35",
   "officialUrl": "https://www.web.nhk/tv/an/butterfly/pl/series-tep-9N81M92LXV",
-  "genres": [],
+  "genres": [
+    "81"
+  ],
   "logs": [
     {
       "id": "mwav6eosp0p0",
