@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "NHK総合",
   "airtime": "月曜～金曜 18:10〜19:00",
@@ -112,6 +112,25 @@
         "url": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR/ep/48LH8M9UXY",
         "source": "nhk",
         "date": "2026-11-09"
+      }
+    },
+    {
+      "id": "mwau8pv1wvqo",
+      "author": "minto",
+      "loggedAt": "2026-11-11",
+      "rating": null,
+      "text": "- 神奈川県 成長著しいベトナムとさらに \"関係深化\" を\n  - [ベトナム最高指導者が神奈川の黒岩知事と会談 | NHKニュース](https://news.web.nhk/newsweb/na/nd-20261110de73657)\n  - ベトナム企業、特にIT関連企業が神奈川県に進出しているケースが増えている\n  - ベトナム人のシステムエンジニアがWebサイトの構築を行なっている\n  - 2000年ごろからのIT人材育成強化を経てIT人材大国に\n  - 神奈川県が経済交流の覚書を締結したのが2014年\n  - そこから10年、現在までに23社が県内に進出している状況\n  - 元々ベトナム国内で日本向けの事業を展開していた企業が進出している",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "過去最強のエルニーニョ現象 関東甲信大雪のおそれも",
+      "program": {
+        "date": "2026-11-10",
+        "end": "19:00",
+        "url": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR/ep/6A6GCURG3M",
+        "start": "18:10",
+        "source": "nhk",
+        "title": "首都圏ネットワーク",
+        "channel": "NHK総合"
       }
     }
   ]

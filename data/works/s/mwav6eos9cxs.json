@@ -1,0 +1,40 @@
+{
+  "id": "mwav6eos9cxs",
+  "type": "tv",
+  "title": "映像の世紀バタフライエフェクト",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "木曜 23:50〜00:35",
+  "officialUrl": "https://www.web.nhk/tv/an/butterfly/pl/series-tep-9N81M92LXV",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwav6eosp0p0",
+      "author": "minto",
+      "loggedAt": "2026-11-11",
+      "rating": null,
+      "text": "- 「戦後日本の社会のひずみの中で組織を拡大させていった暴力団。排除すべき犯罪組織でありながら半ば公然と社会構造の一部として位置づけられて来た暴力団の、闇と業を描く」\n- シリーズの他の回に違わず、NHKアーカイブが火を吹く回だった\n- 闇市から始まり、話にはなんとなく聞いていた暴力団の成り立ちの詳細が語られる構成",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "暴力団 日本社会の闇と業",
+      "program": {
+        "start": "22:00",
+        "url": "https://www.web.nhk/tv/an/butterfly/pl/series-tep-9N81M92LXV/ep/G74DDRUP7N",
+        "channel": "NHK総合",
+        "source": "nhk",
+        "title": "映像の世紀バタフライエフェクト",
+        "date": "2026-11-09",
+        "end": "22:45"
+      }
+    }
+  ]
+}
