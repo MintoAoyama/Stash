@@ -15,7 +15,11 @@
   "channel": "NHK総合",
   "airtime": "月曜 19:30〜19:57",
   "officialUrl": "https://www.web.nhk/tv/an/gendai/pl/series-tep-R7Y6NGLJ6G",
-  "genres": [],
+  "genres": [
+    "02",
+    "80",
+    "00"
+  ],
   "logs": [
     {
       "id": "mwc6ive1eje8",
