@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "",
+  "season": "2026-autumn",
   "episodeCount": null,
   "channel": "テレビ東京",
   "airtime": "月曜 05:45〜07:05",
@@ -112,6 +112,25 @@
         "start": "05:45",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14445_202611020545.html",
         "date": "2026-11-02"
+      }
+    },
+    {
+      "id": "mwbb7upxlfpz",
+      "author": "minto",
+      "loggedAt": "2026-11-11",
+      "rating": null,
+      "text": "- [EXPOマニア] いつの間にか池谷アナの展示会取材がコーナーになり名前が付いている…\n  - 東京国際包装展\n  - やはりテンションがおかしい。唯一無二\n  - 商品ラベルも包装の扱いなのは初めて知った",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "AI相場の今後と注目の“Bragawatts”",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14445_202611110545.html",
+        "date": "2026-11-11",
+        "title": "Newsモーニングサテライト",
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "start": "05:45",
+        "end": "07:05"
       }
     }
   ]
