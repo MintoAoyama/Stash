@@ -56,6 +56,25 @@
         "date": "2026-11-04",
         "channel": "日本テレビ"
       }
+    },
+    {
+      "id": "mwbysnlolqc8",
+      "author": "minto",
+      "loggedAt": "2026-11-11",
+      "rating": null,
+      "text": "- オデュッセイアを想起させる弓矢\n- 目どころじゃ無いくらい貫かれてるけど大丈夫なのか？？？（原作コミックの表現だと気にならなかった演出）\n- 赤い河だ\n- ガラスの割れる演出すごく後からジワジワ来る",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "source": "ntv",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=20262A7E",
+        "end": "02:05",
+        "start": "01:35",
+        "date": "2026-11-11",
+        "channel": "日本テレビ",
+        "title": "天は赤い河のほとり AnichU"
+      }
     }
   ]
 }
