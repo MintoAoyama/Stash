@@ -1,0 +1,42 @@
+{
+  "id": "mwc4t43jwciu",
+  "type": "tv",
+  "title": "仮面ライダースーパー1",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "金曜 19:00〜19:30",
+  "officialUrl": "",
+  "genres": [
+    "72"
+  ],
+  "logs": [
+    {
+      "id": "mwc4t43jpln4",
+      "author": "minto",
+      "loggedAt": "2026-11-11",
+      "rating": null,
+      "text": "- 東武動物公園回\n- 何故かしばらく見ていなかった気がする\n- 助けは多い方がいいに決まってるのに1人で引き受けるのがこの時代の特撮らしい\n- 怪人みんなスタンドに見えてくる\n- コブラに噛まれるくだり面白いな\n- 名乗り、この勢い、確かにジョジョに通じるところがある\n  - 考えてみれば「バオー来訪者」ってモロに仮面ライダーなんだな\n- 胸元に手を当ててるデザインの服やべえ\n- ここまで適当になると永遠に続けられそうな気がしてくる",
+      "episode": 41,
+      "episodeEnd": null,
+      "subtitle": "動物園の一也・水中檻から脱出不能?",
+      "program": {
+        "start": "19:00",
+        "source": "mx",
+        "date": "2026-11-06",
+        "channel": "TOKYO MX",
+        "title": "仮面ライダースーパー1",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261106&ch=1&hm=1900",
+        "end": "19:30"
+      }
+    }
+  ]
+}

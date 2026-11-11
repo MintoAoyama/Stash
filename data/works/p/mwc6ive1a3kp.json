@@ -1,0 +1,40 @@
+{
+  "id": "mwc6ive1a3kp",
+  "type": "tv",
+  "title": "クローズアップ現代",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "月曜 19:30〜19:57",
+  "officialUrl": "https://www.web.nhk/tv/an/gendai/pl/series-tep-R7Y6NGLJ6G",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwc6ive1eje8",
+      "author": "minto",
+      "loggedAt": "2026-11-11",
+      "rating": null,
+      "text": "- 里中満智子ゲスト\n- VTR内では親交の深かった森山ジョージの証言が多め\n- 2000年放送の中国・旧満州（奉天）で命の恩人を探す旅を記録した「中国・ありがとう屋根裏の日々」の一部も紹介",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "人間讃歌を漫画に込めて -ちばてつや 最期の日々-",
+      "program": {
+        "title": "クローズアップ現代",
+        "date": "2026-11-09",
+        "channel": "NHK総合",
+        "end": "19:57",
+        "url": "https://www.web.nhk/tv/an/gendai/pl/series-tep-R7Y6NGLJ6G/ep/ZTNC1VE3D2",
+        "source": "nhk",
+        "start": "19:30"
+      }
+    }
+  ]
+}
