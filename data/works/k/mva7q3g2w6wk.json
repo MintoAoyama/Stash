@@ -328,18 +328,18 @@
       "author": "minto",
       "loggedAt": "2026-11-12",
       "rating": null,
-      "text": "- 日産 2年連続の最終赤字\n  - 金利上昇や原材料高が主な要因\n  - 他も大変だから尚更だよなという印象\n  - 先日のカンブリア放送時のエスピノーザのインタビューVTRも",
+      "text": "- 日産 2年連続の最終赤字\n  - 金利上昇や原材料高が主な要因\n  - 他も大変だから尚更だよなという印象\n  - 先日のカンブリア放送時のエスピノーザのインタビューVTRも\n- ウェイブ 開発車両に試乗 カメラとAIで自動運転\n- Anthropic 11/19 上場へ\n  - 評価額は想定の2兆ドルは3割下回る\n  - NVIDIA TSMC Google など巨大テックが 4兆円の資金支援も\n  - アメリカ中間選挙から1週間でAI規制への警戒感・不透明感が続いており、Nasdaq総合および日経平均株価にも影響している\n  - 名古屋のセミナーでアメリカ資産運用会社インベスコ（運用総額5兆円規模）の責任者も成長は減速していると慎重な見方をしている\n- [となりのインベスター] YouTuber ふゆこ\n  - 犬\n  - 高配当株投資",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "日産復活は?再建計画の進捗分析▼米選挙から1週間マーケットに新局面!?",
       "program": {
-        "end": "22:58",
-        "start": "22:00",
+        "date": "2026-11-11",
         "channel": "テレビ東京",
         "source": "tvtokyo",
-        "title": "WBS",
-        "date": "2026-11-11",
-        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611112200.html"
+        "start": "22:00",
+        "end": "22:58",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611112200.html",
+        "title": "WBS"
       }
     }
   ]
