@@ -75,6 +75,25 @@
         "date": "2026-10-29",
         "url": "https://www.tv-asahi.co.jp/pr/contents/20261105_09502.html"
       }
+    },
+    {
+      "id": "mwegbpf934jb",
+      "author": "minto",
+      "loggedAt": "2026-11-13",
+      "rating": null,
+      "text": "- AI「ボーちゃん」に相談していると話していたが、画面が出てきたらマジのクレしんのボーちゃんだった。さすがテレ朝",
+      "episode": 4,
+      "episodeEnd": null,
+      "subtitle": "ドクターX",
+      "program": {
+        "end": "21:54",
+        "start": "21:00",
+        "url": "https://www.tv-asahi.co.jp/pr/contents/20261112_11280.html",
+        "date": "2026-11-12",
+        "source": "tvasahi",
+        "channel": "テレビ朝日",
+        "title": "アナログナース 〜デジタルってなんなんだよ!?〜"
+      }
     }
   ]
 }
