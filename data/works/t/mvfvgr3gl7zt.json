@@ -263,6 +263,25 @@
         "end": "22:00",
         "start": "21:00"
       }
+    },
+    {
+      "id": "mwe65wp6sd5q",
+      "author": "minto",
+      "loggedAt": "2026-11-13",
+      "rating": null,
+      "text": "- 当初の予定が変わりトップがNVIDIAに。そりゃそう\n- [Show the NEXT] 日経BP 2027年 10大徹底予測\n  - このコーナーVTR以外のテンポ感が相変わらず悪い\n  - 大阪大学発のスタートアップ JiMED \n    - シート型の脳波計で比較的安全に脳波を見てコンピュータを操作するなどに活用を想定\n    - 2027年に治験開始\n    - 脳の模型がキモくて良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ロシア「JT接収」の衝撃...プーチン政権の狙いは!?",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611122100.html",
+        "date": "2026-11-12",
+        "channel": "BSテレ東",
+        "end": "22:00",
+        "title": "視る日経!ニュースNEXT",
+        "source": "bstvtokyo",
+        "start": "21:00"
+      }
     }
   ]
 }
