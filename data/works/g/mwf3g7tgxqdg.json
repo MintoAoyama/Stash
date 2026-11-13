@@ -1,0 +1,42 @@
+{
+  "id": "mwf3g7tgxqdg",
+  "type": "tv",
+  "title": "デザイン・ストーリーズ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK Eテレ",
+  "airtime": "金曜 22:30〜23:00",
+  "officialUrl": "https://www.web.nhk/tv/pl/series-tep-M92Q5PRYLR",
+  "genres": [
+    "8F"
+  ],
+  "logs": [
+    {
+      "id": "mwf3g7tgz8ya",
+      "author": "minto",
+      "loggedAt": "2026-11-13",
+      "rating": null,
+      "text": "- [夜を着こなせたなら | 山階基 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4862727506)\n  - 角度によって色が変わる作り\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "心に響くブックデザイン",
+      "program": {
+        "start": "22:30",
+        "source": "nhk",
+        "url": "https://www.web.nhk/tv/pl/series-tep-M92Q5PRYLR/ep/RSP418YQQS",
+        "title": "デザイン・ストーリーズ",
+        "date": "2026-11-13",
+        "channel": "NHK Eテレ",
+        "end": "23:00"
+      }
+    }
+  ]
+}

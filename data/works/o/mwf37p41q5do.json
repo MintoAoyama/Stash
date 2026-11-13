@@ -1,0 +1,42 @@
+{
+  "id": "mwf37p41q5do",
+  "type": "tv",
+  "title": "わたしのヒュッゲ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "金曜 21:54〜22:00",
+  "officialUrl": "https://www.tv-tokyo.co.jp/watashinohygge/",
+  "genres": [
+    "2"
+  ],
+  "logs": [
+    {
+      "id": "mwf37p41icey",
+      "author": "minto",
+      "loggedAt": "2026-11-13",
+      "rating": null,
+      "text": "- [柳生忠平 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%9F%B3%E7%94%9F%E5%BF%A0%E5%B9%B3)\n- 小豆島！\n- 筆のトリートメントの紹介と同時にサービスシーンも入ってくるとは",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "妖怪画家・柳生忠平(前編)",
+      "program": {
+        "channel": "テレビ東京",
+        "source": "tvtokyo",
+        "start": "21:54",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/26289_202611132154.html",
+        "date": "2026-11-13",
+        "end": "22:00",
+        "title": "わたしのヒュッゲ"
+      }
+    }
+  ]
+}

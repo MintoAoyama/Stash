@@ -37,6 +37,25 @@
         "url": "https://s.mxtv.jp/bangumi/program.html?date=20261106&ch=1&hm=1900",
         "end": "19:30"
       }
+    },
+    {
+      "id": "mwf2a6y36gp0",
+      "author": "minto",
+      "loggedAt": "2026-11-13",
+      "rating": null,
+      "text": "- タイトルからして絶対面白い\n- 「太陽を盗んだ男」の公開翌年だけあって救急車のタイプが同じ\n- バスケットボールが爆弾として収縮している様子が面白い。どうやってるんだろう\n- 爆発からのサブタイトル出しが美しすぎる。リマスターも効いてるし\n- だいぶ面白いな。テラーマクロが普通に受付しているのがすごい\n- ほんとこの組織楽しいんだよな\n- あと6回しかないのか…。これでBLACKまで約7年か",
+      "episode": 42,
+      "episodeEnd": null,
+      "subtitle": "悪魔元帥の大仮装パーティー",
+      "program": {
+        "source": "mx",
+        "title": "仮面ライダースーパー1",
+        "date": "2026-11-13",
+        "channel": "TOKYO MX",
+        "start": "19:00",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261113&ch=1&hm=1900",
+        "end": "19:30"
+      }
     }
   ]
 }

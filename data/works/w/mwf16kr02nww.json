@@ -1,0 +1,44 @@
+{
+  "id": "mwf16kr02nww",
+  "type": "tv",
+  "title": "ねほりんぱほりん",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "NHK Eテレ",
+  "airtime": "金曜 22:00〜22:30",
+  "officialUrl": "https://www.web.nhk/tv/an/nehorin/pl/series-tep-N1G2WK6QW5",
+  "genres": [
+    "52",
+    "AF",
+    "20"
+  ],
+  "logs": [
+    {
+      "id": "mwf16kr0rokb",
+      "author": "minto",
+      "loggedAt": "2026-11-13",
+      "rating": null,
+      "text": "- ありそうでなかった会\n- 豚の髪型髪質服装がリアルすぎる。ブラッシュアップしている気がする",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "元マルサ",
+      "program": {
+        "channel": "NHK Eテレ",
+        "start": "22:00",
+        "end": "22:30",
+        "source": "nhk",
+        "date": "2026-11-13",
+        "url": "https://www.web.nhk/tv/an/nehorin/pl/series-tep-N1G2WK6QW5/ep/78WQTD8A9C",
+        "title": "ねほりんぱほりん"
+      }
+    }
+  ]
+}
