@@ -24,18 +24,18 @@
       "author": "minto",
       "loggedAt": "2026-11-13",
       "rating": null,
-      "text": "- [夜を着こなせたなら | 山階基 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4862727506)\n  - 角度によって色が変わる作り\n",
+      "text": "- [夜を着こなせたなら | 山階基 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4862727506)\n  - 角度によって色が変わる作り\n- 西村ツチカによる挿絵 [レイチェル・カーソン『センス・オブ・ワンダー』](https://tsuchika.com/2024/03/18/2024-03-18/)\n- 神保町・大屋書房 和本への想いを語る\n- 江戸の「和綴じ本」の伝統を守る職人 和本製本所 4代目\n  - 謡曲 謡本 などを扱う",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "心に響くブックデザイン",
       "program": {
-        "start": "22:30",
-        "source": "nhk",
         "url": "https://www.web.nhk/tv/pl/series-tep-M92Q5PRYLR/ep/RSP418YQQS",
         "title": "デザイン・ストーリーズ",
+        "end": "23:00",
         "date": "2026-11-13",
-        "channel": "NHK Eテレ",
-        "end": "23:00"
+        "start": "22:30",
+        "source": "nhk",
+        "channel": "NHK Eテレ"
       }
     }
   ]

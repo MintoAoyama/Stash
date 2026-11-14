@@ -1,0 +1,43 @@
+{
+  "id": "mwgk0imysto9",
+  "type": "tv",
+  "title": "犬と歩く",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "BSよしもと",
+  "airtime": "土曜 19:30〜20:00",
+  "officialUrl": "https://bsy.co.jp/programs/by0000030240/",
+  "genres": [
+    "55",
+    "A1"
+  ],
+  "logs": [
+    {
+      "id": "mwgk0imykbdm",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- 「カベポスター永見と相棒の犬がゆるゆるとお散歩する街ブラ番組」\n- 新番組扱いだけど2024年放送回らしい\n  - 大阪の地方なのか別チャンネルで放送していたと思われる\n- カベポスター永見の顔が逆光気味でよく見えない\n- 犬ともさほど仲良くなさそう。リードを持つ手で分かってしまうという\n- ちょこちょこ出てくる話が適当すぎる\n- 非常に無計画で作られているのが伝わってくる\n- しようもないので次回予告まで飛ばしたら次回が全然違う犬で笑ってしまった。仕方がないのかもしれないけどこだわりがない",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "source": "bsyoshimoto",
+        "date": "2026-11-14",
+        "title": "犬と歩く",
+        "url": "https://bsy.co.jp/programs/by0000030240/",
+        "end": "20:00",
+        "channel": "BSよしもと",
+        "start": "19:30"
+      }
+    }
+  ]
+}
