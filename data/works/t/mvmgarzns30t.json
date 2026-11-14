@@ -10,7 +10,7 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "2026-autumn",
+  "season": "",
   "episodeCount": null,
   "channel": "フジテレビ",
   "airtime": "月曜〜金曜 11:47〜13:50",
@@ -207,6 +207,25 @@
         "date": "2026-11-06",
         "url": "https://www.fujitv.co.jp/pokapoka/index.html",
         "start": "11:47"
+      }
+    },
+    {
+      "id": "mwg7u9mxb0ka",
+      "author": "minto",
+      "loggedAt": "2026-11-14",
+      "rating": null,
+      "text": "- 全然期待せず観ていたものの、神田のフリップで出た太った七五三掛イメージのイラストがとても良かった\n- 竹中直人が収録コメントと見せかけて生出演だったという仕掛けも珍しくて良い\n- 伊原さん色々心配になる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "超ズボラ×心配性コンビ!伊原六花&トラジャ七五三掛(秘)私生活大公開SP",
+      "program": {
+        "title": "ぽかぽか",
+        "source": "fuji",
+        "date": "2026-11-11",
+        "channel": "フジテレビ",
+        "start": "11:47",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "end": "13:50"
       }
     }
   ]

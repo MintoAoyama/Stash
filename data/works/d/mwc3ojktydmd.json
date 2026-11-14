@@ -43,18 +43,18 @@
       "author": "minto",
       "loggedAt": "2026-11-11",
       "rating": null,
-      "text": "",
+      "text": "- 例のコマしかり柴田理恵しかり見せ場が一気に来た感",
       "episode": 6,
       "episodeEnd": null,
       "subtitle": "",
       "program": {
-        "start": "00:00",
-        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29066_202611102400.html",
-        "channel": "テレビ東京",
-        "title": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。",
-        "date": "2026-11-11",
+        "source": "tvtokyo",
         "end": "00:30",
-        "source": "tvtokyo"
+        "start": "00:00",
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29066_202611102400.html",
+        "date": "2026-11-11",
+        "title": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。"
       }
     }
   ]
