@@ -1,0 +1,42 @@
+{
+  "id": "mwhgv5w7nw85",
+  "type": "tv",
+  "title": "【放送開始25周年記念】仮面ライダーアギト",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "火曜 19:00〜19:30",
+  "officialUrl": "",
+  "genres": [
+    "72"
+  ],
+  "logs": [
+    {
+      "id": "mwhgv5w702ga",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- 物語も大体折り返しなのでようやく記憶が戻った\n- いつになく手ブレ撮影がひどい\n  - 色付きフィルムも当時からダサかった\n  - 堤幸彦作品の影響を受けすぎている\n- ミニッツメイドをこぼす場面は当時も相当嫌だった\n- ついに「木野さん」の名前が\n- PCが古すぎる\n  - 翌年の龍騎でインターネットバリバリなので隔世の感が出てくる\n  - 演出もそう。龍騎はだいぶ先に進んでくれた気がする\n  - 前年のクウガもそれなりにヘンテコな演出ではあったけど、シナリオはここまで停滞してないから気にならなかった\n- 初 DEEP BREATH（インストのみ）",
+      "episode": 26,
+      "episodeEnd": null,
+      "subtitle": "甦った記憶",
+      "program": {
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261110&ch=1&hm=1900",
+        "end": "19:30",
+        "source": "mx",
+        "date": "2026-11-10",
+        "channel": "TOKYO MX",
+        "title": "【放送開始25周年記念】仮面ライダーアギト",
+        "start": "19:00"
+      }
+    }
+  ]
+}

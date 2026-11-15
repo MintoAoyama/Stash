@@ -1,0 +1,41 @@
+{
+  "id": "mwhi3s010b18",
+  "type": "tv",
+  "title": "もっとあぶない刑事",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "BS日テレ",
+  "airtime": "月曜 12:00〜13:00",
+  "officialUrl": "",
+  "genres": [
+    "30"
+  ],
+  "logs": [
+    {
+      "id": "mwhi3s015sfx",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- 給与を載せた現金輸送車を奪われ、何故かそれが見つかった函館へ向かう\n- 石山雄大さん「太陽を盗んだ男」でもクウガでも警察官やってるのでお馴染みすぎる\n- 40年前の函館！\n- 雪降ってる\n  - シーン変わるとより吹雪いている…\n- 三菱の謎のテレビ電話（静止画）\n  - 時期的にはルマホンなんだろうか。どういう経緯で紹介することになったのか\n  - [一般回線に接続できるテレビ電話（月刊ASCII 1987年12月号10）: 「ECC2別館」](https://eccmemberblog2.seesaa.net/article/2022-03-05.html)\n",
+      "episode": 11,
+      "episodeEnd": null,
+      "subtitle": "結婚",
+      "program": {
+        "end": "13:00",
+        "title": "もっとあぶない刑事",
+        "source": "nasne",
+        "start": "12:00",
+        "date": "2026-03-23",
+        "channel": "BS日テレ"
+      }
+    }
+  ]
+}

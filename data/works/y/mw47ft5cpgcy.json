@@ -81,18 +81,18 @@
       "author": "minto",
       "loggedAt": "2026-11-15",
       "rating": null,
-      "text": "- 「骨透けてんじゃん！」",
+      "text": "- 「骨透けてんじゃん！」\n- Mr. トラムプ（TRUMP）\n- 「勇」",
       "episode": 19,
       "episodeEnd": null,
       "subtitle": "切れぬもの",
       "program": {
-        "date": "2026-11-08",
-        "source": "mx",
-        "start": "23:30",
-        "channel": "TOKYO MX",
         "url": "https://s.mxtv.jp/bangumi/program.html?date=20261108&ch=1&hm=2330",
+        "channel": "TOKYO MX",
+        "date": "2026-11-08",
         "end": "00:00",
-        "title": "刃牙道"
+        "source": "mx",
+        "title": "刃牙道",
+        "start": "23:30"
       }
     }
   ]
