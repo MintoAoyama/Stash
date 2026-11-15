@@ -1,0 +1,41 @@
+{
+  "id": "mwh8t8w9knby",
+  "type": "tv",
+  "title": "ヤツルギステーション!",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "チバテレ",
+  "airtime": "土曜 07:30〜08:00",
+  "officialUrl": "",
+  "genres": [
+    "A8"
+  ],
+  "logs": [
+    {
+      "id": "mwh8t8waqav0",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- 何故か録画されていた\n- いわゆるローカルヒーロー番組\n- 前半はドラマで、後半はイベントの定点撮影\n- 撮影ノウハウとか確立されてそうだし、エフェクトも使えるし最近は便利になってそうだな",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "start": "07:30",
+        "title": "ヤツルギステーション!",
+        "date": "2026-11-14",
+        "end": "08:00",
+        "source": "chibatv",
+        "channel": "チバテレ"
+      }
+    }
+  ]
+}

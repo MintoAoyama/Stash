@@ -1,0 +1,40 @@
+{
+  "id": "mwh6x5fgtk3b",
+  "type": "tv",
+  "title": "ビストロボイス",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "NHK Eテレ",
+  "airtime": "土曜 21:00〜21:30",
+  "officialUrl": "https://www.web.nhk/tv/pl/series-tep-Y3RNJ33LW6",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwh6x5fghcd4",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- ニコニコ実況で「ぽかぽか女」と言われてしまい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "声優のDEEPな世界「花澤香菜×山寺宏一×榊󠄀原良子」",
+      "program": {
+        "source": "nhk",
+        "date": "2026-11-14",
+        "end": "21:30",
+        "url": "https://www.web.nhk/tv/pl/series-tep-Y3RNJ33LW6/ep/VCH8I63WKT",
+        "channel": "NHK Eテレ",
+        "title": "ビストロボイス",
+        "start": "21:00"
+      }
+    }
+  ]
+}
