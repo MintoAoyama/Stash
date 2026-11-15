@@ -15,7 +15,10 @@
   "channel": "NHK Eテレ",
   "airtime": "土曜 21:00〜21:30",
   "officialUrl": "https://www.web.nhk/tv/pl/series-tep-Y3RNJ33LW6",
-  "genres": [],
+  "genres": [
+    "52",
+    "40"
+  ],
   "logs": [
     {
       "id": "mwh6x5fghcd4",
