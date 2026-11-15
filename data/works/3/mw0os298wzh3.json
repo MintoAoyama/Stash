@@ -108,6 +108,25 @@
         "source": "nasne",
         "title": "刑事フォイル"
       }
+    },
+    {
+      "id": "mwi1jbgv5scj",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "(6)「兵役拒否」(後編)",
+      "program": {
+        "end": "23:52",
+        "channel": "NHK総合",
+        "start": "23:00",
+        "title": "刑事フォイル",
+        "source": "nhk",
+        "url": "https://www.web.nhk/tv/an/foyle/pl/series-tep-38ZKN4K73Q/ep/YRR161LQYJ",
+        "date": "2026-11-15"
+      }
     }
   ]
 }
