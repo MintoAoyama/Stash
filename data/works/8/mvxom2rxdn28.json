@@ -109,6 +109,44 @@
         "start": "22:30",
         "source": "mx"
       }
+    },
+    {
+      "id": "mwhf42pm1nzh",
+      "author": "minto",
+      "loggedAt": "2026-11-08",
+      "rating": null,
+      "text": "",
+      "episode": 6,
+      "episodeEnd": null,
+      "subtitle": "経済指標には注目ですっ!",
+      "program": {
+        "source": "mx",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261105&ch=1&hm=2230",
+        "end": "23:00",
+        "date": "2026-11-05",
+        "channel": "TOKYO MX",
+        "title": "FX戦士くるみちゃん",
+        "start": "22:30"
+      }
+    },
+    {
+      "id": "mwhf215g4eg7",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "",
+      "episode": 7,
+      "episodeEnd": null,
+      "subtitle": "強制ロスカットなんてヤダもん......",
+      "program": {
+        "date": "2026-11-12",
+        "end": "23:00",
+        "start": "22:30",
+        "source": "mx",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261112&ch=1&hm=2230",
+        "channel": "TOKYO MX",
+        "title": "FX戦士くるみちゃん"
+      }
     }
   ]
 }

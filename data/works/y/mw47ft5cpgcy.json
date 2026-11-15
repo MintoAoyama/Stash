@@ -75,6 +75,25 @@
         "date": "2026-11-01",
         "channel": "TOKYO MX"
       }
+    },
+    {
+      "id": "mwhf4puirmta",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- 「骨透けてんじゃん！」",
+      "episode": 19,
+      "episodeEnd": null,
+      "subtitle": "切れぬもの",
+      "program": {
+        "date": "2026-11-08",
+        "source": "mx",
+        "start": "23:30",
+        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261108&ch=1&hm=2330",
+        "end": "00:00",
+        "title": "刃牙道"
+      }
     }
   ]
 }
