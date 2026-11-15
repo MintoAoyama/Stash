@@ -90,6 +90,24 @@
         "title": "刑事フォイル",
         "channel": "NHK総合"
       }
+    },
+    {
+      "id": "mwhxqa5yteve",
+      "author": "minto",
+      "loggedAt": "2026-11-15",
+      "rating": null,
+      "text": "- 酷い話だ\n- そういえばゴジラマイナスワン・ゼロと時代が近いんだよな（1940年・第二次世界大戦中から1947年・戦後）\n- やはり今回もダンケルクの話が出てくる\n- フォイル流石すぎる。話が早い",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "(5)「兵役拒否」(前編)",
+      "program": {
+        "channel": "NHK総合",
+        "end": "23:51",
+        "date": "2026-11-08",
+        "start": "23:00",
+        "source": "nasne",
+        "title": "刑事フォイル"
+      }
     }
   ]
 }
