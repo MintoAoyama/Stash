@@ -1,0 +1,39 @@
+{
+  "id": "mwis6pd97hkk",
+  "type": "tv",
+  "title": "くりぃむトーク!超体験!?グランプリ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "フジテレビ",
+  "airtime": "木曜 23:00〜23:30",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwis6pd9xdig",
+      "author": "minto",
+      "loggedAt": "2026-10-22",
+      "rating": null,
+      "text": "- どこから切り抜かれてもいいように短くギュッとまとめられたトークバラエティ\n- なので30分といっても通しで聞くと疲れてくるかもしれない\n- 居酒屋で話しているかのように矢継ぎ早に関連があるのかないのかという話が自然に繋げられていく\n- 台本 + 何割かアドリブ のような構成なのかも\n- 猪狩のその時代を知らないなりの合いの手は勇気があって好感が持てる（細木かおりのお見合いの話にデニーズを持ち出したり）",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "猪狩が木村拓哉に★山里&蒼井結婚真相",
+      "program": {
+        "source": "nasne",
+        "channel": "フジテレビ",
+        "title": "くりぃむトーク!超体験!?グランプリ",
+        "date": "2026-10-15",
+        "end": "23:30",
+        "start": "23:00"
+      }
+    }
+  ]
+}

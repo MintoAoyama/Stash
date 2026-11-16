@@ -1,0 +1,39 @@
+{
+  "id": "mwir7yhymaca",
+  "type": "tv",
+  "title": "木曜ドラマ「ダウト -15年目の復讐-」",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "木曜 23:59〜00:54",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwir7yhyxxpo",
+      "author": "minto",
+      "loggedAt": "2026-10-08",
+      "rating": null,
+      "text": "- 仁村紗和主演、横浜が舞台、ハードボイルド寄りのミステリーとなるとワクワクしそうなものなんだけど、どうにも気持ちが乗らなかった\n- 主人公の過去しかり特殊能力しかり展開しかり既視感があるというか、あったとしても乗れるものは乗れるはずなんだけど、難しいな…\n- 登場人物や会話が足りないのか？ そんなこともないはずなんだよな…。変に煽られてもそれはそれで乗らないはずだし\n- まあアレか。考察ものというのがそもそも余程様々な惹きがないと魅力を感じないのでその時点で難しいのかもしれない",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "嘘にまみれた真実",
+      "program": {
+        "date": "2026-10-01",
+        "end": "00:54",
+        "source": "nasne",
+        "start": "23:59",
+        "title": "木曜ドラマ「ダウト -15年目の復讐-」",
+        "channel": "日本テレビ"
+      }
+    }
+  ]
+}

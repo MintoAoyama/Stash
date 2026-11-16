@@ -1,0 +1,42 @@
+{
+  "id": "mwis1hd7ikvq",
+  "type": "tv",
+  "title": "営業ですから",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "BSフジ",
+  "airtime": "金曜 00:30〜01:00",
+  "officialUrl": "",
+  "genres": [
+    "3"
+  ],
+  "logs": [
+    {
+      "id": "mwis1hd7v07e",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "- 特に事前情報なしで見ていたが、コミック原作の時は違和感なく読めてしまうが実写になって怖くなってしまう系のやつだ\n- そもそもの設定からという話なのかもしれないけど、登場人物や会話を増やさないとより違和感が出るのかも",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "BSフジ",
+        "title": "営業ですから",
+        "source": "bsfuji",
+        "url": "https://www.bsfuji.tv/eigyoubl/pub/index.html",
+        "date": "2026-11-06",
+        "end": "01:00",
+        "start": "00:30"
+      }
+    }
+  ]
+}
