@@ -15,7 +15,9 @@
   "channel": "フジテレビ",
   "airtime": "木曜 23:00〜23:30",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mwis6pd9xdig",
