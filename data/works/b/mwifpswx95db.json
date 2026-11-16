@@ -1,0 +1,78 @@
+{
+  "id": "mwifpswx95db",
+  "type": "tv",
+  "title": "ホテイ“損”させない馬数字〜競馬の魅力ひもトークカフェ〜",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TBS",
+  "airtime": "木曜 22:57〜23:00",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwifpswxohx0",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "- JRA提供\n- 競馬ファンが集まるカフェで数字にまつわる競馬雑学を学ぶ番組\n- 初回は競走馬の「斤量1キロ」\n- REGZAの収録時間が3分で、何故か最後まで録れない酷い作りになっている",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "start": "22:57",
+        "url": "https://www.tbs.co.jp/tv/20261022_C20B.html",
+        "source": "tbs",
+        "end": "23:00",
+        "date": "2026-10-08",
+        "title": "ホテイ“損”させない馬数字〜競馬の魅力ひもトークカフェ〜",
+        "channel": "TBS"
+      }
+    },
+    {
+      "id": "mwig0qd82kgb",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "-  「10」（競走馬が1回のレースや激しい運動でかく汗の量、約10リットルにまつわる競馬雑学）",
+      "episode": 2,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "start": "22:57",
+        "source": "tbs",
+        "url": "https://www.tbs.co.jp/tv/20261022_C20B.html",
+        "channel": "TBS",
+        "title": "ホテイ“損”させない馬数字〜競馬の魅力ひもトークカフェ〜",
+        "date": "2026-10-15",
+        "end": "23:00"
+      }
+    },
+    {
+      "id": "mwig7f7zpcom",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "- 視野350度（馬はほぼ1周に当たる広い視野を持つ）",
+      "episode": 3,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "start": "22:57",
+        "source": "tbs",
+        "title": "ホテイ“損”させない馬数字〜競馬の魅力ひもトークカフェ〜",
+        "end": "23:00",
+        "channel": "TBS",
+        "date": "2026-10-22",
+        "url": "https://www.tbs.co.jp/tv/20261022_C20B.html"
+      }
+    }
+  ]
+}
