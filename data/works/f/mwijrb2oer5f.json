@@ -1,0 +1,42 @@
+{
+  "id": "mwijrb2oer5f",
+  "type": "tv",
+  "title": "私がひとりで生きてくなんて",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "土曜 02:00〜02:29",
+  "officialUrl": "",
+  "genres": [
+    "30"
+  ],
+  "logs": [
+    {
+      "id": "mwijrb2obf5s",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "source": "mx",
+        "start": "02:00",
+        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261031&ch=1&hm=0200",
+        "title": "私がひとりで生きてくなんて",
+        "date": "2026-10-31",
+        "end": "02:29"
+      }
+    }
+  ]
+}
