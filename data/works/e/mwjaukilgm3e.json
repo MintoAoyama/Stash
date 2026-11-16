@@ -1,0 +1,43 @@
+{
+  "id": "mwjaukilgm3e",
+  "type": "tv",
+  "title": "情熱大陸",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TBS",
+  "airtime": "日曜 23:00〜23:30",
+  "officialUrl": "",
+  "genres": [
+    "83",
+    "87"
+  ],
+  "logs": [
+    {
+      "id": "mwjaukils3eh",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "- 食物アレルギーの治療水準を押し上げた第一人者・海老澤元宏 医師\n- 原因食品を実際に食べて症状を確認する「食物経口負荷試験」を実践している現場に密着",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "海老澤元宏/医師▽食物アレルギーの子どもたちを救う最強医療チーム",
+      "program": {
+        "channel": "TBS",
+        "source": "tbs",
+        "start": "23:00",
+        "title": "情熱大陸",
+        "end": "23:30",
+        "date": "2026-11-15",
+        "url": "https://www.tbs.co.jp/tv/20261115_C573.html"
+      }
+    }
+  ]
+}
