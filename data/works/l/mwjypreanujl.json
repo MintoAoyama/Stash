@@ -1,0 +1,40 @@
+{
+  "id": "mwjypreanujl",
+  "type": "tv",
+  "title": "隣のスクイチ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "",
+  "airtime": "",
+  "officialUrl": "https://www.ctv.co.jp/sukuichi/",
+  "genres": [
+    "5"
+  ],
+  "logs": [
+    {
+      "id": "mwjypreabyc1",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 中京テレビ制作\n- 出演は ハライチ/池田美優/酒井健太/岩﨑大昇/井上瑞稀/中村嶺亜/猪狩蒼弥（KEY TO LIT）\n- 学校のNo.1 “スクイチ” 、隣同士の中学校のそれぞれの “スクイチ” がガチ対決するという内容\n- 今回は栃木県那須塩原市にある2校「黒磯中学校」「黒磯北中学校」\n- 腕相撲（女子・男子）、カラオケ、靴飛ばし、リレー、それぞれで対決\n- 新番組の録画を積んでるとばかり思っていたけど、確認したみたら9月30日に放送したっきりだった\n- Xのアカウントが「@ctv_variety」で、ちょっと遡ったら3月に[「ネコになりたい。」の投稿 ](https://x.com/ctv_variety/status/2036322119894638640)があった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "日本テレビ",
+        "source": "manual",
+        "start": "23:59",
+        "end": "00:54",
+        "date": "2026-09-30"
+      }
+    }
+  ]
+}
