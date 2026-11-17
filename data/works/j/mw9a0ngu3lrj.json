@@ -37,6 +37,63 @@
         "channel": "フジテレビ",
         "url": "https://www.fujitv.co.jp/uranattemoiidesuka/index.html"
       }
+    },
+    {
+      "id": "mwjw2scxcupb",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 浅野忠信は気遣いがすごい、というか疲れている、というものがVTRの編集含めて示唆される回",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "◆浅野忠信を星ひとみが占い!",
+      "program": {
+        "url": "https://www.fujitv.co.jp/uranattemoiidesuka/index.html",
+        "start": "00:55",
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "end": "01:25",
+        "date": "2026-11-02",
+        "title": "突然ですが占ってもいいですか?"
+      }
+    },
+    {
+      "id": "mwjwbsp8jhks",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 若村麻由美パートはほぼ占いの結果微妙だったのか人生を振り返るパート。この番組はこの構成が取れるので便利と言える\n- 逆もしかりだし。パーソナリティが弱くても占いの結果でいじることができる。考えてみればそういう番組だった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "若村麻由美の人生暗黒期と転機＆橋本淳の恋トラップ",
+      "program": {
+        "url": "https://www.fujitv.co.jp/uranattemoiidesuka/index.html",
+        "title": "突然ですが占ってもいいですか?",
+        "start": "00:55",
+        "end": "01:25",
+        "date": "2026-04-06",
+        "source": "fuji",
+        "channel": "フジテレビ"
+      }
+    },
+    {
+      "id": "mwjx74pukq5h",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 真理の沼にハマっていく豊原功補\n- 富士スピードウェイの走行会に参加しているという話だけど何に乗っているんだろう\n  - 出てきたアルピーヌの写真は「イメージ」だから参考にならない",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "◆豊原功補&芋生悠を占い!",
+      "program": {
+        "date": "2026-11-16",
+        "end": "01:25",
+        "channel": "フジテレビ",
+        "source": "fuji",
+        "title": "突然ですが占ってもいいですか?",
+        "url": "https://www.fujitv.co.jp/uranattemoiidesuka/index.html",
+        "start": "00:55"
+      }
     }
   ]
 }
