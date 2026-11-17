@@ -54,6 +54,24 @@
         "title": "もっとあぶない刑事",
         "start": "12:00"
       }
+    },
+    {
+      "id": "mwks1gunu7xe",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 港の見える丘公園に屋根が無い\n- 氷川丸で事件起こさないで欲しい",
+      "episode": 13,
+      "episodeEnd": null,
+      "subtitle": "代償",
+      "program": {
+        "channel": "BS日テレ",
+        "source": "nasne",
+        "end": "13:00",
+        "start": "12:00",
+        "title": "もっとあぶない刑事",
+        "date": "2026-03-25"
+      }
     }
   ]
 }

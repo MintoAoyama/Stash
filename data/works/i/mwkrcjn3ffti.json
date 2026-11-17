@@ -1,0 +1,40 @@
+{
+  "id": "mwkrcjn3ffti",
+  "type": "tv",
+  "title": "DOORS人生の鍵をくれた人",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ東京",
+  "airtime": "金曜 23:58〜00:04",
+  "officialUrl": "https://www.tv-tokyo.co.jp/doors/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwkrcjn3jxye",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 「夢に向かって挑戦を続ける人と、その道を照らし、支えてくれた“大切な人”との物語を紹介する番組」\n- 短尺で一社提供で全編 YouTube 配信もしてる\n  - [【高校時代に大きな挫折】サッカー日本代表・前田大然のピンチを救った恩人｜DOORS 人生の鍵をくれた人 #1 - YouTube](https://youtu.be/Xv2ILwNehh8)\n- これ、\"本人\" ではなく \"恩人\" に対してインタビューしているのがミソなんだな\n  - 本人はとにかく写真等で紹介するんだけど取材はしない。どんな人でも。あくまでも恩人に対して取材している",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "サッカー日本代表・前田大然のピンチを救った恩人",
+      "program": {
+        "title": "DOORS人生の鍵をくれた人",
+        "start": "23:58",
+        "end": "00:04",
+        "source": "tvtokyo",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202610/29244_202610232358.html",
+        "date": "2026-10-02",
+        "channel": "テレビ東京"
+      }
+    }
+  ]
+}
