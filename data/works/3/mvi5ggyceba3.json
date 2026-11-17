@@ -132,6 +132,25 @@
         "title": "首都圏ネットワーク",
         "channel": "NHK総合"
       }
+    },
+    {
+      "id": "mwkmkhqmebcq",
+      "author": "minto",
+      "loggedAt": "2026-11-17",
+      "rating": null,
+      "text": "- 川越のオーバーツーリズム\n  - ゴミ捨てや車道での接触事故が課題に\n  - 店に注意書きを掲示しているが日本語なので効果がない…。\n  - 立地などの問題で宿泊税も観光税も有効ではない\n- アルバイトも \"厚遇\" 時代！？\n  - 給与を上げることに加え、昼食代の支援も\n  - 英会話などのスキルアップの福利厚生も",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "埼玉・川越がオーバーツーリズムに？",
+      "program": {
+        "date": "2026-11-17",
+        "source": "nhk",
+        "title": "首都圏ネットワーク",
+        "url": "https://www.web.nhk/tv/an/shutoken-net/pl/series-tep-W4YK5R39QR/ep/6SCZKVAI9M",
+        "start": "18:10",
+        "channel": "NHK総合",
+        "end": "19:00"
+      }
     }
   ]
 }
