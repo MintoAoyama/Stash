@@ -75,6 +75,25 @@
         "channel": "日本テレビ",
         "title": "天は赤い河のほとり AnichU"
       }
+    },
+    {
+      "id": "mwm5uo7z0xvw",
+      "author": "minto",
+      "loggedAt": "2026-11-18",
+      "rating": null,
+      "text": "- サブタイがあぶ刑事すぎる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "亀裂",
+      "program": {
+        "end": "02:59",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=20262B4A",
+        "channel": "日本テレビ",
+        "start": "02:29",
+        "title": "天は赤い河のほとり AnichU",
+        "date": "2026-11-18",
+        "source": "ntv"
+      }
     }
   ]
 }
