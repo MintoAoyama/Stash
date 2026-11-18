@@ -379,6 +379,25 @@
         "title": "WBS",
         "date": "2026-11-13"
       }
+    },
+    {
+      "id": "mwlapnikllys",
+      "author": "minto",
+      "loggedAt": "2026-11-18",
+      "rating": null,
+      "text": "- “世界一速い”ロボットと勝負・・・APECなぜ深セン?\n  - 電子機器メーカー HONOR のオフィスに訪問\n  - 世界人型ロボット運動会のハーフマラソンで事実上世界一になったロボットと短距離競走する豊島キャスター\n- コストではなく投資 アマゾン新オフィス 公開\n- AIの進化支える米留学組\n  - AI盲導犬\n  - トランプ政権のビザ政策の変更により、中国の研究者が米国から帰国するケースが増えているらしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "“世界一速い”ロボットと勝負・・・APECなぜ深セン? アマゾン新オフィス",
+      "program": {
+        "source": "tvtokyo",
+        "start": "22:00",
+        "title": "WBS",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611172200.html",
+        "end": "22:58",
+        "date": "2026-11-17",
+        "channel": "テレビ東京"
+      }
     }
   ]
 }
