@@ -301,6 +301,25 @@
         "channel": "BSテレ東",
         "end": "22:00"
       }
+    },
+    {
+      "id": "mwlalf02ikp0",
+      "author": "minto",
+      "loggedAt": "2026-11-18",
+      "rating": null,
+      "text": "- [LBS] バイオマス発電…燃やさず溶かす\n  - [【ごみが電気に、下水が肥料に！】京都大学発の発電技術と神戸市の資源循環 - YouTube](https://youtu.be/ovfMGd1_5C8)\n  - スタートアップのライノフラックス\n  - バイオマスを水溶液に溶かして発電する仕組み\n  - 京都大学の客員起業家プログラムで誕生\n  - 燃やして発電するよりエネルギーの損失が低く3倍効率が良いとのこと\n  - 京都の下水処理で汚泥を減らす試みが行われている",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "高市総理トランプ氏に物申す?フアン氏退場でAI投資ピンチ",
+      "program": {
+        "date": "2026-11-17",
+        "channel": "BSテレ東",
+        "end": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611172100.html",
+        "source": "bstvtokyo",
+        "start": "21:00",
+        "title": "視る日経!ニュースNEXT"
+      }
     }
   ]
 }
