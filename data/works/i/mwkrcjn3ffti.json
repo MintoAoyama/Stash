@@ -15,7 +15,10 @@
   "channel": "テレビ東京",
   "airtime": "金曜 23:58〜00:04",
   "officialUrl": "https://www.tv-tokyo.co.jp/doors/",
-  "genres": [],
+  "genres": [
+    "5",
+    "2"
+  ],
   "logs": [
     {
       "id": "mwkrcjn3jxye",
