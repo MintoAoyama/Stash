@@ -320,6 +320,25 @@
         "start": "21:00",
         "title": "視る日経!ニュースNEXT"
       }
+    },
+    {
+      "id": "mwmr67zimc79",
+      "author": "minto",
+      "loggedAt": "2026-11-19",
+      "rating": null,
+      "text": "- [ビヨンド・ザ・ボーダー] 名古屋大学初のスタートアップ ソラマテリアル\n  - 新素材 ソラマテック 空気より密度が低い状態を実現\n  - 主原料はカーボンナノチューブ\n  - バーナーで炙っても燃えない断熱性を持ち、低い音で吸音性も高く、自動車のノードノイズの対策にも\n- 孫正義「超知性に人生捧げる」AIバブルへの警戒感を一蹴",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ピンチ!高市外交...米中ロのはるか後景/エヌビディア",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611182100.html",
+        "date": "2026-11-18",
+        "start": "21:00",
+        "channel": "BSテレ東",
+        "end": "22:00",
+        "source": "bstvtokyo",
+        "title": "視る日経!ニュースNEXT"
+      }
     }
   ]
 }

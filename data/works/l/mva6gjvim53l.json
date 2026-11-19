@@ -189,6 +189,25 @@
         "end": "08:00",
         "date": "2026-11-04"
       }
+    },
+    {
+      "id": "mwmqu2jlprn8",
+      "author": "minto",
+      "loggedAt": "2026-11-19",
+      "rating": null,
+      "text": "- [FT] SNS規制 子供を守れるか オーストラリア\n  - オーストラリアの16歳\n  - イギリスではVPNに身元認証を伴う年齢制限の導入が検討されているが、プライバシーが守られないという批判が当然ある\n  - イギリスでは子どもの1/4がVPNを利用している",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "国債バブルと経済成長 両立は可能か~小林慶一郎教授が分析",
+      "program": {
+        "source": "bstvtokyo",
+        "end": "08:00",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202611/23593_202611190705.html",
+        "title": "モープラFT",
+        "date": "2026-11-19",
+        "channel": "BSテレ東",
+        "start": "07:05"
+      }
     }
   ]
 }

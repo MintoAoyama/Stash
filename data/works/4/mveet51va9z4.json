@@ -132,6 +132,25 @@
         "start": "05:45",
         "end": "07:05"
       }
+    },
+    {
+      "id": "mwmq6sh7u7ys",
+      "author": "minto",
+      "loggedAt": "2026-11-19",
+      "rating": null,
+      "text": "- [モーサテ×テレビ大阪] 中継企画、今回で1年らしい\n  - テレ東藤井アナが前の日の「やさしいニュース」から参加していた模様\n    - [イカ焼きルーツ・福沢諭吉…以外と知らない？大阪クイズ｜週末は今季一番の寒さへ（11月18日放送） - YouTube](https://youtu.be/0mdvz5J-tik)\n  - 白浜でも提供されている、glafit提供の観光・地域向けマイクロシェアリングサービスWANDERIDE（ワンダライド）",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "「守りのAI」AIで攻められる時代、企業はAIで守る",
+      "program": {
+        "channel": "テレビ東京",
+        "end": "07:05",
+        "start": "05:45",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14445_202611190545.html",
+        "source": "tvtokyo",
+        "title": "Newsモーニングサテライト",
+        "date": "2026-11-19"
+      }
     }
   ]
 }
