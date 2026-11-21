@@ -56,6 +56,25 @@
         "channel": "BSフジ",
         "url": "https://www.bsfuji.tv/kotouge-drive/pub/006.html"
       }
+    },
+    {
+      "id": "mwqb2bx67zda",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- 2023年11月26日放送のレギュラー前の回だったっぽい？\n  - [2023 | 小峠英二の試乗最高！](https://www.bsfuji.tv/kotouge-drive/archives/detail.html?id=2023)\n- 1978年製のメルセデス・ベンツのドアの無骨さ良い\n- なんか小峠の調子が良いな（疲れてない、相槌が適当でない、ツッコミが素早い）と思ったら、レギュラーじゃないからか\n- ダイビングスーツ着た小峠面白すぎる「未来から来た人みたい」",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ゲスト:コカドケンタロウ（ロッチ）",
+      "program": {
+        "url": "https://www.bsfuji.tv/kotouge-drive/pub/022.html",
+        "start": "22:00",
+        "end": "22:55",
+        "date": "2026-08-10",
+        "title": "小峠英二の試乗最高!",
+        "source": "bsfuji",
+        "channel": "BSフジ"
+      }
     }
   ]
 }

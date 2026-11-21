@@ -1,0 +1,42 @@
+{
+  "id": "mwq9q6tddv00",
+  "type": "tv",
+  "title": "野田クリの野望~ゲーム天下統一への道~",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "火曜 20:57〜21:25",
+  "officialUrl": "",
+  "genres": [
+    "51"
+  ],
+  "logs": [
+    {
+      "id": "mwq9q6tddccp",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- タイピングゲームに挑戦してタイピングできないしんや面白すぎる\n  - 収録中の雰囲気はともかく、結果的に普通にクリアしている殿の方がダイジェストになっているからしんやの勝利になっている\n- VRゲーム「ハヤツバサ」\n  - やっぱ工科大学の学生が作るゲームは破綻してもいいから斬新なものを目指しているので好感が持てるな\n  - BGMの GOOD LUCK 良い\n  - しんやの髪型にぴったり合うVRヘッドセットがいい\n- 部活すぎるやりとりが面白いんだよな。永遠に続いてほしい",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "今宵は“美大生”と“鳥になる”!?",
+      "program": {
+        "channel": "TOKYO MX",
+        "start": "20:57",
+        "source": "mx",
+        "end": "21:25",
+        "title": "野田クリの野望~ゲーム天下統一への道~",
+        "date": "2026-11-17",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261117&ch=1&hm=2057"
+      }
+    }
+  ]
+}

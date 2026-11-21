@@ -56,6 +56,25 @@
         "url": "https://s.mxtv.jp/bangumi/program.html?date=20261113&ch=1&hm=1900",
         "end": "19:30"
       }
+    },
+    {
+      "id": "mwqdnj0w9sft",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- テーブルに置かれたバナナにかき氷。秘密基地が昭和の家庭すぎる\n  - 楽しい家庭だよな。シェアハウスかな？ 素晴らしい\n  - ああ、液体窒素を試すためのバナナだったのか\n- 扇風機の怪人の造形いいな",
+      "episode": 43,
+      "episodeEnd": null,
+      "subtitle": "世界が凍る!?扇風機怪人の威力",
+      "program": {
+        "channel": "TOKYO MX",
+        "title": "仮面ライダースーパー1",
+        "date": "2026-11-20",
+        "source": "mx",
+        "end": "19:30",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261120&ch=1&hm=1900",
+        "start": "19:00"
+      }
     }
   ]
 }

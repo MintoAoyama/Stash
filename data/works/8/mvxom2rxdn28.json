@@ -147,6 +147,25 @@
         "channel": "TOKYO MX",
         "title": "FX戦士くるみちゃん"
       }
+    },
+    {
+      "id": "mwqdh8z1zev5",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "",
+      "episode": 8,
+      "episodeEnd": null,
+      "subtitle": "金融緩和は狂乱パーティ♪",
+      "program": {
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261119&ch=1&hm=2230",
+        "channel": "TOKYO MX",
+        "date": "2026-11-19",
+        "start": "22:30",
+        "source": "mx",
+        "title": "FX戦士くるみちゃん",
+        "end": "23:00"
+      }
     }
   ]
 }
