@@ -22,18 +22,18 @@
       "author": "minto",
       "loggedAt": "2026-11-22",
       "rating": null,
-      "text": "- 攻殻機動隊を歌う民謡ユニット、西田社中(にしだ・しゃちゅう) がゲスト\n- [おんがく交差点 vol.553 西田社中さん – Yasuko Ohtani](https://yasukoohtani.com/?p=14108)\n- 獣戦士ガルキーバでの「民謡風の合いの手が入る \"ガルキーバ音頭\" のような曲」を作る過程で出会ったのがきっかけとか\n  - [音を極める――メディア芸術の音を創造した人々　第11回作曲家・川井憲次［後編］ | MACC – Media Arts Current Contents](https://macc.bunka.go.jp/5382/)\n\n",
+      "text": "- 攻殻機動隊を歌う民謡ユニット、西田社中(にしだ・しゃちゅう) がゲスト\n- [おんがく交差点 vol.553 西田社中さん – Yasuko Ohtani](https://yasukoohtani.com/?p=14108)\n- 獣戦士ガルキーバでの「民謡風の合いの手が入る \"ガルキーバ音頭\" のような曲」を作る過程で出会ったのがきっかけとか\n  - [音を極める――メディア芸術の音を創造した人々　第11回作曲家・川井憲次［後編］ | MACC – Media Arts Current Contents](https://macc.bunka.go.jp/5382/)\n- イノセンスの時に100人集めてと言われて若手も含めて頑張ったが85人しか集まらず、残り15人分を自分達で取り直したという話",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "『攻殻機動隊』を歌う民謡の達人?",
       "program": {
-        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/23729_202611210800.html",
         "source": "bstvtokyo",
-        "title": "おんがく交差点",
-        "start": "08:00",
+        "end": "08:30",
         "channel": "BSテレ東",
-        "date": "2026-11-21",
-        "end": "08:30"
+        "start": "08:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/23729_202611210800.html",
+        "title": "おんがく交差点",
+        "date": "2026-11-21"
       }
     }
   ]

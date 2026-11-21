@@ -1,0 +1,44 @@
+{
+  "id": "mwqlop49ccph",
+  "type": "tv",
+  "title": "水曜日のダウンタウン",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "TBS",
+  "airtime": "水曜 22:00〜22:57",
+  "officialUrl": "https://www.tbs.co.jp/suiyobinodowntown/",
+  "genres": [
+    "52",
+    "53",
+    "87"
+  ],
+  "logs": [
+    {
+      "id": "mwqlop49ck4j",
+      "author": "minto",
+      "loggedAt": "2026-11-22",
+      "rating": null,
+      "text": "- ミニブタカフェ、まさかの場所\n  - こんな仕事引き受ける店も引き受ける店だな…。ただでさえ微妙な口コミのある店なのに\n    - でもまあ間違いなくこの連休は客が増えるか\n  - 実況民も皆言ってたけど見たことがない映像になっていたのがすごい\n  - 従来だとおそらく複数人の原因で撮影して無難な順で流れるはず。ボツになった人がいる可能性が…。それがあっても致し方ないくらいに面白かったんだけど\n  - いろんな意見があるだろうけどパピヨン千葉の好感度は上がったかもしれない。あの状況であのような立ち回りができる人は頼もしい感じがしてしまった。明らかに理不尽な状況だし…\n  - 仕掛け人、イヤホンがなく音声指示が得られない状況だと思うんだけど、どういう形で進めていたんだろう。苦労が偲ばれる…",
+      "episode": 475,
+      "episodeEnd": null,
+      "subtitle": "まさかミニブタカフェでぼったくられるとは思わない説 ほか",
+      "program": {
+        "url": "https://www.tbs.co.jp/tv/20261118_C5E0.html",
+        "channel": "TBS",
+        "source": "tbs",
+        "end": "22:57",
+        "title": "水曜日のダウンタウン",
+        "start": "22:00",
+        "date": "2026-11-18"
+      }
+    }
+  ]
+}
