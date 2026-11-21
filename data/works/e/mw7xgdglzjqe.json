@@ -56,6 +56,25 @@
         "start": "00:00",
         "channel": "TOKYO MX"
       }
+    },
+    {
+      "id": "mwqg1vjq7ezl",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- 夫婦生活",
+      "episode": 20,
+      "episodeEnd": null,
+      "subtitle": "両思いのその先",
+      "program": {
+        "start": "00:00",
+        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261121&ch=1&hm=0000",
+        "title": "うちの弟どもがすみません",
+        "end": "00:30",
+        "date": "2026-11-21",
+        "source": "mx"
+      }
     }
   ]
 }

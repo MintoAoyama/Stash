@@ -37,6 +37,25 @@
         "channel": "日本テレビ",
         "start": "23:30"
       }
+    },
+    {
+      "id": "mwqff1hxpw9r",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "title": "薬屋のひとりごと FRIDAY ANIME NIGHT",
+        "channel": "日本テレビ",
+        "source": "ntv",
+        "start": "23:10",
+        "end": "23:40",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=20262B98",
+        "date": "2026-11-20"
+      }
     }
   ]
 }

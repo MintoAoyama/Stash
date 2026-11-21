@@ -38,6 +38,25 @@
         "title": "ビストロボイス",
         "start": "21:00"
       }
+    },
+    {
+      "id": "mwqih3tnsjkj",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- 一番聞きたかった花澤香菜のゼーガペインでの演技力話\n  - 高校卒業したらやめようとしていたけど、「声はいいからやめないで」と止められたと（[Wikipedia には書いてあったのか](https://ja.wikipedia.org/wiki/%E8%8A%B1%E6%BE%A4%E9%A6%99%E8%8F%9C#%E5%B9%BC%E5%B0%91%E6%9C%9F%E3%83%BB%E5%AD%A6%E7%94%9F%E6%99%82%E4%BB%A3)）\n- 榊原良子のすごいところは、先週もそうだけど初期のキャリアだけではなく未だに自分の演技に疑問を持ちながらやっているところなんだな。すごい話だ\n- ビストロ朗読\n  - 炊飯器の取扱説明書に感情を乗せて朗読する\n  - 声優の本質ってこれだよな。専門用語も織り交ぜる作品も珍しくないし、何を話しているかというよりどう感情を乗せるかになる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "声優のDEEPな世界「花澤香菜×榊󠄀原良子」EP2",
+      "program": {
+        "channel": "NHK Eテレ",
+        "url": "https://www.web.nhk/tv/pl/series-tep-Y3RNJ33LW6/ep/N1ZJFZJ5XK",
+        "start": "21:00",
+        "date": "2026-11-21",
+        "title": "ビストロボイス",
+        "end": "21:30",
+        "source": "nhk"
+      }
     }
   ]
 }
