@@ -75,6 +75,25 @@
         "end": "04:05",
         "start": "03:35"
       }
+    },
+    {
+      "id": "mwq7y2ggto0n",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- 番組自体は意義があると思うが紹介される作品がことごとくピンと来ないというジレンマ",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "【こんな仕掛けの漫画初めて】まだ見ぬ癖やフェチ!「竹コミ!」特集",
+      "program": {
+        "end": "00:59",
+        "start": "00:30",
+        "channel": "BSテレ東",
+        "date": "2026-11-19",
+        "source": "bstvtokyo",
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/29018_202611182430.html",
+        "title": "漫画クリスタル"
+      }
     }
   ]
 }
