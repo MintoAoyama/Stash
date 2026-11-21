@@ -75,6 +75,44 @@
         "start": "23:00",
         "date": "2026-10-30"
       }
+    },
+    {
+      "id": "mwpv3qyp1l38",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- ずん飯尾、M!LK塩太智、高橋成美、井上咲楽、サンシャイン池崎で「好感度大喜利対決」\n- 番組内でも言及されているけど（永野と）高橋成美が全部持って行った",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ずん飯尾&M!LK塩﨑太智、アイツを泣かせた夜!?",
+      "program": {
+        "end": "23:30",
+        "date": "2026-11-06",
+        "source": "fuji",
+        "channel": "フジテレビ",
+        "title": "全力!脱力タイムズ",
+        "start": "23:00",
+        "url": "https://www.fujitv.co.jp/DNN/index.html"
+      }
+    },
+    {
+      "id": "mwpx627wxw29",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- 企画に入るくだりから全部ちゃんと面白かった。なんでだろう\n- 高橋成美のすごさとトラブル含めて持ってる感",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "フジワラ藤本&矢吹奈子▼検証再び!一番ウケたのは!?",
+      "program": {
+        "start": "23:00",
+        "source": "fuji",
+        "channel": "フジテレビ",
+        "url": "https://www.fujitv.co.jp/DNN/index.html",
+        "end": "23:30",
+        "date": "2026-11-20",
+        "title": "全力!脱力タイムズ"
+      }
     }
   ]
 }
