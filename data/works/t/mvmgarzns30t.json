@@ -246,6 +246,25 @@
         "channel": "フジテレビ",
         "url": "https://www.fujitv.co.jp/pokapoka/index.html"
       }
+    },
+    {
+      "id": "mwprt12l8gyd",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- はねトビ、高校くらいが深夜でゴールデン進出が社会人くらいなので世代のはずだけど全くピンと来ず、実際VTR見たらピンと来なかったのも納得できた\n- 「ほぼ100円ショップ」もまあ、企画としてはいいんだけどこれを手放しで評価しすぎるのもなという\n- 時間が足りないために肉を切る途中でバーガー卿が出てくるくだりは良かった\n- なんだかんだで調整も掛けて2人とも成功してコンビ解散回避としたのは上手かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "キングコングがコンビで登場!解散危機と壮絶秘話 はねトび秘蔵映像SP",
+      "program": {
+        "end": "13:50",
+        "channel": "フジテレビ",
+        "title": "ぽかぽか",
+        "start": "11:47",
+        "date": "2026-11-18",
+        "source": "fuji",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html"
+      }
     }
   ]
 }

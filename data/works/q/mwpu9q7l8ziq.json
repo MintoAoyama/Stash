@@ -1,0 +1,42 @@
+{
+  "id": "mwpu9q7l8ziq",
+  "type": "tv",
+  "title": "山之内すずのなりきりテレビ",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "TOKYO MX",
+  "airtime": "金曜 02:00〜02:29",
+  "officialUrl": "https://s.mxtv.jp/variety/yamanouchisuzu-narikiri-tv/",
+  "genres": [
+    "A2"
+  ],
+  "logs": [
+    {
+      "id": "mwpu9q7lu50w",
+      "author": "minto",
+      "loggedAt": "2026-11-21",
+      "rating": null,
+      "text": "- Z世代向けの番組と言いながらすごく平成バラエティ\n- 報道番組の体で進行しながら、タイトルの通りのなりきりコントが中心の模様\n- すがちゃんがどうにかバランスを取ろうとしている\n- 同じスタジオで撮影した [SNS採用のトレプロ（TREND PRODUCE）](https://prtimes.jp/main/html/rd/p/000000016.000178230.html) のCMが合間に2回流れる。同じ映像で。番組終わりにも流れるので4回同じ映像が流れた\n- 占い師（山之内すず）の1週間に密着するという体のコント、番組スタッフを占うという体で転職の話を始めるから、そこで急にトレプロの話に繋げたらもっと面白かったはず\n- 睡眠サポートグッズ紹介（これもよく分からないコーナー）、「抱き枕のハグモッチ」のくだりで、すがちゃんが体験した際の「後ろから父親が守ってくれてるみたいな気持ち」というコメントが重い\n  - すがちゃんは3歳で実母を亡くしており、祖父母と伯母のに育てられていた上に、実父は別の女性と新しい家庭を作っていた（その父親も5年前に悪性リンパ腫で亡くなっている）\n- 本編まるまる YouTube もある\n  - [【山之内すず✖️すがちゃん最高No.1なりきりテレビスタート！】山之内すずのなりきりテレビ - YouTube](https://www.youtube.com/watch?v=enZDCQHMF-k)\n",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "TOKYO MX",
+        "title": "山之内すずのなりきりテレビ",
+        "end": "02:29",
+        "source": "mx",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261120&ch=1&hm=0200",
+        "date": "2026-11-20",
+        "start": "02:00"
+      }
+    }
+  ]
+}

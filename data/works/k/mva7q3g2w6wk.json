@@ -404,18 +404,18 @@
       "author": "minto",
       "loggedAt": "2026-11-21",
       "rating": null,
-      "text": "- 投資家バーの STOCK PICKERS 、入り口入ったら目の前にくるみちゃんのポスターを貼ってるのか…\n- 非上場株 評価見直しに反発 中小企業の事業継承にに影響\n- 武田健太 アナ 初めて見た。完全に初めて見た\n  - [武田健太 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%AD%A6%E7%94%B0%E5%81%A5%E5%A4%AA)\n  - 元NHKで今年4月にテレ東入社か。NEXT木曜に出ていたらしいんだけど何故か認識していない…\n",
+      "text": "- 投資家バーの STOCK PICKERS 、入り口入ったら目の前にくるみちゃんのポスターを貼ってるのか…\n- 非上場株 評価見直しに反発 中小企業の事業継承にに影響\n- 武田健太 アナ 初めて見た。完全に初めて見た\n  - [武田健太 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%AD%A6%E7%94%B0%E5%81%A5%E5%A4%AA)\n  - 元NHKで今年4月にテレ東入社か。NEXT木曜に出ていたらしいんだけど何故か認識していない…\n  - 番組最後に急に話を振られて挨拶してた。NHK入社が2019年で田中アナとは言わば同期にあたると\n",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "米アンソロピックが上場...日経平均株価は大幅下落のなぜ?▼MBO増加の背景",
       "program": {
-        "title": "WBS",
-        "start": "23:00",
-        "source": "tvtokyo",
-        "channel": "テレビ東京",
         "date": "2026-11-20",
+        "title": "WBS",
+        "source": "tvtokyo",
+        "start": "23:00",
         "end": "23:58",
-        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611202300.html"
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611202300.html",
+        "channel": "テレビ東京"
       }
     }
   ]
