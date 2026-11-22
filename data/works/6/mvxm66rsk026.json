@@ -37,6 +37,25 @@
         "start": "08:25",
         "title": "Dearにっぽん"
       }
+    },
+    {
+      "id": "mwr7ml9klq0d",
+      "author": "minto",
+      "loggedAt": "2026-11-22",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "描く、もう一度生きる 〜熊本・人吉〜",
+      "program": {
+        "title": "Dearにっぽん",
+        "date": "2026-11-22",
+        "start": "08:25",
+        "source": "nhk",
+        "channel": "NHK総合",
+        "url": "https://www.web.nhk/tv/pl/series-tep-P71P7Q379L/ep/GN9K7VZX15",
+        "end": "08:50"
+      }
     }
   ]
 }
