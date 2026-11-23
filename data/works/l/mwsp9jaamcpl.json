@@ -1,0 +1,57 @@
+{
+  "id": "mwsp9jaamcpl",
+  "type": "tv",
+  "title": "おかえり、初恋。",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "tvk",
+  "airtime": "金曜 01:00〜01:30",
+  "officialUrl": "https://www.mbs.jp/okakoi/",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwsp9jaam43y",
+      "author": "minto",
+      "loggedAt": "2026-10-11",
+      "rating": null,
+      "text": "- 金髪ヤンキー（ドンモモタロウ）と10年ぶりに再会したら落ち着いた大人の男性へと変貌してた、というWebコミックらしいストーリー\n- なんだけど、役柄が客先常駐SEだと判明し2話も見るしかなくなった…（まだ挨拶だけで環境構築できてない）",
+      "episode": 1,
+      "episodeEnd": null,
+      "subtitle": "金髪ヤンキーと10年ぶりの再会",
+      "program": {
+        "title": "おかえり、初恋。",
+        "start": "01:00",
+        "source": "nasne",
+        "date": "2026-10-09",
+        "channel": "tvk",
+        "end": "01:30"
+      }
+    },
+    {
+      "id": "mwspamccffmb",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "",
+      "episode": 2,
+      "episodeEnd": null,
+      "subtitle": "10年越しの秘めた想い",
+      "program": {
+        "date": "2026-10-16",
+        "end": "01:30",
+        "channel": "tvk",
+        "start": "01:00",
+        "source": "nasne",
+        "title": "おかえり、初恋。"
+      }
+    }
+  ]
+}

@@ -265,6 +265,25 @@
         "url": "https://www.fujitv.co.jp/pokapoka/index.html",
         "source": "fuji"
       }
+    },
+    {
+      "id": "mwsmnww3ekcx",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "- TOHOシネマズ パーティーポップ\n  - [メニュー/ポップコーン || TOHOシネマズ](https://www.tohotheater.jp/food-drink/menu/popcorn/)\n  - Lサイズ2個分の大容量「パーティーポップ」。その倍のLサイズ4個分の「パーティーポップ W（ダブル）」もある。パッケージ上部には便利なチャック付き\n  - バターフレーバーオイル 無料サービス付\n- さすが影山優佳、言葉の定義が気になるし、外食の料理も家で再現するし、食事の前後で気分が変わってメガネを変えると。だいぶ微細で神経を使っていそうだ",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "◆富田望生&影山優佳に岩井シェフが旬のマグロ&さつまいもで絶品料理SP",
+      "program": {
+        "date": "2026-11-09",
+        "title": "ぽかぽか",
+        "channel": "フジテレビ",
+        "start": "11:47",
+        "url": "https://www.fujitv.co.jp/pokapoka/index.html",
+        "source": "fuji",
+        "end": "13:50"
+      }
     }
   ]
 }
