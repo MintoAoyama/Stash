@@ -148,6 +148,44 @@
         "title": "彼方から",
         "end": "00:30"
       }
+    },
+    {
+      "id": "mwsg931uf1yp",
+      "author": "minto",
+      "loggedAt": "2026-11-16",
+      "rating": null,
+      "text": "",
+      "episode": 7,
+      "episodeEnd": null,
+      "subtitle": "17対1",
+      "program": {
+        "source": "mx",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261116&ch=1&hm=0000",
+        "start": "00:00",
+        "title": "彼方から",
+        "date": "2026-11-16",
+        "end": "00:30",
+        "channel": "TOKYO MX"
+      }
+    },
+    {
+      "id": "mwsg89bjwf9s",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "- ウマと呼ばれているが、明らかにウマには見えない「かわいいヤツ」\n- ",
+      "episode": 8,
+      "episodeEnd": null,
+      "subtitle": "白霧の森",
+      "program": {
+        "channel": "TOKYO MX",
+        "title": "彼方から",
+        "source": "mx",
+        "date": "2026-11-23",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261123&ch=1&hm=0000",
+        "start": "00:00",
+        "end": "00:30"
+      }
     }
   ]
 }
