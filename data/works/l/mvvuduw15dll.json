@@ -93,6 +93,25 @@
         "channel": "テレビ東京",
         "date": "2026-11-03"
       }
+    },
+    {
+      "id": "mwswon1gh84g",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "- 嶺亜に対して瑞稀や大将が強く突っ込んでいるところを見るとなんか仲の良さが分かって安心してしまう",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "Snow Man佐久間大介参戦!今流行りの「ハイロックス」に挑戦!",
+      "program": {
+        "end": "01:00",
+        "title": "キテレツキテル!",
+        "start": "00:30",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29224_202611092430.html",
+        "channel": "テレビ東京",
+        "date": "2026-11-10",
+        "source": "tvtokyo"
+      }
     }
   ]
 }

@@ -173,18 +173,18 @@
       "author": "minto",
       "loggedAt": "2026-11-23",
       "rating": null,
-      "text": "- ウマと呼ばれているが、明らかにウマには見えない「かわいいヤツ」",
+      "text": "- ウマと呼ばれているが、明らかにウマには見えない「かわいいヤツ」\n- ともよの悲鳴がすごい。さすがだわ\n- 「精神攻撃」ってまさかのセリフで言うんだという驚き\n- 「⚪︎⚪︎になるよ」って言われた次の瞬間にことが起こるこのスピード感、一貫している\n- 名無し之太郎って男性のシンガーソングライターかと思い込んでいたけどバンドだしボーカル女性なんだよな…",
       "episode": 8,
       "episodeEnd": null,
       "subtitle": "白霧の森",
       "program": {
-        "date": "2026-11-23",
-        "channel": "TOKYO MX",
-        "source": "mx",
-        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261123&ch=1&hm=0000",
-        "end": "00:30",
+        "start": "00:00",
         "title": "彼方から",
-        "start": "00:00"
+        "source": "mx",
+        "end": "00:30",
+        "channel": "TOKYO MX",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261123&ch=1&hm=0000",
+        "date": "2026-11-23"
       }
     }
   ]
