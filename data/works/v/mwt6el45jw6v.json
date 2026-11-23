@@ -1,0 +1,42 @@
+{
+  "id": "mwt6el45jw6v",
+  "type": "tv",
+  "title": "BSスペシャル",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "NHK BS",
+  "airtime": "火曜 23:35〜00:35",
+  "officialUrl": "https://www.web.nhk/tv/an/bssp/pl/series-tep-6NMMPMNK5K",
+  "genres": [
+    "80"
+  ],
+  "logs": [
+    {
+      "id": "mwt6el45krkd",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "- 「騎士」と呼ばれるフードデリバリーで働く人たち\n- 唐突な The Offspring\n- 「騎士マンション」すげえ。生活支援する仕組みは合理的すぎる",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "疾走北京 フードデリバリーの騎士たち",
+      "program": {
+        "end": "23:45",
+        "source": "nhk",
+        "start": "22:45",
+        "url": "https://www.web.nhk/tv/an/bssp/pl/series-tep-6NMMPMNK5K/ep/18HPV89P54",
+        "title": "BSスペシャル",
+        "channel": "NHK BS",
+        "date": "2026-11-19"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mwt4ek68nhbh",
+  "type": "tv",
+  "title": "NHKスペシャル",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "NHK総合",
+  "airtime": "日曜 21:00〜21:50",
+  "officialUrl": "https://www.web.nhk/tv/an/special/pl/series-tep-2NY2QQLPM3",
+  "genres": [
+    "80",
+    "87",
+    "08"
+  ],
+  "logs": [
+    {
+      "id": "mwt4ek687nxn",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "- Twitter・Xでもかなり話題になっていた回\n- 臨界世界シリーズは大体BSスペシャルのお下がりなんだけど、これもそれ\n- 映像終盤は2026年5月の撮影なんだけど、まさにそのまま2026年5月14日放送だった回\n  - [ＢＳスペシャル 縦の支配　中国　ショートドラマの光と影 - 動画配信 ](https://www.nhk-ondemand.jp/goods/G2026157576SA000/)\n- Xで相当言及されているのでコメントする気が起きない\n- とにかく最後の（AI生成の台頭の中での）亜龍監督の活き活きとしている様子を見て涙が出てしまった。実に映画的だった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "臨界世界 縦の支配 中国 ショートドラマの光と影",
+      "program": {
+        "end": "21:50",
+        "channel": "NHK総合",
+        "date": "2026-11-22",
+        "title": "NHKスペシャル",
+        "start": "21:00",
+        "source": "nhk",
+        "url": "https://www.web.nhk/tv/an/special/pl/series-tep-2NY2QQLPM3/ep/QWEGAQEGBD"
+      }
+    }
+  ]
+}

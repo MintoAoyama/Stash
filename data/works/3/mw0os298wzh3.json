@@ -127,6 +127,25 @@
         "url": "https://www.web.nhk/tv/an/foyle/pl/series-tep-38ZKN4K73Q/ep/YRR161LQYJ",
         "date": "2026-11-15"
       }
+    },
+    {
+      "id": "mwt50m1m28rw",
+      "author": "minto",
+      "loggedAt": "2026-11-23",
+      "rating": null,
+      "text": "- タイトルからして不穏\n- 敵の戦闘機の位置を特定する最新技術\n  - これだけで1本の映画になるな。まあ映画の尺なんだけど\n- ロジャー・アラムじゃん！ V for Vendetta のプロバガンダ番組の司会者 ルイス・プロセロ役 で見た。2006年の作品だから放送時期からはそこまで離れてないのか。そういう意味では本当に見ているドラマ・映画が馴染みがある世代のそれなんだな",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "(7)「レーダー基地」(前編)",
+      "program": {
+        "channel": "NHK総合",
+        "source": "nhk",
+        "start": "23:00",
+        "date": "2026-11-22",
+        "title": "刑事フォイル",
+        "url": "https://www.web.nhk/tv/an/foyle/pl/series-tep-38ZKN4K73Q/ep/R5WL3XMR67",
+        "end": "23:52"
+      }
     }
   ]
 }
