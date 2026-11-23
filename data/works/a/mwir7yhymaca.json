@@ -15,7 +15,9 @@
   "channel": "日本テレビ",
   "airtime": "木曜 23:59〜00:54",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "3"
+  ],
   "logs": [
     {
       "id": "mwir7yhyxxpo",

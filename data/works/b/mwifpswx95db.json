@@ -15,7 +15,9 @@
   "channel": "TBS",
   "airtime": "木曜 22:57〜23:00",
   "officialUrl": "",
-  "genres": [],
+  "genres": [
+    "2"
+  ],
   "logs": [
     {
       "id": "mwifpswxohx0",

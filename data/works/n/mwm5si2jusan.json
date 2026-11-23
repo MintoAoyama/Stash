@@ -10,12 +10,14 @@
   "creators": [],
   "coverUrl": "",
   "externalIds": {},
-  "season": "2026-autumn",
+  "season": "",
   "episodeCount": null,
   "channel": "テレビ朝日",
   "airtime": "水曜 19:00〜21:00",
   "officialUrl": "https://www.tv-asahi.co.jp/asameshi/",
-  "genres": [],
+  "genres": [
+    "5"
+  ],
   "logs": [
     {
       "id": "mwm5si2j4jt3",
