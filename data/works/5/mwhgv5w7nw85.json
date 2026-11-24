@@ -37,6 +37,25 @@
         "title": "【放送開始25周年記念】仮面ライダーアギト",
         "start": "19:00"
       }
+    },
+    {
+      "id": "mwuqxnb7r7v6",
+      "author": "minto",
+      "loggedAt": "2026-11-24",
+      "rating": null,
+      "text": "- 当時見てるはずなのに全然知らんかった。唯一の 4:3 放送回らしい。本編はスタンダードで、OPなどのワイド収録が額縁になってる",
+      "episode": 28,
+      "episodeEnd": null,
+      "subtitle": "あの夏の日",
+      "program": {
+        "end": "19:30",
+        "title": "【放送開始25周年記念】仮面ライダーアギト",
+        "channel": "TOKYO MX",
+        "date": "2026-11-24",
+        "start": "19:00",
+        "url": "https://s.mxtv.jp/bangumi/program.html?date=20261124&ch=1&hm=1900",
+        "source": "mx"
+      }
     }
   ]
 }
