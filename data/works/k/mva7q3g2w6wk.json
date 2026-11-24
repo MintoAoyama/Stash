@@ -436,6 +436,25 @@
         "source": "tvtokyo",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611192200.html"
       }
+    },
+    {
+      "id": "mwtw8qgpyp59",
+      "author": "minto",
+      "loggedAt": "2026-11-24",
+      "rating": null,
+      "text": "- 増えるマイナカード本人確認\n  - そもそもICチップ読み取りによる認証があるのに撮影による申請が残っていたのが痛い。利用者も不便だったわけだし…\n- PBで安さ実現 業務スーパー\n  - スーパーによる営業利益は96%だが、ビュッフェや韓国料理店や機内食など別事業への展開も\n- 哲学界の \"ロックスター\" AI時代のカギは「共進化」\n  - Claudeの開発に哲学者が関わり、人格や倫理観、振る舞いの設計を担っていると言う事例\n  - ガブリエルの言っていることはそこまで新しいことではなかった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "最強エルニーニョ発生で養殖ウナギの価格が上昇?",
+      "program": {
+        "date": "2026-11-23",
+        "channel": "テレビ東京",
+        "start": "22:00",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611232200.html",
+        "title": "WBS",
+        "end": "22:58",
+        "source": "tvtokyo"
+      }
     }
   ]
 }
