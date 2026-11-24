@@ -339,6 +339,25 @@
         "source": "bstvtokyo",
         "title": "視る日経!ニュースNEXT"
       }
+    },
+    {
+      "id": "mwugmcqehnlf",
+      "author": "minto",
+      "loggedAt": "2026-11-24",
+      "rating": null,
+      "text": "- イギリス、大学でのAI不正使用防ぐため \"アナログ回帰\" 指示\n  - 新型コロナ蔓延前後みたいな、その時代ならではの過渡期というか、不当に評価される世代になりうるわけだ\n  - アナログ回帰もあれば、AIを使う前提の評価を取り入れる学校もあると。それが妥当だと思う\n  - 一部の学生からの「AIは使いたくないが、同じようにAIを使わないと厳しい状況に追い込まれる」という声も大事なところ",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "脱「スパイ天国」へ法整備を本格化/どうなる?冬のボーナス",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611232100.html",
+        "end": "22:00",
+        "source": "bstvtokyo",
+        "date": "2026-11-23",
+        "start": "21:00",
+        "channel": "BSテレ東",
+        "title": "視る日経!ニュースNEXT"
+      }
     }
   ]
 }
