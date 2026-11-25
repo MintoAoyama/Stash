@@ -94,6 +94,25 @@
         "date": "2026-11-18",
         "source": "ntv"
       }
+    },
+    {
+      "id": "mww2giikke73",
+      "author": "minto",
+      "loggedAt": "2026-11-25",
+      "rating": null,
+      "text": "",
+      "episode": 21,
+      "episodeEnd": null,
+      "subtitle": "別れの決意",
+      "program": {
+        "end": "02:05",
+        "title": "天は赤い河のほとり AnichU",
+        "date": "2026-11-25",
+        "source": "ntv",
+        "start": "01:35",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=20262C1D",
+        "channel": "日本テレビ"
+      }
     }
   ]
 }
