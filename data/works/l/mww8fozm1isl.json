@@ -1,0 +1,40 @@
+{
+  "id": "mww8fozm1isl",
+  "type": "tv",
+  "title": "3美会議室",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "2026-autumn",
+  "episodeCount": null,
+  "channel": "テレビ朝日",
+  "airtime": "水曜 02:20〜02:45",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mww8fozmveyb",
+      "author": "minto",
+      "loggedAt": "2026-11-25",
+      "rating": null,
+      "text": "",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "テレビ朝日",
+        "url": "https://www.tv-asahi.co.jp/pr/contents/20261124_14367.html",
+        "title": "3美会議室",
+        "end": "02:45",
+        "start": "02:20",
+        "date": "2026-11-25",
+        "source": "tvasahi"
+      }
+    }
+  ]
+}

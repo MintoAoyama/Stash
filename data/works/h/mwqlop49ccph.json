@@ -39,6 +39,25 @@
         "start": "22:00",
         "date": "2026-11-18"
       }
+    },
+    {
+      "id": "mww8exyyfhkf",
+      "author": "minto",
+      "loggedAt": "2026-11-25",
+      "rating": null,
+      "text": "",
+      "episode": 476,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "url": "https://www.tbs.co.jp/tv/20261125_C6CB.html",
+        "channel": "TBS",
+        "source": "tbs",
+        "title": "水曜日のダウンタウン",
+        "end": "23:00",
+        "date": "2026-11-25",
+        "start": "22:00"
+      }
     }
   ]
 }
