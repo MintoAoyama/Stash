@@ -75,6 +75,25 @@
         "source": "tvtokyo",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29066_202611172400.html"
       }
+    },
+    {
+      "id": "mwvkuc9xu8u7",
+      "author": "minto",
+      "loggedAt": "2026-11-25",
+      "rating": null,
+      "text": "- ビジュアルも名称も現実に寄せるのがある意味でハンターハンター的でもある\n- 原作ちゃんと読んでないからわからないけど、柴田理恵メイン回なんだろうか\n- 原作コミックよりテンポが良いという声も",
+      "episode": 8,
+      "episodeEnd": null,
+      "subtitle": "",
+      "program": {
+        "channel": "テレビ東京",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29066_202611242400.html",
+        "start": "00:00",
+        "date": "2026-11-25",
+        "end": "00:30",
+        "title": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。",
+        "source": "tvtokyo"
+      }
     }
   ]
 }
