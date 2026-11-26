@@ -480,18 +480,18 @@
       "author": "minto",
       "loggedAt": "2026-11-26",
       "rating": null,
-      "text": "- 楽天証券が情報流出\n  - 高まる防犯需要 \n    - ボディーガード東京アキバ店 警棒などの売上 1.5倍超\n  - セコム ALSOK 株価上昇\n  - 不正取引の自衛策は？\n- motorola signature コンシェルジュ付きスマホ\n  - 残価設定型プラン 機種ごとの残価率設定を政府が進めているものの motorola は公正な設定にならないと主張\n- [となりのインベスター] Ricky 増配株投資\n  - サラリーマン時代の経験からインカムゲインを重視した投資",
+      "text": "- 楽天証券が情報流出\n  - 高まる防犯需要 \n    - ボディーガード東京アキバ店 警棒などの売上 1.5倍超\n  - セコム ALSOK 株価上昇\n  - 不正取引の自衛策は？\n- motorola signature コンシェルジュ付きスマホ\n  - 残価設定型プラン 機種ごとの残価率設定を政府が進めているものの motorola は公正な設定にならないと主張\n- [となりのインベスター] Ricky 増配株投資\n  - サラリーマン時代の経験からインカムゲインを重視した投資\n- 戦争を変えるドローン 米防衛新興に巨額マネー\n  - ドローンがアプリ化・クラウド化ならAIで進化するのも近い変化に思える\n- \"とろみ\" の付いた緑茶発売 介護分野での需要見込む\n  - とろみの付いた伊右衛門 218円 280ml\n  - 介護施設では粉から起こすと作業時間が掛かり、かなりの負担だという。作業員によるばらつきも課題だとか",
       "episode": null,
       "episodeEnd": null,
       "subtitle": "警棒買いに...",
       "program": {
-        "channel": "テレビ東京",
         "date": "2026-11-25",
         "start": "22:00",
-        "source": "tvtokyo",
+        "title": "WBS",
+        "channel": "テレビ東京",
         "end": "22:58",
-        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611252200.html",
-        "title": "WBS"
+        "source": "tvtokyo",
+        "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/14132_202611252200.html"
       }
     }
   ]
