@@ -1,0 +1,40 @@
+{
+  "id": "mwxjpfroxtzc",
+  "type": "tv",
+  "title": "賞金先渡しクイズ SAVE MONEY",
+  "path": "",
+  "tags": [],
+  "status": "",
+  "platform": "",
+  "year": null,
+  "creators": [],
+  "coverUrl": "",
+  "externalIds": {},
+  "season": "",
+  "episodeCount": null,
+  "channel": "日本テレビ",
+  "airtime": "水曜 23:59〜00:54",
+  "officialUrl": "",
+  "genres": [],
+  "logs": [
+    {
+      "id": "mwxjpfro8w47",
+      "author": "minto",
+      "loggedAt": "2026-11-26",
+      "rating": null,
+      "text": "- 伊集院と蓮見が仲が良くて良かった",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "ドラマ「仮面教師」8話",
+      "program": {
+        "date": "2026-11-25",
+        "end": "00:54",
+        "source": "ntv",
+        "channel": "日本テレビ",
+        "title": "賞金先渡しクイズ SAVE MONEY",
+        "url": "https://www.ntv.co.jp/program/detail/?programid=20262C35",
+        "start": "23:59"
+      }
+    }
+  ]
+}

@@ -48,13 +48,13 @@
       "episodeEnd": null,
       "subtitle": "",
       "program": {
-        "source": "tvtokyo",
-        "channel": "テレビ東京",
-        "start": "00:00",
         "date": "2026-11-11",
-        "title": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。",
+        "start": "00:00",
         "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29066_202611102400.html",
-        "end": "00:30"
+        "title": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。",
+        "end": "00:30",
+        "source": "tvtokyo",
+        "channel": "テレビ東京"
       }
     },
     {
