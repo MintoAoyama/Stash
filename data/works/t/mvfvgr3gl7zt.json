@@ -358,6 +358,25 @@
         "channel": "BSテレ東",
         "title": "視る日経!ニュースNEXT"
       }
+    },
+    {
+      "id": "mwy60w6h0q2g",
+      "author": "minto",
+      "loggedAt": "2026-11-27",
+      "rating": null,
+      "text": "- ドイツ発翻訳サービス \"最速\" 音声翻訳AIに商機\n  - リアルタイム音声翻訳 DeepL Voice\n  - ブースでデモ機を体験\n  - 関係者とリアルタイムで翻訳しながらインタビュー",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "激震は2028年に?米国経済の「底力」▼高まる利上げ観測",
+      "program": {
+        "url": "https://www.tv-tokyo.co.jp/broad_bstvtokyo/program/detail/202611/22663_202611262100.html",
+        "start": "21:00",
+        "date": "2026-11-26",
+        "channel": "BSテレ東",
+        "end": "22:00",
+        "title": "視る日経!ニュースNEXT",
+        "source": "bstvtokyo"
+      }
     }
   ]
 }

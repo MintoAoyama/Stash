@@ -227,6 +227,25 @@
         "date": "2026-11-25",
         "end": "08:00"
       }
+    },
+    {
+      "id": "mwy6a3vo6ik4",
+      "author": "minto",
+      "loggedAt": "2026-11-27",
+      "rating": null,
+      "text": "- [FTカルチャー「ガザ紛争3年 真実を伝える困難」\n  - 映画「インサイド・ガザ 封鎖の内側から」\n    - [映画『インサイド・ガザ 封鎖の内側から』公式サイト -](https://unitedpeople.jp/insidegaza/)\n    - エレーヌ・ラム・トロン 監督 インタビュー\n  - 映画「NAZA ナザ」\n    - [株式会社トランスフォーマー | NAZA ナザ](https://transformer.co.jp/movie/naza/)\n\n",
+      "episode": null,
+      "episodeEnd": null,
+      "subtitle": "日経FTカルチャー「ガザ紛争3年 真実を伝える困難」",
+      "program": {
+        "title": "モープラFT",
+        "source": "bstvtokyo",
+        "channel": "BSテレ東",
+        "end": "08:00",
+        "url": "https://www.bs-tvtokyo.co.jp/mplusft/backnumber/202611/23593_202611270705.html",
+        "start": "07:05",
+        "date": "2026-11-27"
+      }
     }
   ]
 }
